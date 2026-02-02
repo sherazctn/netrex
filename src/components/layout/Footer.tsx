@@ -30,12 +30,12 @@ const footerLinks = {
     { name: "Contact", href: "/contact" },
   ],
   locations: [
-    { name: "UAE (Dubai)", href: "/contact?location=uae" },
-    { name: "USA", href: "/contact?location=usa" },
+    { name: "UAE (Dubai)", href: "/contact?location=ae" },
+    { name: "USA", href: "/contact?location=us" },
     { name: "UK", href: "/contact?location=uk" },
-    { name: "Canada", href: "/contact?location=canada" },
-    { name: "Australia", href: "/contact?location=australia" },
-    { name: "India", href: "/contact?location=india" },
+    { name: "Canada", href: "/contact?location=ca" },
+    { name: "Australia", href: "/contact?location=au" },
+    { name: "Pakistan", href: "/contact?location=pk" },
   ],
 };
 
@@ -166,22 +166,22 @@ export function Footer() {
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
             <div className="flex flex-wrap items-center gap-6">
               <a
-                href="mailto:sherazctn@gmail.com"
+                href="mailto:contact@netrex.ae"
                 className="flex items-center gap-2 text-background/70 hover:text-primary transition-colors"
               >
                 <Mail className="h-5 w-5" />
-                sherazctn@gmail.com
+                contact@netrex.ae
               </a>
               <a
-                href="tel:+971000000000"
+                href="tel:+971502008313"
                 className="flex items-center gap-2 text-background/70 hover:text-primary transition-colors"
               >
                 <Phone className="h-5 w-5" />
-                +971 XXX XXX XXX
+                +971 50 200 8313
               </a>
               <span className="flex items-center gap-2 text-background/70">
                 <MapPin className="h-5 w-5" />
-                Dubai, UAE
+                Office 523, Block-C, Dubai Airport Free Zone
               </span>
             </div>
           </div>
