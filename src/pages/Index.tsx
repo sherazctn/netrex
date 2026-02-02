@@ -7,6 +7,7 @@ import { Portfolio } from "@/components/home/Portfolio";
 import { WhyNetrex } from "@/components/home/WhyNetrex";
 import { GlobalPresence } from "@/components/home/GlobalPresence";
 import { ContactCTA } from "@/components/home/ContactCTA";
+import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 
 const Index = () => {
   return (
@@ -22,6 +23,7 @@ const Index = () => {
         <ContactCTA />
       </main>
       <Footer />
+      <WhatsAppButton />
     </div>
   );
 };

@@ -10,35 +10,37 @@ const contactMethods = [
   {
     icon: Phone,
     label: "Call Us",
-    value: "+971 XXX XXX XXX",
-    href: "tel:+971000000000",
+    value: "+971 50 200 8313",
+    href: "tel:+971502008313",
   },
   {
     icon: Mail,
     label: "Email Us",
-    value: "sherazctn@gmail.com",
-    href: "mailto:sherazctn@gmail.com",
+    value: "contact@netrex.ae",
+    href: "mailto:contact@netrex.ae",
   },
   {
     icon: MessageSquare,
     label: "WhatsApp",
     value: "Chat with us",
-    href: "https://wa.me/971000000000",
+    href: "https://wa.me/971502008313",
   },
 ];
 
 const countries = [
-  { code: "ae", name: "UAE (Dubai)", flag: "🇦🇪" },
-  { code: "us", name: "USA", flag: "🇺🇸" },
-  { code: "uk", name: "United Kingdom", flag: "🇬🇧" },
-  { code: "ca", name: "Canada", flag: "🇨🇦" },
-  { code: "au", name: "Australia", flag: "🇦🇺" },
-  { code: "in", name: "India", flag: "🇮🇳" },
+  { code: "ae", name: "UAE (Dubai)", flag: "🇦🇪", address: "Office 523, Block-C, 9W Dubai Airport Free Zone - Dubai, UAE" },
+  { code: "us", name: "USA", flag: "🇺🇸", address: "418 Broadway STE N, Albany, New York 12207, USA" },
+  { code: "uk", name: "United Kingdom", flag: "🇬🇧", address: "71-75 Shelton Street, Covent Garden, London, UK" },
+  { code: "ca", name: "Canada", flag: "🇨🇦", address: "1575 West Georgia Street, Vancouver, BC, Canada" },
+  { code: "au", name: "Australia", flag: "🇦🇺", address: "240 Queen St, Brisbane City QLD 4000, Australia" },
+  { code: "pk", name: "Pakistan", flag: "🇵🇰", address: "21, J3 Johar Town, Lahore, Punjab, Pakistan" },
 ];
 
 export function ContactCTA() {
   const [selectedCountry, setSelectedCountry] = useState("ae");
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const selectedLocation = countries.find(c => c.code === selectedCountry);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -76,7 +78,7 @@ export function ContactCTA() {
             </p>
 
             {/* Country Selector */}
-            <div className="mb-8">
+            <div className="mb-6">
               <label className="block text-sm font-medium text-foreground mb-3">
                 Select Your Location
               </label>
@@ -87,7 +89,7 @@ export function ContactCTA() {
                     onClick={() => setSelectedCountry(country.code)}
                     className={`flex items-center gap-2 px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-300 ${
                       selectedCountry === country.code
-                        ? "bg-gradient-brand text-white shadow-md"
+                        ? "bg-gradient-to-r from-[hsl(195,100%,42%)] via-[hsl(340,82%,52%)] to-[hsl(18,100%,60%)] text-white shadow-md"
                         : "bg-secondary border border-border text-foreground/70 hover:border-primary/50"
                     }`}
                   >
@@ -98,15 +100,35 @@ export function ContactCTA() {
               </div>
             </div>
 
+            {/* Selected Location Address */}
+            {selectedLocation && (
+              <motion.div
+                key={selectedCountry}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="mb-8 p-4 rounded-xl bg-secondary/50 border border-border"
+              >
+                <div className="flex items-start gap-3">
+                  <MapPin className="h-5 w-5 text-primary mt-0.5 flex-shrink-0" />
+                  <div>
+                    <div className="font-semibold text-foreground">{selectedLocation.name}</div>
+                    <div className="text-sm text-muted-foreground mt-1">{selectedLocation.address}</div>
+                  </div>
+                </div>
+              </motion.div>
+            )}
+
             {/* Contact Methods */}
             <div className="space-y-4">
               {contactMethods.map((method) => (
                 <a
                   key={method.label}
                   href={method.href}
+                  target={method.label === "WhatsApp" ? "_blank" : undefined}
+                  rel={method.label === "WhatsApp" ? "noopener noreferrer" : undefined}
                   className="flex items-center gap-4 p-4 rounded-xl bg-secondary/50 border border-border hover:border-primary/30 transition-all duration-300 group"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-gradient-brand flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[hsl(195,100%,42%)] via-[hsl(340,82%,52%)] to-[hsl(18,100%,60%)] flex items-center justify-center group-hover:scale-110 transition-transform">
                     <method.icon className="h-5 w-5 text-white" />
                   </div>
                   <div>

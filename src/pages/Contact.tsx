@@ -1,6 +1,7 @@
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { ContactCTA } from "@/components/home/ContactCTA";
+import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import { motion } from "framer-motion";
 
 const Contact = () => {
@@ -35,6 +36,7 @@ const Contact = () => {
         <ContactCTA />
       </main>
       <Footer />
+      <WhatsAppButton />
     </div>
   );
 };
