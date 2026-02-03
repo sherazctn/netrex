@@ -11,6 +11,7 @@ import {
   ArrowUpRight
 } from "lucide-react";
 import netrexLogo from "@/assets/netrex-logo.png";
+import { Button } from "@/components/ui/button";
 
 const footerLinks = {
   services: [
@@ -56,7 +57,7 @@ export function Footer() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="relative -mt-24 mb-16 rounded-2xl bg-gradient-brand p-8 md:p-12 lg:p-16 text-center overflow-hidden"
+          className="relative -mt-24 mb-16 rounded-3xl bg-primary p-8 md:p-12 lg:p-16 text-center overflow-hidden"
         >
           <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.1%22%3E%3Cpath%20d%3D%22m36%2034v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm-30%2030v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4z%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E')] opacity-50"></div>
           <div className="relative z-10">
@@ -66,12 +67,11 @@ export function Footer() {
             <p className="text-white/90 text-lg md:text-xl max-w-2xl mx-auto mb-8">
               Let's discuss how we can help you achieve your digital goals.
             </p>
-            <Link
-              to="/contact"
-              className="inline-flex items-center gap-2 bg-white text-foreground px-8 py-4 rounded-xl font-semibold text-lg hover:bg-white/90 transition-colors group"
-            >
-              Start Your Project
-              <ArrowUpRight className="h-5 w-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+            <Link to="/contact">
+              <Button variant="outline" size="lg" className="bg-white text-primary border-white hover:bg-white/90 hover:text-primary">
+                Start Your Project
+                <ArrowUpRight className="h-5 w-5 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
+              </Button>
             </Link>
           </div>
         </motion.div>
@@ -93,7 +93,7 @@ export function Footer() {
               Where Innovation Meets The Real World. Delivering state-of-the-art 
               digital solutions to clients globally since 2016.
             </p>
-            <div className="flex gap-4">
+            <div className="flex gap-3">
               {socialLinks.map((social) => (
                 <a
                   key={social.label}

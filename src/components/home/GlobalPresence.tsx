@@ -94,14 +94,14 @@ export function GlobalPresence() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: index * 0.1 }}
-                className={`relative p-5 rounded-xl border transition-all duration-300 hover:border-primary/50 cursor-pointer ${
+                className={`relative p-5 rounded-2xl border transition-all duration-300 hover:border-primary/50 cursor-pointer ${
                   location.isHQ
-                    ? "bg-gradient-to-br from-[hsl(195,100%,42%)] via-[hsl(340,82%,52%)] to-[hsl(18,100%,60%)] border-transparent"
+                    ? "bg-primary border-transparent"
                     : "bg-background/5 border-background/10"
                 }`}
               >
                 {location.isHQ && (
-                  <span className="absolute -top-2 -right-2 px-2 py-0.5 text-xs font-bold bg-background text-foreground rounded-full">
+                  <span className="absolute -top-2 -right-2 px-3 py-1 text-xs font-bold bg-background text-foreground rounded-full">
                     HQ
                   </span>
                 )}

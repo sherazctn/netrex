@@ -76,15 +76,15 @@ export function Header() {
               >
                 <Link
                   to={link.href}
-                  className={`flex items-center gap-1 px-4 py-2 text-sm font-medium transition-colors rounded-lg hover:text-primary ${
+                  className={`flex items-center gap-1 px-4 py-2 text-sm font-medium transition-colors rounded-full hover:text-primary hover:bg-secondary ${
                     location.pathname === link.href
-                      ? "text-primary"
+                      ? "text-primary bg-secondary"
                       : "text-foreground/80"
                   }`}
                 >
                   {link.name}
                   {link.dropdown && (
-                    <ChevronDown className="h-4 w-4 transition-transform duration-200" />
+                    <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${activeDropdown === link.name ? 'rotate-180' : ''}`} />
                   )}
                 </Link>
 
@@ -96,7 +96,7 @@ export function Header() {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: 10 }}
                       transition={{ duration: 0.2 }}
-                      className="absolute top-full left-0 mt-2 w-56 bg-card rounded-xl shadow-xl border border-border overflow-hidden"
+                      className="absolute top-full left-0 mt-2 w-56 bg-card rounded-2xl shadow-xl border border-border overflow-hidden"
                     >
                       {link.dropdown.map((item) => (
                         <Link
@@ -126,7 +126,7 @@ export function Header() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden relative z-50 p-2 text-foreground"
+            className="lg:hidden relative z-50 p-2 text-foreground rounded-full hover:bg-secondary transition-colors"
             aria-label="Toggle menu"
           >
             {isMobileMenuOpen ? (
@@ -159,10 +159,10 @@ export function Header() {
                   >
                     <Link
                       to={link.href}
-                      className={`block py-3 text-lg font-medium transition-colors ${
+                      className={`block py-3 text-lg font-medium transition-colors rounded-full px-4 ${
                         location.pathname === link.href
-                          ? "text-primary"
-                          : "text-foreground/80"
+                          ? "text-primary bg-secondary"
+                          : "text-foreground/80 hover:bg-secondary"
                       }`}
                     >
                       {link.name}
@@ -173,7 +173,7 @@ export function Header() {
                           <Link
                             key={item.name}
                             to={item.href}
-                            className="block py-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+                            className="block py-2 px-4 text-sm text-muted-foreground hover:text-primary hover:bg-secondary rounded-full transition-colors"
                           >
                             {item.name}
                           </Link>
