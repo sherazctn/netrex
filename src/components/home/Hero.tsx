@@ -18,13 +18,13 @@ const stats = [
 
 export function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
+    <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-secondary/30">
       {/* Background Pattern */}
       <div className="absolute inset-0 bg-hero-pattern opacity-50"></div>
       
       {/* Gradient Orbs */}
-      <div className="absolute top-20 right-0 w-[600px] h-[600px] bg-brand-cyan/20 rounded-full blur-[120px] -z-10"></div>
-      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-brand-magenta/15 rounded-full blur-[100px] -z-10"></div>
+      <div className="absolute top-20 right-0 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[120px] -z-10"></div>
+      <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-accent/10 rounded-full blur-[100px] -z-10"></div>
       
       <div className="container-wide relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
@@ -35,7 +35,7 @@ export function Hero() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary border border-border mb-8"
+              className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white border border-border mb-8 shadow-sm"
             >
               <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
               <span className="text-sm font-medium text-foreground">Global IT & Digital Agency</span>
@@ -116,7 +116,7 @@ export function Hero() {
                   initial={{ opacity: 0, y: 30 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
-                  className={`relative p-6 md:p-8 rounded-2xl bg-card border border-border hover-lift ${
+                  className={`relative p-6 md:p-8 rounded-3xl bg-card border border-border hover-lift shadow-sm ${
                     index === 0 ? "md:translate-y-8" : ""
                   } ${index === 3 ? "md:-translate-y-8" : ""}`}
                 >
@@ -135,9 +135,9 @@ export function Hero() {
               initial={{ opacity: 0, scale: 0 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.8 }}
-              className="absolute -bottom-4 -left-4 md:-left-8 bg-card border border-border rounded-2xl p-4 shadow-lg hidden md:flex items-center gap-3"
+              className="absolute -bottom-4 -left-4 md:-left-8 bg-card border border-border rounded-full p-4 shadow-lg hidden md:flex items-center gap-3"
             >
-              <div className="w-12 h-12 rounded-full bg-gradient-brand flex items-center justify-center">
+              <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center">
                 <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                 </svg>

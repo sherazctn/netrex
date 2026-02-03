@@ -20,7 +20,7 @@ const industries = [
 
 export function Industries() {
   return (
-    <section className="section-padding">
+    <section className="section-padding bg-secondary/30">
       <div className="container-wide">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left Content */}
@@ -65,7 +65,7 @@ export function Industries() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.3, delay: index * 0.05 }}
                 whileHover={{ scale: 1.05 }}
-                className="group p-4 rounded-xl bg-card border border-border hover:border-primary/30 hover:shadow-md transition-all duration-300 text-center cursor-pointer"
+                className="group p-4 rounded-2xl bg-card border border-border hover:border-primary/30 hover:shadow-md transition-all duration-300 text-center cursor-pointer"
               >
                 <div className="text-3xl mb-2">{industry.icon}</div>
                 <div className="text-xs md:text-sm font-medium text-foreground/80 group-hover:text-primary transition-colors">

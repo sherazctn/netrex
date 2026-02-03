@@ -14,8 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        display: ['Plus Jakarta Sans', 'system-ui', 'sans-serif'],
+        sans: ['Inter', 'Roboto', 'system-ui', 'sans-serif'],
+        display: ['Inter', 'system-ui', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -61,19 +61,24 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
-        // NETREX brand colors
+        // NETREX brand colors from branding guide
         brand: {
-          cyan: "hsl(var(--brand-cyan))",
-          magenta: "hsl(var(--brand-magenta))",
-          orange: "hsl(var(--brand-orange))",
+          black: "hsl(var(--brand-black))",
+          red: "hsl(var(--brand-red))",
+          navy: "hsl(var(--brand-navy))",
+          gray: "hsl(var(--brand-gray))",
+          blue: "hsl(var(--brand-blue))",
+          bone: "hsl(var(--brand-bone))",
         },
       },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
-        xl: "calc(var(--radius) + 4px)",
-        "2xl": "calc(var(--radius) + 8px)",
+        xl: "1rem",
+        "2xl": "1.5rem",
+        "3xl": "2rem",
+        full: "9999px",
       },
       keyframes: {
         "accordion-down": {
@@ -120,6 +125,10 @@ export default {
           "0%": { transform: "rotate(0deg)" },
           "100%": { transform: "rotate(360deg)" },
         },
+        "rotate-gradient": {
+          "0%": { transform: "rotate(0deg)" },
+          "100%": { transform: "rotate(360deg)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -133,6 +142,7 @@ export default {
         "pulse-glow": "pulse-glow 2s ease-in-out infinite",
         shimmer: "shimmer 2s linear infinite",
         "spin-slow": "spin-slow 3s linear infinite",
+        "rotate-gradient": "rotate-gradient 3s linear infinite",
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
