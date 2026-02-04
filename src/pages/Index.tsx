@@ -2,11 +2,11 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Hero } from "@/components/home/Hero";
 import { Services } from "@/components/home/Services";
-import { Industries } from "@/components/home/Industries";
+import { IndustriesCarousel } from "@/components/home/IndustriesCarousel";
 import { Portfolio } from "@/components/home/Portfolio";
 import { WhyNetrex } from "@/components/home/WhyNetrex";
-import { GlobalPresence } from "@/components/home/GlobalPresence";
-import { ContactCTA } from "@/components/home/ContactCTA";
+import { WorldMapContact } from "@/components/home/WorldMapContact";
+import { ClientLogos } from "@/components/home/ClientLogos";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 
 const Index = () => {
@@ -15,12 +15,12 @@ const Index = () => {
       <Header />
       <main>
         <Hero />
+        <ClientLogos />
         <Services />
-        <Industries />
+        <IndustriesCarousel />
         <Portfolio />
         <WhyNetrex />
-        <GlobalPresence />
-        <ContactCTA />
+        <WorldMapContact />
       </main>
       <Footer />
       <WhatsAppButton />

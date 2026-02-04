@@ -1,7 +1,7 @@
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
-import { ContactCTA } from "@/components/home/ContactCTA";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
+import { WorldMapContact } from "@/components/home/WorldMapContact";
 import { motion } from "framer-motion";
 
 const Contact = () => {
@@ -23,7 +23,7 @@ const Contact = () => {
               </span>
               <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
                 Let's Start Your{" "}
-                <span className="text-gradient">Project</span>
+                <span className="text-primary">Project</span>
               </h1>
               <p className="text-lg text-muted-foreground">
                 Ready to transform your digital presence? Get in touch with our 
@@ -33,7 +33,7 @@ const Contact = () => {
           </div>
         </section>
 
-        <ContactCTA />
+        <WorldMapContact />
       </main>
       <Footer />
       <WhatsAppButton />

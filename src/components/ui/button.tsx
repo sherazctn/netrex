@@ -24,7 +24,9 @@ const buttonVariants = cva(
         hero:
           "relative overflow-hidden text-white rounded-full shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] before:absolute before:inset-0 before:bg-[conic-gradient(from_0deg,hsl(359,85%,53%),hsl(196,76%,44%),hsl(217,95%,18%),hsl(359,85%,53%))] before:animate-spin-slow before:-z-10 after:absolute after:inset-[2px] after:rounded-full after:bg-primary after:-z-[5]",
         glass:
-          "bg-background/20 backdrop-blur-md border border-border/50 text-foreground hover:bg-background/30 rounded-full",
+          "bg-background/20 backdrop-blur-md border border-background/50 text-background hover:bg-background/30 rounded-full",
+        ctaWhite:
+          "bg-white text-primary border-2 border-white hover:bg-white/90 hover:text-primary rounded-full shadow-md hover:shadow-lg",
       },
       size: {
         default: "h-11 px-6 py-2",
