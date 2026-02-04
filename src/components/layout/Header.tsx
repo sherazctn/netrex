@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { LanguageSwitcher } from "@/components/ui/LanguageSwitcher";
 import netrexLogo from "@/assets/netrex-logo.png";
 
 const navLinks = [
@@ -17,10 +18,14 @@ const navLinks = [
       { name: "Digital Marketing", href: "/services/digital-marketing" },
       { name: "Branding", href: "/services/branding" },
       { name: "E-Commerce", href: "/services/ecommerce" },
+      { name: "AI & Automation", href: "/services/ai-automation" },
+      { name: "GEO", href: "/services/geo" },
+      { name: "Cloud Solutions", href: "/services/cloud-solutions" },
     ]
   },
   { name: "Industries", href: "/industries" },
   { name: "Portfolio", href: "/portfolio" },
+  { name: "Testimonials", href: "/testimonials" },
   { name: "Blog", href: "/blog" },
   { name: "About", href: "/about" },
 ];
@@ -77,7 +82,7 @@ export function Header() {
                 <Link
                   to={link.href}
                   className={`flex items-center gap-1 px-4 py-2 text-sm font-medium transition-colors rounded-full hover:text-primary hover:bg-secondary ${
-                    location.pathname === link.href
+                    location.pathname === link.href || location.pathname.startsWith(link.href + "/")
                       ? "text-primary bg-secondary"
                       : "text-foreground/80"
                   }`}
@@ -114,8 +119,9 @@ export function Header() {
             ))}
           </div>
 
-          {/* CTA Buttons */}
+          {/* CTA Buttons & Language */}
           <div className="hidden lg:flex items-center gap-3">
+            <LanguageSwitcher />
             <Link to="/contact">
               <Button variant="hero" size="default">
                 Get in Touch
@@ -124,17 +130,20 @@ export function Header() {
           </div>
 
           {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="lg:hidden relative z-50 p-2 text-foreground rounded-full hover:bg-secondary transition-colors"
-            aria-label="Toggle menu"
-          >
-            {isMobileMenuOpen ? (
-              <X className="h-6 w-6" />
-            ) : (
-              <Menu className="h-6 w-6" />
-            )}
-          </button>
+          <div className="lg:hidden flex items-center gap-3">
+            <LanguageSwitcher />
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="relative z-50 p-2 text-foreground rounded-full hover:bg-secondary transition-colors"
+              aria-label="Toggle menu"
+            >
+              {isMobileMenuOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
+            </button>
+          </div>
         </nav>
       </div>
 
@@ -148,7 +157,7 @@ export function Header() {
             transition={{ duration: 0.3 }}
             className="lg:hidden fixed inset-0 top-0 bg-background z-40 pt-20"
           >
-            <div className="container-wide py-8">
+            <div className="container-wide py-8 overflow-y-auto max-h-[calc(100vh-5rem)]">
               <div className="flex flex-col gap-2">
                 {navLinks.map((link, index) => (
                   <motion.div
