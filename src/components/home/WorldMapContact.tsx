@@ -4,6 +4,8 @@ import { Mail, Phone, MapPin, Clock, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { PhoneInput } from "@/components/ui/PhoneInput";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const locations = [
   {
@@ -14,8 +16,8 @@ const locations = [
     address: "Office 523, Block-C, 9W Dubai Airport Free Zone",
     phone: "+971 50 200 8313",
     email: "dubai@netrex.ae",
-    timezone: "GMT+4",
-    coords: { x: 58, y: 42 },
+    hours: "Sun - Thu: 9AM - 6PM",
+    coords: { lat: 25.2532, lng: 55.3657 },
     isHQ: true,
   },
   {
@@ -26,8 +28,8 @@ const locations = [
     address: "418 Broadway STE N, Albany, New York 12207",
     phone: "+1 518 555 0123",
     email: "usa@netrex.ae",
-    timezone: "GMT-5",
-    coords: { x: 22, y: 35 },
+    hours: "Mon - Fri: 9AM - 5PM",
+    coords: { lat: 42.6526, lng: -73.7562 },
     isHQ: false,
   },
   {
@@ -38,8 +40,8 @@ const locations = [
     address: "71-75 Shelton Street, Covent Garden, London",
     phone: "+44 20 7946 0958",
     email: "uk@netrex.ae",
-    timezone: "GMT",
-    coords: { x: 45, y: 30 },
+    hours: "Mon - Fri: 9AM - 5PM",
+    coords: { lat: 51.5144, lng: -0.1242 },
     isHQ: false,
   },
   {
@@ -50,8 +52,8 @@ const locations = [
     address: "1575 West Georgia Street, Vancouver, BC",
     phone: "+1 604 555 0189",
     email: "canada@netrex.ae",
-    timezone: "GMT-8",
-    coords: { x: 15, y: 28 },
+    hours: "Mon - Fri: 9AM - 5PM",
+    coords: { lat: 49.2827, lng: -123.1207 },
     isHQ: false,
   },
   {
@@ -62,8 +64,8 @@ const locations = [
     address: "240 Queen St, Brisbane City QLD 4000",
     phone: "+61 7 3000 0000",
     email: "australia@netrex.ae",
-    timezone: "GMT+10",
-    coords: { x: 85, y: 70 },
+    hours: "Mon - Fri: 9AM - 5PM",
+    coords: { lat: -27.4705, lng: 153.0260 },
     isHQ: false,
   },
   {
@@ -74,20 +76,35 @@ const locations = [
     address: "21, J3 Johar Town, Lahore, Punjab",
     phone: "+92 42 3000 0000",
     email: "pakistan@netrex.ae",
-    timezone: "GMT+5",
-    coords: { x: 62, y: 40 },
+    hours: "Mon - Fri: 9AM - 6PM",
+    coords: { lat: 31.4697, lng: 74.2728 },
     isHQ: false,
   },
 ];
 
 export function WorldMapContact() {
+  const { t } = useLanguage();
   const [activeLocation, setActiveLocation] = useState(locations[0]);
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [phoneDialCode, setPhoneDialCode] = useState("+971");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     company: "",
     message: "",
   });
+
+  // Generate Google Maps embed URL with custom marker
+  const getMapUrl = () => {
+    const { lat, lng } = activeLocation.coords;
+    return `https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=${lat},${lng}&zoom=15&maptype=roadmap`;
+  };
+
+  // Alternative: Static map with marker
+  const getStaticMapUrl = () => {
+    const { lat, lng } = activeLocation.coords;
+    return `https://maps.googleapis.com/maps/api/staticmap?center=${lat},${lng}&zoom=15&size=600x400&maptype=roadmap&markers=color:red%7C${lat},${lng}&key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8`;
+  };
 
   return (
     <section className="section-padding bg-foreground text-background overflow-hidden">
@@ -100,14 +117,14 @@ export function WorldMapContact() {
           className="text-center mb-12"
         >
           <span className="inline-block text-sm font-semibold text-primary uppercase tracking-wider mb-4">
-            Get in Touch
+            {t('contact.badge')}
           </span>
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-            Connect With Our{" "}
-            <span className="text-primary">Global Team</span>
+            {t('contact.title')}{" "}
+            <span className="text-primary">{t('contact.title.highlight')}</span>
           </h2>
           <p className="text-background/70 max-w-2xl mx-auto">
-            With offices across 6 countries, we're always nearby. Select your region to get local contact information.
+            {t('contact.description')}
           </p>
         </motion.div>
 
@@ -136,127 +153,63 @@ export function WorldMapContact() {
           ))}
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* World Map */}
+        <div className="grid lg:grid-cols-2 gap-8 items-stretch">
+          {/* Google Map */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="relative aspect-[16/10] bg-background/5 rounded-3xl overflow-hidden"
+            className="relative rounded-3xl overflow-hidden bg-background/5"
           >
-            {/* Simplified World Map SVG */}
-            <svg
-              viewBox="0 0 100 60"
-              className="w-full h-full"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              {/* Simplified continent shapes */}
-              <path
-                d="M10 25 Q15 20 25 22 L30 28 Q28 35 22 38 L12 35 Q8 30 10 25Z"
-                fill="hsl(var(--background) / 0.15)"
-                stroke="hsl(var(--background) / 0.3)"
-                strokeWidth="0.3"
-              />
-              <path
-                d="M18 38 Q22 36 28 40 L32 50 Q25 55 20 52 L15 45 Q16 40 18 38Z"
-                fill="hsl(var(--background) / 0.15)"
-                stroke="hsl(var(--background) / 0.3)"
-                strokeWidth="0.3"
-              />
-              <path
-                d="M40 20 Q50 15 60 20 L65 30 Q60 35 50 38 L42 35 Q38 28 40 20Z"
-                fill="hsl(var(--background) / 0.15)"
-                stroke="hsl(var(--background) / 0.3)"
-                strokeWidth="0.3"
-              />
-              <path
-                d="M45 38 Q50 35 58 40 L55 55 Q48 58 42 52 L45 38Z"
-                fill="hsl(var(--background) / 0.15)"
-                stroke="hsl(var(--background) / 0.3)"
-                strokeWidth="0.3"
-              />
-              <path
-                d="M60 25 Q70 20 78 28 L80 42 Q72 48 65 45 L60 35 Q58 28 60 25Z"
-                fill="hsl(var(--background) / 0.15)"
-                stroke="hsl(var(--background) / 0.3)"
-                strokeWidth="0.3"
-              />
-              <path
-                d="M78 55 Q85 50 92 55 L90 65 Q82 68 78 62 L78 55Z"
-                fill="hsl(var(--background) / 0.15)"
-                stroke="hsl(var(--background) / 0.3)"
-                strokeWidth="0.3"
-              />
-
-              {/* Location markers */}
-              {locations.map((location, index) => (
-                <g key={location.id}>
-                  {/* Connection lines */}
-                  {activeLocation.id === location.id && (
-                    <motion.line
-                      x1={activeLocation.coords.x}
-                      y1={activeLocation.coords.y}
-                      x2={50}
-                      y2={30}
-                      stroke="hsl(var(--primary))"
-                      strokeWidth="0.3"
-                      strokeDasharray="2 1"
-                      initial={{ pathLength: 0 }}
-                      animate={{ pathLength: 1 }}
-                      transition={{ duration: 0.5 }}
-                    />
-                  )}
-                  
-                  {/* Pulse animation for active */}
-                  {activeLocation.id === location.id && (
-                    <motion.circle
-                      cx={location.coords.x}
-                      cy={location.coords.y}
-                      r="3"
-                      fill="none"
-                      stroke="hsl(var(--primary))"
-                      strokeWidth="0.5"
-                      animate={{ 
-                        r: [3, 6, 3],
-                        opacity: [1, 0, 1]
-                      }}
-                      transition={{ duration: 2, repeat: Infinity }}
-                    />
-                  )}
-                  
-                  {/* Marker dot */}
-                  <motion.circle
-                    cx={location.coords.x}
-                    cy={location.coords.y}
-                    r={activeLocation.id === location.id ? 2.5 : 1.5}
-                    fill={activeLocation.id === location.id ? "hsl(var(--primary))" : "hsl(var(--background) / 0.6)"}
-                    className="cursor-pointer"
-                    onClick={() => setActiveLocation(location)}
-                    whileHover={{ scale: 1.5 }}
-                    animate={activeLocation.id === location.id ? { scale: [1, 1.2, 1] } : {}}
-                    transition={{ duration: 1, repeat: activeLocation.id === location.id ? Infinity : 0 }}
-                  />
-                </g>
-              ))}
-            </svg>
-
-            {/* Active location label */}
             <AnimatePresence mode="wait">
               <motion.div
                 key={activeLocation.id}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                className="absolute bottom-4 left-4 bg-background/10 backdrop-blur-sm px-4 py-2 rounded-xl"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.3 }}
+                className="w-full h-full min-h-[500px]"
               >
-                <div className="flex items-center gap-2">
-                  <span className="text-2xl">{activeLocation.flag}</span>
-                  <div>
-                    <div className="font-bold text-background">{activeLocation.city}</div>
-                    <div className="text-sm text-background/60">{activeLocation.country}</div>
+                {/* Google Maps Embed */}
+                <iframe
+                  src={`https://www.google.com/maps?q=${activeLocation.coords.lat},${activeLocation.coords.lng}&z=15&output=embed`}
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0, minHeight: '500px' }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title={`${activeLocation.city} Office Location`}
+                  className="grayscale hover:grayscale-0 transition-all duration-500"
+                />
+                
+                {/* Location Label Overlay */}
+                <div className="absolute bottom-4 left-4 bg-background/90 backdrop-blur-sm px-4 py-2 rounded-xl shadow-lg">
+                  <div className="flex items-center gap-2">
+                    <span className="text-2xl">{activeLocation.flag}</span>
+                    <div>
+                      <div className="font-bold text-foreground">{activeLocation.city}</div>
+                      <div className="text-sm text-muted-foreground">{activeLocation.country}</div>
+                    </div>
                   </div>
+                </div>
+
+                {/* Custom Red Marker Overlay */}
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-full pointer-events-none z-10">
+                  <motion.div
+                    animate={{ y: [0, -10, 0] }}
+                    transition={{ duration: 1.5, repeat: Infinity }}
+                  >
+                    <svg width="40" height="50" viewBox="0 0 40 50" fill="none">
+                      <path
+                        d="M20 0C8.954 0 0 8.954 0 20c0 15 20 30 20 30s20-15 20-30C40 8.954 31.046 0 20 0z"
+                        fill="hsl(359 85% 53%)"
+                      />
+                      <circle cx="20" cy="18" r="8" fill="white" />
+                      <text x="20" y="22" textAnchor="middle" fill="hsl(359 85% 53%)" fontSize="10" fontWeight="bold">N</text>
+                    </svg>
+                  </motion.div>
                 </div>
               </motion.div>
             </AnimatePresence>
@@ -268,6 +221,7 @@ export function WorldMapContact() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
+            className="flex flex-col"
           >
             <AnimatePresence mode="wait">
               <motion.div
@@ -276,72 +230,91 @@ export function WorldMapContact() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.3 }}
+                className="flex-1 flex flex-col"
               >
-                {/* Contact Details */}
-                <div className="grid grid-cols-2 gap-4 mb-8">
-                  <div className="p-4 rounded-2xl bg-background/5 border border-background/10">
-                    <Phone className="h-5 w-5 text-primary mb-2" />
-                    <div className="text-sm text-background/60">Phone</div>
-                    <a href={`tel:${activeLocation.phone}`} className="font-medium text-background hover:text-primary transition-colors">
+                {/* Contact Details - 3 cards (removed timezone) */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+                  <div className="p-5 rounded-2xl bg-background/5 border border-background/10">
+                    <Phone className="h-6 w-6 text-primary mb-3" />
+                    <div className="text-sm text-background/60 mb-1">{t('contact.phone')}</div>
+                    <a href={`tel:${activeLocation.phone}`} className="font-semibold text-background hover:text-primary transition-colors text-sm">
                       {activeLocation.phone}
                     </a>
                   </div>
-                  <div className="p-4 rounded-2xl bg-background/5 border border-background/10">
-                    <Mail className="h-5 w-5 text-primary mb-2" />
-                    <div className="text-sm text-background/60">Email</div>
-                    <a href={`mailto:${activeLocation.email}`} className="font-medium text-background hover:text-primary transition-colors">
+                  <div className="p-5 rounded-2xl bg-background/5 border border-background/10">
+                    <Mail className="h-6 w-6 text-primary mb-3" />
+                    <div className="text-sm text-background/60 mb-1">{t('contact.email')}</div>
+                    <a href={`mailto:${activeLocation.email}`} className="font-semibold text-background hover:text-primary transition-colors text-sm break-all">
                       {activeLocation.email}
                     </a>
                   </div>
-                  <div className="p-4 rounded-2xl bg-background/5 border border-background/10">
-                    <MapPin className="h-5 w-5 text-primary mb-2" />
-                    <div className="text-sm text-background/60">Address</div>
-                    <div className="font-medium text-background text-sm">
-                      {activeLocation.address}
-                    </div>
-                  </div>
-                  <div className="p-4 rounded-2xl bg-background/5 border border-background/10">
-                    <Clock className="h-5 w-5 text-primary mb-2" />
-                    <div className="text-sm text-background/60">Timezone</div>
-                    <div className="font-medium text-background">
-                      {activeLocation.timezone}
+                  <div className="p-5 rounded-2xl bg-background/5 border border-background/10">
+                    <Clock className="h-6 w-6 text-primary mb-3" />
+                    <div className="text-sm text-background/60 mb-1">{t('contact.hours')}</div>
+                    <div className="font-semibold text-background text-sm">
+                      {activeLocation.hours}
                     </div>
                   </div>
                 </div>
 
-                {/* Quick Contact Form */}
-                <div className="p-6 rounded-3xl bg-background/5 border border-background/10">
-                  <h3 className="font-display font-bold text-xl mb-4">Send a Message</h3>
+                {/* Full Width Address Card */}
+                <div className="p-5 rounded-2xl bg-background/5 border border-background/10 mb-8">
+                  <div className="flex items-start gap-4">
+                    <MapPin className="h-6 w-6 text-primary flex-shrink-0 mt-0.5" />
+                    <div>
+                      <div className="text-sm text-background/60 mb-1">{t('contact.address')}</div>
+                      <div className="font-semibold text-background">
+                        {activeLocation.address}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Improved Contact Form */}
+                <div className="flex-1 p-6 rounded-3xl bg-background/5 border border-background/10">
+                  <h3 className="font-display font-bold text-xl mb-6">{t('contact.form.title')}</h3>
                   <form className="space-y-4">
-                    <div className="grid grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <Input
-                        placeholder="Your Name"
+                        placeholder={t('contact.form.name')}
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        className="bg-background/10 border-background/20 text-background placeholder:text-background/40"
+                        className="bg-background/10 border-background/20 text-background placeholder:text-background/40 rounded-full h-12"
                       />
                       <Input
                         type="email"
-                        placeholder="Your Email"
+                        placeholder={t('contact.form.email')}
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className="bg-background/10 border-background/20 text-background placeholder:text-background/40"
+                        className="bg-background/10 border-background/20 text-background placeholder:text-background/40 rounded-full h-12"
                       />
                     </div>
-                    <Input
-                      placeholder="Company Name"
-                      value={formData.company}
-                      onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                      className="bg-background/10 border-background/20 text-background placeholder:text-background/40"
-                    />
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <PhoneInput
+                        value={phoneNumber}
+                        onChange={(value, dialCode) => {
+                          setPhoneNumber(value);
+                          setPhoneDialCode(dialCode);
+                        }}
+                        placeholder={t('contact.form.phone')}
+                        darkMode
+                        className="h-12"
+                      />
+                      <Input
+                        placeholder={t('contact.form.company')}
+                        value={formData.company}
+                        onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+                        className="bg-background/10 border-background/20 text-background placeholder:text-background/40 rounded-full h-12"
+                      />
+                    </div>
                     <Textarea
-                      placeholder="Tell us about your project..."
+                      placeholder={t('contact.form.message')}
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      className="bg-background/10 border-background/20 text-background placeholder:text-background/40 min-h-[100px]"
+                      className="bg-background/10 border-background/20 text-background placeholder:text-background/40 min-h-[120px] rounded-2xl resize-none"
                     />
                     <Button variant="hero" size="lg" className="w-full group">
-                      Send Message
+                      {t('contact.form.submit')}
                       <Send className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                     </Button>
                   </form>

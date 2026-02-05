@@ -7,8 +7,12 @@ import {
   Megaphone, 
   Layers,
   ShoppingCart,
+  Bot,
+  Search,
+  Cloud,
   ArrowUpRight
 } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const services = [
   {
@@ -47,6 +51,24 @@ const services = [
     description: "Complete online store solutions with smooth shopping experiences on Shopify, WooCommerce, and custom platforms.",
     href: "/services/ecommerce",
   },
+  {
+    icon: Bot,
+    title: "AI Agent Integration",
+    description: "Custom AI solutions, chatbots, and automation to transform your business operations.",
+    href: "/services/ai-automation",
+  },
+  {
+    icon: Search,
+    title: "Generative Engine Optimization",
+    description: "Future-proof your SEO for AI-powered search engines like ChatGPT and Perplexity.",
+    href: "/services/geo",
+  },
+  {
+    icon: Cloud,
+    title: "Cloud Solutions",
+    description: "Enterprise cloud architecture, migration, and DevOps on AWS, Google Cloud, and Azure.",
+    href: "/services/cloud-solutions",
+  },
 ];
 
 const containerVariants = {
@@ -69,6 +91,8 @@ const itemVariants = {
 };
 
 export function Services() {
+  const { t } = useLanguage();
+  
   return (
     <section className="section-padding">
       <div className="container-wide">
@@ -81,19 +105,18 @@ export function Services() {
           className="text-center max-w-3xl mx-auto mb-16"
         >
           <span className="inline-block text-sm font-semibold text-primary uppercase tracking-wider mb-4">
-            Our Services
+            {t('services.badge')}
           </span>
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-            Everything You Need to{" "}
-            <span className="text-gradient">Dominate Digital</span>
+            {t('services.title')}{" "}
+            <span className="text-primary">{t('services.title.highlight')}</span>
           </h2>
           <p className="text-lg text-muted-foreground">
-            Our team of designers, developers, and marketing professionals deliver 
-            creative, results-driven solutions leveraging the latest trends and technologies.
+            {t('services.description')}
           </p>
         </motion.div>
 
-        {/* Services Grid */}
+        {/* Services Grid - All 9 services */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
@@ -117,7 +140,7 @@ export function Services() {
                   {service.description}
                 </p>
                 <div className="flex items-center gap-2 text-primary font-medium">
-                  Learn More
+                  {t('services.learn')}
                   <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
                 </div>
               </Link>
