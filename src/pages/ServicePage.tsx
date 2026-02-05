@@ -1,21 +1,189 @@
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { Link, useParams } from "react-router-dom";
-import { useRef } from "react";
-import { ArrowRight, CheckCircle2, ArrowUpRight, Zap, Shield, Clock, Award } from "lucide-react";
+import { useRef, useState } from "react";
+import { 
+  ArrowRight, CheckCircle2, ArrowUpRight, Zap, Shield, Clock, Award,
+  Globe, Code, Smartphone, Database, Cloud, Palette, Megaphone, BarChart,
+  Layout, Server, Layers, ShoppingCart, Bot, Search, Settings, Users,
+  FileText, Video, Lightbulb, Target, TrendingUp, Cpu, Lock, Workflow,
+  ChevronLeft, ChevronRight
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { TechLogosCloud } from "@/components/ui/TechLogosCloud";
-import { PortfolioScrollCard } from "@/components/portfolio/PortfolioScrollCard";
+import { Separator } from "@/components/ui/separator";
+
+// Service-specific technology stacks
+const serviceTechStacks: Record<string, { name: string; logo: string; size: string }[]> = {
+  "web-development": [
+    { name: "React", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg", size: "lg" },
+    { name: "Next.js", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg", size: "lg" },
+    { name: "Vue.js", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg", size: "md" },
+    { name: "Angular", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg", size: "md" },
+    { name: "TypeScript", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg", size: "lg" },
+    { name: "Node.js", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg", size: "md" },
+    { name: "WordPress", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-plain.svg", size: "lg" },
+    { name: "Laravel", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg", size: "md" },
+    { name: "PHP", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg", size: "sm" },
+    { name: "MySQL", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg", size: "md" },
+    { name: "PostgreSQL", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg", size: "lg" },
+    { name: "MongoDB", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg", size: "md" },
+    { name: "Tailwind", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg", size: "md" },
+    { name: "GraphQL", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain.svg", size: "sm" },
+    { name: "Docker", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg", size: "lg" },
+  ],
+  "mobile-app": [
+    { name: "Flutter", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg", size: "lg" },
+    { name: "React Native", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg", size: "lg" },
+    { name: "Swift", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swift/swift-original.svg", size: "lg" },
+    { name: "Kotlin", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg", size: "lg" },
+    { name: "Dart", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg", size: "md" },
+    { name: "iOS", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apple/apple-original.svg", size: "lg" },
+    { name: "Android", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-original.svg", size: "lg" },
+    { name: "Firebase", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg", size: "md" },
+    { name: "Xcode", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/xcode/xcode-original.svg", size: "sm" },
+    { name: "Android Studio", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/androidstudio/androidstudio-original.svg", size: "md" },
+  ],
+  "ui-ux-design": [
+    { name: "Figma", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg", size: "lg" },
+    { name: "Sketch", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sketch/sketch-original.svg", size: "lg" },
+    { name: "Adobe XD", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/xd/xd-plain.svg", size: "lg" },
+    { name: "Photoshop", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-plain.svg", size: "md" },
+    { name: "Illustrator", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/illustrator/illustrator-plain.svg", size: "md" },
+    { name: "After Effects", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/aftereffects/aftereffects-original.svg", size: "sm" },
+    { name: "InVision", logo: "https://cdn.simpleicons.org/invision/FF3366", size: "md" },
+    { name: "Principle", logo: "https://cdn.simpleicons.org/principle/6C5FC7", size: "sm" },
+  ],
+  "digital-marketing": [
+    { name: "Google Analytics", logo: "https://cdn.simpleicons.org/googleanalytics/E37400", size: "lg" },
+    { name: "Google Ads", logo: "https://cdn.simpleicons.org/googleads/4285F4", size: "lg" },
+    { name: "Meta Ads", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/facebook/facebook-original.svg", size: "lg" },
+    { name: "SEMrush", logo: "https://cdn.simpleicons.org/semrush/FF642D", size: "md" },
+    { name: "Ahrefs", logo: "https://cdn.simpleicons.org/ahrefs/FF7A00", size: "md" },
+    { name: "Mailchimp", logo: "https://cdn.simpleicons.org/mailchimp/FFE01B", size: "md" },
+    { name: "HubSpot", logo: "https://cdn.simpleicons.org/hubspot/FF7A59", size: "lg" },
+    { name: "Hootsuite", logo: "https://cdn.simpleicons.org/hootsuite/143059", size: "sm" },
+  ],
+  "branding": [
+    { name: "Photoshop", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-plain.svg", size: "lg" },
+    { name: "Illustrator", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/illustrator/illustrator-plain.svg", size: "lg" },
+    { name: "InDesign", logo: "https://cdn.simpleicons.org/adobeindesign/FF3366", size: "lg" },
+    { name: "After Effects", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/aftereffects/aftereffects-original.svg", size: "md" },
+    { name: "Figma", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg", size: "md" },
+    { name: "Canva", logo: "https://cdn.simpleicons.org/canva/00C4CC", size: "md" },
+    { name: "Procreate", logo: "https://cdn.simpleicons.org/procreate/000000", size: "sm" },
+  ],
+  "ecommerce": [
+    { name: "Shopify", logo: "https://cdn.simpleicons.org/shopify/7AB55C", size: "lg" },
+    { name: "WooCommerce", logo: "https://cdn.simpleicons.org/woocommerce/96588A", size: "lg" },
+    { name: "Magento", logo: "https://cdn.simpleicons.org/magento/EE672F", size: "md" },
+    { name: "BigCommerce", logo: "https://cdn.simpleicons.org/bigcommerce/121118", size: "md" },
+    { name: "Stripe", logo: "https://cdn.simpleicons.org/stripe/635BFF", size: "lg" },
+    { name: "PayPal", logo: "https://cdn.simpleicons.org/paypal/003087", size: "md" },
+    { name: "WordPress", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-plain.svg", size: "md" },
+    { name: "PHP", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg", size: "sm" },
+    { name: "MySQL", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg", size: "sm" },
+  ],
+  "ai-automation": [
+    { name: "OpenAI", logo: "https://cdn.simpleicons.org/openai/412991", size: "lg" },
+    { name: "TensorFlow", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg", size: "lg" },
+    { name: "PyTorch", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg", size: "lg" },
+    { name: "Python", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg", size: "lg" },
+    { name: "LangChain", logo: "https://cdn.simpleicons.org/langchain/1C3C3C", size: "md" },
+    { name: "Hugging Face", logo: "https://cdn.simpleicons.org/huggingface/FFD21E", size: "md" },
+    { name: "AWS", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg", size: "md" },
+    { name: "Docker", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg", size: "md" },
+    { name: "FastAPI", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg", size: "sm" },
+  ],
+  "geo": [
+    { name: "OpenAI", logo: "https://cdn.simpleicons.org/openai/412991", size: "lg" },
+    { name: "Google", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg", size: "lg" },
+    { name: "Ahrefs", logo: "https://cdn.simpleicons.org/ahrefs/FF7A00", size: "md" },
+    { name: "SEMrush", logo: "https://cdn.simpleicons.org/semrush/FF642D", size: "md" },
+    { name: "Perplexity", logo: "https://cdn.simpleicons.org/perplexity/1FB8CD", size: "lg" },
+    { name: "Claude", logo: "https://cdn.simpleicons.org/anthropic/191919", size: "md" },
+    { name: "Schema.org", logo: "https://cdn.simpleicons.org/schema/3C3C3C", size: "sm" },
+  ],
+  "cloud-solutions": [
+    { name: "AWS", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg", size: "lg" },
+    { name: "Google Cloud", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg", size: "lg" },
+    { name: "Azure", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg", size: "lg" },
+    { name: "Kubernetes", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg", size: "lg" },
+    { name: "Docker", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg", size: "lg" },
+    { name: "Terraform", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/terraform/terraform-original.svg", size: "md" },
+    { name: "Jenkins", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jenkins/jenkins-original.svg", size: "md" },
+    { name: "GitHub Actions", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg", size: "md" },
+    { name: "Ansible", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ansible/ansible-original.svg", size: "sm" },
+    { name: "Prometheus", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/prometheus/prometheus-original.svg", size: "sm" },
+  ],
+};
+
+// Service-specific feature icons
+const featureIcons: Record<string, typeof Globe> = {
+  "Custom WordPress Development": Globe,
+  "React & Next.js Applications": Code,
+  "E-commerce Solutions": ShoppingCart,
+  "Progressive Web Apps (PWA)": Smartphone,
+  "API Development & Integration": Server,
+  "Website Maintenance & Support": Settings,
+  "iOS App Development": Smartphone,
+  "Android App Development": Smartphone,
+  "Cross-Platform (Flutter)": Layers,
+  "React Native Apps": Code,
+  "App Store Optimization": TrendingUp,
+  "App Maintenance & Updates": Settings,
+  "User Research": Users,
+  "Wireframing & Prototyping": Layout,
+  "Visual Design": Palette,
+  "Interaction Design": Workflow,
+  "Usability Testing": Target,
+  "Design Systems": Database,
+  "Search Engine Optimization": Search,
+  "Pay-Per-Click Advertising": Target,
+  "Social Media Marketing": Megaphone,
+  "Content Marketing": FileText,
+  "Email Marketing": Megaphone,
+  "Analytics & Reporting": BarChart,
+  "Brand Strategy": Lightbulb,
+  "Logo Design": Palette,
+  "Visual Identity": Palette,
+  "Brand Guidelines": FileText,
+  "Marketing Collateral": Layers,
+  "Rebranding": Workflow,
+  "Shopify Development": ShoppingCart,
+  "WooCommerce Solutions": ShoppingCart,
+  "Custom Platforms": Code,
+  "Payment Integration": Lock,
+  "Inventory Management": Database,
+  "Order Fulfillment": Workflow,
+  "AI Chatbots": Bot,
+  "Workflow Automation": Workflow,
+  "Custom AI Agents": Cpu,
+  "Data Analytics": BarChart,
+  "Document Processing": FileText,
+  "Integration Services": Server,
+  "AI Search Optimization": Search,
+  "Content Strategy for AI": FileText,
+  "E-E-A-T Enhancement": Award,
+  "Structured Data": Database,
+  "Citation Building": TrendingUp,
+  "Traditional SEO": Search,
+  "Cloud Migration": Cloud,
+  "Architecture Design": Server,
+  "DevOps & CI/CD": Workflow,
+  "Kubernetes": Layers,
+  "Security & Compliance": Shield,
+  "Cost Optimization": TrendingUp,
+};
 
 const servicesData: Record<string, {
   title: string;
   description: string;
   hero: string;
   longDescription: string;
-  features: { title: string; description: string; icon?: string }[];
-  benefits: { title: string; description: string }[];
+  features: { title: string; description: string }[];
+  benefits: { title: string; description: string; icon: typeof Zap }[];
   process: { step: number; title: string; description: string }[];
   whyUs: { title: string; description: string; icon: typeof Zap }[];
   caseStudies: { title: string; description: string; result: string; image: string }[];
@@ -34,10 +202,10 @@ const servicesData: Record<string, {
       { title: "Website Maintenance & Support", description: "24/7 support and regular updates" },
     ],
     benefits: [
-      { title: "Lightning Fast", description: "Optimized for Core Web Vitals and performance" },
-      { title: "SEO Optimized", description: "Built-in SEO best practices for better rankings" },
-      { title: "Mobile Responsive", description: "Perfect experience across all devices" },
-      { title: "Scalable Architecture", description: "Built to grow with your business" },
+      { title: "Lightning Fast", description: "Optimized for Core Web Vitals and performance", icon: Zap },
+      { title: "SEO Optimized", description: "Built-in SEO best practices for better rankings", icon: Search },
+      { title: "Mobile Responsive", description: "Perfect experience across all devices", icon: Smartphone },
+      { title: "Scalable Architecture", description: "Built to grow with your business", icon: TrendingUp },
     ],
     process: [
       { step: 1, title: "Discovery", description: "Understanding your business goals and requirements" },
@@ -72,10 +240,10 @@ const servicesData: Record<string, {
       { title: "App Maintenance & Updates", description: "Ongoing support and feature updates" },
     ],
     benefits: [
-      { title: "Native Performance", description: "Smooth, responsive apps that feel native" },
-      { title: "Offline Capability", description: "Apps that work without internet" },
-      { title: "Secure Data", description: "Enterprise-grade security measures" },
-      { title: "Easy Updates", description: "Streamlined update and deployment" },
+      { title: "Native Performance", description: "Smooth, responsive apps that feel native", icon: Zap },
+      { title: "Offline Capability", description: "Apps that work without internet", icon: Cloud },
+      { title: "Secure Data", description: "Enterprise-grade security measures", icon: Shield },
+      { title: "Easy Updates", description: "Streamlined update and deployment", icon: Settings },
     ],
     process: [
       { step: 1, title: "Strategy", description: "Defining app goals and target audience" },
@@ -110,10 +278,10 @@ const servicesData: Record<string, {
       { title: "Design Systems", description: "Scalable, consistent component libraries" },
     ],
     benefits: [
-      { title: "User-Centered", description: "Designs based on real user needs" },
-      { title: "Brand Consistent", description: "Cohesive visual identity everywhere" },
-      { title: "Higher Conversion", description: "Optimized flows for better results" },
-      { title: "Faster Development", description: "Clear specs reduce dev time" },
+      { title: "User-Centered", description: "Designs based on real user needs", icon: Users },
+      { title: "Brand Consistent", description: "Cohesive visual identity everywhere", icon: Palette },
+      { title: "Higher Conversion", description: "Optimized flows for better results", icon: TrendingUp },
+      { title: "Faster Development", description: "Clear specs reduce dev time", icon: Zap },
     ],
     process: [
       { step: 1, title: "Research", description: "Understanding users and market" },
@@ -148,10 +316,10 @@ const servicesData: Record<string, {
       { title: "Analytics & Reporting", description: "Data-driven insights and optimization" },
     ],
     benefits: [
-      { title: "Increased Visibility", description: "Higher rankings, more traffic" },
-      { title: "Qualified Leads", description: "Reach your ideal customers" },
-      { title: "Brand Awareness", description: "Build recognition and trust" },
-      { title: "Measurable ROI", description: "Track every dollar spent" },
+      { title: "Increased Visibility", description: "Higher rankings, more traffic", icon: TrendingUp },
+      { title: "Qualified Leads", description: "Reach your ideal customers", icon: Target },
+      { title: "Brand Awareness", description: "Build recognition and trust", icon: Megaphone },
+      { title: "Measurable ROI", description: "Track every dollar spent", icon: BarChart },
     ],
     process: [
       { step: 1, title: "Audit", description: "Analyzing current performance" },
@@ -186,10 +354,10 @@ const servicesData: Record<string, {
       { title: "Rebranding", description: "Refreshing existing brand identities" },
     ],
     benefits: [
-      { title: "Differentiation", description: "Stand out from competitors" },
-      { title: "Recognition", description: "Build instant brand recognition" },
-      { title: "Trust & Credibility", description: "Professional image builds confidence" },
-      { title: "Premium Pricing", description: "Strong brands command higher prices" },
+      { title: "Differentiation", description: "Stand out from competitors", icon: Lightbulb },
+      { title: "Recognition", description: "Build instant brand recognition", icon: Target },
+      { title: "Trust & Credibility", description: "Professional image builds confidence", icon: Shield },
+      { title: "Premium Pricing", description: "Strong brands command higher prices", icon: TrendingUp },
     ],
     process: [
       { step: 1, title: "Discovery", description: "Understanding your vision and values" },
@@ -224,10 +392,10 @@ const servicesData: Record<string, {
       { title: "Order Fulfillment", description: "Shipping and logistics integration" },
     ],
     benefits: [
-      { title: "24/7 Sales", description: "Your store never closes" },
-      { title: "Global Reach", description: "Sell to customers anywhere" },
-      { title: "Lower Overhead", description: "Reduce costs vs. physical retail" },
-      { title: "Data Insights", description: "Deep analytics on customer behavior" },
+      { title: "24/7 Sales", description: "Your store never closes", icon: Clock },
+      { title: "Global Reach", description: "Sell to customers anywhere", icon: Globe },
+      { title: "Lower Overhead", description: "Reduce costs vs. physical retail", icon: TrendingUp },
+      { title: "Data Insights", description: "Deep analytics on customer behavior", icon: BarChart },
     ],
     process: [
       { step: 1, title: "Requirements", description: "Understanding your products and goals" },
@@ -262,10 +430,10 @@ const servicesData: Record<string, {
       { title: "Integration Services", description: "Connect AI to your existing systems" },
     ],
     benefits: [
-      { title: "Cost Reduction", description: "Automate expensive manual processes" },
-      { title: "24/7 Availability", description: "AI never sleeps or takes breaks" },
-      { title: "Faster Processing", description: "Complete tasks in seconds" },
-      { title: "Scalability", description: "Handle unlimited volume" },
+      { title: "Cost Reduction", description: "Automate expensive manual processes", icon: TrendingUp },
+      { title: "24/7 Availability", description: "AI never sleeps or takes breaks", icon: Clock },
+      { title: "Faster Processing", description: "Complete tasks in seconds", icon: Zap },
+      { title: "Scalability", description: "Handle unlimited volume", icon: Server },
     ],
     process: [
       { step: 1, title: "Assessment", description: "Identifying automation opportunities" },
@@ -300,10 +468,10 @@ const servicesData: Record<string, {
       { title: "Traditional SEO", description: "Still essential for complete coverage" },
     ],
     benefits: [
-      { title: "Future-Proof", description: "Ready for the AI search revolution" },
-      { title: "Early Mover Advantage", description: "Get ahead while competitors catch up" },
-      { title: "Dual Coverage", description: "Visible in both AI and traditional search" },
-      { title: "Brand Authority", description: "Become the source AI recommends" },
+      { title: "Future-Proof", description: "Ready for the AI search revolution", icon: Lightbulb },
+      { title: "Early Mover Advantage", description: "Get ahead while competitors catch up", icon: TrendingUp },
+      { title: "Dual Coverage", description: "Visible in both AI and traditional search", icon: Target },
+      { title: "Brand Authority", description: "Become the source AI recommends", icon: Award },
     ],
     process: [
       { step: 1, title: "AI Audit", description: "How AI currently sees your brand" },
@@ -338,10 +506,10 @@ const servicesData: Record<string, {
       { title: "Cost Optimization", description: "Reduce cloud spending" },
     ],
     benefits: [
-      { title: "Scalability", description: "Scale up or down instantly" },
-      { title: "Reliability", description: "99.99% uptime architecture" },
-      { title: "Cost Efficiency", description: "Pay only for what you use" },
-      { title: "Security", description: "Enterprise-grade protection" },
+      { title: "Scalability", description: "Scale up or down instantly", icon: TrendingUp },
+      { title: "Reliability", description: "99.99% uptime architecture", icon: Shield },
+      { title: "Cost Efficiency", description: "Pay only for what you use", icon: Zap },
+      { title: "Security", description: "Enterprise-grade protection", icon: Lock },
     ],
     process: [
       { step: 1, title: "Assessment", description: "Evaluating current infrastructure" },
@@ -373,26 +541,36 @@ const portfolioItems = [
   { id: 6, title: "Finance Dashboard", category: "Web", technology: "React", image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=800&fit=crop", result: "60% efficiency gain" },
   { id: 7, title: "Travel Booking", category: "Web", technology: "Laravel", image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=600&h=800&fit=crop", result: "75% more bookings" },
   { id: 8, title: "SaaS Analytics", category: "Web", technology: "Next.js", image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=800&fit=crop", result: "400% ROI" },
+  { id: 9, title: "Crypto Exchange", category: "Web", technology: "React", image: "https://images.unsplash.com/photo-1639762681057-408e52192e55?w=600&h=800&fit=crop", result: "$2M daily volume" },
+  { id: 10, title: "Delivery Logistics", category: "Mobile", technology: "Kotlin", image: "https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?w=600&h=800&fit=crop", result: "30% faster deliveries" },
 ];
 
-const clientLogos = [
-  { name: "TechCorp", logo: "T" },
-  { name: "GlobalFin", logo: "G" },
-  { name: "InnovateCo", logo: "I" },
-  { name: "DigitalFirst", logo: "D" },
-  { name: "FutureTech", logo: "F" },
-  { name: "SmartSolutions", logo: "S" },
-];
+const sizeClasses: Record<string, string> = {
+  sm: "w-10 h-10 md:w-12 md:h-12 p-2",
+  md: "w-14 h-14 md:w-16 md:h-16 p-3",
+  lg: "w-18 h-18 md:w-20 md:h-20 p-4",
+};
 
 const ServicePage = () => {
   const { service } = useParams<{ service: string }>();
   const data = service ? servicesData[service] : null;
-  const animationRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: animationRef,
-    offset: ["start end", "end start"]
-  });
-  const y = useTransform(scrollYProgress, [0, 1], [100, -100]);
+  const techStack = service ? serviceTechStacks[service] || [] : [];
+  const [carouselIndex, setCarouselIndex] = useState(0);
+  const carouselRef = useRef<HTMLDivElement>(null);
+
+  const scrollCarousel = (direction: 'left' | 'right') => {
+    if (carouselRef.current) {
+      const scrollAmount = 320;
+      const newIndex = direction === 'left' 
+        ? Math.max(0, carouselIndex - 1) 
+        : Math.min(portfolioItems.length - 4, carouselIndex + 1);
+      setCarouselIndex(newIndex);
+      carouselRef.current.scrollTo({
+        left: newIndex * scrollAmount,
+        behavior: 'smooth'
+      });
+    }
+  };
 
   if (!data) {
     return (
@@ -411,69 +589,45 @@ const ServicePage = () => {
     <div className="min-h-screen bg-background">
       <Header />
       <main>
-        {/* Hero Section */}
-        <section className="pt-32 pb-16 bg-secondary/30 overflow-hidden">
+        {/* Hero Section - No Image */}
+        <section className="pt-32 pb-20 bg-secondary/30 overflow-hidden">
           <div className="container-wide">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <motion.div
-                initial={{ opacity: 0, x: -40 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6 }}
-              >
-                <span className="inline-block text-sm font-semibold text-primary uppercase tracking-wider mb-4">
-                  Our Services
-                </span>
-                <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-                  {data.hero}
-                </h1>
-                <p className="text-lg text-muted-foreground mb-4">
-                  {data.description}
-                </p>
-                <p className="text-muted-foreground mb-8">
-                  {data.longDescription}
-                </p>
-                <div className="flex flex-wrap gap-4">
-                  <Link to="/contact">
-                    <Button variant="hero" size="lg" className="group">
-                      Start Your Project
-                      <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
-                    </Button>
-                  </Link>
-                  <Link to="/portfolio">
-                    <Button variant="outline" size="lg">
-                      View Our Work
-                    </Button>
-                  </Link>
-                </div>
-              </motion.div>
-              <motion.div
-                ref={animationRef}
-                initial={{ opacity: 0, x: 40 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="relative hidden lg:block"
-              >
-                <motion.div style={{ y }} className="relative">
-                  <div className="aspect-square rounded-3xl bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
-                    <motion.div
-                      animate={{ rotate: 360 }}
-                      transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                      className="w-3/4 h-3/4 rounded-3xl bg-gradient-to-br from-primary to-accent opacity-20"
-                    />
-                  </div>
-                  <motion.img
-                    src={data.caseStudies[0]?.image}
-                    alt={data.title}
-                    className="absolute inset-8 rounded-2xl object-cover shadow-2xl"
-                    whileHover={{ scale: 1.02 }}
-                  />
-                </motion.div>
-              </motion.div>
-            </div>
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="max-w-4xl mx-auto text-center"
+            >
+              <span className="inline-block text-sm font-semibold text-primary uppercase tracking-wider mb-4">
+                Our Services
+              </span>
+              <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+                {data.hero}
+              </h1>
+              <p className="text-lg md:text-xl text-muted-foreground mb-4 max-w-3xl mx-auto">
+                {data.description}
+              </p>
+              <p className="text-muted-foreground mb-10 max-w-3xl mx-auto">
+                {data.longDescription}
+              </p>
+              <div className="flex flex-wrap justify-center gap-4">
+                <Link to="/contact">
+                  <Button variant="hero" size="lg" className="group">
+                    Start Your Project
+                    <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+                  </Button>
+                </Link>
+                <Link to="/portfolio">
+                  <Button variant="outline" size="lg">
+                    View Our Work
+                  </Button>
+                </Link>
+              </div>
+            </motion.div>
           </div>
         </section>
 
-        {/* What We Offer - With Animated Image */}
+        {/* What We Offer - With Icons and Image Animation */}
         <section className="section-padding">
           <div className="container-wide">
             <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -490,22 +644,27 @@ const ServicePage = () => {
                   Our comprehensive {data.title.toLowerCase()} services cover everything you need.
                 </p>
                 <div className="grid gap-4">
-                  {data.features.map((feature, index) => (
-                    <motion.div
-                      key={feature.title}
-                      initial={{ opacity: 0, x: -20 }}
-                      whileInView={{ opacity: 1, x: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.4, delay: index * 0.1 }}
-                      className="flex items-start gap-4 p-4 rounded-2xl bg-card border border-border hover:border-primary/30 transition-colors"
-                    >
-                      <CheckCircle2 className="h-6 w-6 text-primary flex-shrink-0 mt-0.5" />
-                      <div>
-                        <h3 className="font-semibold mb-1">{feature.title}</h3>
-                        <p className="text-sm text-muted-foreground">{feature.description}</p>
-                      </div>
-                    </motion.div>
-                  ))}
+                  {data.features.map((feature, index) => {
+                    const IconComponent = featureIcons[feature.title] || CheckCircle2;
+                    return (
+                      <motion.div
+                        key={feature.title}
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.4, delay: index * 0.1 }}
+                        className="flex items-start gap-4 p-4 rounded-2xl bg-card border border-border hover:border-primary/30 hover:shadow-lg transition-all duration-300"
+                      >
+                        <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+                          <IconComponent className="h-6 w-6 text-primary" />
+                        </div>
+                        <div>
+                          <h3 className="font-semibold mb-1">{feature.title}</h3>
+                          <p className="text-sm text-muted-foreground">{feature.description}</p>
+                        </div>
+                      </motion.div>
+                    );
+                  })}
                 </div>
               </motion.div>
               
@@ -548,7 +707,7 @@ const ServicePage = () => {
           </div>
         </section>
 
-        {/* Benefits */}
+        {/* Key Benefits with Icons */}
         <section className="section-padding bg-secondary/30">
           <div className="container-wide">
             <motion.div
@@ -570,8 +729,11 @@ const ServicePage = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="p-6 rounded-3xl bg-card border border-border text-center hover:shadow-lg transition-shadow"
+                  className="p-6 rounded-3xl bg-card border border-border text-center hover:shadow-lg hover:border-primary/30 transition-all duration-300"
                 >
+                  <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                    <benefit.icon className="h-7 w-7 text-primary" />
+                  </div>
                   <h3 className="font-display font-bold text-lg mb-2">{benefit.title}</h3>
                   <p className="text-sm text-muted-foreground">{benefit.description}</p>
                 </motion.div>
@@ -580,7 +742,7 @@ const ServicePage = () => {
           </div>
         </section>
 
-        {/* Our Process */}
+        {/* Improved Process Section */}
         <section className="section-padding">
           <div className="container-wide">
             <motion.div
@@ -593,32 +755,93 @@ const ServicePage = () => {
               <h2 className="font-display text-3xl md:text-4xl font-bold mb-4">
                 Our <span className="text-primary">Process</span>
               </h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto">
+                A proven methodology that delivers results every time
+              </p>
             </motion.div>
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {data.process.map((step, index) => (
-                <motion.div
-                  key={step.step}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="relative p-6 rounded-3xl bg-card border border-border hover:border-primary/30 transition-colors"
-                >
-                  <div className="absolute -top-4 left-6 w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center font-bold text-sm">
-                    {step.step}
-                  </div>
-                  <h3 className="font-display font-bold text-lg mt-4 mb-2">{step.title}</h3>
-                  <p className="text-sm text-muted-foreground">{step.description}</p>
-                </motion.div>
-              ))}
+            
+            {/* Timeline Process */}
+            <div className="relative">
+              {/* Connection Line */}
+              <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-primary via-accent to-primary -translate-y-1/2" />
+              
+              <div className="grid md:grid-cols-2 lg:grid-cols-6 gap-6">
+                {data.process.map((step, index) => (
+                  <motion.div
+                    key={step.step}
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    className="relative"
+                  >
+                    <div className="p-6 rounded-3xl bg-card border border-border hover:border-primary/30 hover:shadow-xl transition-all duration-300 h-full">
+                      {/* Step Number */}
+                      <div className="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center font-bold text-lg mb-4 mx-auto lg:mx-0">
+                        {step.step}
+                      </div>
+                      <h3 className="font-display font-bold text-lg mb-2 text-center lg:text-left">{step.title}</h3>
+                      <p className="text-sm text-muted-foreground text-center lg:text-left">{step.description}</p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
             </div>
           </div>
         </section>
 
-        {/* Technologies */}
-        <TechLogosCloud />
+        {/* Service-Specific Technologies */}
+        {techStack.length > 0 && (
+          <section className="section-padding bg-secondary/30">
+            <div className="container-wide">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6 }}
+                className="text-center mb-12"
+              >
+                <span className="inline-block text-sm font-semibold text-primary uppercase tracking-wider mb-4">
+                  Technologies
+                </span>
+                <h2 className="font-display text-3xl md:text-4xl font-bold mb-4">
+                  Tech Stack We <span className="text-primary">Use</span>
+                </h2>
+                <p className="text-muted-foreground max-w-2xl mx-auto">
+                  We leverage the best tools and technologies for {data.title.toLowerCase()}
+                </p>
+              </motion.div>
 
-        {/* Why Choose Us */}
+              {/* Cloud Layout */}
+              <div className="flex flex-wrap justify-center items-center gap-4 md:gap-6 lg:gap-8 max-w-5xl mx-auto">
+                {techStack.map((tech, index) => (
+                  <motion.div
+                    key={tech.name}
+                    initial={{ opacity: 0, scale: 0.5 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: index * 0.03 }}
+                    whileHover={{ scale: 1.15, y: -5 }}
+                    className={`relative group ${sizeClasses[tech.size]} rounded-2xl bg-card border border-border hover:border-primary/30 hover:shadow-lg transition-all duration-300 cursor-pointer`}
+                  >
+                    <img
+                      src={tech.logo}
+                      alt={tech.name}
+                      className="w-full h-full object-contain"
+                    />
+                    
+                    {/* Tooltip */}
+                    <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 px-2 py-1 bg-foreground text-background text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none z-10">
+                      {tech.name}
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
+        {/* Why Choose Us CTA */}
         <section className="section-padding bg-primary text-white">
           <div className="container-wide">
             <motion.div
@@ -629,7 +852,7 @@ const ServicePage = () => {
               className="text-center mb-12"
             >
               <h2 className="font-display text-3xl md:text-4xl font-bold mb-4">
-                Why Choose NETREX?
+                Why Choose NETREX for {data.title}?
               </h2>
               <p className="text-white/80 max-w-2xl mx-auto">
                 We're not just another agency—we're your growth partner.
@@ -643,9 +866,11 @@ const ServicePage = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="p-6 rounded-3xl bg-white/10 border border-white/20 text-center"
+                  className="p-6 rounded-3xl bg-white/10 border border-white/20 text-center hover:bg-white/20 transition-colors"
                 >
-                  <item.icon className="h-10 w-10 mx-auto mb-4 text-white" />
+                  <div className="w-14 h-14 rounded-2xl bg-white/20 flex items-center justify-center mx-auto mb-4">
+                    <item.icon className="h-7 w-7 text-white" />
+                  </div>
                   <h3 className="font-display font-bold text-lg mb-2">{item.title}</h3>
                   <p className="text-sm text-white/70">{item.description}</p>
                 </motion.div>
@@ -654,26 +879,7 @@ const ServicePage = () => {
           </div>
         </section>
 
-        {/* Client Logos */}
-        <section className="py-12 bg-secondary/30">
-          <div className="container-wide">
-            <p className="text-center text-muted-foreground text-sm uppercase tracking-wider font-medium mb-8">
-              Trusted by Industry Leaders
-            </p>
-            <div className="flex flex-wrap justify-center items-center gap-8">
-              {clientLogos.map((client) => (
-                <div
-                  key={client.name}
-                  className="w-16 h-16 rounded-full bg-card border border-border flex items-center justify-center text-2xl font-bold text-muted-foreground"
-                >
-                  {client.logo}
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Portfolio Slider */}
+        {/* Portfolio Carousel */}
         <section className="section-padding">
           <div className="container-wide">
             <motion.div
@@ -691,23 +897,65 @@ const ServicePage = () => {
                   See how we've helped businesses achieve their goals.
                 </p>
               </div>
-              <Link to="/portfolio">
-                <Button variant="outline" className="hidden md:flex">
-                  View All
-                  <ArrowRight className="h-4 w-4" />
+              <div className="hidden md:flex items-center gap-2">
+                <Button 
+                  variant="outline" 
+                  size="icon" 
+                  onClick={() => scrollCarousel('left')}
+                  disabled={carouselIndex === 0}
+                  className="rounded-full"
+                >
+                  <ChevronLeft className="h-5 w-5" />
                 </Button>
-              </Link>
+                <Button 
+                  variant="outline" 
+                  size="icon" 
+                  onClick={() => scrollCarousel('right')}
+                  disabled={carouselIndex >= portfolioItems.length - 4}
+                  className="rounded-full"
+                >
+                  <ChevronRight className="h-5 w-5" />
+                </Button>
+                <Link to="/portfolio">
+                  <Button variant="outline" className="ml-4">
+                    View All
+                    <ArrowRight className="h-4 w-4 ml-2" />
+                  </Button>
+                </Link>
+              </div>
             </motion.div>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {portfolioItems.slice(0, 8).map((item, index) => (
+            
+            {/* Carousel */}
+            <div 
+              ref={carouselRef}
+              className="flex gap-6 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide"
+              style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+            >
+              {portfolioItems.map((item, index) => (
                 <motion.div
                   key={item.id}
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="flex-shrink-0 w-72 snap-start"
                 >
-                  <PortfolioScrollCard {...item} />
+                  <Link to={`/portfolio/${item.id}`} className="group block">
+                    <div className="rounded-2xl overflow-hidden bg-card border border-border hover:border-primary/30 hover:shadow-xl transition-all duration-300">
+                      <div className="aspect-[3/4] overflow-hidden">
+                        <img
+                          src={item.image}
+                          alt={item.title}
+                          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                        />
+                      </div>
+                      <div className="p-4">
+                        <div className="text-xs font-medium text-primary mb-1">{item.technology}</div>
+                        <h3 className="font-bold mb-1 group-hover:text-primary transition-colors">{item.title}</h3>
+                        <p className="text-sm text-muted-foreground">{item.result}</p>
+                      </div>
+                    </div>
+                  </Link>
                 </motion.div>
               ))}
             </div>
@@ -738,6 +986,9 @@ const ServicePage = () => {
             </motion.div>
           </div>
         </section>
+
+        {/* Separator */}
+        <Separator className="bg-border" />
       </main>
       <Footer />
       <WhatsAppButton />

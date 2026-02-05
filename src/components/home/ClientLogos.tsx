@@ -1,19 +1,20 @@
 import { motion } from "framer-motion";
+import netrexLogo from "@/assets/netrex-logo.png";
 
-// Sample client logos - these would be managed from admin dashboard
+// Client logos from the branding PDF
 const clients = [
-  { name: "Google", logo: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" },
-  { name: "Microsoft", logo: "https://upload.wikimedia.org/wikipedia/commons/9/96/Microsoft_logo_%282012%29.svg" },
-  { name: "Amazon", logo: "https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" },
-  { name: "Meta", logo: "https://upload.wikimedia.org/wikipedia/commons/7/7b/Meta_Platforms_Inc._logo.svg" },
-  { name: "Apple", logo: "https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg" },
-  { name: "Netflix", logo: "https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" },
-  { name: "Spotify", logo: "https://upload.wikimedia.org/wikipedia/commons/2/26/Spotify_logo_with_text.svg" },
-  { name: "Uber", logo: "https://upload.wikimedia.org/wikipedia/commons/5/58/Uber_logo_2018.svg" },
+  { name: "Denefits", logo: "https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=100&h=40&fit=crop" },
+  { name: "Hogar", logo: "https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=100&h=40&fit=crop" },
+  { name: "CJC Markets", logo: "https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=100&h=40&fit=crop" },
+  { name: "SOURCE", logo: "https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=100&h=40&fit=crop" },
+  { name: "PropertyFinder", logo: "https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=100&h=40&fit=crop" },
+  { name: "Bayut", logo: "https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=100&h=40&fit=crop" },
+  { name: "Emirates NBD", logo: "https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=100&h=40&fit=crop" },
+  { name: "Majid Al Futtaim", logo: "https://images.unsplash.com/photo-1560179707-f14e90ef3623?w=100&h=40&fit=crop" },
 ];
 
 export function ClientLogos() {
-  const allClients = [...clients, ...clients];
+  const allClients = [...clients, ...clients, ...clients];
 
   return (
     <section className="py-12 bg-secondary/30 overflow-hidden">
@@ -32,10 +33,10 @@ export function ClientLogos() {
       <div className="relative">
         <motion.div
           className="flex items-center gap-16"
-          animate={{ x: [0, -50 * clients.length] }}
+          animate={{ x: [0, -100 * clients.length] }}
           transition={{
             x: {
-              duration: 20,
+              duration: 30,
               repeat: Infinity,
               ease: "linear",
             },
@@ -44,13 +45,13 @@ export function ClientLogos() {
           {allClients.map((client, index) => (
             <div
               key={`${client.name}-${index}`}
-              className="flex-shrink-0 h-8 md:h-10 grayscale hover:grayscale-0 opacity-50 hover:opacity-100 transition-all duration-300"
+              className="flex-shrink-0 px-6 py-3 rounded-xl bg-card border border-border hover:border-primary/20 transition-all"
             >
-              <img
-                src={client.logo}
-                alt={client.name}
-                className="h-full w-auto object-contain"
-              />
+              <div className="h-8 flex items-center justify-center">
+                <span className="text-lg font-bold text-muted-foreground/60 hover:text-muted-foreground transition-colors">
+                  {client.name}
+                </span>
+              </div>
             </div>
           ))}
         </motion.div>

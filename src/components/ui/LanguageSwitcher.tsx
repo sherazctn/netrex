@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, Globe } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { Language } from "@/lib/translations";
 
-const languages = [
+const languages: { code: Language; name: string; flag: string }[] = [
   { code: "en", name: "English", flag: "🇬🇧" },
   { code: "ar", name: "العربية", flag: "🇦🇪" },
   { code: "zh", name: "中文", flag: "🇨🇳" },
@@ -20,18 +22,13 @@ interface LanguageSwitcherProps {
 
 export function LanguageSwitcher({ variant = "light" }: LanguageSwitcherProps) {
   const [isOpen, setIsOpen] = useState(false);
-  const [currentLang, setCurrentLang] = useState(languages[0]);
+  const { language, setLanguage } = useLanguage();
+  
+  const currentLang = languages.find(l => l.code === language) || languages[0];
 
   const handleLanguageChange = (lang: typeof languages[0]) => {
-    setCurrentLang(lang);
+    setLanguage(lang.code);
     setIsOpen(false);
-    // In a real app, this would trigger translation logic
-    document.documentElement.lang = lang.code;
-    if (lang.code === "ar") {
-      document.documentElement.dir = "rtl";
-    } else {
-      document.documentElement.dir = "ltr";
-    }
   };
 
   return (
