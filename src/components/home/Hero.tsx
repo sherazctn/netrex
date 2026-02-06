@@ -10,6 +10,47 @@ const features = [
   "hero.feature3"
 ];
 
+// Tech logos grouped by service type
+const techLogos = {
+  web: [
+    { name: "React", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+    { name: "Next.js", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" },
+    { name: "Vue", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg" },
+    { name: "Angular", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg" },
+    { name: "TypeScript", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" },
+    { name: "Node.js", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
+  ],
+  mobile: [
+    { name: "Flutter", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" },
+    { name: "Swift", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swift/swift-original.svg" },
+    { name: "Kotlin", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg" },
+    { name: "React Native", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+    { name: "iOS", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apple/apple-original.svg" },
+    { name: "Android", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-original.svg" },
+  ],
+  cloud: [
+    { name: "AWS", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg" },
+    { name: "Google Cloud", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg" },
+    { name: "Azure", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg" },
+    { name: "Docker", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
+    { name: "Kubernetes", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg" },
+  ],
+  design: [
+    { name: "Figma", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" },
+    { name: "Sketch", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sketch/sketch-original.svg" },
+    { name: "Photoshop", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-plain.svg" },
+    { name: "Illustrator", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/illustrator/illustrator-plain.svg" },
+  ],
+};
+
+// Animation paths for bouncing logos
+const bouncePaths = [
+  { startAngle: 0, direction: 1 },
+  { startAngle: 90, direction: -1 },
+  { startAngle: 180, direction: 1 },
+  { startAngle: 270, direction: -1 },
+];
+
 export function Hero() {
   const { t } = useLanguage();
   const { scrollY } = useScroll();
@@ -19,6 +60,9 @@ export function Hero() {
   const y2 = useTransform(scrollY, [0, 500], [0, -100]);
   const rotate = useTransform(scrollY, [0, 500], [0, 180]);
   const scale = useTransform(scrollY, [0, 300], [1, 0.9]);
+
+  // Get a random tech from each category for the bouncing animation
+  const categories = ['web', 'mobile', 'cloud', 'design'] as const;
 
   return (
     <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-secondary/30">
@@ -111,7 +155,7 @@ export function Hero() {
             </motion.div>
           </div>
 
-          {/* Right Content - Business Innovation Animation */}
+          {/* Right Content - Tech Stack Animation */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -120,14 +164,13 @@ export function Hero() {
             style={{ scale }}
           >
             <div className="relative w-full max-w-[550px] aspect-square mx-auto">
-              {/* Main SVG Animation - Digital Innovation Theme */}
               <svg
                 viewBox="0 0 600 600"
                 className="w-full h-full"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                {/* Outer rotating ring with data flow */}
+                {/* Outer rotating ring */}
                 <motion.g style={{ rotate, originX: "300px", originY: "300px" }}>
                   <circle
                     cx="300"
@@ -163,7 +206,7 @@ export function Hero() {
                   })}
                 </motion.g>
 
-                {/* Middle pulsing hexagon */}
+                {/* Middle hexagon */}
                 <motion.g style={{ y: y2 }}>
                   <motion.polygon
                     points="300,100 460,200 460,400 300,500 140,400 140,200"
@@ -178,10 +221,10 @@ export function Hero() {
                   />
                 </motion.g>
 
-                {/* Inner rotating data circuit */}
+                {/* Inner rotating ring with tech logos orbit */}
                 <motion.g
                   animate={{ rotate: -360 }}
-                  transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                  transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
                   style={{ originX: "300px", originY: "300px" }}
                 >
                   <circle
@@ -193,71 +236,131 @@ export function Hero() {
                     strokeDasharray="20 10"
                     fill="none"
                   />
-                  {/* Connection nodes */}
-                  {[0, 72, 144, 216, 288].map((angle, i) => {
-                    const x = 300 + 180 * Math.cos((angle * Math.PI) / 180);
-                    const y = 300 + 180 * Math.sin((angle * Math.PI) / 180);
-                    return (
-                      <g key={`conn-${i}`}>
-                        <circle cx={x} cy={y} r="15" fill="url(#heroGradient3)" />
-                        <motion.circle
-                          cx={x}
-                          cy={y}
-                          r="8"
-                          fill="hsl(var(--background))"
-                          animate={{ scale: [1, 1.2, 1] }}
-                          transition={{ duration: 1.5, repeat: Infinity, delay: i * 0.3 }}
-                        />
-                      </g>
-                    );
-                  })}
                 </motion.g>
 
-                {/* Center core - Globe/Network representation */}
+                {/* Center core with glow */}
                 <motion.g
                   animate={{ scale: [1, 1.05, 1] }}
                   transition={{ duration: 4, repeat: Infinity }}
                 >
-                  {/* Core glow */}
-                  <circle cx="300" cy="300" r="100" fill="url(#heroGradient3)" opacity="0.3" />
-                  <circle cx="300" cy="300" r="80" fill="hsl(var(--background))" />
+                  <circle cx="300" cy="300" r="100" fill="url(#heroGradient3)" opacity="0.4" />
+                  <circle cx="300" cy="300" r="85" fill="hsl(var(--background))" />
+                  <circle cx="300" cy="300" r="75" fill="url(#heroGradient4)" />
                   
-                  {/* Network icon inside */}
-                  <motion.g
-                    animate={{ rotate: 360 }}
-                    transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
-                    style={{ originX: "300px", originY: "300px" }}
+                  {/* NETREX N in center */}
+                  <motion.text
+                    x="300"
+                    y="315"
+                    textAnchor="middle"
+                    className="font-display font-bold"
+                    fill="white"
+                    fontSize="48"
+                    animate={{ opacity: [0.8, 1, 0.8] }}
+                    transition={{ duration: 2, repeat: Infinity }}
                   >
-                    {/* Globe lines */}
-                    <ellipse cx="300" cy="300" rx="50" ry="50" stroke="url(#heroGradient1)" strokeWidth="1.5" fill="none" />
-                    <ellipse cx="300" cy="300" rx="50" ry="25" stroke="url(#heroGradient2)" strokeWidth="1" fill="none" />
-                    <ellipse cx="300" cy="300" rx="25" ry="50" stroke="url(#heroGradient2)" strokeWidth="1" fill="none" />
-                    <line x1="250" y1="300" x2="350" y2="300" stroke="url(#heroGradient1)" strokeWidth="1" />
-                    <line x1="300" y1="250" x2="300" y2="350" stroke="url(#heroGradient1)" strokeWidth="1" />
-                  </motion.g>
+                    N
+                  </motion.text>
                 </motion.g>
 
-                {/* Floating data particles */}
-                {[...Array(20)].map((_, i) => {
-                  const angle = (i * 18 * Math.PI) / 180;
-                  const radius = 120 + (i % 4) * 50;
+                {/* Bouncing Tech Logos - 4 at a time from different angles */}
+                {categories.map((category, categoryIndex) => {
+                  const logos = techLogos[category];
+                  const path = bouncePaths[categoryIndex];
+                  
+                  return logos.map((tech, techIndex) => {
+                    // Calculate bounce trajectory
+                    const baseAngle = path.startAngle + (techIndex * 60);
+                    const delay = categoryIndex * 0.8 + techIndex * 3;
+                    
+                    return (
+                      <motion.g
+                        key={`${category}-${techIndex}`}
+                        initial={{ opacity: 0 }}
+                        animate={{
+                          opacity: [0, 1, 1, 1, 0],
+                        }}
+                        transition={{
+                          duration: 4,
+                          repeat: Infinity,
+                          delay: delay,
+                          repeatDelay: (categories.length * logos.length * 0.5),
+                          times: [0, 0.1, 0.5, 0.9, 1],
+                        }}
+                      >
+                        <motion.g
+                          animate={{
+                            x: [
+                              270 * Math.cos((baseAngle * Math.PI) / 180),
+                              0,
+                              -30 * Math.cos((baseAngle * Math.PI) / 180),
+                              0,
+                              270 * Math.cos(((baseAngle + 180) * Math.PI) / 180),
+                            ],
+                            y: [
+                              270 * Math.sin((baseAngle * Math.PI) / 180),
+                              0,
+                              -30 * Math.sin((baseAngle * Math.PI) / 180),
+                              0,
+                              270 * Math.sin(((baseAngle + 180) * Math.PI) / 180),
+                            ],
+                          }}
+                          transition={{
+                            duration: 4,
+                            repeat: Infinity,
+                            delay: delay,
+                            repeatDelay: (categories.length * logos.length * 0.5),
+                            ease: "easeInOut",
+                          }}
+                        >
+                          <circle
+                            cx="300"
+                            cy="300"
+                            r="28"
+                            fill="hsl(var(--background))"
+                            stroke="url(#heroGradient1)"
+                            strokeWidth="2"
+                          />
+                          <image
+                            href={tech.logo}
+                            x="280"
+                            y="280"
+                            width="40"
+                            height="40"
+                          />
+                        </motion.g>
+                      </motion.g>
+                    );
+                  });
+                })}
+
+                {/* Static orbiting tech icons */}
+                {[0, 72, 144, 216, 288].map((angle, i) => {
+                  const x = 300 + 180 * Math.cos((angle * Math.PI) / 180);
+                  const y = 300 + 180 * Math.sin((angle * Math.PI) / 180);
+                  const allTech = [...techLogos.web, ...techLogos.mobile, ...techLogos.cloud];
+                  const tech = allTech[i % allTech.length];
+                  
                   return (
-                    <motion.circle
-                      key={`particle-${i}`}
-                      cx={300 + radius * Math.cos(angle)}
-                      cy={300 + radius * Math.sin(angle)}
-                      r={2 + (i % 3)}
-                      fill={i % 2 === 0 ? "hsl(var(--primary))" : "hsl(var(--accent))"}
-                      animate={{
-                        opacity: [0, 1, 0],
-                        y: [0, -20, 0],
-                      }}
-                      transition={{
-                        duration: 3 + (i % 2),
-                        repeat: Infinity,
-                        delay: i * 0.15,
-                      }}
-                    />
+                    <motion.g
+                      key={`orbit-${i}`}
+                      animate={{ rotate: 360 }}
+                      transition={{ duration: 30 + i * 5, repeat: Infinity, ease: "linear" }}
+                      style={{ originX: "300px", originY: "300px" }}
+                    >
+                      <motion.g
+                        animate={{ scale: [1, 1.2, 1], opacity: [0.7, 1, 0.7] }}
+                        transition={{ duration: 2, repeat: Infinity, delay: i * 0.4 }}
+                      >
+                        <circle cx={x} cy={y} r="24" fill="hsl(var(--background))" stroke="url(#heroGradient2)" strokeWidth="2" />
+                        <image
+                          href={tech.logo}
+                          x={x - 14}
+                          y={y - 14}
+                          width="28"
+                          height="28"
+                        />
+                      </motion.g>
+                    </motion.g>
                   );
                 })}
 
@@ -290,6 +393,30 @@ export function Hero() {
                   );
                 })}
 
+                {/* Floating particles */}
+                {[...Array(16)].map((_, i) => {
+                  const angle = (i * 22.5 * Math.PI) / 180;
+                  const radius = 130 + (i % 3) * 45;
+                  return (
+                    <motion.circle
+                      key={`particle-${i}`}
+                      cx={300 + radius * Math.cos(angle)}
+                      cy={300 + radius * Math.sin(angle)}
+                      r={2 + (i % 3)}
+                      fill={i % 2 === 0 ? "hsl(var(--primary))" : "hsl(var(--accent))"}
+                      animate={{
+                        opacity: [0, 1, 0],
+                        y: [0, -15, 0],
+                      }}
+                      transition={{
+                        duration: 2.5 + (i % 2),
+                        repeat: Infinity,
+                        delay: i * 0.2,
+                      }}
+                    />
+                  );
+                })}
+
                 {/* Gradient definitions */}
                 <defs>
                   <linearGradient id="heroGradient1" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -303,6 +430,10 @@ export function Hero() {
                   <radialGradient id="heroGradient3" cx="50%" cy="50%" r="50%">
                     <stop offset="0%" stopColor="hsl(359 85% 53% / 0.4)" />
                     <stop offset="100%" stopColor="hsl(196 76% 44% / 0.1)" />
+                  </radialGradient>
+                  <radialGradient id="heroGradient4" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%" stopColor="hsl(359 85% 53%)" />
+                    <stop offset="100%" stopColor="hsl(217 95% 18%)" />
                   </radialGradient>
                 </defs>
               </svg>

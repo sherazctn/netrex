@@ -45,7 +45,7 @@ export function IndustriesCarousel() {
   const allRow3 = [...row3, ...row3, ...row3];
 
   return (
-    <section className="section-padding bg-secondary/30 overflow-hidden">
+    <section className="py-20 bg-secondary/30 overflow-hidden">
       <div className="container-wide mb-12">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
           <motion.div
@@ -69,7 +69,7 @@ export function IndustriesCarousel() {
             transition={{ duration: 0.6, delay: 0.2 }}
           >
             <Link to="/industries">
-              <Button variant="hero" size="lg" className="group">
+              <Button variant="default" size="lg" className="group">
                 {t('industries.explore')}
                 <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
               </Button>
