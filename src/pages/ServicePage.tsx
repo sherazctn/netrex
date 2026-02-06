@@ -222,8 +222,8 @@ const servicesData: Record<string, {
       { title: "Cutting-Edge Tech", description: "Latest technologies and best practices", icon: Zap },
     ],
     caseStudies: [
-      { title: "E-commerce Fashion Platform", description: "Built a full-featured online store for luxury fashion brand", result: "300% increase in online sales", image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&h=800&fit=crop" },
-      { title: "Corporate Website Redesign", description: "Redesigned company website for a financial services firm", result: "150% increase in lead generation", image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&h=800&fit=crop" },
+      { title: "E-commerce Fashion Platform", description: "Built a full-featured online store for luxury fashion brand", result: "300% increase in online sales", image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=800&fit=crop" },
+      { title: "Corporate Website Redesign", description: "Redesigned company website for a financial services firm", result: "150% increase in lead generation", image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=600&h=800&fit=crop" },
     ],
   },
   "mobile-app": {
@@ -260,8 +260,8 @@ const servicesData: Record<string, {
       { title: "Ongoing Support", description: "We're with you post-launch", icon: Clock },
     ],
     caseStudies: [
-      { title: "Fitness Tracking App", description: "Developed a health and fitness app with wearable integration", result: "500K+ downloads in first year", image: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=600&h=800&fit=crop" },
-      { title: "Food Delivery App", description: "Built a complete food ordering and delivery platform", result: "40% increase in order volume", image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600&h=800&fit=crop" },
+      { title: "Fitness Tracking App", description: "Developed a health and fitness app with wearable integration", result: "500K+ downloads in first year", image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&h=800&fit=crop" },
+      { title: "Food Delivery App", description: "Built a complete food ordering and delivery platform", result: "40% increase in order volume", image: "https://images.unsplash.com/photo-1526045612212-70caf35c14df?w=600&h=800&fit=crop" },
     ],
   },
   "ui-ux-design": {
@@ -298,8 +298,8 @@ const servicesData: Record<string, {
       { title: "Rapid Iteration", description: "Fast feedback and improvements", icon: Clock },
     ],
     caseStudies: [
-      { title: "Banking App Redesign", description: "Redesigned mobile banking for major bank", result: "60% improvement in task completion", image: "https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?w=600&h=800&fit=crop" },
-      { title: "SaaS Dashboard", description: "Designed analytics platform dashboard", result: "45% reduction in support tickets", image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=800&fit=crop" },
+      { title: "Banking App Redesign", description: "Redesigned mobile banking for major bank", result: "60% improvement in task completion", image: "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=600&h=800&fit=crop" },
+      { title: "SaaS Dashboard", description: "Designed analytics platform dashboard", result: "45% reduction in support tickets", image: "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?w=600&h=800&fit=crop" },
     ],
   },
   "digital-marketing": {
@@ -336,8 +336,8 @@ const servicesData: Record<string, {
       { title: "Transparent", description: "Clear reporting and communication", icon: Clock },
     ],
     caseStudies: [
-      { title: "E-commerce SEO Campaign", description: "Complete SEO overhaul for online retailer", result: "200% increase in organic traffic", image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=800&fit=crop" },
-      { title: "B2B Lead Generation", description: "Multi-channel campaign for software company", result: "150% increase in qualified leads", image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=800&fit=crop" },
+      { title: "E-commerce SEO Campaign", description: "Complete SEO overhaul for online retailer", result: "200% increase in organic traffic", image: "https://images.unsplash.com/photo-1533750349088-cd871a92f312?w=600&h=800&fit=crop" },
+      { title: "B2B Lead Generation", description: "Multi-channel campaign for software company", result: "150% increase in qualified leads", image: "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?w=600&h=800&fit=crop" },
     ],
   },
   "branding": {
@@ -374,8 +374,8 @@ const servicesData: Record<string, {
       { title: "Lasting Impact", description: "Brands built to endure", icon: Clock },
     ],
     caseStudies: [
-      { title: "Tech Startup Rebrand", description: "Complete brand overhaul for SaaS company", result: "40% increase in brand recall", image: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=600&h=800&fit=crop" },
-      { title: "Restaurant Chain", description: "New brand identity for restaurant group", result: "25% increase in foot traffic", image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&h=800&fit=crop" },
+      { title: "Tech Startup Rebrand", description: "Complete brand overhaul for SaaS company", result: "40% increase in brand recall", image: "https://images.unsplash.com/photo-1524234107056-1c1f48f64ab8?w=600&h=800&fit=crop" },
+      { title: "Restaurant Chain", description: "New brand identity for restaurant group", result: "25% increase in foot traffic", image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&h=800&fit=crop" },
     ],
   },
   "ecommerce": {
@@ -412,8 +412,8 @@ const servicesData: Record<string, {
       { title: "Growth Partners", description: "We help you scale", icon: Clock },
     ],
     caseStudies: [
-      { title: "Fashion Brand Store", description: "Custom Shopify store for luxury brand", result: "250% increase in online revenue", image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&h=800&fit=crop" },
-      { title: "B2B Wholesale Platform", description: "Custom e-commerce for distributor", result: "80% of orders now online", image: "https://images.unsplash.com/photo-1586880244406-556ebe35f282?w=600&h=800&fit=crop" },
+      { title: "Fashion Brand Store", description: "Custom Shopify store for luxury brand", result: "250% increase in online revenue", image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=800&fit=crop" },
+      { title: "B2B Wholesale Platform", description: "Custom e-commerce for distributor", result: "80% of orders now online", image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=600&h=800&fit=crop" },
     ],
   },
   "ai-automation": {
@@ -450,8 +450,8 @@ const servicesData: Record<string, {
       { title: "Ongoing Support", description: "We maintain and improve your AI", icon: Clock },
     ],
     caseStudies: [
-      { title: "Customer Service AI", description: "Deployed AI chatbot for e-commerce company", result: "70% reduction in support tickets", image: "https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=600&h=800&fit=crop" },
-      { title: "Document Automation", description: "AI-powered invoice processing for finance firm", result: "95% accuracy, 10x faster processing", image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&h=800&fit=crop" },
+      { title: "Customer Service AI", description: "Deployed AI chatbot for e-commerce company", result: "70% reduction in support tickets", image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=800&fit=crop" },
+      { title: "Document Automation", description: "AI-powered invoice processing for finance firm", result: "95% accuracy, 10x faster processing", image: "https://images.unsplash.com/photo-1555255707-c07966088b7b?w=600&h=800&fit=crop" },
     ],
   },
   "geo": {
@@ -488,8 +488,8 @@ const servicesData: Record<string, {
       { title: "Continuous Learning", description: "Always adapting to AI changes", icon: Clock },
     ],
     caseStudies: [
-      { title: "SaaS Company GEO", description: "Optimized content for AI search visibility", result: "Featured in 40% of relevant AI responses", image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=800&fit=crop" },
-      { title: "E-commerce GEO", description: "Product content optimization for AI", result: "3x increase in AI-referred traffic", image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=800&fit=crop" },
+      { title: "SaaS Company GEO", description: "Optimized content for AI search visibility", result: "Featured in 40% of relevant AI responses", image: "https://images.unsplash.com/photo-1676277791608-ac54525aa94d?w=600&h=800&fit=crop" },
+      { title: "E-commerce GEO", description: "Product content optimization for AI", result: "3x increase in AI-referred traffic", image: "https://images.unsplash.com/photo-1675271591211-98b14e07786c?w=600&h=800&fit=crop" },
     ],
   },
   "cloud-solutions": {
@@ -526,8 +526,8 @@ const servicesData: Record<string, {
       { title: "Cost Savings", description: "Typically 30% reduction in cloud costs", icon: Zap },
     ],
     caseStudies: [
-      { title: "SaaS Platform Migration", description: "Migrated legacy app to Kubernetes", result: "99.99% uptime, 40% cost reduction", image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&h=800&fit=crop" },
-      { title: "E-commerce Infrastructure", description: "Built auto-scaling infrastructure", result: "Handled 10x Black Friday traffic", image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&h=800&fit=crop" },
+      { title: "SaaS Platform Migration", description: "Migrated legacy app to Kubernetes", result: "99.99% uptime, 40% cost reduction", image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=600&h=800&fit=crop" },
+      { title: "E-commerce Infrastructure", description: "Built auto-scaling infrastructure", result: "Handled 10x Black Friday traffic", image: "https://images.unsplash.com/photo-1597733336794-12d05021d510?w=600&h=800&fit=crop" },
     ],
   },
 };

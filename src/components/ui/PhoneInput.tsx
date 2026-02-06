@@ -109,34 +109,36 @@ export function PhoneInput({
     : 'bg-background border-input text-foreground placeholder:text-muted-foreground';
 
   return (
-    <div className={cn('relative flex', className)}>
-      {/* Country Selector */}
-      <button
-        type="button"
-        onClick={() => setIsOpen(!isOpen)}
-        className={cn(
-          'flex items-center gap-2 px-3 py-2 rounded-l-full border-r-0 transition-colors',
-          baseInputClasses,
-          'border hover:bg-secondary/50'
-        )}
-      >
-        <span className="text-lg">{selectedCountry.flag}</span>
-        <span className="text-sm font-medium">{selectedCountry.dialCode}</span>
-        <ChevronDown className={cn('h-4 w-4 transition-transform', isOpen && 'rotate-180')} />
-      </button>
+    <div className={cn('relative', className)}>
+      <div className="flex w-full">
+        {/* Country Selector */}
+        <button
+          type="button"
+          onClick={() => setIsOpen(!isOpen)}
+          className={cn(
+            'flex items-center gap-1.5 px-3 py-2 rounded-l-full border transition-colors flex-shrink-0',
+            baseInputClasses,
+            'border-r-0 hover:bg-secondary/50'
+          )}
+        >
+          <span className="text-base">{selectedCountry.flag}</span>
+          <span className="text-xs font-medium whitespace-nowrap">{selectedCountry.dialCode}</span>
+          <ChevronDown className={cn('h-3 w-3 transition-transform flex-shrink-0', isOpen && 'rotate-180')} />
+        </button>
 
-      {/* Phone Input */}
-      <input
-        type="tel"
-        value={value}
-        onChange={(e) => onChange(e.target.value.replace(/\D/g, ''), selectedCountry.dialCode)}
-        placeholder={placeholder}
-        className={cn(
-          'flex-1 px-4 py-2 rounded-r-full border border-l-0',
-          baseInputClasses,
-          'focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2'
-        )}
-      />
+        {/* Phone Input */}
+        <input
+          type="tel"
+          value={value}
+          onChange={(e) => onChange(e.target.value.replace(/\D/g, ''), selectedCountry.dialCode)}
+          placeholder={placeholder}
+          className={cn(
+            'flex-1 min-w-0 px-4 py-2 rounded-r-full border border-l-0',
+            baseInputClasses,
+            'focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2'
+          )}
+        />
+      </div>
 
       {/* Dropdown */}
       {isOpen && (
