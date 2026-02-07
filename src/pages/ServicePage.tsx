@@ -44,6 +44,11 @@ const serviceTechStacks: Record<string, { name: string; logo: string; size: stri
     { name: "Firebase", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg", size: "md" },
     { name: "Xcode", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/xcode/xcode-original.svg", size: "sm" },
     { name: "Android Studio", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/androidstudio/androidstudio-original.svg", size: "md" },
+    { name: "TypeScript", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg", size: "md" },
+    { name: "GraphQL", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain.svg", size: "sm" },
+    { name: "Redux", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redux/redux-original.svg", size: "sm" },
+    { name: "SQLite", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg", size: "sm" },
+    { name: "Fastlane", logo: "https://cdn.simpleicons.org/fastlane/00F200", size: "sm" },
   ],
   "ui-ux-design": [
     { name: "Figma", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg", size: "lg" },
@@ -54,6 +59,13 @@ const serviceTechStacks: Record<string, { name: string; logo: string; size: stri
     { name: "After Effects", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/aftereffects/aftereffects-original.svg", size: "sm" },
     { name: "InVision", logo: "https://cdn.simpleicons.org/invision/FF3366", size: "md" },
     { name: "Principle", logo: "https://cdn.simpleicons.org/principle/6C5FC7", size: "sm" },
+    { name: "Framer", logo: "https://cdn.simpleicons.org/framer/0055FF", size: "md" },
+    { name: "Zeplin", logo: "https://cdn.simpleicons.org/zeplin/FDBD39", size: "sm" },
+    { name: "Marvel", logo: "https://cdn.simpleicons.org/marvel/D42026", size: "sm" },
+    { name: "Balsamiq", logo: "https://cdn.simpleicons.org/balsamiq/CC0000", size: "sm" },
+    { name: "Miro", logo: "https://cdn.simpleicons.org/miro/050038", size: "md" },
+    { name: "Webflow", logo: "https://cdn.simpleicons.org/webflow/4353FF", size: "sm" },
+    { name: "Lottie", logo: "https://cdn.simpleicons.org/lottiefiles/00DDB3", size: "sm" },
   ],
   "digital-marketing": [
     { name: "Google Analytics", logo: "https://cdn.simpleicons.org/googleanalytics/E37400", size: "lg" },
@@ -64,6 +76,13 @@ const serviceTechStacks: Record<string, { name: string; logo: string; size: stri
     { name: "Mailchimp", logo: "https://cdn.simpleicons.org/mailchimp/FFE01B", size: "md" },
     { name: "HubSpot", logo: "https://cdn.simpleicons.org/hubspot/FF7A59", size: "lg" },
     { name: "Hootsuite", logo: "https://cdn.simpleicons.org/hootsuite/143059", size: "sm" },
+    { name: "Buffer", logo: "https://cdn.simpleicons.org/buffer/231F20", size: "sm" },
+    { name: "Moz", logo: "https://cdn.simpleicons.org/moz/3995E1", size: "md" },
+    { name: "Hotjar", logo: "https://cdn.simpleicons.org/hotjar/FF3C00", size: "sm" },
+    { name: "Crazy Egg", logo: "https://cdn.simpleicons.org/crazyegg/FA4D00", size: "sm" },
+    { name: "Sprout Social", logo: "https://cdn.simpleicons.org/sproutsocial/41B649", size: "sm" },
+    { name: "Klaviyo", logo: "https://cdn.simpleicons.org/klaviyo/000000", size: "sm" },
+    { name: "LinkedIn Ads", logo: "https://cdn.simpleicons.org/linkedin/0A66C2", size: "md" },
   ],
   "branding": [
     { name: "Photoshop", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/photoshop/photoshop-plain.svg", size: "lg" },
@@ -73,6 +92,14 @@ const serviceTechStacks: Record<string, { name: string; logo: string; size: stri
     { name: "Figma", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg", size: "md" },
     { name: "Canva", logo: "https://cdn.simpleicons.org/canva/00C4CC", size: "md" },
     { name: "Procreate", logo: "https://cdn.simpleicons.org/procreate/000000", size: "sm" },
+    { name: "Premiere Pro", logo: "https://cdn.simpleicons.org/adobepremierepro/9999FF", size: "md" },
+    { name: "Blender", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/blender/blender-original.svg", size: "sm" },
+    { name: "Sketch", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sketch/sketch-original.svg", size: "md" },
+    { name: "Lightroom", logo: "https://cdn.simpleicons.org/adobelightroom/31A8FF", size: "sm" },
+    { name: "CorelDRAW", logo: "https://cdn.simpleicons.org/coreldraw/72B63A", size: "sm" },
+    { name: "Adobe XD", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/xd/xd-plain.svg", size: "md" },
+    { name: "Webflow", logo: "https://cdn.simpleicons.org/webflow/4353FF", size: "sm" },
+    { name: "Lottie", logo: "https://cdn.simpleicons.org/lottiefiles/00DDB3", size: "sm" },
   ],
   "ecommerce": [
     { name: "Shopify", logo: "https://cdn.simpleicons.org/shopify/7AB55C", size: "lg" },
@@ -84,6 +111,12 @@ const serviceTechStacks: Record<string, { name: string; logo: string; size: stri
     { name: "WordPress", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-plain.svg", size: "md" },
     { name: "PHP", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg", size: "sm" },
     { name: "MySQL", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg", size: "sm" },
+    { name: "Square", logo: "https://cdn.simpleicons.org/square/006AFF", size: "sm" },
+    { name: "Razorpay", logo: "https://cdn.simpleicons.org/razorpay/0C2451", size: "sm" },
+    { name: "React", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg", size: "md" },
+    { name: "Node.js", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg", size: "md" },
+    { name: "Redis", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg", size: "sm" },
+    { name: "Algolia", logo: "https://cdn.simpleicons.org/algolia/003DFF", size: "sm" },
   ],
   "ai-automation": [
     { name: "OpenAI", logo: "https://cdn.simpleicons.org/openai/412991", size: "lg" },
@@ -95,6 +128,13 @@ const serviceTechStacks: Record<string, { name: string; logo: string; size: stri
     { name: "AWS", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg", size: "md" },
     { name: "Docker", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg", size: "md" },
     { name: "FastAPI", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fastapi/fastapi-original.svg", size: "sm" },
+    { name: "Scikit-learn", logo: "https://cdn.simpleicons.org/scikitlearn/F7931E", size: "md" },
+    { name: "Jupyter", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jupyter/jupyter-original.svg", size: "sm" },
+    { name: "NumPy", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg", size: "sm" },
+    { name: "Pandas", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg", size: "sm" },
+    { name: "Keras", logo: "https://cdn.simpleicons.org/keras/D00000", size: "sm" },
+    { name: "MLflow", logo: "https://cdn.simpleicons.org/mlflow/0194E2", size: "sm" },
+    { name: "Anthropic", logo: "https://cdn.simpleicons.org/anthropic/191919", size: "md" },
   ],
   "geo": [
     { name: "OpenAI", logo: "https://cdn.simpleicons.org/openai/412991", size: "lg" },
@@ -104,6 +144,14 @@ const serviceTechStacks: Record<string, { name: string; logo: string; size: stri
     { name: "Perplexity", logo: "https://cdn.simpleicons.org/perplexity/1FB8CD", size: "lg" },
     { name: "Claude", logo: "https://cdn.simpleicons.org/anthropic/191919", size: "md" },
     { name: "Schema.org", logo: "https://cdn.simpleicons.org/schema/3C3C3C", size: "sm" },
+    { name: "Moz", logo: "https://cdn.simpleicons.org/moz/3995E1", size: "md" },
+    { name: "Screaming Frog", logo: "https://cdn.simpleicons.org/data/73DC8C", size: "sm" },
+    { name: "Google Analytics", logo: "https://cdn.simpleicons.org/googleanalytics/E37400", size: "md" },
+    { name: "Google Search Console", logo: "https://cdn.simpleicons.org/googlesearchconsole/458CF5", size: "md" },
+    { name: "WordPress", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-plain.svg", size: "sm" },
+    { name: "Yoast", logo: "https://cdn.simpleicons.org/yoast/A4286A", size: "sm" },
+    { name: "ChatGPT", logo: "https://cdn.simpleicons.org/openai/74AA9C", size: "lg" },
+    { name: "Clearscope", logo: "https://cdn.simpleicons.org/clearbit/3576F2", size: "sm" },
   ],
   "cloud-solutions": [
     { name: "AWS", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg", size: "lg" },
@@ -116,6 +164,12 @@ const serviceTechStacks: Record<string, { name: string; logo: string; size: stri
     { name: "GitHub Actions", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg", size: "md" },
     { name: "Ansible", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ansible/ansible-original.svg", size: "sm" },
     { name: "Prometheus", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/prometheus/prometheus-original.svg", size: "sm" },
+    { name: "Grafana", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/grafana/grafana-original.svg", size: "md" },
+    { name: "Nginx", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nginx/nginx-original.svg", size: "sm" },
+    { name: "Redis", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg", size: "sm" },
+    { name: "PostgreSQL", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg", size: "md" },
+    { name: "CircleCI", logo: "https://cdn.simpleicons.org/circleci/343434", size: "sm" },
+    { name: "ArgoCD", logo: "https://cdn.simpleicons.org/argo/EF7B4D", size: "sm" },
   ],
 };
 
@@ -222,8 +276,8 @@ const servicesData: Record<string, {
       { title: "Cutting-Edge Tech", description: "Latest technologies and best practices", icon: Zap },
     ],
     caseStudies: [
-      { title: "E-commerce Fashion Platform", description: "Built a full-featured online store for luxury fashion brand", result: "300% increase in online sales", image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=800&fit=crop" },
-      { title: "Corporate Website Redesign", description: "Redesigned company website for a financial services firm", result: "150% increase in lead generation", image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=600&h=800&fit=crop" },
+      { title: "E-commerce Fashion Platform", description: "Built a full-featured online store for luxury fashion brand", result: "300% increase in online sales", image: "https://images.unsplash.com/photo-1547658719-da2b51169166?w=600&h=800&fit=crop" },
+      { title: "Corporate Website Redesign", description: "Redesigned company website for a financial services firm", result: "150% increase in lead generation", image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=800&fit=crop" },
     ],
   },
   "mobile-app": {
@@ -260,8 +314,8 @@ const servicesData: Record<string, {
       { title: "Ongoing Support", description: "We're with you post-launch", icon: Clock },
     ],
     caseStudies: [
-      { title: "Fitness Tracking App", description: "Developed a health and fitness app with wearable integration", result: "500K+ downloads in first year", image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&h=800&fit=crop" },
-      { title: "Food Delivery App", description: "Built a complete food ordering and delivery platform", result: "40% increase in order volume", image: "https://images.unsplash.com/photo-1526045612212-70caf35c14df?w=600&h=800&fit=crop" },
+      { title: "Fitness Tracking App", description: "Developed a health and fitness app with wearable integration", result: "500K+ downloads in first year", image: "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=600&h=800&fit=crop" },
+      { title: "Food Delivery App", description: "Built a complete food ordering and delivery platform", result: "40% increase in order volume", image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&h=800&fit=crop" },
     ],
   },
   "ui-ux-design": {
@@ -298,8 +352,8 @@ const servicesData: Record<string, {
       { title: "Rapid Iteration", description: "Fast feedback and improvements", icon: Clock },
     ],
     caseStudies: [
-      { title: "Banking App Redesign", description: "Redesigned mobile banking for major bank", result: "60% improvement in task completion", image: "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=600&h=800&fit=crop" },
-      { title: "SaaS Dashboard", description: "Designed analytics platform dashboard", result: "45% reduction in support tickets", image: "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?w=600&h=800&fit=crop" },
+      { title: "Banking App Redesign", description: "Redesigned mobile banking for major bank", result: "60% improvement in task completion", image: "https://images.unsplash.com/photo-1559028012-481c04fa702d?w=600&h=800&fit=crop" },
+      { title: "SaaS Dashboard", description: "Designed analytics platform dashboard", result: "45% reduction in support tickets", image: "https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=600&h=800&fit=crop" },
     ],
   },
   "digital-marketing": {
@@ -599,7 +653,7 @@ const ServicePage = () => {
               className="max-w-4xl mx-auto text-center"
             >
               <span className="inline-block text-sm font-semibold text-primary uppercase tracking-wider mb-4">
-                Our Services
+                {data.title}
               </span>
               <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
                 {data.hero}
@@ -618,7 +672,7 @@ const ServicePage = () => {
                   </Button>
                 </Link>
                 <Link to="/portfolio">
-                  <Button variant="outline" size="lg">
+                  <Button variant="outline" size="lg" className="border-foreground/20 text-foreground hover:bg-foreground/10">
                     View Our Work
                   </Button>
                 </Link>
@@ -760,10 +814,10 @@ const ServicePage = () => {
               </p>
             </motion.div>
             
-            {/* Timeline Process */}
+            {/* Improved Process Design */}
             <div className="relative">
               {/* Connection Line */}
-              <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-primary via-accent to-primary -translate-y-1/2" />
+              <div className="hidden lg:block absolute top-[3.5rem] left-[8%] right-[8%] h-0.5 bg-gradient-to-r from-primary via-accent to-primary" />
               
               <div className="grid md:grid-cols-2 lg:grid-cols-6 gap-6">
                 {data.process.map((step, index) => (
@@ -773,16 +827,24 @@ const ServicePage = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className="relative"
+                    className="relative text-center group"
                   >
-                    <div className="p-6 rounded-3xl bg-card border border-border hover:border-primary/30 hover:shadow-xl transition-all duration-300 h-full">
-                      {/* Step Number */}
-                      <div className="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center font-bold text-lg mb-4 mx-auto lg:mx-0">
-                        {step.step}
-                      </div>
-                      <h3 className="font-display font-bold text-lg mb-2 text-center lg:text-left">{step.title}</h3>
-                      <p className="text-sm text-muted-foreground text-center lg:text-left">{step.description}</p>
+                    {/* Step Number Circle */}
+                    <div className="relative z-10 w-14 h-14 rounded-2xl bg-primary text-white flex items-center justify-center font-bold text-lg mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform">
+                      {step.step}
                     </div>
+                    <div className="p-5 rounded-3xl bg-card border border-border hover:border-primary/30 hover:shadow-xl transition-all duration-300">
+                      <h3 className="font-display font-bold text-lg mb-2">{step.title}</h3>
+                      <p className="text-sm text-muted-foreground">{step.description}</p>
+                    </div>
+                    {/* Arrow connector */}
+                    {index < data.process.length - 1 && (
+                      <div className="hidden lg:block absolute top-[1.75rem] -right-3 z-20">
+                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
+                          <path d="M2 2L10 6L2 10" fill="hsl(var(--primary))" />
+                        </svg>
+                      </div>
+                    )}
                   </motion.div>
                 ))}
               </div>

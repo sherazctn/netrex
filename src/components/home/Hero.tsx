@@ -1,8 +1,9 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowRight, Play, CheckCircle2 } from "lucide-react";
+import { ArrowRight, Play, Crown } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
+import netrexLogo from "@/assets/netrex-logo.png";
 
 const features = [
   "hero.feature1",
@@ -43,7 +44,6 @@ const techLogos = {
   ],
 };
 
-// Animation paths for bouncing logos
 const bouncePaths = [
   { startAngle: 0, direction: 1 },
   { startAngle: 90, direction: -1 },
@@ -55,13 +55,10 @@ export function Hero() {
   const { t } = useLanguage();
   const { scrollY } = useScroll();
   
-  // Parallax and animation values based on scroll
-  const y1 = useTransform(scrollY, [0, 500], [0, 150]);
   const y2 = useTransform(scrollY, [0, 500], [0, -100]);
   const rotate = useTransform(scrollY, [0, 500], [0, 180]);
   const scale = useTransform(scrollY, [0, 300], [1, 0.9]);
 
-  // Get a random tech from each category for the bouncing animation
   const categories = ['web', 'mobile', 'cloud', 'design'] as const;
 
   return (
@@ -77,26 +74,39 @@ export function Hero() {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left Content */}
           <div>
-            {/* Badge */}
+            {/* Badge with Crown + Platform Logos */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-white border border-border mb-8 shadow-sm"
+              className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-white border border-border mb-8 shadow-sm"
             >
-              <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+              <motion.div
+                animate={{ 
+                  rotate: [0, -10, 10, -10, 0],
+                  scale: [1, 1.1, 1, 1.1, 1]
+                }}
+                transition={{ duration: 2, repeat: Infinity, repeatDelay: 1 }}
+              >
+                <Crown className="h-5 w-5 text-amber-500 fill-amber-500" />
+              </motion.div>
               <span className="text-sm font-medium text-foreground">{t('hero.badge')}</span>
+              <div className="flex items-center gap-1.5 border-l border-border pl-3">
+                <img src="https://cdn.simpleicons.org/upwork/6FDA44" alt="Upwork" className="h-4 w-4" />
+                <img src="https://cdn.simpleicons.org/fiverr/1DBF73" alt="Fiverr" className="h-4 w-4" />
+                <img src="https://cdn.simpleicons.org/clutch/FF3D2E" alt="Clutch" className="h-4 w-4" />
+              </div>
             </motion.div>
 
-            {/* Headline - Smaller text with outlined Innovation */}
+            {/* Creative Tagline */}
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
               className="font-display text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold leading-[1.1] mb-6"
             >
-              {t('hero.title.where')}{" "}
-              <span className="text-transparent bg-clip-text stroke-text-primary" style={{
+              NETREX — Where{" "}
+              <span className="text-transparent" style={{
                 WebkitTextStroke: '2px hsl(359 85% 53%)',
                 WebkitTextFillColor: 'transparent'
               }}>
@@ -127,7 +137,9 @@ export function Hero() {
             >
               {features.map((feature, index) => (
                 <div key={index} className="flex items-center gap-3">
-                  <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0" />
+                  <div className="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                    <div className="w-2 h-2 rounded-full bg-primary" />
+                  </div>
                   <span className="text-foreground/80">{t(feature)}</span>
                 </div>
               ))}
@@ -155,7 +167,7 @@ export function Hero() {
             </motion.div>
           </div>
 
-          {/* Right Content - Tech Stack Animation */}
+          {/* Right Content - Tech Stack Animation with RED circle */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -170,16 +182,17 @@ export function Hero() {
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                {/* Outer rotating ring */}
+                {/* Outer rotating RED ring */}
                 <motion.g style={{ rotate, originX: "300px", originY: "300px" }}>
                   <circle
                     cx="300"
                     cy="300"
                     r="270"
-                    stroke="url(#heroGradient1)"
-                    strokeWidth="1.5"
+                    stroke="hsl(359 85% 53%)"
+                    strokeWidth="2"
                     strokeDasharray="10 15"
                     fill="none"
+                    opacity="0.6"
                   />
                   {/* Data nodes on outer ring */}
                   {[0, 45, 90, 135, 180, 225, 270, 315].map((angle, i) => {
@@ -206,22 +219,22 @@ export function Hero() {
                   })}
                 </motion.g>
 
-                {/* Middle hexagon */}
+                {/* Middle hexagon - RED stroke */}
                 <motion.g style={{ y: y2 }}>
                   <motion.polygon
                     points="300,100 460,200 460,400 300,500 140,400 140,200"
-                    stroke="url(#heroGradient2)"
+                    stroke="hsl(359 85% 53% / 0.3)"
                     strokeWidth="2"
                     fill="none"
                     animate={{ 
                       scale: [1, 1.02, 1],
-                      opacity: [0.6, 1, 0.6]
+                      opacity: [0.4, 0.8, 0.4]
                     }}
                     transition={{ duration: 3, repeat: Infinity }}
                   />
                 </motion.g>
 
-                {/* Inner rotating ring with tech logos orbit */}
+                {/* Inner rotating RED ring */}
                 <motion.g
                   animate={{ rotate: -360 }}
                   transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
@@ -231,35 +244,37 @@ export function Hero() {
                     cx="300"
                     cy="300"
                     r="180"
-                    stroke="url(#heroGradient1)"
+                    stroke="hsl(359 85% 53%)"
                     strokeWidth="2"
                     strokeDasharray="20 10"
                     fill="none"
+                    opacity="0.5"
                   />
                 </motion.g>
 
-                {/* Center core with glow */}
+                {/* Center core - RED circle with N icon from logo */}
                 <motion.g
                   animate={{ scale: [1, 1.05, 1] }}
                   transition={{ duration: 4, repeat: Infinity }}
                 >
-                  <circle cx="300" cy="300" r="100" fill="url(#heroGradient3)" opacity="0.4" />
+                  {/* Glow */}
+                  <circle cx="300" cy="300" r="100" fill="hsl(359 85% 53% / 0.15)" />
+                  {/* Red outer ring */}
+                  <circle cx="300" cy="300" r="90" stroke="hsl(359 85% 53%)" strokeWidth="3" fill="none" opacity="0.6" />
+                  {/* Background */}
                   <circle cx="300" cy="300" r="85" fill="hsl(var(--background))" />
-                  <circle cx="300" cy="300" r="75" fill="url(#heroGradient4)" />
+                  {/* Red gradient fill */}
+                  <circle cx="300" cy="300" r="75" fill="url(#heroGradientRed)" />
                   
-                  {/* NETREX N in center */}
-                  <motion.text
-                    x="300"
-                    y="315"
-                    textAnchor="middle"
-                    className="font-display font-bold"
-                    fill="white"
-                    fontSize="48"
-                    animate={{ opacity: [0.8, 1, 0.8] }}
-                    transition={{ duration: 2, repeat: Infinity }}
-                  >
-                    N
-                  </motion.text>
+                  {/* Netrex N Logo in center */}
+                  <image
+                    href={netrexLogo}
+                    x="265"
+                    y="265"
+                    width="70"
+                    height="70"
+                    style={{ filter: 'brightness(0) invert(1)' }}
+                  />
                 </motion.g>
 
                 {/* Bouncing Tech Logos - 4 at a time from different angles */}
@@ -268,7 +283,6 @@ export function Hero() {
                   const path = bouncePaths[categoryIndex];
                   
                   return logos.map((tech, techIndex) => {
-                    // Calculate bounce trajectory
                     const baseAngle = path.startAngle + (techIndex * 60);
                     const delay = categoryIndex * 0.8 + techIndex * 3;
                     
@@ -317,7 +331,7 @@ export function Hero() {
                             cy="300"
                             r="28"
                             fill="hsl(var(--background))"
-                            stroke="url(#heroGradient1)"
+                            stroke="hsl(359 85% 53% / 0.4)"
                             strokeWidth="2"
                           />
                           <image
@@ -351,7 +365,7 @@ export function Hero() {
                         animate={{ scale: [1, 1.2, 1], opacity: [0.7, 1, 0.7] }}
                         transition={{ duration: 2, repeat: Infinity, delay: i * 0.4 }}
                       >
-                        <circle cx={x} cy={y} r="24" fill="hsl(var(--background))" stroke="url(#heroGradient2)" strokeWidth="2" />
+                        <circle cx={x} cy={y} r="24" fill="hsl(var(--background))" stroke="hsl(359 85% 53% / 0.3)" strokeWidth="2" />
                         <image
                           href={tech.logo}
                           x={x - 14}
@@ -377,7 +391,7 @@ export function Hero() {
                       y1={y1}
                       x2={x2}
                       y2={y2}
-                      stroke="url(#heroGradient2)"
+                      stroke="hsl(359 85% 53% / 0.3)"
                       strokeWidth="2"
                       strokeDasharray="6 6"
                       animate={{ 
@@ -419,41 +433,39 @@ export function Hero() {
 
                 {/* Gradient definitions */}
                 <defs>
-                  <linearGradient id="heroGradient1" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <radialGradient id="heroGradientRed" cx="50%" cy="50%" r="50%">
                     <stop offset="0%" stopColor="hsl(359 85% 53%)" />
-                    <stop offset="100%" stopColor="hsl(196 76% 44%)" />
-                  </linearGradient>
-                  <linearGradient id="heroGradient2" x1="0%" y1="0%" x2="100%" y2="0%">
-                    <stop offset="0%" stopColor="hsl(196 76% 44%)" />
-                    <stop offset="100%" stopColor="hsl(217 95% 18%)" />
-                  </linearGradient>
-                  <radialGradient id="heroGradient3" cx="50%" cy="50%" r="50%">
-                    <stop offset="0%" stopColor="hsl(359 85% 53% / 0.4)" />
-                    <stop offset="100%" stopColor="hsl(196 76% 44% / 0.1)" />
-                  </radialGradient>
-                  <radialGradient id="heroGradient4" cx="50%" cy="50%" r="50%">
-                    <stop offset="0%" stopColor="hsl(359 85% 53%)" />
-                    <stop offset="100%" stopColor="hsl(217 95% 18%)" />
+                    <stop offset="100%" stopColor="hsl(359 85% 40%)" />
                   </radialGradient>
                 </defs>
               </svg>
             </div>
 
-            {/* Floating Badge */}
+            {/* Floating Badge - Crown + Logos */}
             <motion.div
               initial={{ opacity: 0, scale: 0 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.8 }}
               className="absolute -bottom-4 -left-4 md:-left-8 bg-card border border-border rounded-full p-4 shadow-lg flex items-center gap-3"
             >
-              <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center">
-                <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                </svg>
+              <div className="w-12 h-12 rounded-full bg-amber-100 flex items-center justify-center">
+                <motion.div
+                  animate={{ 
+                    rotate: [0, -10, 10, -10, 0],
+                    scale: [1, 1.15, 1, 1.15, 1]
+                  }}
+                  transition={{ duration: 2, repeat: Infinity, repeatDelay: 1 }}
+                >
+                  <Crown className="w-6 h-6 text-amber-500 fill-amber-500" />
+                </motion.div>
               </div>
               <div>
                 <div className="font-semibold text-foreground">Top Rated</div>
-                <div className="text-sm text-muted-foreground">Upwork & Clutch</div>
+                <div className="text-sm text-muted-foreground flex items-center gap-1.5">
+                  <img src="https://cdn.simpleicons.org/upwork/6FDA44" alt="Upwork" className="h-3.5 w-3.5" />
+                  <img src="https://cdn.simpleicons.org/fiverr/1DBF73" alt="Fiverr" className="h-3.5 w-3.5" />
+                  <img src="https://cdn.simpleicons.org/clutch/FF3D2E" alt="Clutch" className="h-3.5 w-3.5" />
+                </div>
               </div>
             </motion.div>
           </motion.div>
