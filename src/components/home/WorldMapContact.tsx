@@ -195,20 +195,35 @@ export function WorldMapContact() {
                   </div>
                 </div>
 
-                {/* Custom Red Marker Overlay */}
+                {/* Custom Netrex N Marker with Pulsating Effect */}
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-full pointer-events-none z-10">
                   <motion.div
-                    animate={{ y: [0, -10, 0] }}
+                    animate={{ y: [0, -8, 0] }}
                     transition={{ duration: 1.5, repeat: Infinity }}
                   >
-                    <svg width="40" height="50" viewBox="0 0 40 50" fill="none">
-                      <path
-                        d="M20 0C8.954 0 0 8.954 0 20c0 15 20 30 20 30s20-15 20-30C40 8.954 31.046 0 20 0z"
-                        fill="hsl(359 85% 53%)"
+                    <div className="relative">
+                      {/* Pulsating ring */}
+                      <motion.div
+                        className="absolute -inset-3 rounded-full bg-primary/20"
+                        animate={{ scale: [1, 1.8, 1], opacity: [0.6, 0, 0.6] }}
+                        transition={{ duration: 2, repeat: Infinity }}
                       />
-                      <circle cx="20" cy="18" r="8" fill="white" />
-                      <text x="20" y="22" textAnchor="middle" fill="hsl(359 85% 53%)" fontSize="10" fontWeight="bold">N</text>
-                    </svg>
+                      <motion.div
+                        className="absolute -inset-2 rounded-full bg-primary/30"
+                        animate={{ scale: [1, 1.5, 1], opacity: [0.8, 0, 0.8] }}
+                        transition={{ duration: 2, repeat: Infinity, delay: 0.3 }}
+                      />
+                      <svg width="44" height="54" viewBox="0 0 44 54" fill="none">
+                        <path
+                          d="M22 0C9.85 0 0 9.85 0 22c0 16.5 22 32 22 32s22-15.5 22-32C44 9.85 34.15 0 22 0z"
+                          fill="hsl(359 85% 53%)"
+                        />
+                        {/* White circle bg */}
+                        <circle cx="22" cy="20" r="10" fill="white" />
+                        {/* N letter */}
+                        <text x="22" y="25" textAnchor="middle" fill="hsl(359 85% 53%)" fontSize="14" fontWeight="bold" fontFamily="Inter, sans-serif">N</text>
+                      </svg>
+                    </div>
                   </motion.div>
                 </div>
               </motion.div>
@@ -313,9 +328,9 @@ export function WorldMapContact() {
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       className="bg-background/10 border-background/20 text-background placeholder:text-background/40 min-h-[120px] rounded-2xl resize-none"
                     />
-                    <Button variant="hero" size="lg" className="w-full group">
+                    <Button variant="hero" size="lg" className="w-full group text-base">
                       {t('contact.form.submit')}
-                      <Send className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                      <Send className="h-5 w-5 transition-transform group-hover:translate-x-1" />
                     </Button>
                   </form>
                 </div>

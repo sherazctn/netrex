@@ -1,10 +1,22 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, Globe, Smartphone, Palette, Megaphone, Layers, ShoppingCart, Bot, Search, Cloud } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { LanguageSwitcher } from "@/components/ui/LanguageSwitcher";
 import netrexLogo from "@/assets/netrex-logo.png";
+
+const serviceIcons: Record<string, typeof Globe> = {
+  "Web Development": Globe,
+  "Mobile App Development": Smartphone,
+  "UI/UX Design": Palette,
+  "Digital Marketing": Megaphone,
+  "Branding": Layers,
+  "E-Commerce": ShoppingCart,
+  "AI & Automation": Bot,
+  "GEO": Search,
+  "Cloud Solutions": Cloud,
+};
 
 const navLinks = [
   { name: "Home", href: "/" },
@@ -93,7 +105,7 @@ export function Header() {
                   )}
                 </Link>
 
-                {/* Dropdown Menu */}
+                {/* Dropdown Menu with Icons */}
                 <AnimatePresence>
                   {link.dropdown && activeDropdown === link.name && (
                     <motion.div
@@ -101,17 +113,23 @@ export function Header() {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: 10 }}
                       transition={{ duration: 0.2 }}
-                      className="absolute top-full left-0 mt-2 w-56 bg-card rounded-2xl shadow-xl border border-border overflow-hidden"
+                      className="absolute top-full left-0 mt-2 w-64 bg-card rounded-2xl shadow-xl border border-border overflow-hidden"
                     >
-                      {link.dropdown.map((item) => (
-                        <Link
-                          key={item.name}
-                          to={item.href}
-                          className="block px-4 py-3 text-sm text-foreground/80 hover:bg-secondary hover:text-primary transition-colors"
-                        >
-                          {item.name}
-                        </Link>
-                      ))}
+                      {link.dropdown.map((item) => {
+                        const IconComp = serviceIcons[item.name] || Globe;
+                        return (
+                          <Link
+                            key={item.name}
+                            to={item.href}
+                            className="flex items-center gap-3 px-4 py-3 text-sm text-foreground/80 hover:bg-secondary hover:text-primary transition-colors group"
+                          >
+                            <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:scale-110 transition-all">
+                              <IconComp className="h-4 w-4 text-primary group-hover:text-white transition-colors" />
+                            </div>
+                            {item.name}
+                          </Link>
+                        );
+                      })}
                     </motion.div>
                   )}
                 </AnimatePresence>
@@ -178,15 +196,19 @@ export function Header() {
                     </Link>
                     {link.dropdown && (
                       <div className="pl-4 space-y-2 mt-2">
-                        {link.dropdown.map((item) => (
-                          <Link
-                            key={item.name}
-                            to={item.href}
-                            className="block py-2 px-4 text-sm text-muted-foreground hover:text-primary hover:bg-secondary rounded-full transition-colors"
-                          >
-                            {item.name}
-                          </Link>
-                        ))}
+                        {link.dropdown.map((item) => {
+                          const IconComp = serviceIcons[item.name] || Globe;
+                          return (
+                            <Link
+                              key={item.name}
+                              to={item.href}
+                              className="flex items-center gap-3 py-2 px-4 text-sm text-muted-foreground hover:text-primary hover:bg-secondary rounded-full transition-colors"
+                            >
+                              <IconComp className="h-4 w-4 text-primary" />
+                              {item.name}
+                            </Link>
+                          );
+                        })}
                       </div>
                     )}
                   </motion.div>
