@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowRight, Play, Crown } from "lucide-react";
+import { ArrowRight, Play, Crown, Globe } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -130,7 +130,7 @@ export function Hero() {
               repeat: Infinity,
               repeatDelay: 1
             }}>
-                <Crown className="h-5 w-5 text-amber-500 fill-amber-500" />
+                <Globe className="h-5 w-5 fill-amber-500 text-white" />
               </motion.div>
               <span className="text-sm font-medium text-foreground">{t('hero.badge')}</span>
               
