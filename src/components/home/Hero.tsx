@@ -437,8 +437,8 @@ export function Hero() {
                 <div className="font-semibold text-foreground">Top Rated</div>
                 <div className="text-sm text-muted-foreground flex items-center gap-1.5">
                   <img src="https://cdn.simpleicons.org/upwork/6FDA44" alt="Upwork" className="h-3.5 w-3.5" />
-                  <img src="https://cdn.simpleicons.org/fiverr/1DBF73" alt="Fiverr" className="h-3.5 w-3.5" />
-                  <img alt="Clutch" className="h-3.5 w-3.5 object-contain" src="/lovable-uploads/b4f23e2d-58c5-4257-b6f0-79ae32ba36fe.png" />
+                  <img alt="Fiverr" className="h-3.5 w-3.5 object-contain" src="/lovable-uploads/651e2013-4e21-40f3-94d8-84fcdfe29eff.png" />
+                  <img alt="Clutch" className="h-3.5 w-3.5 object-contain" src="/lovable-uploads/ced4b15c-5f92-4389-8b5a-d1a1565a8cea.jpg" />
                 </div>
               </div>
             </motion.div>
