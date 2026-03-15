@@ -6,7 +6,6 @@ import { IndustriesCarousel } from "@/components/home/IndustriesCarousel";
 import { Portfolio } from "@/components/home/Portfolio";
 import { WhyNetrex } from "@/components/home/WhyNetrex";
 import { WorldMapContact } from "@/components/home/WorldMapContact";
-import { ClientLogos } from "@/components/home/ClientLogos";
 import { BrandsWeWork } from "@/components/home/BrandsWeWork";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 
