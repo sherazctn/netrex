@@ -98,8 +98,8 @@ const awards = [
   { title: "Top Developer", platform: "Clutch", year: "2024", logo: "https://cdn.simpleicons.org/clutch/FF3D2E" },
   { title: "Agency Partner", platform: "Google Developers", year: "2023", logo: "https://cdn.simpleicons.org/google/4285F4" },
   { title: "Level 2 Seller", platform: "Fiverr", year: "2024", logo: "https://cdn.simpleicons.org/fiverr/1DBF73" },
-  { title: "Rising Star", platform: "DesignRush", year: "2023", logo: "https://cdn.simpleicons.org/designernews/2D72D9" },
-  { title: "Best Web Agency", platform: "GoodFirms", year: "2024", logo: "https://cdn.simpleicons.org/goodreads/372213" },
+  { title: "Rising Star", platform: "DesignRush", year: "2023", logo: "https://cdn.simpleicons.org/dribbble/EA4C89" },
+  { title: "Best Web Agency", platform: "GoodFirms", year: "2024", logo: "https://cdn.simpleicons.org/g2/FF492C" },
 ];
 
 const certifications = [
