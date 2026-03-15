@@ -98,8 +98,8 @@ const awards = [
   { title: "Top Developer", platform: "Clutch", year: "2024", logo: "https://cdn.simpleicons.org/clutch/FF3D2E" },
   { title: "Agency Partner", platform: "Google Developers", year: "2023", logo: "https://cdn.simpleicons.org/google/4285F4" },
   { title: "Level 2 Seller", platform: "Fiverr", year: "2024", logo: "https://cdn.simpleicons.org/fiverr/1DBF73" },
-  { title: "Rising Star", platform: "DesignRush", year: "2023", logo: "https://cdn.simpleicons.org/designernews/2D72D9" },
-  { title: "Best Web Agency", platform: "GoodFirms", year: "2024", logo: "https://cdn.simpleicons.org/goodreads/372213" },
+  { title: "Rising Star", platform: "DesignRush", year: "2023", logo: "https://cdn.simpleicons.org/dribbble/EA4C89" },
+  { title: "Best Web Agency", platform: "GoodFirms", year: "2024", logo: "https://cdn.simpleicons.org/g2/FF492C" },
 ];
 
 const certifications = [
@@ -260,12 +260,13 @@ const About = () => {
         {/* Our Story with Improved Timeline */}
         <section className="section-padding bg-secondary/30">
           <div className="container-wide">
-            <div className="grid lg:grid-cols-2 gap-12 items-start">
+            <div className="grid lg:grid-cols-2 gap-12 items-stretch">
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
+                className="flex flex-col"
               >
                 <span className="inline-block text-sm font-semibold text-primary uppercase tracking-wider mb-4">
                   Our Journey
@@ -273,20 +274,34 @@ const About = () => {
                 <h2 className="font-display text-3xl md:text-4xl font-bold mb-6">
                   Our <span className="text-primary">Story</span>
                 </h2>
-                <div className="space-y-4 text-muted-foreground">
+                <div className="space-y-4 text-muted-foreground flex-1">
                   <p>
                     NETREX was founded in 2016 with a simple mission: to help businesses thrive in the digital age. 
                     What started as a small team in Dubai has grown into a global digital agency with offices 
-                    across six countries.
+                    across six countries, serving clients from startups to Fortune 500 enterprises.
                   </p>
                   <p>
                     Our journey has been marked by continuous innovation, unwavering commitment to quality, 
                     and a passion for creating digital experiences that make a difference. We've had the 
-                    privilege of working with startups, SMEs, and Fortune 500 companies alike.
+                    privilege of working with startups, SMEs, and Fortune 500 companies alike — delivering 
+                    over 500 successful projects across web development, mobile apps, AI, cloud, and digital marketing.
+                  </p>
+                  <p>
+                    From building cutting-edge e-commerce platforms in Dubai to launching AI-powered solutions 
+                    for clients in New York, our team combines deep technical expertise with creative thinking. 
+                    We believe that technology should empower businesses, not complicate them — and every solution 
+                    we build reflects that philosophy.
                   </p>
                   <p>
                     Today, we're proud to be recognized as a top-rated agency on platforms like Clutch and Upwork, 
-                    and to be part of the Google Developers Agency Program.
+                    and to be part of the Google Developers Agency Program. Our global presence across Dubai, 
+                    New York, London, Vancouver, Brisbane, and Lahore enables us to offer 24/7 support and 
+                    culturally aware solutions to clients worldwide.
+                  </p>
+                  <p>
+                    As we look to the future, we're investing heavily in AI, machine learning, and next-generation 
+                    cloud technologies — ensuring our clients are always ahead of the curve. Whether you need a 
+                    simple website or a complex enterprise platform, NETREX is your partner in digital transformation.
                   </p>
                 </div>
               </motion.div>
