@@ -130,10 +130,15 @@ export function Hero() {
               repeat: Infinity,
               repeatDelay: 1
             }}>
-                <Globe className="h-5 w-5 fill-amber-500 text-white" />
+                <Crown className="h-5 w-5 fill-amber-500 text-amber-500" />
               </motion.div>
               <span className="text-sm font-medium text-foreground">{t('hero.badge')}</span>
-              
+              <div className="flex items-center gap-1.5 ml-1">
+                <img src="https://cdn.simpleicons.org/upwork/6FDA44" alt="Upwork" className="h-3.5 w-3.5" />
+                <img alt="Fiverr" className="h-3.5 w-3.5 object-contain" src="/lovable-uploads/651e2013-4e21-40f3-94d8-84fcdfe29eff.png" />
+                <img alt="Clutch" className="h-3.5 w-3.5 object-contain" src="/lovable-uploads/ced4b15c-5f92-4389-8b5a-d1a1565a8cea.jpg" />
+                <img src="https://cdn.simpleicons.org/goodreads/372213" alt="GoodFirms" className="h-3.5 w-3.5" />
+              </div>
             </motion.div>
 
             {/* Creative Tagline */}
@@ -147,7 +152,7 @@ export function Hero() {
             duration: 0.6,
             delay: 0.1
           }} className="font-display text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold leading-[1.1] mb-6">
-              NETREX — Where{" "}
+              Where{" "}
               <span className="text-transparent" style={{
               WebkitTextStroke: '2px hsl(359 85% 53%)',
               WebkitTextFillColor: 'transparent'
@@ -159,6 +164,20 @@ export function Hero() {
             </motion.h1>
 
             {/* Description */}
+            {/* Subtitle */}
+            <motion.p initial={{
+            opacity: 0,
+            y: 20
+          }} animate={{
+            opacity: 1,
+            y: 0
+          }} transition={{
+            duration: 0.5,
+            delay: 0.15
+          }} className="text-lg md:text-xl font-semibold text-primary mb-4">
+              NETREX: Global IT & Digital Agency
+            </motion.p>
+
             <motion.p initial={{
             opacity: 0,
             y: 30

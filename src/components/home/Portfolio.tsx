@@ -95,7 +95,7 @@ export function Portfolio() {
   };
 
   return (
-    <section className="section-padding bg-secondary/30">
+    <section className="pt-12 pb-20 bg-secondary/30">
       <div className="container-wide">
         {/* Section Header */}
         <motion.div
