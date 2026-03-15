@@ -130,7 +130,7 @@ export function Hero() {
               repeat: Infinity,
               repeatDelay: 1
             }}>
-                <Globe className="h-5 w-5 fill-amber-500 text-white" />
+                <Crown className="h-5 w-5 fill-amber-500 text-amber-500" />
               </motion.div>
               <span className="text-sm font-medium text-foreground">{t('hero.badge')}</span>
               
