@@ -666,13 +666,13 @@ const ServicePage = () => {
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <Link to="/contact">
-                  <Button variant="hero" size="lg" className="group">
+                  <Button size="lg" className="group bg-primary hover:bg-primary/90 text-white rounded-full shadow-lg hover:shadow-xl">
                     Start Your Project
                     <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
                   </Button>
                 </Link>
                 <Link to="/portfolio">
-                  <Button variant="outline" size="lg" className="border-foreground/20 text-foreground hover:bg-foreground/10">
+                  <Button variant="outline" size="lg" className="rounded-full">
                     View Our Work
                   </Button>
                 </Link>
