@@ -797,57 +797,61 @@ const ServicePage = () => {
         </section>
 
         {/* Improved Process Section */}
-        <section className="section-padding">
+        <section className="section-padding bg-foreground text-background">
           <div className="container-wide">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="text-center mb-12"
+              className="text-center mb-16"
             >
+              <span className="inline-block text-sm font-semibold text-primary uppercase tracking-wider mb-4">
+                How We Work
+              </span>
               <h2 className="font-display text-3xl md:text-4xl font-bold mb-4">
                 Our <span className="text-primary">Process</span>
               </h2>
-              <p className="text-muted-foreground max-w-2xl mx-auto">
+              <p className="text-background/60 max-w-2xl mx-auto">
                 A proven methodology that delivers results every time
               </p>
             </motion.div>
             
-            {/* Improved Process Design */}
-            <div className="relative">
-              {/* Connection Line */}
-              <div className="hidden lg:block absolute top-[3.5rem] left-[8%] right-[8%] h-0.5 bg-gradient-to-r from-primary via-accent to-primary" />
+            <div className="relative max-w-4xl mx-auto">
+              {/* Vertical line */}
+              <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-primary/50 to-primary/20 md:-translate-x-px" />
               
-              <div className="grid md:grid-cols-2 lg:grid-cols-6 gap-6">
-                {data.process.map((step, index) => (
-                  <motion.div
-                    key={step.step}
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className="relative text-center group"
-                  >
-                    {/* Step Number Circle */}
-                    <div className="relative z-10 w-14 h-14 rounded-2xl bg-primary text-white flex items-center justify-center font-bold text-lg mx-auto mb-4 shadow-lg group-hover:scale-110 transition-transform">
+              {data.process.map((step, index) => (
+                <motion.div
+                  key={step.step}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className={`relative flex items-start gap-6 mb-10 last:mb-0 ${
+                    index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
+                  }`}
+                >
+                  {/* Content card */}
+                  <div className={`flex-1 ml-16 md:ml-0 ${index % 2 === 0 ? 'md:text-right md:pr-12' : 'md:text-left md:pl-12'}`}>
+                    <div className="p-6 rounded-2xl bg-background/5 border border-background/10 hover:border-primary/30 hover:bg-background/10 transition-all duration-300">
+                      <div className="text-xs font-bold text-primary mb-1 uppercase tracking-wider">Step {step.step}</div>
+                      <h3 className="font-display font-bold text-xl mb-2 text-background">{step.title}</h3>
+                      <p className="text-sm text-background/60">{step.description}</p>
+                    </div>
+                  </div>
+                  
+                  {/* Center circle */}
+                  <div className="absolute left-0 md:left-1/2 md:-translate-x-1/2 z-10">
+                    <div className="w-12 h-12 rounded-full bg-primary text-white flex items-center justify-center font-bold text-lg shadow-lg shadow-primary/30">
                       {step.step}
                     </div>
-                    <div className="p-5 rounded-3xl bg-card border border-border hover:border-primary/30 hover:shadow-xl transition-all duration-300">
-                      <h3 className="font-display font-bold text-lg mb-2">{step.title}</h3>
-                      <p className="text-sm text-muted-foreground">{step.description}</p>
-                    </div>
-                    {/* Arrow connector */}
-                    {index < data.process.length - 1 && (
-                      <div className="hidden lg:block absolute top-[1.75rem] -right-3 z-20">
-                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none">
-                          <path d="M2 2L10 6L2 10" fill="hsl(var(--primary))" />
-                        </svg>
-                      </div>
-                    )}
-                  </motion.div>
-                ))}
-              </div>
+                  </div>
+                  
+                  {/* Spacer for the other side */}
+                  <div className="hidden md:block flex-1" />
+                </motion.div>
+              ))}
             </div>
           </div>
         </section>

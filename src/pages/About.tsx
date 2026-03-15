@@ -195,6 +195,9 @@ const About = () => {
           </div>
         </section>
 
+        {/* Client Logos */}
+        <ClientLogos />
+
         {/* Awards & Certifications */}
         <section className="section-padding">
           <div className="container-wide">
