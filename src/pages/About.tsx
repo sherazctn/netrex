@@ -149,7 +149,7 @@ const About = () => {
                 </p>
                 <div className="flex flex-wrap gap-4">
                   <Link to="/contact">
-                    <Button variant="hero" size="lg" className="group">
+                    <Button size="lg" className="group bg-primary text-primary-foreground hover:bg-primary/90">
                       Work With Us
                       <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
                     </Button>
