@@ -98,7 +98,7 @@ const awards = [
   { title: "Top Rated Plus", platform: "Upwork", year: "2024", logo: "https://cdn.simpleicons.org/upwork/6FDA44" },
   { title: "Top Developer", platform: "Clutch", year: "2024", logo: "/lovable-uploads/23f9b75e-d0f6-430d-820a-f59173969efa.png" },
   { title: "Agency Partner", platform: "Google Developers", year: "2023", logo: "https://cdn.simpleicons.org/google/4285F4" },
-  { title: "Level 2 Seller", platform: "Fiverr", year: "2024", logo: "https://cdn.simpleicons.org/fiverr/1DBF73" },
+  { title: "Top Rated Seller", platform: "Fiverr", year: "2024", logo: "https://cdn.simpleicons.org/fiverr/1DBF73" },
   { title: "Rising Star", platform: "DesignRush", year: "2023", logo: "https://cdn.simpleicons.org/dribbble/EA4C89" },
   { title: "Best Web Agency", platform: "GoodFirms", year: "2024", logo: "https://cdn.simpleicons.org/g2/FF492C" },
 ];
