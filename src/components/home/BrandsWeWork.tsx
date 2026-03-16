@@ -1,44 +1,58 @@
 import { motion } from "framer-motion";
+import type { SyntheticEvent } from "react";
 
-const brands = [
-  // NETREX Clients
-  { name: "Denefits", logo: "https://logo.clearbit.com/denefits.com" },
-  { name: "PropertyFinder", logo: "https://logo.clearbit.com/propertyfinder.ae" },
-  { name: "Bayut", logo: "https://logo.clearbit.com/bayut.com" },
-  { name: "Careem", logo: "https://logo.clearbit.com/careem.com" },
-  { name: "Emirates NBD", logo: "https://logo.clearbit.com/emiratesnbd.com" },
-  { name: "Etisalat", logo: "https://logo.clearbit.com/etisalat.ae" },
-  // Pakistan Brands
-  { name: "Jazz", logo: "https://logo.clearbit.com/jazz.com.pk" },
-  { name: "Telenor PK", logo: "https://logo.clearbit.com/telenor.com" },
-  { name: "HBL", logo: "https://logo.clearbit.com/hbl.com" },
-  { name: "Foodpanda", logo: "https://logo.clearbit.com/foodpanda.com" },
-  { name: "Daraz", logo: "https://logo.clearbit.com/daraz.pk" },
-  { name: "Zameen", logo: "https://logo.clearbit.com/zameen.com" },
-  // Dubai Brands
-  { name: "DEWA", logo: "https://logo.clearbit.com/dewa.gov.ae" },
-  { name: "Emaar", logo: "https://logo.clearbit.com/emaar.com" },
-  { name: "Noon", logo: "https://logo.clearbit.com/noon.com" },
-  { name: "Talabat", logo: "https://logo.clearbit.com/talabat.com" },
-  { name: "Majid Al Futtaim", logo: "https://logo.clearbit.com/majidalfuttaim.com" },
-  { name: "Dubai Holding", logo: "https://logo.clearbit.com/dubaiholding.com" },
-  // London Brands
-  { name: "Deliveroo", logo: "https://logo.clearbit.com/deliveroo.co.uk" },
-  { name: "Revolut", logo: "https://logo.clearbit.com/revolut.com" },
-  { name: "Wise", logo: "https://logo.clearbit.com/wise.com" },
-  { name: "Monzo", logo: "https://logo.clearbit.com/monzo.com" },
-  // Sydney Brands
-  { name: "Canva", logo: "https://logo.clearbit.com/canva.com" },
-  { name: "Atlassian", logo: "https://logo.clearbit.com/atlassian.com" },
-  // Vancouver Brands
-  { name: "Slack", logo: "https://logo.clearbit.com/slack.com" },
-  { name: "Hootsuite", logo: "https://logo.clearbit.com/hootsuite.com" },
-  // Other
-  { name: "Shopify", logo: "https://logo.clearbit.com/shopify.com" },
-  { name: "Stripe", logo: "https://logo.clearbit.com/stripe.com" },
-  { name: "HubSpot", logo: "https://logo.clearbit.com/hubspot.com" },
-  { name: "Zendesk", logo: "https://logo.clearbit.com/zendesk.com" },
+type Brand = {
+  name: string;
+  domain: string;
+};
+
+const brands: Brand[] = [
+  { name: "Denefits", domain: "denefits.com" },
+  { name: "PropertyFinder", domain: "propertyfinder.ae" },
+  { name: "Bayut", domain: "bayut.com" },
+  { name: "Careem", domain: "careem.com" },
+  { name: "Emirates NBD", domain: "emiratesnbd.com" },
+  { name: "Etisalat", domain: "etisalat.ae" },
+  { name: "Jazz", domain: "jazz.com.pk" },
+  { name: "Telenor PK", domain: "telenor.com.pk" },
+  { name: "HBL", domain: "hbl.com" },
+  { name: "Foodpanda", domain: "foodpanda.com" },
+  { name: "Daraz", domain: "daraz.pk" },
+  { name: "Zameen", domain: "zameen.com" },
+  { name: "DEWA", domain: "dewa.gov.ae" },
+  { name: "Emaar", domain: "emaar.com" },
+  { name: "Noon", domain: "noon.com" },
+  { name: "Talabat", domain: "talabat.com" },
+  { name: "Majid Al Futtaim", domain: "majidalfuttaim.com" },
+  { name: "Dubai Holding", domain: "dubaiholding.com" },
+  { name: "Deliveroo", domain: "deliveroo.co.uk" },
+  { name: "Revolut", domain: "revolut.com" },
+  { name: "Wise", domain: "wise.com" },
+  { name: "Monzo", domain: "monzo.com" },
+  { name: "Canva", domain: "canva.com" },
+  { name: "Atlassian", domain: "atlassian.com" },
+  { name: "Slack", domain: "slack.com" },
+  { name: "Hootsuite", domain: "hootsuite.com" },
+  { name: "Shopify", domain: "shopify.com" },
+  { name: "Stripe", domain: "stripe.com" },
+  { name: "HubSpot", domain: "hubspot.com" },
+  { name: "Zendesk", domain: "zendesk.com" },
 ];
+
+const getPrimaryLogo = (domain: string) => `https://logo.clearbit.com/${domain}`;
+const getFallbackLogo = (domain: string) => `https://www.google.com/s2/favicons?sz=256&domain=${domain}`;
+
+const handleLogoError = (event: SyntheticEvent<HTMLImageElement>) => {
+  const image = event.currentTarget;
+  const fallbackLogo = image.dataset.fallback;
+
+  if (fallbackLogo && image.src !== fallbackLogo) {
+    image.src = fallbackLogo;
+    return;
+  }
+
+  image.src = "/placeholder.svg";
+};
 
 export function BrandsWeWork() {
   return (
@@ -75,8 +89,11 @@ export function BrandsWeWork() {
             >
               <div className="w-10 h-10 md:w-12 md:h-12 mb-2 flex items-center justify-center">
                 <img
-                  src={brand.logo}
+                  src={getPrimaryLogo(brand.domain)}
+                  data-fallback={getFallbackLogo(brand.domain)}
+                  onError={handleLogoError}
                   alt={brand.name}
+                  loading="lazy"
                   className="w-full h-full object-contain"
                 />
               </div>
@@ -90,3 +107,4 @@ export function BrandsWeWork() {
     </section>
   );
 }
+
