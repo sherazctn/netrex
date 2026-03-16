@@ -18,7 +18,7 @@ const Index = () => {
         <Services />
         <IndustriesCarousel />
         <Portfolio />
-        <BrandsWeWork />
+        
         <WhyNetrex />
         <WorldMapContact />
       </main>

@@ -198,6 +198,7 @@ const About = () => {
 
         {/* Client Logos */}
         <ClientLogos />
+        <BrandsWeWork />
 
         {/* Awards & Certifications */}
         <section className="section-padding">
