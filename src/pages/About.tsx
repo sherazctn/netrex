@@ -96,7 +96,7 @@ const milestones = [
 
 const awards = [
   { title: "Top Rated Plus", platform: "Upwork", year: "2024", logo: "https://cdn.simpleicons.org/upwork/6FDA44" },
-  { title: "Top Developer", platform: "Clutch", year: "2024", logo: "https://cdn.simpleicons.org/clutch/FF3D2E" },
+  { title: "Top Developer", platform: "Clutch", year: "2024", logo: "https://logo.clearbit.com/clutch.co" },
   { title: "Agency Partner", platform: "Google Developers", year: "2023", logo: "https://cdn.simpleicons.org/google/4285F4" },
   { title: "Level 2 Seller", platform: "Fiverr", year: "2024", logo: "https://cdn.simpleicons.org/fiverr/1DBF73" },
   { title: "Rising Star", platform: "DesignRush", year: "2023", logo: "https://cdn.simpleicons.org/dribbble/EA4C89" },
