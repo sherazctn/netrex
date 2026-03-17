@@ -7,100 +7,100 @@ import { useState } from "react";
 import { ArrowUpRight, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const categories = ["All", "Web", "Mobile", "E-Commerce", "Branding", "Marketing"];
+const categories = ["All", "Web", "E-Commerce", "Branding", "Marketing"];
 
-const technologies = ["All", "React", "WordPress", "Flutter", "Shopify", "Laravel", "Next.js"];
+const technologies = ["All", "React", "WordPress", "Wix", "Shopify", "Laravel"];
 
 const portfolioItems = [
   {
     id: 1,
-    title: "E-Commerce Fashion Platform",
-    category: "E-Commerce",
-    technology: "Shopify",
-    image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&h=400&fit=crop",
-    description: "Full-featured online store for luxury fashion brand",
-    result: "300% increase in sales",
-    industry: "Fashion"
-  },
-  {
-    id: 2,
-    title: "Healthcare Patient Portal",
+    title: "Emaar Serro 2",
     category: "Web",
     technology: "React",
-    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=600&h=400&fit=crop",
-    description: "Patient management system for healthcare provider",
-    result: "50% reduction in wait times",
-    industry: "Healthcare"
-  },
-  {
-    id: 3,
-    title: "Food Delivery App",
-    category: "Mobile",
-    technology: "Flutter",
-    image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600&h=400&fit=crop",
-    description: "On-demand food delivery platform",
-    result: "500K+ downloads",
-    industry: "Food & Restaurant"
-  },
-  {
-    id: 4,
-    title: "Real Estate Listings Platform",
-    category: "Web",
-    technology: "Next.js",
-    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&h=400&fit=crop",
-    description: "Property search and listing management",
+    image: "/portfolio/emaar-serro2.png",
+    description: "Premium real estate landing page for Emaar's Serro 2 villas in Dubai with interactive floor plans and payment calculator",
     result: "200% increase in leads",
     industry: "Real Estate"
   },
   {
+    id: 2,
+    title: "UP Business Dubai",
+    category: "Web",
+    technology: "React",
+    image: "/portfolio/up-business.png",
+    description: "Global crypto payment infrastructure for businesses with multi-currency support and instant settlements",
+    result: "1300+ merchants onboarded",
+    industry: "FinTech"
+  },
+  {
+    id: 3,
+    title: "NEO Experts International",
+    category: "Web",
+    technology: "WordPress",
+    image: "/portfolio/neo-experts.webp",
+    description: "Recruitment platform connecting talent with businesses in Construction, Engineering, IT & Life Sciences across DACH region",
+    result: "800+ placements",
+    industry: "Recruitment"
+  },
+  {
+    id: 4,
+    title: "Surfside Concierge",
+    category: "Web",
+    technology: "Wix",
+    image: "/portfolio/surfside-concierge.png",
+    description: "Cape Cod vacation concierge offering pre-arrival decorating, fridge stocking, and itinerary planning services",
+    result: "10+ years of service",
+    industry: "Hospitality"
+  },
+  {
     id: 5,
-    title: "Fitness Tracking App",
-    category: "Mobile",
-    technology: "Flutter",
-    image: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=600&h=400&fit=crop",
-    description: "Workout and health tracking application",
-    result: "100K active users",
-    industry: "Fitness"
+    title: "FurniAssemble",
+    category: "E-Commerce",
+    technology: "Wix",
+    image: "/portfolio/furniassemble.png",
+    description: "Professional furniture assembly and installation service with online booking, pricing, and customer reviews",
+    result: "150% booking growth",
+    industry: "Home Services"
   },
   {
     id: 6,
-    title: "Corporate Website Redesign",
+    title: "Quality Process Automation",
     category: "Web",
-    technology: "WordPress",
-    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&h=400&fit=crop",
-    description: "Modern corporate website for financial firm",
-    result: "150% more inquiries",
-    industry: "Finance"
+    technology: "Wix",
+    image: "/portfolio/quality-process.png",
+    description: "CMM & Vision System programming services for DFW manufacturers with on-site metrology support",
+    result: "99% accuracy rate",
+    industry: "Manufacturing"
   },
   {
     id: 7,
-    title: "Fintech Brand Identity",
-    category: "Branding",
-    technology: "Shopify",
-    image: "https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?w=600&h=400&fit=crop",
-    description: "Complete brand identity for fintech startup",
-    result: "40% brand recognition",
-    industry: "Finance"
+    title: "Latvia Rent",
+    category: "Web",
+    technology: "React",
+    image: "/portfolio/latvia-rent.png",
+    description: "Car rental platform in Latvia with real-time pricing calculator, fleet showcase, and transparent pricing tiers",
+    result: "300% online bookings",
+    industry: "Automotive"
   },
   {
     id: 8,
-    title: "Travel Booking Platform",
+    title: "Trinity College Music Society",
     category: "Web",
-    technology: "Laravel",
-    image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=600&h=400&fit=crop",
-    description: "End-to-end travel booking solution",
-    result: "75% booking increase",
-    industry: "Travel"
+    technology: "React",
+    image: "/portfolio/trinity-music.png",
+    description: "Community music society website with event listings, membership registration, and photo gallery",
+    result: "500+ active members",
+    industry: "Education"
   },
   {
     id: 9,
-    title: "Digital Marketing Campaign",
-    category: "Marketing",
-    technology: "React",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop",
-    description: "Multi-channel marketing for SaaS company",
-    result: "400% ROI",
-    industry: "Technology"
+    title: "Tojah's Extensions",
+    category: "Branding",
+    technology: "Wix",
+    image: "/portfolio/tojah-extensions.png",
+    description: "Hair salon website with service pricing, online booking, portfolio gallery, and loyalty program",
+    result: "40% new client growth",
+    industry: "Beauty"
   }
 ];
 

@@ -11,63 +11,63 @@ const categories = ["All", "Web", "Mobile", "E-Commerce", "Marketing"];
 const projects = [
   {
     id: 1,
-    title: "Hogar Properties",
+    title: "Emaar Serro 2",
     category: "Web",
-    description: "Dubai real estate platform with property listings and lead generation",
-    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=1200&fit=crop",
-    tags: ["WordPress", "SEO", "Lead Gen"],
-    link: "/portfolio/hogar-properties",
-    result: { value: 250, suffix: "%", label: "Lead Increase" }
+    description: "Premium real estate landing page for Emaar's Serro 2 villas in Dubai with interactive floor plans and payment calculator",
+    image: "/portfolio/emaar-serro2.png",
+    tags: ["React", "Real Estate", "Landing Page"],
+    link: "/portfolio",
+    result: { value: 200, suffix: "%", label: "Lead Increase" }
   },
   {
     id: 2,
-    title: "Denefits",
+    title: "UP Business Dubai",
     category: "Web",
-    description: "USA patient financing platform with payment solutions for healthcare",
-    image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&h=1200&fit=crop",
-    tags: ["React", "FinTech", "SaaS"],
-    link: "/portfolio/denefits",
-    result: { value: 5, suffix: "M+", label: "Transactions" }
+    description: "Global crypto payment infrastructure platform for businesses with multi-currency support and instant settlements",
+    image: "/portfolio/up-business.png",
+    tags: ["React", "FinTech", "Crypto"],
+    link: "/portfolio",
+    result: { value: 1300, suffix: "+", label: "Merchants" }
   },
   {
     id: 3,
-    title: "SOURCE Hydropanels",
-    category: "Marketing",
-    description: "Sustainable water technology with solar-powered hydropanels",
-    image: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=800&h=1200&fit=crop",
-    tags: ["Social Media", "Influencer", "Brand"],
-    link: "/portfolio/source",
-    result: { value: 180, suffix: "%", label: "Engagement" }
+    title: "NEO Experts International",
+    category: "Web",
+    description: "Recruitment agency connecting top talent with businesses across Construction, Engineering, IT and Life Sciences in DACH region",
+    image: "/portfolio/neo-experts.webp",
+    tags: ["WordPress", "HR Tech", "Recruitment"],
+    link: "/portfolio",
+    result: { value: 800, suffix: "+", label: "Placements" }
   },
   {
     id: 4,
-    title: "CJC Markets Global",
+    title: "Surfside Concierge",
     category: "Web",
-    description: "Forex and commodities trading platform with global reach",
-    image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&h=1200&fit=crop",
-    tags: ["FinTech", "Security", "Trading"],
-    link: "/portfolio/cjc-markets",
-    result: { value: 50, suffix: "K+", label: "Active Users" }
+    description: "Cape Cod vacation concierge service offering pre-arrival decorating, fridge stocking, and itinerary planning",
+    image: "/portfolio/surfside-concierge.png",
+    tags: ["Wix", "Hospitality", "Booking"],
+    link: "/portfolio",
+    result: { value: 10, suffix: "+", label: "Years Experience" }
   },
   {
     id: 5,
-    title: "Fashion E-Store",
+    title: "FurniAssemble",
     category: "E-Commerce",
-    description: "Complete e-commerce solution for fashion retail",
-    image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=800&h=1200&fit=crop",
-    tags: ["Shopify", "Fashion", "Retail"],
-    link: "/portfolio/fashion-store",
-    result: { value: 300, suffix: "%", label: "Sales Growth" }
+    description: "Professional furniture assembly and installation service platform with online booking and pricing system",
+    image: "/portfolio/furniassemble.png",
+    tags: ["Wix", "Services", "Booking"],
+    link: "/portfolio",
+    result: { value: 150, suffix: "%", label: "Booking Growth" }
   },
   {
     id: 6,
-    title: "Health & Fitness App",
-    category: "Mobile",
-    description: "Cross-platform fitness tracking and coaching application",
-    image: "https://images.unsplash.com/photo-1576678927484-cc907957088c?w=800&h=1200&fit=crop",
-    tags: ["Flutter", "iOS", "Android"],
-    link: "/portfolio/fitness-app",
-    result: { value: 500, suffix: "K+", label: "Downloads" }
+    title: "Latvia Rent",
+    category: "Web",
+    description: "Car rental platform in Latvia with real-time pricing calculator, fleet showcase, and transparent pricing tiers",
+    image: "/portfolio/latvia-rent.png",
+    tags: ["React", "Automotive", "SaaS"],
+    link: "/portfolio",
+    result: { value: 300, suffix: "%", label: "Online Bookings" }
   },
 ];
 
