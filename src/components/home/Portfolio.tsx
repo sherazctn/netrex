@@ -1,4 +1,4 @@
-import { useState, useRef, useCallback } from "react";
+import { useState, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowUpRight, ExternalLink } from "lucide-react";
@@ -16,7 +16,6 @@ export function Portfolio() {
   const [lightbox, setLightbox] = useState<{ image: string; title: string; description: string } | null>(null);
   const imageRefs = useRef<(HTMLImageElement | null)[]>([]);
 
-  // Show first 6 on home page
   const homeItems = portfolioItems.slice(0, 6);
 
   const filteredProjects = activeCategory === "All"
@@ -29,7 +28,8 @@ export function Portfolio() {
     const containerH = img.parentElement?.clientHeight || 0;
     const imgH = img.naturalHeight * (img.clientWidth / img.naturalWidth);
     const scrollDist = Math.max(0, imgH - containerH);
-    img.style.transition = `transform ${Math.max(2, Math.min(3, scrollDist / 400))}s ease-in-out`;
+    const duration = Math.max(1.5, Math.min(3, scrollDist / 500));
+    img.style.transition = `transform ${duration}s ease-in-out`;
     img.style.transform = `translateY(-${scrollDist}px)`;
   };
 
@@ -102,13 +102,14 @@ export function Portfolio() {
                     onMouseLeave={() => handleMouseLeave(index)}
                     onClick={() => setLightbox({ image: project.image, title: project.title, description: project.description })}
                   >
-                    <div className="relative aspect-[4/3] overflow-hidden">
+                    <div className="relative aspect-[4/3] overflow-hidden bg-muted">
                       <img
                         ref={(el) => { imageRefs.current[index] = el; }}
                         src={project.image}
                         alt={project.title}
+                        loading="lazy"
                         className="w-full h-auto absolute top-0 left-0"
-                        style={{ imageRendering: "auto", transform: "translateY(0)" }}
+                        style={{ transform: "translateY(0)" }}
                       />
                       
                       <div className="absolute inset-0 bg-gradient-to-t from-foreground/90 via-foreground/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
@@ -138,7 +139,7 @@ export function Portfolio() {
                     <div className="p-6">
                       <div className="flex flex-wrap gap-2 mb-3">
                         <span className="px-3 py-1 rounded-full bg-primary/10 text-xs font-medium text-primary">
-                          {project.category}
+                          {project.industry}
                         </span>
                         <span className="px-3 py-1 rounded-full bg-accent/10 text-xs font-medium text-accent">
                           {project.technology}
@@ -147,7 +148,7 @@ export function Portfolio() {
                       <h3 className="font-display text-xl font-bold mb-2 group-hover:text-primary transition-colors">
                         {project.title}
                       </h3>
-                      <p className="text-muted-foreground text-sm">
+                      <p className="text-muted-foreground text-sm line-clamp-2">
                         {project.description}
                       </p>
                     </div>

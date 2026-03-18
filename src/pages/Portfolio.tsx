@@ -27,7 +27,8 @@ const Portfolio = () => {
     const containerH = img.parentElement?.clientHeight || 0;
     const imgH = img.naturalHeight * (img.clientWidth / img.naturalWidth);
     const scrollDist = Math.max(0, imgH - containerH);
-    img.style.transition = `transform ${Math.max(2, Math.min(3, scrollDist / 400))}s ease-in-out`;
+    const duration = Math.max(1.5, Math.min(3, scrollDist / 500));
+    img.style.transition = `transform ${duration}s ease-in-out`;
     img.style.transform = `translateY(-${scrollDist}px)`;
   };
 
@@ -126,13 +127,14 @@ const Portfolio = () => {
                     onMouseLeave={() => handleMouseLeave(index)}
                     onClick={() => setLightbox({ image: item.image, title: item.title, description: item.description })}
                   >
-                    <div className="relative aspect-[4/3] overflow-hidden">
+                    <div className="relative aspect-[4/3] overflow-hidden bg-muted">
                       <img
                         ref={(el) => { imageRefs.current[index] = el; }}
                         src={item.image}
                         alt={item.title}
+                        loading="lazy"
                         className="w-full h-auto absolute top-0 left-0"
-                        style={{ imageRendering: "auto", transform: "translateY(0)" }}
+                        style={{ transform: "translateY(0)" }}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
                         <Button variant="glass" size="sm" className="text-white border-white/20">
@@ -144,19 +146,16 @@ const Portfolio = () => {
                     <div className="p-6">
                       <div className="flex flex-wrap gap-2 mb-3">
                         <span className="px-3 py-1 text-xs font-medium rounded-full bg-primary/10 text-primary">
-                          {item.category}
+                          {item.industry}
                         </span>
                         <span className="px-3 py-1 text-xs font-medium rounded-full bg-accent/10 text-accent">
                           {item.technology}
-                        </span>
-                        <span className="px-3 py-1 text-xs font-medium rounded-full bg-secondary text-foreground/70">
-                          {item.industry}
                         </span>
                       </div>
                       <h3 className="font-display text-xl font-bold mb-2 group-hover:text-primary transition-colors">
                         {item.title}
                       </h3>
-                      <p className="text-muted-foreground text-sm mb-4">
+                      <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
                         {item.description}
                       </p>
                       <div className="flex items-center gap-2 text-sm font-medium text-primary">
