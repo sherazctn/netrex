@@ -299,5 +299,27 @@ export const portfolioItems: PortfolioItem[] = [
     result: "2K+ people helped",
     resultValue: { value: 2000, suffix: "+", label: "People Helped" },
     industry: "Non-Profit"
+  },
+  {
+    id: 27,
+    title: "CallZen BPO",
+    category: "Web",
+    technology: "Laravel",
+    image: "/portfolio/callzen-bpo.png",
+    description: "Call center and BPO services platform with pricing plans, client feedback, and 24/7 customer support solutions",
+    result: "24K+ calls handled",
+    resultValue: { value: 24000, suffix: "+", label: "Calls Handled" },
+    industry: "Customer Service"
+  },
+  {
+    id: 28,
+    title: "Lakeview 3D Studios",
+    category: "Web",
+    technology: "Wix",
+    image: "/portfolio/lakeview-3d.png",
+    description: "3D virtual tour and digital media solutions for real estate with Matterport scanning, 360° photos, and interactive tags",
+    result: "18M+ virtual views",
+    resultValue: { value: 18000000, suffix: "+", label: "Virtual Views" },
+    industry: "Real Estate Tech"
   }
 ];

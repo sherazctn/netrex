@@ -107,9 +107,9 @@ export function Portfolio() {
                         ref={(el) => { imageRefs.current[index] = el; }}
                         src={project.image}
                         alt={project.title}
-                        loading="lazy"
-                        className="w-full h-auto absolute top-0 left-0"
-                        style={{ transform: "translateY(0)" }}
+                        loading="eager"
+                        className="absolute top-0 left-0 w-full h-auto"
+                        style={{ transform: "translateY(0)", imageRendering: "crisp-edges" }}
                       />
                       
                       <div className="absolute inset-0 bg-gradient-to-t from-foreground/90 via-foreground/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
