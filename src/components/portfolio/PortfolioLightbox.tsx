@@ -12,55 +12,44 @@ interface PortfolioLightboxProps {
 
 export function PortfolioLightbox({ isOpen, onClose, image, title, description }: PortfolioLightboxProps) {
   const [scale, setScale] = useState(1);
-  const [position, setPosition] = useState({ x: 0, y: 0 });
-  const [isDragging, setIsDragging] = useState(false);
-  const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
-  const containerRef = useRef<HTMLDivElement>(null);
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   const resetZoom = useCallback(() => {
     setScale(1);
-    setPosition({ x: 0, y: 0 });
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollTop = 0;
+    }
   }, []);
 
   useEffect(() => {
-    if (!isOpen) resetZoom();
-  }, [isOpen, resetZoom]);
+    if (!isOpen) {
+      setScale(1);
+    } else {
+      // Scroll to top when opening
+      setTimeout(() => {
+        if (scrollContainerRef.current) {
+          scrollContainerRef.current.scrollTop = 0;
+        }
+      }, 50);
+    }
+  }, [isOpen]);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
     };
-    if (isOpen) document.addEventListener("keydown", handleKeyDown);
-    return () => document.removeEventListener("keydown", handleKeyDown);
+    if (isOpen) {
+      document.addEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = "hidden";
+    }
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = "";
+    };
   }, [isOpen, onClose]);
 
   const zoomIn = () => setScale((s) => Math.min(s + 0.5, 5));
-  const zoomOut = () => {
-    setScale((s) => {
-      const newScale = Math.max(s - 0.5, 1);
-      if (newScale === 1) setPosition({ x: 0, y: 0 });
-      return newScale;
-    });
-  };
-
-  const handleMouseDown = (e: React.MouseEvent) => {
-    if (scale <= 1) return;
-    setIsDragging(true);
-    setDragStart({ x: e.clientX - position.x, y: e.clientY - position.y });
-  };
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!isDragging || scale <= 1) return;
-    setPosition({ x: e.clientX - dragStart.x, y: e.clientY - dragStart.y });
-  };
-
-  const handleMouseUp = () => setIsDragging(false);
-
-  const handleWheel = (e: React.WheelEvent) => {
-    e.preventDefault();
-    if (e.deltaY < 0) zoomIn();
-    else zoomOut();
-  };
+  const zoomOut = () => setScale((s) => Math.max(s - 0.5, 1));
 
   return (
     <AnimatePresence>
@@ -69,63 +58,63 @@ export function PortfolioLightbox({ isOpen, onClose, image, title, description }
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 backdrop-blur-sm"
+          className="fixed inset-0 z-[100] flex flex-col bg-black/95 backdrop-blur-md"
           onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}
         >
-          {/* Close Button */}
-          <button
-            onClick={onClose}
-            className="absolute top-4 right-4 z-[110] w-12 h-12 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-colors"
-          >
-            <X className="h-6 w-6" />
-          </button>
-
-          {/* Zoom Controls */}
-          <div className="absolute top-4 left-1/2 -translate-x-1/2 z-[110] flex gap-2">
-            <button onClick={zoomIn} className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-colors">
-              <ZoomIn className="h-5 w-5" />
-            </button>
-            <button onClick={zoomOut} className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-colors">
-              <ZoomOut className="h-5 w-5" />
-            </button>
-            <button onClick={resetZoom} className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-colors">
-              <RotateCcw className="h-5 w-5" />
+          {/* Top Bar */}
+          <div className="flex-shrink-0 flex items-center justify-between px-4 py-3 bg-black/60 backdrop-blur-sm border-b border-white/10 z-[110]">
+            <div className="flex gap-2">
+              <button onClick={zoomIn} className="w-9 h-9 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-colors">
+                <ZoomIn className="h-4 w-4" />
+              </button>
+              <button onClick={zoomOut} className="w-9 h-9 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-colors">
+                <ZoomOut className="h-4 w-4" />
+              </button>
+              <button onClick={resetZoom} className="w-9 h-9 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white hover:bg-white/20 transition-colors">
+                <RotateCcw className="h-4 w-4" />
+              </button>
+              <span className="flex items-center text-white/60 text-sm ml-2">{Math.round(scale * 100)}%</span>
+            </div>
+            <button
+              onClick={onClose}
+              className="w-10 h-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center text-white hover:bg-red-500/80 transition-colors"
+            >
+              <X className="h-5 w-5" />
             </button>
           </div>
 
-          {/* Image Container */}
+          {/* Scrollable Image Area — like Behance */}
           <div
-            ref={containerRef}
-            className="relative w-[90vw] h-[80vh] overflow-hidden rounded-2xl cursor-grab active:cursor-grabbing"
-            onMouseDown={handleMouseDown}
-            onMouseMove={handleMouseMove}
-            onMouseUp={handleMouseUp}
-            onMouseLeave={handleMouseUp}
-            onWheel={handleWheel}
+            ref={scrollContainerRef}
+            className="flex-1 overflow-auto"
+            style={{ cursor: scale > 1 ? "grab" : "default" }}
           >
-            <img
-              src={image}
-              alt={title}
-              className="w-full h-auto absolute top-0 left-0 select-none"
-              style={{
-                transform: `scale(${scale}) translate(${position.x / scale}px, ${position.y / scale}px)`,
-                transformOrigin: "top center",
-                transition: isDragging ? "none" : "transform 0.2s ease-out",
-              }}
-              draggable={false}
-            />
+            <div className="flex justify-center min-h-full" onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}>
+              <img
+                src={image}
+                alt={title}
+                className="block select-none"
+                style={{
+                  width: `${Math.min(900 * scale, window.innerWidth)}px`,
+                  height: "auto",
+                  imageRendering: "auto",
+                  transition: "width 0.3s ease-out",
+                }}
+                draggable={false}
+              />
+            </div>
           </div>
 
           {/* Bottom Info Bar */}
-          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-[110] max-w-lg w-full px-4">
+          <div className="flex-shrink-0 px-4 py-3 bg-black/60 backdrop-blur-sm border-t border-white/10 z-[110]">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-2xl px-6 py-4 text-center"
+              className="text-center max-w-lg mx-auto"
             >
               <h3 className="text-white font-display text-lg font-bold">{title}</h3>
-              <p className="text-white/70 text-sm mt-1 line-clamp-2">{description}</p>
+              <p className="text-white/60 text-sm mt-1 line-clamp-2">{description}</p>
             </motion.div>
           </div>
         </motion.div>

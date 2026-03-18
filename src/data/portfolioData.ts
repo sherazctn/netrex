@@ -11,7 +11,7 @@ export interface PortfolioItem {
 }
 
 export const portfolioCategories = ["All", "Web", "E-Commerce", "Branding", "Marketing"];
-export const portfolioTechnologies = ["All", "React", "WordPress", "Wix", "Shopify", "Laravel"];
+export const portfolioTechnologies = ["All", "React", "WordPress", "Wix", "Shopify", "Laravel", "Elementor"];
 
 export const portfolioItems: PortfolioItem[] = [
   {
@@ -222,5 +222,82 @@ export const portfolioItems: PortfolioItem[] = [
     result: "10K+ books sold",
     resultValue: { value: 10000, suffix: "+", label: "Books Sold" },
     industry: "Publishing"
+  },
+  {
+    id: 20,
+    title: "Elyos Wellness",
+    category: "E-Commerce",
+    technology: "Wix",
+    image: "/portfolio/elyos-wellness.png",
+    description: "Greek mythology-inspired wellness brand selling Liposomal NAD+ supplements with modern science-backed formulas",
+    result: "250% revenue growth",
+    resultValue: { value: 250, suffix: "%", label: "Revenue Growth" },
+    industry: "Health & Wellness"
+  },
+  {
+    id: 21,
+    title: "Pet Glam Shops",
+    category: "E-Commerce",
+    technology: "Wix",
+    image: "/portfolio/pet-glam-shops.png",
+    description: "Trendy pet fashion e-commerce with clothing, accessories, and seasonal collections for dogs, cats, and birds",
+    result: "15K+ orders shipped",
+    resultValue: { value: 15000, suffix: "+", label: "Orders Shipped" },
+    industry: "Pet & Fashion"
+  },
+  {
+    id: 22,
+    title: "INSIRAS GmbH",
+    category: "Web",
+    technology: "Wix",
+    image: "/portfolio/insiras-gmbh.png",
+    description: "German accounting & payroll outsourcing firm with secretarial services, management consulting, and client portal",
+    result: "300+ clients across Europe",
+    resultValue: { value: 300, suffix: "+", label: "Clients" },
+    industry: "Finance & Accounting"
+  },
+  {
+    id: 23,
+    title: "Top Canine Training",
+    category: "Web",
+    technology: "Wix",
+    image: "/portfolio/dog-training.png",
+    description: "Professional dog training services with puppy programs, private sessions, virtual consults, and specialty courses",
+    result: "500+ dogs trained",
+    resultValue: { value: 500, suffix: "+", label: "Dogs Trained" },
+    industry: "Pet Services"
+  },
+  {
+    id: 24,
+    title: "Sociable Marketing",
+    category: "Marketing",
+    technology: "Elementor",
+    image: "/portfolio/sociable-marketing.png",
+    description: "Social media marketing agency website with service packages, pricing plans, and client case studies",
+    result: "32K+ campaigns launched",
+    resultValue: { value: 32000, suffix: "+", label: "Campaigns" },
+    industry: "Digital Marketing"
+  },
+  {
+    id: 25,
+    title: "Instive Insurance",
+    category: "Web",
+    technology: "WordPress",
+    image: "/portfolio/instive-insurance.png",
+    description: "Insurance company website with car, life, home, and health insurance plans, agent finder, and quote calculator",
+    result: "400+ policies sold monthly",
+    resultValue: { value: 400, suffix: "+", label: "Monthly Policies" },
+    industry: "Insurance"
+  },
+  {
+    id: 26,
+    title: "Grantx Inc.",
+    category: "Web",
+    technology: "Wix",
+    image: "/portfolio/grantx-inc.png",
+    description: "Non-profit grant writing and organizational development firm with consulting, training workshops, and success stories",
+    result: "2K+ people helped",
+    resultValue: { value: 2000, suffix: "+", label: "People Helped" },
+    industry: "Non-Profit"
   }
 ];
