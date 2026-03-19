@@ -305,7 +305,7 @@ export function WorldMapContact() {
                 {/* Improved Contact Form */}
                 <div className="flex-1 p-6 rounded-3xl bg-background/5 border border-background/10">
                   <h3 className="font-display font-bold text-xl mb-6">{t('contact.form.title')}</h3>
-                  <form className="space-y-4">
+                  <form className="space-y-4" onSubmit={handleSubmit}>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <Input
                         placeholder={t('contact.form.name')}
