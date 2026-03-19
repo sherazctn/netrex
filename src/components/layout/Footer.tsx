@@ -1,26 +1,27 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Linkedin, Twitter, Instagram, Facebook, ArrowRight, MessageCircle } from "lucide-react";
+import { Mail, Phone, MapPin, Linkedin, Twitter, Instagram, Facebook, ArrowRight, MessageCircle, Globe, Smartphone, Palette, Megaphone, Bot, Cloud, Users, Briefcase, FolderOpen, MessageSquare, BookOpen, PhoneCall, Building2, Award, Shield } from "lucide-react";
 import netrexLogo from "@/assets/netrex-logo.png";
 import { Button } from "@/components/ui/button";
 import { FooterSkyline } from "@/components/layout/FooterSkyline";
 
 const footerLinks = {
   services: [
-    { name: "Web Development", href: "/services/web-development" },
-    { name: "Mobile Apps", href: "/services/mobile-app" },
-    { name: "UI/UX Design", href: "/services/ui-ux-design" },
-    { name: "Digital Marketing", href: "/services/digital-marketing" },
-    { name: "AI & Automation", href: "/services/ai-automation" },
-    { name: "Cloud Solutions", href: "/services/cloud-solutions" },
+    { name: "Web Development", href: "/services/web-development", icon: Globe },
+    { name: "Mobile Apps", href: "/services/mobile-app", icon: Smartphone },
+    { name: "UI/UX Design", href: "/services/ui-ux-design", icon: Palette },
+    { name: "Digital Marketing", href: "/services/digital-marketing", icon: Megaphone },
+    { name: "AI & Automation", href: "/services/ai-automation", icon: Bot },
+    { name: "Cloud Solutions", href: "/services/cloud-solutions", icon: Cloud },
   ],
   company: [
-    { name: "About Us", href: "/about" },
-    { name: "Portfolio", href: "/portfolio" },
-    { name: "Industries", href: "/industries" },
-    { name: "Testimonials", href: "/testimonials" },
-    { name: "Blog", href: "/blog" },
-    { name: "Contact", href: "/contact" },
+    { name: "About Us", href: "/about", icon: Users },
+    { name: "Portfolio", href: "/portfolio", icon: FolderOpen },
+    { name: "Industries", href: "/industries", icon: Building2 },
+    { name: "Testimonials", href: "/testimonials", icon: MessageSquare },
+    { name: "Blog", href: "/blog", icon: BookOpen },
+    { name: "Careers", href: "/careers", icon: Briefcase },
+    { name: "Contact", href: "/contact", icon: PhoneCall },
   ],
   locations: [
     { name: "Dubai, UAE (HQ)", href: "/contact?location=ae" },
@@ -91,7 +92,7 @@ export function Footer() {
         <div className="container-wide py-12">
           <div className="grid md:grid-cols-3 gap-6">
             <motion.a
-              href="mailto:contact@netrex.ae"
+              href="mailto:netrexdubai@gmail.com"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -103,7 +104,7 @@ export function Footer() {
               </div>
               <div>
                 <div className="text-sm text-background/60 mb-1">Email Us</div>
-                <div className="font-semibold text-background">contact@netrex.ae</div>
+                <div className="font-semibold text-background">netrexdubai@gmail.com</div>
               </div>
             </motion.a>
 
@@ -151,10 +152,25 @@ export function Footer() {
             <Link to="/">
               <img src={netrexLogo} alt="NETREX" className="h-12 w-auto brightness-0 invert mb-6" />
             </Link>
-            <p className="text-background/70 mb-6 max-w-sm">
+            <p className="text-background/70 mb-4 max-w-sm">
               NETREX — Where Innovation Meets The Real World. Delivering state-of-the-art 
               digital solutions to clients globally since 2016.
             </p>
+            <p className="text-background/50 text-sm mb-4 max-w-sm">
+              We specialize in web development, mobile apps, UI/UX design, branding, and digital marketing 
+              for businesses across 20+ industries worldwide. Our team of 50+ experts delivers 
+              enterprise-grade solutions from 6 global offices.
+            </p>
+            <div className="flex items-center gap-3 mb-6">
+              <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-background/10 border border-background/10">
+                <Award className="h-3.5 w-3.5 text-primary" />
+                <span className="text-xs text-background/70">Top Rated Agency</span>
+              </div>
+              <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-background/10 border border-background/10">
+                <Shield className="h-3.5 w-3.5 text-primary" />
+                <span className="text-xs text-background/70">ISO Certified</span>
+              </div>
+            </div>
             <div className="flex gap-3">
               {socialLinks.map((social) => (
                 <a
@@ -177,7 +193,8 @@ export function Footer() {
             <ul className="space-y-3">
               {footerLinks.services.map((link) => (
                 <li key={link.name}>
-                  <Link to={link.href} className="text-background/70 hover:text-primary transition-colors">
+                  <Link to={link.href} className="flex items-center gap-2 text-background/70 hover:text-primary transition-colors group">
+                    <link.icon className="h-4 w-4 text-background/40 group-hover:text-primary transition-colors" />
                     {link.name}
                   </Link>
                 </li>
@@ -191,7 +208,8 @@ export function Footer() {
             <ul className="space-y-3">
               {footerLinks.company.map((link) => (
                 <li key={link.name}>
-                  <Link to={link.href} className="text-background/70 hover:text-primary transition-colors">
+                  <Link to={link.href} className="flex items-center gap-2 text-background/70 hover:text-primary transition-colors group">
+                    <link.icon className="h-4 w-4 text-background/40 group-hover:text-primary transition-colors" />
                     {link.name}
                   </Link>
                 </li>
@@ -205,7 +223,8 @@ export function Footer() {
             <ul className="space-y-3">
               {footerLinks.locations.map((link) => (
                 <li key={link.name}>
-                  <Link to={link.href} className="text-background/70 hover:text-primary transition-colors">
+                  <Link to={link.href} className="flex items-center gap-2 text-background/70 hover:text-primary transition-colors group">
+                    <MapPin className="h-4 w-4 text-background/40 group-hover:text-primary transition-colors" />
                     {link.name}
                   </Link>
                 </li>
@@ -225,6 +244,9 @@ export function Footer() {
             </Link>
             <Link to="/terms" className="hover:text-background transition-colors">
               Terms of Service
+            </Link>
+            <Link to="/faq" className="hover:text-background transition-colors">
+              FAQ
             </Link>
           </div>
         </div>

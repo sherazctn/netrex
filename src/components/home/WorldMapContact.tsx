@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { PhoneInput } from "@/components/ui/PhoneInput";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useToast } from "@/hooks/use-toast";
 
 const locations = [
   {
@@ -84,6 +85,7 @@ const locations = [
 
 export function WorldMapContact() {
   const { t } = useLanguage();
+  const { toast } = useToast();
   const [activeLocation, setActiveLocation] = useState(locations[0]);
   const [phoneNumber, setPhoneNumber] = useState("");
   const [phoneDialCode, setPhoneDialCode] = useState("+971");
@@ -93,6 +95,21 @@ export function WorldMapContact() {
     company: "",
     message: "",
   });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const subject = encodeURIComponent(`New Inquiry from ${formData.name} - ${formData.company || 'Website'}`);
+    const body = encodeURIComponent(
+      `Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${phoneDialCode} ${phoneNumber}\nCompany: ${formData.company}\n\nMessage:\n${formData.message}`
+    );
+    window.open(`mailto:netrexdubai@gmail.com?subject=${subject}&body=${body}`, '_blank');
+    toast({
+      title: "Opening email client...",
+      description: "Your inquiry is being prepared. You can also email us directly at netrexdubai@gmail.com",
+    });
+    setFormData({ name: "", email: "", company: "", message: "" });
+    setPhoneNumber("");
+  };
 
   // Generate Google Maps embed URL with custom marker
   const getMapUrl = () => {
@@ -288,7 +305,7 @@ export function WorldMapContact() {
                 {/* Improved Contact Form */}
                 <div className="flex-1 p-6 rounded-3xl bg-background/5 border border-background/10">
                   <h3 className="font-display font-bold text-xl mb-6">{t('contact.form.title')}</h3>
-                  <form className="space-y-4">
+                  <form className="space-y-4" onSubmit={handleSubmit}>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                       <Input
                         placeholder={t('contact.form.name')}
@@ -328,7 +345,7 @@ export function WorldMapContact() {
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       className="bg-background/10 border-background/20 text-background placeholder:text-background/40 min-h-[120px] rounded-2xl resize-none"
                     />
-                    <Button size="lg" className="w-full group text-base bg-primary hover:bg-primary/90 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300">
+                    <Button type="submit" size="lg" className="w-full group text-base bg-primary hover:bg-primary/90 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300">
                       <Send className="h-5 w-5 transition-transform group-hover:translate-x-1 group-hover:rotate-12" />
                       {t('contact.form.submit')}
                     </Button>

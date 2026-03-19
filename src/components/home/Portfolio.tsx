@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowUpRight, ExternalLink } from "lucide-react";
@@ -10,13 +10,24 @@ import { portfolioItems } from "@/data/portfolioData";
 
 const categories = ["All", "Web", "E-Commerce", "Branding", "Marketing"];
 
+// Fisher-Yates shuffle
+function shuffleArray<T>(array: T[]): T[] {
+  const shuffled = [...array];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+}
+
 export function Portfolio() {
   const { t } = useLanguage();
   const [activeCategory, setActiveCategory] = useState("All");
   const [lightbox, setLightbox] = useState<{ image: string; title: string; description: string } | null>(null);
   const imageRefs = useRef<(HTMLImageElement | null)[]>([]);
 
-  const homeItems = portfolioItems.slice(0, 6);
+  // Shuffle once on mount, pick 6 random items
+  const homeItems = useMemo(() => shuffleArray(portfolioItems).slice(0, 6), []);
 
   const filteredProjects = activeCategory === "All"
     ? homeItems
@@ -108,8 +119,9 @@ export function Portfolio() {
                         src={project.image}
                         alt={project.title}
                         loading="eager"
+                        decoding="async"
                         className="absolute top-0 left-0 w-full h-auto"
-                        style={{ transform: "translateY(0)", imageRendering: "crisp-edges" }}
+                        style={{ transform: "translateY(0)" }}
                       />
                       
                       <div className="absolute inset-0 bg-gradient-to-t from-foreground/90 via-foreground/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">

@@ -35,7 +35,6 @@ const navLinks = [
       { name: "Cloud Solutions", href: "/services/cloud-solutions" },
     ]
   },
-  { name: "Industries", href: "/industries" },
   { name: "Portfolio", href: "/portfolio" },
   { name: "Testimonials", href: "/testimonials" },
   { name: "Blog", href: "/blog" },

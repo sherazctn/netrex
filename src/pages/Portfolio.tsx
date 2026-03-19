@@ -133,8 +133,9 @@ const Portfolio = () => {
                         src={item.image}
                         alt={item.title}
                         loading="eager"
+                        decoding="async"
                         className="absolute top-0 left-0 w-full h-auto"
-                        style={{ transform: "translateY(0)", imageRendering: "crisp-edges" }}
+                        style={{ transform: "translateY(0)" }}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
                         <Button variant="glass" size="sm" className="text-white border-white/20">
