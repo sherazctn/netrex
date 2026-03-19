@@ -345,7 +345,7 @@ export function WorldMapContact() {
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       className="bg-background/10 border-background/20 text-background placeholder:text-background/40 min-h-[120px] rounded-2xl resize-none"
                     />
-                    <Button size="lg" className="w-full group text-base bg-primary hover:bg-primary/90 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300">
+                    <Button type="submit" size="lg" className="w-full group text-base bg-primary hover:bg-primary/90 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300">
                       <Send className="h-5 w-5 transition-transform group-hover:translate-x-1 group-hover:rotate-12" />
                       {t('contact.form.submit')}
                     </Button>
