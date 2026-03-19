@@ -11,8 +11,13 @@ import ServicePage from "./pages/ServicePage";
 import Industries from "./pages/Industries";
 import Portfolio from "./pages/Portfolio";
 import Blog from "./pages/Blog";
+import BlogPost from "./pages/BlogPost";
 import About from "./pages/About";
 import Testimonials from "./pages/Testimonials";
+import Careers from "./pages/Careers";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsOfService from "./pages/TermsOfService";
+import FAQ from "./pages/FAQ";
 import AdminLogin from "./pages/admin/AdminLogin";
 import AdminLayout from "./pages/admin/AdminLayout";
 import AdminDashboard from "./pages/admin/AdminDashboard";
@@ -40,8 +45,13 @@ const App = () => (
             <Route path="/industries" element={<Industries />} />
             <Route path="/portfolio" element={<Portfolio />} />
             <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:id" element={<BlogPost />} />
             <Route path="/about" element={<About />} />
             <Route path="/testimonials" element={<Testimonials />} />
+            <Route path="/careers" element={<Careers />} />
+            <Route path="/privacy" element={<PrivacyPolicy />} />
+            <Route path="/terms" element={<TermsOfService />} />
+            <Route path="/faq" element={<FAQ />} />
             
             {/* Admin Routes */}
             <Route path="/admin" element={<AdminLogin />} />
