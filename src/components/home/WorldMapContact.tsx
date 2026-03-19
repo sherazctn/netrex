@@ -85,6 +85,7 @@ const locations = [
 
 export function WorldMapContact() {
   const { t } = useLanguage();
+  const { toast } = useToast();
   const [activeLocation, setActiveLocation] = useState(locations[0]);
   const [phoneNumber, setPhoneNumber] = useState("");
   const [phoneDialCode, setPhoneDialCode] = useState("+971");
@@ -94,6 +95,21 @@ export function WorldMapContact() {
     company: "",
     message: "",
   });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const subject = encodeURIComponent(`New Inquiry from ${formData.name} - ${formData.company || 'Website'}`);
+    const body = encodeURIComponent(
+      `Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${phoneDialCode} ${phoneNumber}\nCompany: ${formData.company}\n\nMessage:\n${formData.message}`
+    );
+    window.open(`mailto:netrexdubai@gmail.com?subject=${subject}&body=${body}`, '_blank');
+    toast({
+      title: "Opening email client...",
+      description: "Your inquiry is being prepared. You can also email us directly at netrexdubai@gmail.com",
+    });
+    setFormData({ name: "", email: "", company: "", message: "" });
+    setPhoneNumber("");
+  };
 
   // Generate Google Maps embed URL with custom marker
   const getMapUrl = () => {
