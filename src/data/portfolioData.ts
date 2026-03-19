@@ -321,5 +321,93 @@ export const portfolioItems: PortfolioItem[] = [
     result: "18M+ virtual views",
     resultValue: { value: 18000000, suffix: "+", label: "Virtual Views" },
     industry: "Real Estate Tech"
-  }
+  },
+  {
+    id: 29,
+    title: "Shelton Landscaping",
+    category: "Web",
+    technology: "WordPress",
+    image: "/portfolio/shelton-landscaping.png",
+    description: "Award-winning landscaping company with lawn care, garden design, and maintenance services featuring 2860+ completed projects",
+    result: "2860+ projects completed",
+    resultValue: { value: 2860, suffix: "+", label: "Projects Done" },
+    industry: "Landscaping"
+  },
+  {
+    id: 30,
+    title: "JV Baseball Academy",
+    category: "Web",
+    technology: "Wix",
+    image: "/portfolio/jv-baseball.png",
+    description: "Baseball academy in Dominican Republic with professional training camps, player signing programs, and charity initiatives",
+    result: "50+ players signed",
+    resultValue: { value: 50, suffix: "+", label: "Players Signed" },
+    industry: "Sports & Education"
+  },
+  {
+    id: 31,
+    title: "ButterFly Spa & Beauty",
+    category: "Web",
+    technology: "WordPress",
+    image: "/portfolio/butterfly-spa.png",
+    description: "Luxury spa and beauty center website with treatment bookings, special offers, herbal spa packages, and facial services",
+    result: "300% booking increase",
+    resultValue: { value: 300, suffix: "%", label: "Booking Increase" },
+    industry: "Beauty & Wellness"
+  },
+  {
+    id: 32,
+    title: "Toro Cleaning Ltd",
+    category: "Web",
+    technology: "Wix",
+    image: "/portfolio/toro-cleaning.png",
+    description: "London's trusted commercial and residential cleaning service with eco-friendly solutions and 3854+ happy customers",
+    result: "3854+ happy customers",
+    resultValue: { value: 3854, suffix: "+", label: "Happy Customers" },
+    industry: "Cleaning Services"
+  },
+  {
+    id: 33,
+    title: "KAD Foundation",
+    category: "Web",
+    technology: "Wix",
+    image: "/portfolio/kad-foundation.png",
+    description: "Non-profit organization helping people's lives through donations, food & water aid, education, and medical support programs",
+    result: "$1M+ raised",
+    resultValue: { value: 1000000, suffix: "+", label: "Funds Raised" },
+    industry: "Non-Profit"
+  },
+  {
+    id: 34,
+    title: "Interique Interior Design",
+    category: "Web",
+    technology: "WordPress",
+    image: "/portfolio/interique-interior.png",
+    description: "Premium interior design studio with tailored solutions, design process showcase, studio portfolio, and client testimonials",
+    result: "200+ spaces designed",
+    resultValue: { value: 200, suffix: "+", label: "Spaces Designed" },
+    industry: "Interior Design"
+  },
+  {
+    id: 35,
+    title: "ITCO Digital Agency",
+    category: "Web",
+    technology: "WordPress",
+    image: "/portfolio/itco-agency.png",
+    description: "IT consulting and digital agency with software development, cloud services, team showcase, and client case studies",
+    result: "25+ years experience",
+    resultValue: { value: 25, suffix: "+", label: "Years Experience" },
+    industry: "IT Consulting"
+  },
+  {
+    id: 36,
+    title: "Vizion Recruitment",
+    category: "Web",
+    technology: "React",
+    image: "/portfolio/vizion-recruitment.png",
+    description: "AI-powered recruitment platform with job matching, resume uploads, company profiles, and 1500+ startup job listings",
+    result: "1500+ jobs listed",
+    resultValue: { value: 1500, suffix: "+", label: "Jobs Listed" },
+    industry: "HR Tech"
+  },
 ];
