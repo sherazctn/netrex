@@ -473,9 +473,27 @@ export function Hero() {
               <div>
                 <div className="font-semibold text-foreground">Top Rated</div>
                 <div className="text-sm text-muted-foreground flex items-center gap-1.5">
-                  <img src="https://cdn.simpleicons.org/upwork/6FDA44" alt="Upwork" className="h-3.5 w-3.5" />
-                  <img alt="Fiverr" className="h-3.5 w-3.5 object-contain" src="/lovable-uploads/651e2013-4e21-40f3-94d8-84fcdfe29eff.png" />
-                  <img alt="Clutch" className="h-3.5 w-3.5 object-contain" src="/lovable-uploads/ced4b15c-5f92-4389-8b5a-d1a1565a8cea.jpg" />
+                  {[
+                    { src: "https://cdn.simpleicons.org/upwork/6FDA44", alt: "Upwork" },
+                    { src: "/lovable-uploads/651e2013-4e21-40f3-94d8-84fcdfe29eff.png", alt: "Fiverr" },
+                    { src: "/lovable-uploads/ced4b15c-5f92-4389-8b5a-d1a1565a8cea.jpg", alt: "Clutch" },
+                  ].map((logo, i) => (
+                    <motion.img
+                      key={logo.alt}
+                      src={logo.src}
+                      alt={logo.alt}
+                      className="h-3.5 w-3.5 object-contain"
+                      animate={{
+                        scale: [1, 1.3, 1],
+                        opacity: [0.7, 1, 0.7],
+                      }}
+                      transition={{
+                        duration: 2,
+                        repeat: Infinity,
+                        delay: i * 0.5,
+                      }}
+                    />
+                  ))}
                 </div>
               </div>
             </motion.div>
