@@ -6,23 +6,23 @@ const countries = [
   { code: 'AE', name: 'UAE', dialCode: '+971', flag: '🇦🇪' },
   { code: 'US', name: 'USA', dialCode: '+1', flag: '🇺🇸' },
   { code: 'GB', name: 'UK', dialCode: '+44', flag: '🇬🇧' },
+  { code: 'DE', name: 'Germany', dialCode: '+49', flag: '🇩🇪' },
   { code: 'CA', name: 'Canada', dialCode: '+1', flag: '🇨🇦' },
   { code: 'AU', name: 'Australia', dialCode: '+61', flag: '🇦🇺' },
+  { code: 'SG', name: 'Singapore', dialCode: '+65', flag: '🇸🇬' },
+  { code: 'SA', name: 'Saudi Arabia', dialCode: '+966', flag: '🇸🇦' },
   { code: 'PK', name: 'Pakistan', dialCode: '+92', flag: '🇵🇰' },
   { code: 'IN', name: 'India', dialCode: '+91', flag: '🇮🇳' },
-  { code: 'SA', name: 'Saudi Arabia', dialCode: '+966', flag: '🇸🇦' },
   { code: 'QA', name: 'Qatar', dialCode: '+974', flag: '🇶🇦' },
   { code: 'KW', name: 'Kuwait', dialCode: '+965', flag: '🇰🇼' },
   { code: 'BH', name: 'Bahrain', dialCode: '+973', flag: '🇧🇭' },
   { code: 'OM', name: 'Oman', dialCode: '+968', flag: '🇴🇲' },
-  { code: 'DE', name: 'Germany', dialCode: '+49', flag: '🇩🇪' },
   { code: 'FR', name: 'France', dialCode: '+33', flag: '🇫🇷' },
   { code: 'ES', name: 'Spain', dialCode: '+34', flag: '🇪🇸' },
   { code: 'IT', name: 'Italy', dialCode: '+39', flag: '🇮🇹' },
   { code: 'CN', name: 'China', dialCode: '+86', flag: '🇨🇳' },
   { code: 'JP', name: 'Japan', dialCode: '+81', flag: '🇯🇵' },
   { code: 'KR', name: 'South Korea', dialCode: '+82', flag: '🇰🇷' },
-  { code: 'SG', name: 'Singapore', dialCode: '+65', flag: '🇸🇬' },
   { code: 'MY', name: 'Malaysia', dialCode: '+60', flag: '🇲🇾' },
   { code: 'BR', name: 'Brazil', dialCode: '+55', flag: '🇧🇷' },
   { code: 'MX', name: 'Mexico', dialCode: '+52', flag: '🇲🇽' },
@@ -36,6 +36,7 @@ interface PhoneInputProps {
   placeholder?: string;
   className?: string;
   darkMode?: boolean;
+  selectedCountryCode?: string;
 }
 
 export function PhoneInput({ 
@@ -43,53 +44,45 @@ export function PhoneInput({
   onChange, 
   placeholder = 'Phone Number',
   className,
-  darkMode = false
+  darkMode = false,
+  selectedCountryCode,
 }: PhoneInputProps) {
   const [selectedCountry, setSelectedCountry] = useState(countries[0]);
   const [isOpen, setIsOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
 
+  // Sync with external country code (from location tab)
   useEffect(() => {
-    // Auto-detect country based on timezone/locale
-    const detectCountry = async () => {
-      try {
-        const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-        const locale = navigator.language;
-        
-        // Simple timezone to country mapping
-        const timezoneMap: Record<string, string> = {
-          'Asia/Dubai': 'AE',
-          'America/New_York': 'US',
-          'America/Los_Angeles': 'US',
-          'America/Chicago': 'US',
-          'Europe/London': 'GB',
-          'America/Vancouver': 'CA',
-          'America/Toronto': 'CA',
-          'Australia/Brisbane': 'AU',
-          'Australia/Sydney': 'AU',
-          'Asia/Karachi': 'PK',
-          'Asia/Kolkata': 'IN',
-          'Asia/Riyadh': 'SA',
-          'Asia/Qatar': 'QA',
-          'Europe/Berlin': 'DE',
-          'Europe/Paris': 'FR',
-          'Europe/Madrid': 'ES',
-          'Asia/Tokyo': 'JP',
-          'Asia/Shanghai': 'CN',
-          'Asia/Singapore': 'SG',
-        };
-        
-        const countryCode = timezoneMap[timezone] || locale.split('-')[1]?.toUpperCase();
-        const detectedCountry = countries.find(c => c.code === countryCode);
-        if (detectedCountry) {
-          setSelectedCountry(detectedCountry);
-        }
-      } catch (error) {
-        console.log('Could not detect country');
+    if (selectedCountryCode) {
+      const match = countries.find(c => c.code === selectedCountryCode);
+      if (match) {
+        setSelectedCountry(match);
+        onChange(value, match.dialCode);
       }
-    };
-    
-    detectCountry();
+    }
+  }, [selectedCountryCode]);
+
+  // Auto-detect on mount if no external code
+  useEffect(() => {
+    if (selectedCountryCode) return;
+    try {
+      const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+      const locale = navigator.language;
+      const timezoneMap: Record<string, string> = {
+        'Asia/Dubai': 'AE', 'America/New_York': 'US', 'America/Los_Angeles': 'US',
+        'America/Chicago': 'US', 'Europe/London': 'GB', 'America/Vancouver': 'CA',
+        'America/Toronto': 'CA', 'Australia/Brisbane': 'AU', 'Australia/Sydney': 'AU',
+        'Australia/Melbourne': 'AU', 'Asia/Karachi': 'PK', 'Asia/Kolkata': 'IN',
+        'Asia/Riyadh': 'SA', 'Asia/Qatar': 'QA', 'Europe/Berlin': 'DE',
+        'Europe/Paris': 'FR', 'Europe/Madrid': 'ES', 'Asia/Tokyo': 'JP',
+        'Asia/Shanghai': 'CN', 'Asia/Singapore': 'SG',
+      };
+      const countryCode = timezoneMap[timezone] || locale.split('-')[1]?.toUpperCase();
+      const detectedCountry = countries.find(c => c.code === countryCode);
+      if (detectedCountry) setSelectedCountry(detectedCountry);
+    } catch {
+      console.log('Could not detect country');
+    }
   }, []);
 
   const filteredCountries = countries.filter(country =>
@@ -111,7 +104,6 @@ export function PhoneInput({
   return (
     <div className={cn('relative', className)}>
       <div className="flex w-full">
-        {/* Country Selector */}
         <button
           type="button"
           onClick={() => setIsOpen(!isOpen)}
@@ -126,7 +118,6 @@ export function PhoneInput({
           <ChevronDown className={cn('h-3 w-3 transition-transform flex-shrink-0', isOpen && 'rotate-180')} />
         </button>
 
-        {/* Phone Input */}
         <input
           type="tel"
           value={value}
@@ -140,7 +131,6 @@ export function PhoneInput({
         />
       </div>
 
-      {/* Dropdown */}
       {isOpen && (
         <>
           <div className="fixed inset-0 z-40" onClick={() => setIsOpen(false)} />
@@ -148,7 +138,6 @@ export function PhoneInput({
             'absolute top-full left-0 mt-2 w-64 rounded-2xl shadow-xl border z-50 overflow-hidden',
             darkMode ? 'bg-foreground border-background/20' : 'bg-card border-border'
           )}>
-            {/* Search */}
             <div className="p-2 border-b border-border/20">
               <input
                 type="text"
@@ -164,8 +153,6 @@ export function PhoneInput({
                 autoFocus
               />
             </div>
-            
-            {/* Countries List */}
             <div className="max-h-60 overflow-y-auto">
               {filteredCountries.map((country) => (
                 <button
