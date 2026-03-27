@@ -8,13 +8,13 @@ const locations = [
     country: "UAE",
     city: "Dubai",
     flag: "🇦🇪",
-    address: "Office 523, Block-C, 9W Dubai Airport Free Zone",
+    address: "Office 523, Block-C, Building 9W, Dubai Airport Free Zone",
     timezone: "GMT+4",
     isHQ: true,
   },
   {
     country: "USA",
-    city: "New York",
+    city: "Albany",
     flag: "🇺🇸",
     address: "418 Broadway STE N, Albany, New York 12207",
     timezone: "GMT-5",
@@ -24,31 +24,55 @@ const locations = [
     country: "UK",
     city: "London",
     flag: "🇬🇧",
-    address: "71-75 Shelton Street, Covent Garden, London",
+    address: "25 The Shard, 32 London Bridge St, London",
     timezone: "GMT",
+    isHQ: false,
+  },
+  {
+    country: "Germany",
+    city: "Berlin",
+    flag: "🇩🇪",
+    address: "Kurfürstendamm 14, 10719 Berlin",
+    timezone: "GMT+1",
     isHQ: false,
   },
   {
     country: "Canada",
     city: "Vancouver",
     flag: "🇨🇦",
-    address: "1575 West Georgia Street, Vancouver, BC",
+    address: "70 Burrard St, Vancouver, BC",
     timezone: "GMT-8",
     isHQ: false,
   },
   {
     country: "Australia",
-    city: "Brisbane",
+    city: "Melbourne",
     flag: "🇦🇺",
-    address: "240 Queen St, Brisbane City QLD 4000",
+    address: "19 Bank Pl, Melbourne VIC 3000",
     timezone: "GMT+10",
+    isHQ: false,
+  },
+  {
+    country: "Singapore",
+    city: "Singapore",
+    flag: "🇸🇬",
+    address: "Level 39, Marina Bay Financial Centre, Tower 2",
+    timezone: "GMT+8",
+    isHQ: false,
+  },
+  {
+    country: "Saudi Arabia",
+    city: "Riyadh",
+    flag: "🇸🇦",
+    address: "22 King Abdullah Rd, Riyadh 12211",
+    timezone: "GMT+3",
     isHQ: false,
   },
   {
     country: "Pakistan",
     city: "Lahore",
     flag: "🇵🇰",
-    address: "21, J3 Johar Town, Lahore, Punjab",
+    address: "21, J3 Block, Phase 2, Johar Town, Lahore",
     timezone: "GMT+5",
     isHQ: false,
   },
@@ -59,7 +83,6 @@ export function GlobalPresence() {
     <section className="section-padding bg-foreground text-background">
       <div className="container-wide">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          {/* Left Content */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -74,7 +97,7 @@ export function GlobalPresence() {
               <span className="text-gradient">Worldwide</span>
             </h2>
             <p className="text-lg text-background/70 mb-8">
-              With offices across 6 countries and growing, we're always close to you. 
+              With offices across 9 countries and growing, we're always close to you. 
               Our global presence enables us to serve clients 24/7 and understand local markets.
             </p>
             <Link to="/contact">
@@ -85,16 +108,15 @@ export function GlobalPresence() {
             </Link>
           </motion.div>
 
-          {/* Right - Location Cards */}
-          <div className="grid sm:grid-cols-2 gap-4">
+          <div className="grid sm:grid-cols-3 gap-3">
             {locations.map((location, index) => (
               <motion.div
                 key={location.country}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.1 }}
-                className={`relative p-5 rounded-2xl border transition-all duration-300 hover:border-primary/50 cursor-pointer ${
+                transition={{ duration: 0.4, delay: index * 0.07 }}
+                className={`relative p-4 rounded-2xl border transition-all duration-300 hover:border-primary/50 cursor-pointer ${
                   location.isHQ
                     ? "bg-primary border-transparent"
                     : "bg-background/5 border-background/10"
@@ -105,17 +127,17 @@ export function GlobalPresence() {
                     HQ
                   </span>
                 )}
-                <div className="flex items-start gap-4">
-                  <span className="text-3xl">{location.flag}</span>
+                <div className="flex items-start gap-3">
+                  <span className="text-2xl">{location.flag}</span>
                   <div>
-                    <h3 className="font-display font-bold text-lg text-background">
-                      {location.city}, {location.country}
+                    <h3 className="font-display font-bold text-sm text-background">
+                      {location.city}
                     </h3>
-                    <div className="flex items-start gap-1 text-sm text-background/70 mt-1">
-                      <MapPin className="h-3.5 w-3.5 mt-0.5 flex-shrink-0" />
+                    <div className="flex items-start gap-1 text-xs text-background/70 mt-1">
+                      <MapPin className="h-3 w-3 mt-0.5 flex-shrink-0" />
                       <span className="line-clamp-2">{location.address}</span>
                     </div>
-                    <div className="text-xs text-background/50 mt-1">
+                    <div className="text-[10px] text-background/50 mt-1">
                       {location.timezone}
                     </div>
                   </div>

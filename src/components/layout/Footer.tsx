@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Linkedin, Twitter, Instagram, Facebook, ArrowRight, MessageCircle, Globe, Smartphone, Palette, Megaphone, Bot, Cloud, Users, Briefcase, FolderOpen, MessageSquare, BookOpen, PhoneCall, Building2, Award, Shield } from "lucide-react";
+import { Mail, Phone, MapPin, Linkedin, Twitter, Instagram, Facebook, ArrowRight, MessageCircle, Globe, Smartphone, Palette, Megaphone, Bot, Cloud, Users, Briefcase, FolderOpen, MessageSquare, BookOpen, PhoneCall, Building2, Award, Shield, Scale } from "lucide-react";
 import netrexLogo from "@/assets/netrex-logo.png";
 import { Button } from "@/components/ui/button";
 import { FooterSkyline } from "@/components/layout/FooterSkyline";
@@ -22,13 +22,17 @@ const footerLinks = {
     { name: "Blog", href: "/blog", icon: BookOpen },
     { name: "Careers", href: "/careers", icon: Briefcase },
     { name: "Contact", href: "/contact", icon: PhoneCall },
+    { name: "Legal", href: "/legal", icon: Scale },
   ],
   locations: [
     { name: "Dubai, UAE (HQ)", href: "/contact?location=ae" },
     { name: "Albany, USA", href: "/contact?location=us" },
     { name: "London, UK", href: "/contact?location=uk" },
+    { name: "Berlin, Germany", href: "/contact?location=de" },
     { name: "Vancouver, Canada", href: "/contact?location=ca" },
-    { name: "Brisbane, Australia", href: "/contact?location=au" },
+    { name: "Melbourne, Australia", href: "/contact?location=au" },
+    { name: "Singapore", href: "/contact?location=sg" },
+    { name: "Riyadh, Saudi Arabia", href: "/contact?location=sa" },
     { name: "Lahore, Pakistan", href: "/contact?location=pk" },
   ],
 };
@@ -43,7 +47,6 @@ const socialLinks = [
 export function Footer() {
   return (
     <footer className="bg-foreground text-background relative overflow-hidden">
-      {/* Skyline */}
       <FooterSkyline />
 
       {/* CTA Section */}
@@ -92,7 +95,7 @@ export function Footer() {
         <div className="container-wide py-12">
           <div className="grid md:grid-cols-3 gap-6">
             <motion.a
-              href="mailto:netrexdubai@gmail.com"
+              href="mailto:info@netrexinc.com"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -104,7 +107,7 @@ export function Footer() {
               </div>
               <div>
                 <div className="text-sm text-background/60 mb-1">Email Us</div>
-                <div className="font-semibold text-background">netrexdubai@gmail.com</div>
+                <div className="font-semibold text-background">info@netrexinc.com</div>
               </div>
             </motion.a>
 
@@ -159,7 +162,11 @@ export function Footer() {
             <p className="text-background/50 text-sm mb-4 max-w-sm">
               We specialize in web development, mobile apps, UI/UX design, branding, and digital marketing 
               for businesses across 20+ industries worldwide. Our team of 50+ experts delivers 
-              enterprise-grade solutions from 6 global offices.
+              enterprise-grade solutions from 9 global offices.
+            </p>
+            <p className="text-background/50 text-sm mb-4 max-w-sm">
+              🌐 <strong className="text-background/70">netrexinc.com</strong> — Your trusted technology partner for 
+              scalable, secure, and innovative digital products.
             </p>
             <div className="flex items-center gap-3 mb-6">
               <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-background/10 border border-background/10">
@@ -217,7 +224,7 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Locations with Cities */}
+          {/* Locations */}
           <div>
             <h3 className="font-display font-semibold text-lg mb-4">Locations</h3>
             <ul className="space-y-3">
@@ -236,7 +243,7 @@ export function Footer() {
         {/* Copyright */}
         <div className="mt-12 pt-8 border-t border-background/10 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-background/50 text-sm">
-            © {new Date().getFullYear()} NETREX. All rights reserved.
+            © {new Date().getFullYear()} NETREX INC. All rights reserved. | netrexinc.com
           </p>
           <div className="flex gap-6 text-sm text-background/50">
             <Link to="/privacy" className="hover:text-background transition-colors">
@@ -244,6 +251,9 @@ export function Footer() {
             </Link>
             <Link to="/terms" className="hover:text-background transition-colors">
               Terms of Service
+            </Link>
+            <Link to="/legal" className="hover:text-background transition-colors">
+              Legal
             </Link>
             <Link to="/faq" className="hover:text-background transition-colors">
               FAQ
