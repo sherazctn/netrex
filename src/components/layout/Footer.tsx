@@ -1,9 +1,23 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Linkedin, Twitter, Instagram, Facebook, ArrowRight, MessageCircle, Globe, Smartphone, Palette, Megaphone, Bot, Cloud, Users, Briefcase, FolderOpen, MessageSquare, BookOpen, PhoneCall, Building2, Award, Shield, Scale } from "lucide-react";
+import { Mail, Phone, MapPin, Linkedin, Instagram, Facebook, ArrowRight, MessageCircle, Globe, Smartphone, Palette, Megaphone, Bot, Cloud, Users, Briefcase, FolderOpen, MessageSquare, BookOpen, PhoneCall, Building2, Award, Shield, Sparkles, Brain, Package, ShoppingCart } from "lucide-react";
 import netrexLogo from "@/assets/netrex-logo.png";
 import { Button } from "@/components/ui/button";
 import { FooterSkyline } from "@/components/layout/FooterSkyline";
+
+// Pinterest & TikTok & X & YouTube icons as inline SVGs
+const PinterestIcon = () => (
+  <svg viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.024 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.993 3.995-.282 1.193.599 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.174.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+);
+const TikTokIcon = () => (
+  <svg viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 0010.86 4.48V13a8.28 8.28 0 005.58 2.17V11.7a4.83 4.83 0 01-3.77-1.24V6.69h3.77z"/></svg>
+);
+const XIcon = () => (
+  <svg viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+);
+const YouTubeIcon = () => (
+  <svg viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5"><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+);
 
 const footerLinks = {
   services: [
@@ -11,22 +25,24 @@ const footerLinks = {
     { name: "Mobile Apps", href: "/services/mobile-app", icon: Smartphone },
     { name: "UI/UX Design", href: "/services/ui-ux-design", icon: Palette },
     { name: "Digital Marketing", href: "/services/digital-marketing", icon: Megaphone },
+    { name: "Branding", href: "/services/branding", icon: Package },
+    { name: "E-Commerce", href: "/services/ecommerce", icon: ShoppingCart },
     { name: "AI & Automation", href: "/services/ai-automation", icon: Bot },
+    { name: "GEO", href: "/services/geo", icon: Sparkles },
     { name: "Cloud Solutions", href: "/services/cloud-solutions", icon: Cloud },
   ],
   company: [
-    { name: "About Us", href: "/about", icon: Users },
+    { name: "About Us", href: "/about", icon: Building2 },
     { name: "Portfolio", href: "/portfolio", icon: FolderOpen },
-    { name: "Industries", href: "/industries", icon: Building2 },
+    { name: "Industries", href: "/industries", icon: Globe },
     { name: "Testimonials", href: "/testimonials", icon: MessageSquare },
     { name: "Blog", href: "/blog", icon: BookOpen },
     { name: "Careers", href: "/careers", icon: Briefcase },
     { name: "Contact", href: "/contact", icon: PhoneCall },
-    { name: "Legal", href: "/legal", icon: Scale },
   ],
   locations: [
     { name: "Dubai, UAE (HQ)", href: "/contact?location=ae" },
-    { name: "Albany, USA", href: "/contact?location=us" },
+    { name: "New York, USA", href: "/contact?location=us" },
     { name: "London, UK", href: "/contact?location=uk" },
     { name: "Berlin, Germany", href: "/contact?location=de" },
     { name: "Vancouver, Canada", href: "/contact?location=ca" },
@@ -38,10 +54,13 @@ const footerLinks = {
 };
 
 const socialLinks = [
-  { icon: Linkedin, href: "https://linkedin.com/company/netrex", label: "LinkedIn" },
-  { icon: Twitter, href: "https://twitter.com/netrex", label: "Twitter" },
-  { icon: Instagram, href: "https://instagram.com/netrex", label: "Instagram" },
-  { icon: Facebook, href: "https://facebook.com/netrex", label: "Facebook" },
+  { icon: Facebook, href: "https://www.facebook.com/netrex.official", label: "Facebook" },
+  { icon: Instagram, href: "https://www.instagram.com/netrex.official", label: "Instagram" },
+  { icon: Linkedin, href: "https://www.linkedin.com/company/netrex-official", label: "LinkedIn" },
+  { icon: PinterestIcon, href: "https://www.pinterest.com/netrex_official", label: "Pinterest", isCustom: true },
+  { icon: TikTokIcon, href: "https://www.tiktok.com/@netrex.official", label: "TikTok", isCustom: true },
+  { icon: XIcon, href: "https://x.com/netrex_official", label: "X", isCustom: true },
+  { icon: YouTubeIcon, href: "https://www.youtube.com/@netrex.official", label: "YouTube", isCustom: true },
 ];
 
 export function Footer() {
@@ -165,8 +184,8 @@ export function Footer() {
               enterprise-grade solutions from 9 global offices.
             </p>
             <p className="text-background/50 text-sm mb-4 max-w-sm">
-              🌐 <strong className="text-background/70">netrexinc.com</strong> — Your trusted technology partner for 
-              scalable, secure, and innovative digital products.
+              Trusted by startups, SMEs, and enterprises across the Middle East, North America, Europe, 
+              Asia Pacific, and beyond. ISO certified and top-rated on Upwork, Fiverr, and Clutch.
             </p>
             <div className="flex items-center gap-3 mb-6">
               <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-background/10 border border-background/10">
@@ -178,7 +197,7 @@ export function Footer() {
                 <span className="text-xs text-background/70">ISO Certified</span>
               </div>
             </div>
-            <div className="flex gap-3">
+            <div className="flex flex-wrap gap-3">
               {socialLinks.map((social) => (
                 <a
                   key={social.label}
@@ -188,7 +207,11 @@ export function Footer() {
                   className="w-10 h-10 rounded-full bg-background/10 flex items-center justify-center hover:bg-primary transition-colors"
                   aria-label={social.label}
                 >
-                  <social.icon className="h-5 w-5" />
+                  {'isCustom' in social && social.isCustom ? (
+                    <social.icon />
+                  ) : (
+                    <social.icon className="h-5 w-5" />
+                  )}
                 </a>
               ))}
             </div>
@@ -243,7 +266,7 @@ export function Footer() {
         {/* Copyright */}
         <div className="mt-12 pt-8 border-t border-background/10 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-background/50 text-sm">
-            © {new Date().getFullYear()} NETREX INC. All rights reserved. | netrexinc.com
+            © {new Date().getFullYear()} NETREX INC. All rights reserved.
           </p>
           <div className="flex gap-6 text-sm text-background/50">
             <Link to="/privacy" className="hover:text-background transition-colors">
