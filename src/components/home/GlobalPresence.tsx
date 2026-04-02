@@ -14,7 +14,7 @@ const locations = [
   },
   {
     country: "USA",
-    city: "Albany",
+    city: "New York",
     flag: "🇺🇸",
     address: "418 Broadway STE N, Albany, New York 12207",
     timezone: "GMT-5",
