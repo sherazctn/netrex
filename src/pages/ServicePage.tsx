@@ -986,7 +986,7 @@ const ServicePage = () => {
                   variant="outline"
                   size="icon"
                   onClick={() => scrollCarousel('right')}
-                  disabled={carouselIndex >= portfolioItems.length - 4}
+                  disabled={carouselIndex >= relevantPortfolio.length - 4}
                   className="rounded-full">
                   
                   <ChevronRight className="h-5 w-5" />
