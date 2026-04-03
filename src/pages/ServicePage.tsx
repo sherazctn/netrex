@@ -3,7 +3,7 @@ import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import { motion } from "framer-motion";
 import { Link, useParams } from "react-router-dom";
-import { useRef, useState } from "react";
+import { useRef, useState, useMemo } from "react";
 import {
   ArrowRight, CheckCircle2, ArrowUpRight, Zap, Shield, Clock, Award,
   Globe, Code, Smartphone, Database, Cloud, Palette, Megaphone, BarChart,
