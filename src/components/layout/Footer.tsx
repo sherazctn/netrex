@@ -219,12 +219,12 @@ export function Footer() {
 
           {/* Services Links */}
           <div>
-            <h3 className="font-display font-semibold text-lg mb-4">Services</h3>
-            <ul className="space-y-3">
+            <h3 className="font-display font-semibold text-sm uppercase tracking-wider mb-4">Services</h3>
+            <ul className="space-y-2">
               {footerLinks.services.map((link) => (
                 <li key={link.name}>
-                  <Link to={link.href} className="flex items-center gap-2 text-background/70 hover:text-primary transition-colors group">
-                    <link.icon className="h-4 w-4 text-background/40 group-hover:text-primary transition-colors" />
+                  <Link to={link.href} className="flex items-center gap-2 text-background/60 hover:text-primary transition-colors group text-xs">
+                    <link.icon className="h-3.5 w-3.5 text-background/35 group-hover:text-primary transition-colors" />
                     {link.name}
                   </Link>
                 </li>
