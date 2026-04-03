@@ -111,19 +111,19 @@ export function Portfolio() {
                 >
                   <div
                     className="group block rounded-3xl overflow-hidden bg-card border border-border hover:border-primary/30 hover:shadow-2xl transition-all duration-500 cursor-pointer"
-                    onMouseEnter={() => handleMouseEnter(index)}
+                    onMouseEnter={() => handleMouseEnter(index, project.category)}
                     onMouseLeave={() => handleMouseLeave(index)}
                     onClick={() => setLightbox({ image: project.image, title: project.title, description: project.description })}
                   >
-                    <div className="relative aspect-[4/3] overflow-hidden bg-muted">
+                    <div className="relative aspect-[4/3] overflow-hidden bg-muted" style={project.category === "Mobile App" ? { backgroundColor: 'hsl(var(--primary) / 0.08)' } : undefined}>
                       <img
                         ref={(el) => { imageRefs.current[index] = el; }}
                         src={project.image}
                         alt={project.title}
                         loading="eager"
                         decoding="async"
-                        className="absolute top-0 left-0 w-full h-auto"
-                        style={{ transform: "translateY(0)" }}
+                        className={project.category === "Web" ? "absolute top-0 left-0 w-full h-auto" : "absolute top-0 left-0 w-full h-full object-contain"}
+                        style={project.category === "Web" ? { transform: "translateY(0)" } : undefined}
                       />
                       
                       <div className="absolute inset-0 bg-gradient-to-t from-foreground/90 via-foreground/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
