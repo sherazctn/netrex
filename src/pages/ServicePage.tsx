@@ -13,6 +13,16 @@ import {
 "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
+import { portfolioItems, servicePortfolioMap } from "@/data/portfolioData";
+
+function shuffleArray<T>(array: T[]): T[] {
+  const shuffled = [...array];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+}
 
 // Service-specific technology stacks
 const serviceTechStacks: Record<string, {name: string;logo: string;size: string;}[]> = {
