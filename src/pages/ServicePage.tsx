@@ -1006,7 +1006,7 @@ const ServicePage = () => {
               className="flex gap-6 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide"
               style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
               
-              {portfolioItems.map((item, index) =>
+              {relevantPortfolio.map((item, index) =>
               <motion.div
                 key={item.id}
                 initial={{ opacity: 0, y: 30 }}
