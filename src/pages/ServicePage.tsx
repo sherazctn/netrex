@@ -626,7 +626,7 @@ const ServicePage = () => {
       const scrollAmount = 320;
       const newIndex = direction === 'left' ?
       Math.max(0, carouselIndex - 1) :
-      Math.min(portfolioItems.length - 4, carouselIndex + 1);
+      Math.min(relevantPortfolio.length - 4, carouselIndex + 1);
       setCarouselIndex(newIndex);
       carouselRef.current.scrollTo({
         left: newIndex * scrollAmount,
