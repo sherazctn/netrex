@@ -125,19 +125,19 @@ const Portfolio = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: index * 0.05 }}
                     className="group rounded-3xl overflow-hidden bg-card border border-border hover:shadow-xl transition-all duration-300 cursor-pointer"
-                    onMouseEnter={() => handleMouseEnter(index)}
+                    onMouseEnter={() => handleMouseEnter(index, item.category)}
                     onMouseLeave={() => handleMouseLeave(index)}
                     onClick={() => setLightbox({ image: item.image, title: item.title, description: item.description })}
                   >
-                    <div className="relative aspect-[4/3] overflow-hidden bg-muted">
+                    <div className="relative aspect-[4/3] overflow-hidden bg-muted" style={item.category === "Mobile App" ? { backgroundColor: 'hsl(var(--primary) / 0.08)' } : undefined}>
                       <img
                         ref={(el) => { imageRefs.current[index] = el; }}
                         src={item.image}
                         alt={item.title}
                         loading="eager"
                         decoding="async"
-                        className="absolute top-0 left-0 w-full h-auto"
-                        style={{ transform: "translateY(0)" }}
+                        className={item.category === "Web" ? "absolute top-0 left-0 w-full h-auto" : "absolute top-0 left-0 w-full h-full object-contain"}
+                        style={item.category === "Web" ? { transform: "translateY(0)" } : undefined}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
                         <Button variant="glass" size="sm" className="text-white border-white/20">
