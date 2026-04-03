@@ -33,12 +33,14 @@ export function Portfolio() {
     ? homeItems
     : homeItems.filter((p) => p.category === activeCategory);
 
-  const handleMouseEnter = (index: number) => {
+  const handleMouseEnter = (index: number, category: string) => {
+    if (category !== "Web") return; // Only scroll for web portfolio
     const img = imageRefs.current[index];
     if (!img) return;
     const containerH = img.parentElement?.clientHeight || 0;
     const imgH = img.naturalHeight * (img.clientWidth / img.naturalWidth);
     const scrollDist = Math.max(0, imgH - containerH);
+    if (scrollDist < 10) return;
     const duration = Math.max(1.5, Math.min(3, scrollDist / 500));
     img.style.transition = `transform ${duration}s ease-in-out`;
     img.style.transform = `translateY(-${scrollDist}px)`;
