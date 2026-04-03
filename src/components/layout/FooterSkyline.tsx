@@ -13,8 +13,8 @@ export function FooterSkyline() {
 
   return (
     <div ref={ref} className="absolute bottom-0 left-0 right-0 h-56 pointer-events-none overflow-hidden">
-      {/* Back layer */}
-      <motion.div style={{ x: x2 }} className="absolute bottom-0 left-0 right-0 h-full opacity-[0.04]">
+      {/* Back layer - subtle background buildings */}
+      <motion.div style={{ x: x2 }} className="absolute bottom-0 left-0 right-0 h-full opacity-[0.03]">
         <svg viewBox="0 0 1800 240" className="w-full h-full" preserveAspectRatio="xMidYMax slice" fill="currentColor">
           <rect x="20" y="140" width="30" height="100" rx="2" />
           <rect x="60" y="120" width="25" height="120" rx="2" />
@@ -28,15 +28,14 @@ export function FooterSkyline() {
           <rect x="1380" y="140" width="30" height="100" rx="2" />
           <rect x="1550" y="120" width="25" height="120" rx="2" />
           <rect x="1680" y="130" width="30" height="110" rx="2" />
-          <rect x="1750" y="150" width="25" height="90" rx="2" />
         </svg>
       </motion.div>
 
-      {/* Main layer - real landmark silhouettes, subtly blended */}
-      <motion.div style={{ x: x1 }} className="absolute bottom-0 left-0 right-0 h-full opacity-[0.06]">
+      {/* Main layer - iconic city landmarks */}
+      <motion.div style={{ x: x1 }} className="absolute bottom-0 left-0 right-0 h-full opacity-[0.04]">
         <svg viewBox="0 0 1800 240" className="w-full h-full" preserveAspectRatio="xMidYMax slice" fill="currentColor">
           
-          {/* Burj Khalifa */}
+          {/* Burj Khalifa - Dubai */}
           <rect x="80" y="20" width="3" height="220" rx="1" />
           <rect x="76" y="30" width="11" height="210" rx="1" />
           <rect x="72" y="50" width="19" height="190" rx="1" />
@@ -45,93 +44,97 @@ export function FooterSkyline() {
           <rect x="60" y="140" width="43" height="100" rx="2" />
           <rect x="80" y="5" width="3" height="20" />
           
-          {/* Burj Al Arab */}
+          {/* Burj Al Arab - Dubai */}
           <path d="M140 240 L140 120 Q150 85 170 78 L170 105 Q165 110 160 115 L160 240Z" />
-          <path d="M170 78 Q175 76 178 80 L178 240 L160 240 L160 115 Q165 110 170 105Z" opacity="0.6" />
-          
-          {/* Dubai Frame */}
-          <rect x="200" y="100" width="5" height="140" />
-          <rect x="230" y="100" width="5" height="140" />
-          <rect x="200" y="100" width="35" height="8" />
-          
-          {/* Cayan Tower */}
-          <path d="M260 240 L265 120 L275 115 L285 120 L280 240Z" />
+          <path d="M170 78 Q175 76 178 80 L178 240 L160 240 L160 115 Q165 110 170 105Z" opacity="0.5" />
 
-          {/* One WTC */}
+          {/* Statue of Liberty - USA */}
+          <rect x="300" y="170" width="30" height="70" rx="2" />
+          <rect x="308" y="110" width="14" height="65" rx="1" />
+          <rect x="312" y="90" width="6" height="25" />
+          <circle cx="315" cy="85" r="5" />
+          <path d="M310 85 L305 60 L308 62 L310 50 L312 62 L315 60Z" />
+          <rect x="320" y="95" width="12" height="3" />
+
+          {/* One WTC - USA */}
           <polygon points="370,240 370,55 380,38 384,20 388,38 398,55 398,240" />
           <rect x="382" y="5" width="4" height="20" />
-          
-          {/* Empire State */}
+
+          {/* Empire State - USA */}
           <rect x="420" y="70" width="28" height="170" rx="1" />
           <rect x="426" y="55" width="16" height="20" />
           <rect x="430" y="38" width="8" height="20" />
           <rect x="433" y="20" width="2" height="22" />
-          
-          {/* Chrysler Building */}
-          <rect x="465" y="80" width="22" height="160" rx="1" />
-          <polygon points="465,80 470,68 474,55 476,46 478,55 482,68 487,80" />
-          <rect x="475" y="35" width="2" height="14" />
 
-          {/* Big Ben */}
-          <rect x="600" y="75" width="16" height="165" rx="1" />
-          <polygon points="600,75 603,62 608,53 612,48 616,53 621,62 624,75" />
-          <circle cx="612" cy="90" r="6" fill="none" stroke="currentColor" strokeWidth="2" />
-          <rect x="611" y="35" width="2" height="16" />
-          <polygon points="608,48 612,35 616,48" />
-          
-          {/* The Shard */}
-          <polygon points="650,240 657,240 668,45 670,18 672,45 683,240 690,240" />
-          
-          {/* The Gherkin */}
-          <path d="M720 240 Q712 195 710 150 Q710 110 716 92 Q720 82 725 78 Q730 82 734 92 Q740 110 740 150 Q738 195 730 240Z" />
-          
-          {/* Tower Bridge */}
-          <rect x="758" y="138" width="6" height="102" />
-          <rect x="786" y="138" width="6" height="102" />
-          <rect x="758" y="138" width="34" height="6" />
-          <path d="M758 138 Q775 115 792 138" fill="none" stroke="currentColor" strokeWidth="2.5" />
+          {/* Big Ben - UK */}
+          <rect x="560" y="75" width="16" height="165" rx="1" />
+          <polygon points="560,75 563,62 568,53 572,48 576,53 581,62 584,75" />
+          <circle cx="572" cy="90" r="6" fill="none" stroke="currentColor" strokeWidth="2" />
+          <rect x="571" y="35" width="2" height="16" />
 
-          {/* Harbour Centre */}
-          <rect x="880" y="75" width="10" height="165" rx="1" />
-          <ellipse cx="885" cy="72" rx="18" ry="7" />
+          {/* The Shard - UK */}
+          <polygon points="610,240 617,240 628,45 630,18 632,45 643,240 650,240" />
           
-          {/* Vancouver House */}
-          <path d="M920 240 L925 240 L935 130 L940 75 L945 70 L950 75 L955 130 L965 240 L970 240Z" />
-          
-          {/* Canada Place sails */}
-          <path d="M990 190 L995 148 L1005 190Z" opacity="0.5" />
-          <path d="M1005 190 L1010 143 L1020 190Z" opacity="0.5" />
-          <path d="M1020 190 L1025 148 L1035 190Z" opacity="0.5" />
-          <rect x="988" y="190" width="50" height="50" rx="2" />
+          {/* Tower Bridge - UK */}
+          <rect x="670" y="148" width="6" height="92" />
+          <rect x="698" y="148" width="6" height="92" />
+          <rect x="670" y="148" width="34" height="6" />
+          <path d="M670 148 Q687 125 704 148" fill="none" stroke="currentColor" strokeWidth="2" />
 
-          {/* Sydney Opera House */}
-          <path d="M1160 210 Q1165 170 1178 140 Q1185 128 1188 140 Q1195 170 1200 210Z" />
-          <path d="M1195 210 Q1200 162 1218 122 Q1228 108 1235 122 Q1245 162 1250 210Z" />
-          <path d="M1240 210 Q1243 178 1255 152 Q1260 145 1265 152 Q1272 178 1275 210Z" />
-          <rect x="1155" y="210" width="125" height="30" rx="2" />
-          
-          {/* Sydney Tower */}
-          <rect x="1135" y="65" width="4" height="175" />
-          <ellipse cx="1137" cy="62" rx="12" ry="6" />
+          {/* Brandenburg Gate - Germany */}
+          <rect x="780" y="140" width="4" height="100" />
+          <rect x="792" y="140" width="4" height="100" />
+          <rect x="804" y="140" width="4" height="100" />
+          <rect x="816" y="140" width="4" height="100" />
+          <rect x="828" y="140" width="4" height="100" />
+          <rect x="776" y="132" width="60" height="10" rx="1" />
+          <polygon points="796,115 806,100 816,115" />
+          <rect x="804" y="92" width="4" height="12" />
+
+          {/* CN Tower style - Canada */}
+          <rect x="910" y="55" width="6" height="185" />
+          <ellipse cx="913" cy="95" rx="16" ry="8" />
+          <rect x="912" y="30" width="2" height="30" />
+
+          {/* Vancouver Lookout */}
+          <rect x="950" y="100" width="8" height="140" />
+          <ellipse cx="954" cy="98" rx="14" ry="5" />
+
+          {/* Sydney Opera House - Australia */}
+          <path d="M1060 210 Q1065 170 1078 140 Q1085 128 1088 140 Q1095 170 1100 210Z" />
+          <path d="M1095 210 Q1100 162 1118 122 Q1128 108 1135 122 Q1145 162 1150 210Z" />
+          <path d="M1140 210 Q1143 178 1155 152 Q1160 145 1165 152 Q1172 178 1175 210Z" />
+          <rect x="1055" y="210" width="125" height="30" rx="2" />
+
+          {/* Marina Bay Sands - Singapore */}
+          <rect x="1260" y="120" width="14" height="120" rx="1" />
+          <rect x="1286" y="120" width="14" height="120" rx="1" />
+          <rect x="1312" y="120" width="14" height="120" rx="1" />
+          <path d="M1255 120 Q1280 105 1300 108 Q1320 105 1330 120" fill="none" stroke="currentColor" strokeWidth="4" />
+          <ellipse cx="1293" cy="112" rx="42" ry="4" />
+
+          {/* Kingdom Centre - Saudi Arabia */}
+          <rect x="1420" y="90" width="12" height="150" rx="1" />
+          <rect x="1444" y="90" width="12" height="150" rx="1" />
+          <path d="M1420 90 Q1438 55 1456 90" fill="none" stroke="currentColor" strokeWidth="3" />
+          <rect x="1416" y="150" width="48" height="6" />
 
           {/* Minar-e-Pakistan */}
-          <rect x="1480" y="65" width="10" height="175" rx="1" />
-          <rect x="1475" y="190" width="20" height="50" rx="1" />
-          <rect x="1470" y="205" width="30" height="8" rx="2" />
-          <rect x="1465" y="210" width="40" height="30" rx="2" />
-          <circle cx="1485" cy="57" r="5" fill="none" stroke="currentColor" strokeWidth="1.5" />
+          <rect x="1560" y="65" width="10" height="175" rx="1" />
+          <rect x="1555" y="190" width="20" height="50" rx="1" />
+          <rect x="1550" y="205" width="30" height="8" rx="2" />
+          <rect x="1545" y="210" width="40" height="30" rx="2" />
+          <circle cx="1565" cy="57" r="5" fill="none" stroke="currentColor" strokeWidth="1.5" />
           
-          {/* Badshahi Mosque */}
-          <path d="M1540 240 L1540 150 Q1540 118 1565 100 Q1590 118 1590 150 L1590 240Z" />
-          <path d="M1528 240 L1528 170 Q1528 155 1540 148 Q1546 155 1546 170 L1546 240Z" />
-          <path d="M1584 240 L1584 170 Q1584 155 1596 148 Q1602 155 1602 170 L1602 240Z" />
-          <rect x="1518" y="108" width="4" height="132" />
-          <polygon points="1518,108 1520,95 1522,108" />
-          <rect x="1608" y="108" width="4" height="132" />
-          <polygon points="1608,108 1610,95 1612,108" />
+          {/* Badshahi Mosque - Pakistan */}
+          <path d="M1620 240 L1620 150 Q1620 118 1645 100 Q1670 118 1670 150 L1670 240Z" />
+          <rect x="1608" y="108" width="3" height="132" />
+          <polygon points="1608,108 1609.5,95 1611,108" />
+          <rect x="1680" y="108" width="3" height="132" />
+          <polygon points="1680,108 1681.5,95 1683,108" />
 
           {/* Ground line */}
-          <rect x="0" y="238" width="1800" height="2" opacity="0.3" />
+          <rect x="0" y="238" width="1800" height="2" opacity="0.2" />
         </svg>
       </motion.div>
     </div>
