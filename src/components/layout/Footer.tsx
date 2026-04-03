@@ -174,16 +174,16 @@ export function Footer() {
             <Link to="/">
               <img src={netrexLogo} alt="NETREX" className="h-12 w-auto brightness-0 invert mb-6" />
             </Link>
-            <p className="text-background/70 mb-4 max-w-sm">
+            <p className="text-background/60 text-sm mb-3 max-w-sm">
               NETREX — Where Innovation Meets The Real World. Delivering state-of-the-art 
               digital solutions to clients globally since 2016.
             </p>
-            <p className="text-background/50 text-sm mb-4 max-w-sm">
+            <p className="text-background/40 text-xs mb-3 max-w-sm leading-relaxed">
               We specialize in web development, mobile apps, UI/UX design, branding, and digital marketing 
               for businesses across 20+ industries worldwide. Our team of 50+ experts delivers 
               enterprise-grade solutions from 9 global offices.
             </p>
-            <p className="text-background/50 text-sm mb-4 max-w-sm">
+            <p className="text-background/40 text-xs mb-4 max-w-sm leading-relaxed">
               Trusted by startups, SMEs, and enterprises across the Middle East, North America, Europe, 
               Asia Pacific, and beyond. ISO certified and top-rated on Upwork, Fiverr, and Clutch.
             </p>
