@@ -3,7 +3,7 @@ import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import { motion } from "framer-motion";
 import { Link, useParams } from "react-router-dom";
-import { useRef, useState } from "react";
+import { useRef, useState, useMemo } from "react";
 import {
   ArrowRight, CheckCircle2, ArrowUpRight, Zap, Shield, Clock, Award,
   Globe, Code, Smartphone, Database, Cloud, Palette, Megaphone, BarChart,
@@ -13,6 +13,16 @@ import {
 "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
+import { portfolioItems, servicePortfolioMap } from "@/data/portfolioData";
+
+function shuffleArray<T>(array: T[]): T[] {
+  const shuffled = [...array];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+}
 
 // Service-specific technology stacks
 const serviceTechStacks: Record<string, {name: string;logo: string;size: string;}[]> = {
@@ -586,18 +596,6 @@ const servicesData: Record<string, {
   }
 };
 
-const portfolioItems = [
-{ id: 1, title: "E-Commerce Fashion", category: "E-Commerce", technology: "Shopify", image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&h=800&fit=crop", result: "300% sales increase" },
-{ id: 2, title: "Healthcare Portal", category: "Web", technology: "React", image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=600&h=800&fit=crop", result: "50% faster processes" },
-{ id: 3, title: "Food Delivery App", category: "Mobile", technology: "Flutter", image: "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?w=600&h=800&fit=crop", result: "500K+ downloads" },
-{ id: 4, title: "Real Estate Platform", category: "Web", technology: "Next.js", image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&h=800&fit=crop", result: "200% more leads" },
-{ id: 5, title: "Fitness App", category: "Mobile", technology: "Flutter", image: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=600&h=800&fit=crop", result: "100K active users" },
-{ id: 6, title: "Finance Dashboard", category: "Web", technology: "React", image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=800&fit=crop", result: "60% efficiency gain" },
-{ id: 7, title: "Travel Booking", category: "Web", technology: "Laravel", image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?w=600&h=800&fit=crop", result: "75% more bookings" },
-{ id: 8, title: "SaaS Analytics", category: "Web", technology: "Next.js", image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=800&fit=crop", result: "400% ROI" },
-{ id: 9, title: "Crypto Exchange", category: "Web", technology: "React", image: "https://images.unsplash.com/photo-1639762681057-408e52192e55?w=600&h=800&fit=crop", result: "$2M daily volume" },
-{ id: 10, title: "Delivery Logistics", category: "Mobile", technology: "Kotlin", image: "https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?w=600&h=800&fit=crop", result: "30% faster deliveries" }];
-
 
 const sizeClasses: Record<string, string> = {
   sm: "w-10 h-10 md:w-12 md:h-12 p-2",
@@ -612,12 +610,23 @@ const ServicePage = () => {
   const [carouselIndex, setCarouselIndex] = useState(0);
   const carouselRef = useRef<HTMLDivElement>(null);
 
+  // Filter and shuffle relevant portfolio items for this service
+  const relevantPortfolio = useMemo(() => {
+    const mapping = service ? servicePortfolioMap[service] : null;
+    if (!mapping) return shuffleArray(portfolioItems).slice(0, 8);
+    const filtered = portfolioItems.filter(item =>
+      mapping.categories.includes(item.category) ||
+      mapping.industries.includes(item.industry)
+    );
+    return shuffleArray(filtered.length > 0 ? filtered : portfolioItems).slice(0, 10);
+  }, [service]);
+
   const scrollCarousel = (direction: 'left' | 'right') => {
     if (carouselRef.current) {
       const scrollAmount = 320;
       const newIndex = direction === 'left' ?
       Math.max(0, carouselIndex - 1) :
-      Math.min(portfolioItems.length - 4, carouselIndex + 1);
+      Math.min(relevantPortfolio.length - 4, carouselIndex + 1);
       setCarouselIndex(newIndex);
       carouselRef.current.scrollTo({
         left: newIndex * scrollAmount,
@@ -977,7 +986,7 @@ const ServicePage = () => {
                   variant="outline"
                   size="icon"
                   onClick={() => scrollCarousel('right')}
-                  disabled={carouselIndex >= portfolioItems.length - 4}
+                  disabled={carouselIndex >= relevantPortfolio.length - 4}
                   className="rounded-full">
                   
                   <ChevronRight className="h-5 w-5" />
@@ -997,7 +1006,7 @@ const ServicePage = () => {
               className="flex gap-6 overflow-x-auto pb-4 snap-x snap-mandatory scrollbar-hide"
               style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
               
-              {portfolioItems.map((item, index) =>
+              {relevantPortfolio.map((item, index) =>
               <motion.div
                 key={item.id}
                 initial={{ opacity: 0, y: 30 }}

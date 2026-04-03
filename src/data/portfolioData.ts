@@ -10,8 +10,21 @@ export interface PortfolioItem {
   industry: string;
 }
 
-export const portfolioCategories = ["All", "Web", "E-Commerce", "Branding", "Marketing"];
-export const portfolioTechnologies = ["All", "React", "WordPress", "Wix", "Shopify", "Laravel", "Elementor"];
+export const portfolioCategories = ["All", "Web", "E-Commerce", "Mobile App", "Branding", "Marketing"];
+export const portfolioTechnologies = ["All", "React", "WordPress", "Wix", "Shopify", "Laravel", "Elementor", "Flutter", "React Native", "Swift", "Kotlin"];
+
+// Map service slugs to relevant portfolio categories/industries
+export const servicePortfolioMap: Record<string, { categories: string[]; industries: string[] }> = {
+  "web-development": { categories: ["Web"], industries: [] },
+  "mobile-app": { categories: ["Mobile App"], industries: [] },
+  "ui-ux-design": { categories: ["Web", "Mobile App"], industries: [] },
+  "digital-marketing": { categories: ["Marketing"], industries: ["Digital Marketing"] },
+  "branding": { categories: ["Branding"], industries: [] },
+  "ecommerce": { categories: ["E-Commerce"], industries: [] },
+  "ai-automation": { categories: ["Web"], industries: ["AgriTech", "PropTech", "HR Tech", "IT Consulting"] },
+  "geo": { categories: ["Web", "Marketing"], industries: ["Digital Marketing"] },
+  "cloud-solutions": { categories: ["Web"], industries: ["FinTech", "IT Consulting", "HR Tech"] },
+};
 
 export const portfolioItems: PortfolioItem[] = [
   {
@@ -409,5 +422,105 @@ export const portfolioItems: PortfolioItem[] = [
     result: "1500+ jobs listed",
     resultValue: { value: 1500, suffix: "+", label: "Jobs Listed" },
     industry: "HR Tech"
+  },
+  // Mobile App Portfolio
+  {
+    id: 37,
+    title: "RideEasy Bus Booking",
+    category: "Mobile App",
+    technology: "Flutter",
+    image: "/portfolio/bus-booking-app.jpg",
+    description: "Bus booking app with route search, passenger selection, departure scheduling, and real-time ticket purchasing for urban transit",
+    result: "50K+ downloads",
+    resultValue: { value: 50000, suffix: "+", label: "Downloads" },
+    industry: "Transportation"
+  },
+  {
+    id: 38,
+    title: "FlyDeal Travel Booking",
+    category: "Mobile App",
+    technology: "React Native",
+    image: "/portfolio/travel-booking-app.jpg",
+    description: "Flight and hotel booking app with one-way/round-trip search, passenger management, ticket selection, and checkout integration",
+    result: "120K+ bookings",
+    resultValue: { value: 120000, suffix: "+", label: "Bookings" },
+    industry: "Travel & Tourism"
+  },
+  {
+    id: 39,
+    title: "FitPulse Activity Tracker",
+    category: "Mobile App",
+    technology: "Flutter",
+    image: "/portfolio/fitness-tracker-app.jpg",
+    description: "Fitness and activity tracking app with daily goals, workout logging, calorie counter, step tracking, and performance analytics",
+    result: "200K+ active users",
+    resultValue: { value: 200000, suffix: "+", label: "Active Users" },
+    industry: "Health & Fitness"
+  },
+  {
+    id: 40,
+    title: "FireFit Workout",
+    category: "Mobile App",
+    technology: "Swift",
+    image: "/portfolio/firefit-app.jpg",
+    description: "Fitness app with live tracking, workout types (cardio, power, endurance), weekly progress charts, and health metrics monitoring",
+    result: "4.8★ App Store rating",
+    resultValue: { value: 48, suffix: "★", label: "App Store Rating" },
+    industry: "Health & Fitness"
+  },
+  {
+    id: 41,
+    title: "LoveLink Dating",
+    category: "Mobile App",
+    technology: "Kotlin",
+    image: "/portfolio/dating-app.jpg",
+    description: "Social dating app with profile creation, chat messaging, location-based matching, and search functionality for meaningful connections",
+    result: "300K+ matches made",
+    resultValue: { value: 300000, suffix: "+", label: "Matches Made" },
+    industry: "Social Networking"
+  },
+  {
+    id: 42,
+    title: "SmartLife IoT Control",
+    category: "Mobile App",
+    technology: "React Native",
+    image: "/portfolio/smart-home-app.jpg",
+    description: "Smart home IoT app with room-based controls, light dimming, oven timer, temperature monitoring, and device shortcuts",
+    result: "85K+ smart homes",
+    resultValue: { value: 85000, suffix: "+", label: "Smart Homes" },
+    industry: "IoT & Smart Home"
+  },
+  {
+    id: 43,
+    title: "StyleCuts Barber",
+    category: "Mobile App",
+    technology: "Flutter",
+    image: "/portfolio/barber-shop-app.jpg",
+    description: "Barber shop booking app with service selection, stylist profiles, rating system, pricing, and instant appointment booking",
+    result: "15K+ appointments",
+    resultValue: { value: 15000, suffix: "+", label: "Appointments" },
+    industry: "Beauty & Grooming"
+  },
+  {
+    id: 44,
+    title: "GiveHeart Donations",
+    category: "Mobile App",
+    technology: "React Native",
+    image: "/portfolio/donate-app.jpg",
+    description: "Charity donation app with cause categories (health, education, nature), payment methods, campaign tracking, and donor profiles",
+    result: "$500K+ donated",
+    resultValue: { value: 500000, suffix: "+", label: "Total Donated" },
+    industry: "Non-Profit"
+  },
+  {
+    id: 45,
+    title: "HomeSmart Control",
+    category: "Mobile App",
+    technology: "Swift",
+    image: "/portfolio/home-smart-app.jpg",
+    description: "Smart home automation app with room management, device controls, speaker volume, temperature settings, and family member profiles",
+    result: "60K+ connected devices",
+    resultValue: { value: 60000, suffix: "+", label: "Connected Devices" },
+    industry: "IoT & Smart Home"
   },
 ];

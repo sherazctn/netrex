@@ -174,16 +174,16 @@ export function Footer() {
             <Link to="/">
               <img src={netrexLogo} alt="NETREX" className="h-12 w-auto brightness-0 invert mb-6" />
             </Link>
-            <p className="text-background/70 mb-4 max-w-sm">
+            <p className="text-background/60 text-sm mb-3 max-w-sm">
               NETREX — Where Innovation Meets The Real World. Delivering state-of-the-art 
               digital solutions to clients globally since 2016.
             </p>
-            <p className="text-background/50 text-sm mb-4 max-w-sm">
+            <p className="text-background/40 text-xs mb-3 max-w-sm leading-relaxed">
               We specialize in web development, mobile apps, UI/UX design, branding, and digital marketing 
               for businesses across 20+ industries worldwide. Our team of 50+ experts delivers 
               enterprise-grade solutions from 9 global offices.
             </p>
-            <p className="text-background/50 text-sm mb-4 max-w-sm">
+            <p className="text-background/40 text-xs mb-4 max-w-sm leading-relaxed">
               Trusted by startups, SMEs, and enterprises across the Middle East, North America, Europe, 
               Asia Pacific, and beyond. ISO certified and top-rated on Upwork, Fiverr, and Clutch.
             </p>
@@ -219,12 +219,12 @@ export function Footer() {
 
           {/* Services Links */}
           <div>
-            <h3 className="font-display font-semibold text-lg mb-4">Services</h3>
-            <ul className="space-y-3">
+            <h3 className="font-display font-semibold text-sm uppercase tracking-wider mb-4">Services</h3>
+            <ul className="space-y-2">
               {footerLinks.services.map((link) => (
                 <li key={link.name}>
-                  <Link to={link.href} className="flex items-center gap-2 text-background/70 hover:text-primary transition-colors group">
-                    <link.icon className="h-4 w-4 text-background/40 group-hover:text-primary transition-colors" />
+                  <Link to={link.href} className="flex items-center gap-2 text-background/60 hover:text-primary transition-colors group text-xs">
+                    <link.icon className="h-3.5 w-3.5 text-background/35 group-hover:text-primary transition-colors" />
                     {link.name}
                   </Link>
                 </li>
@@ -234,12 +234,12 @@ export function Footer() {
 
           {/* Company Links */}
           <div>
-            <h3 className="font-display font-semibold text-lg mb-4">Company</h3>
-            <ul className="space-y-3">
+            <h3 className="font-display font-semibold text-sm uppercase tracking-wider mb-4">Company</h3>
+            <ul className="space-y-2">
               {footerLinks.company.map((link) => (
                 <li key={link.name}>
-                  <Link to={link.href} className="flex items-center gap-2 text-background/70 hover:text-primary transition-colors group">
-                    <link.icon className="h-4 w-4 text-background/40 group-hover:text-primary transition-colors" />
+                  <Link to={link.href} className="flex items-center gap-2 text-background/60 hover:text-primary transition-colors group text-xs">
+                    <link.icon className="h-3.5 w-3.5 text-background/35 group-hover:text-primary transition-colors" />
                     {link.name}
                   </Link>
                 </li>
@@ -249,12 +249,12 @@ export function Footer() {
 
           {/* Locations */}
           <div>
-            <h3 className="font-display font-semibold text-lg mb-4">Locations</h3>
-            <ul className="space-y-3">
+            <h3 className="font-display font-semibold text-sm uppercase tracking-wider mb-4">Locations</h3>
+            <ul className="space-y-2">
               {footerLinks.locations.map((link) => (
                 <li key={link.name}>
-                  <Link to={link.href} className="flex items-center gap-2 text-background/70 hover:text-primary transition-colors group">
-                    <MapPin className="h-4 w-4 text-background/40 group-hover:text-primary transition-colors" />
+                  <Link to={link.href} className="flex items-center gap-2 text-background/60 hover:text-primary transition-colors group text-xs">
+                    <MapPin className="h-3.5 w-3.5 text-background/35 group-hover:text-primary transition-colors" />
                     {link.name}
                   </Link>
                 </li>
