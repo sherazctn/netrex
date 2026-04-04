@@ -5,6 +5,7 @@ import netrexLogo from "@/assets/netrex-logo.png";
 import netrexLogoLite from "@/assets/netrex-logo-lite.png";
 import { Button } from "@/components/ui/button";
 import { FooterSkyline } from "@/components/layout/FooterSkyline";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 // Pinterest & TikTok & X & YouTube icons as inline SVGs
 const PinterestIcon = () => (
