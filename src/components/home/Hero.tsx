@@ -113,7 +113,7 @@ export function Hero() {
           {/* Left Content */}
           <div>
             {/* Badge with Crown + Platform Logos */}
-            <motion.div initial={{
+             <motion.div initial={{
             opacity: 0,
             y: 20
           }} animate={{
@@ -121,7 +121,7 @@ export function Hero() {
             y: 0
           }} transition={{
             duration: 0.5
-          }} className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-white border border-border mb-8 shadow-sm">
+          }} className="inline-flex items-center gap-3 px-5 py-2.5 rounded-full bg-card border border-border mb-8 shadow-sm">
               <motion.div animate={{
               rotate: [0, -10, 10, -10, 0],
               scale: [1, 1.1, 1, 1.1, 1]

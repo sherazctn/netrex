@@ -18,7 +18,7 @@ const locations = [
     phone: "+971 50 200 8313",
     email: "info@netrexinc.com",
     hours: "Sun - Thu: 9AM - 6PM",
-    coords: { lat: 25.2532, lng: 55.3657 },
+    coords: { lat: 25.2532, lng: 55.3657 }, // DAFZA Building 9W
     isHQ: true,
     dialCode: "+971",
     countryCode: "AE",
