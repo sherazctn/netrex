@@ -34,7 +34,7 @@ export function Portfolio() {
     : homeItems.filter((p) => p.category === activeCategory);
 
   const handleMouseEnter = (index: number, category: string) => {
-    if (category !== "Web") return; // Only scroll for web portfolio
+    if (category === "Mobile App") return; // Only scroll for web-type portfolio (Web, E-Commerce, Branding, Marketing)
     const img = imageRefs.current[index];
     if (!img) return;
     const containerH = img.parentElement?.clientHeight || 0;
@@ -122,8 +122,8 @@ export function Portfolio() {
                         alt={project.title}
                         loading="eager"
                         decoding="async"
-                        className={project.category === "Web" ? "absolute top-0 left-0 w-full h-auto" : "absolute top-0 left-0 w-full h-full object-contain"}
-                        style={project.category === "Web" ? { transform: "translateY(0)" } : undefined}
+                        className={project.category === "Mobile App" ? "absolute top-0 left-0 w-full h-full object-contain" : "absolute top-0 left-0 w-full h-auto"}
+                        style={project.category !== "Mobile App" ? { transform: "translateY(0)" } : undefined}
                       />
                       
                       <div className="absolute inset-0 bg-gradient-to-t from-foreground/90 via-foreground/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">

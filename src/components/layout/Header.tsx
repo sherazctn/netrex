@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown, Globe, Smartphone, Palette, Megaphone, Layers, ShoppingCart, Bot, Search, Cloud } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { LanguageSwitcher } from "@/components/ui/LanguageSwitcher";
+import { ThemeSwitcher } from "@/components/ui/ThemeSwitcher";
 import netrexLogo from "@/assets/netrex-logo.png";
 
 const serviceIcons: Record<string, typeof Globe> = {
@@ -136,8 +137,9 @@ export function Header() {
             ))}
           </div>
 
-          {/* CTA Buttons & Language */}
-          <div className="hidden lg:flex items-center gap-3">
+          {/* CTA Buttons, Theme & Language */}
+          <div className="hidden lg:flex items-center gap-2">
+            <ThemeSwitcher />
             <LanguageSwitcher />
             <Link to="/contact">
               <Button variant="hero" size="default">
@@ -147,7 +149,8 @@ export function Header() {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="lg:hidden flex items-center gap-3">
+          <div className="lg:hidden flex items-center gap-2">
+            <ThemeSwitcher />
             <LanguageSwitcher />
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}

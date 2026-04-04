@@ -124,6 +124,32 @@ const legalHighlights = [
   { icon: Users, title: "Client Protection", desc: "All client data, intellectual property, and proprietary information are protected under multi-jurisdictional legal frameworks." },
 ];
 
+// Mask license number: show first 2 and last 1 digits, replace rest with asterisks
+function maskRegNumber(num: string): string {
+  const clean = num.replace(/[\s\-()]/g, '');
+  if (clean.length <= 3) return num;
+  // Keep first 2 chars and last 1 char, mask the rest
+  const parts = num.split('');
+  let visibleStart = 0;
+  let visibleEnd = 0;
+  let startCount = 0;
+  let endCount = 0;
+  const masked = parts.map((char, i) => {
+    if (/[\s\-()/]/.test(char)) return char; // keep separators
+    startCount++;
+    return char;
+  });
+  // Simpler approach: work with the raw string
+  let alphanumCount = 0;
+  const totalAlphaNum = num.replace(/[\s\-()/.]/g, '').length;
+  return num.split('').map((char) => {
+    if (/[\s\-()/.]/g.test(char)) return char;
+    alphanumCount++;
+    if (alphanumCount <= 2 || alphanumCount >= totalAlphaNum) return char;
+    return '*';
+  }).join('');
+}
+
 const Legal = () => (
   <div className="min-h-screen bg-background">
     <Header />
@@ -204,7 +230,7 @@ const Legal = () => (
                     </div>
                     <div>
                       <div className="text-xs text-muted-foreground mb-1">{reg.regType}</div>
-                      <div className="font-mono text-sm font-semibold text-primary">{reg.regNumber}</div>
+                      <div className="font-mono text-sm font-semibold text-primary">{maskRegNumber(reg.regNumber)}</div>
                     </div>
                     <div>
                       <div className="text-xs text-muted-foreground mb-1">Jurisdiction</div>
