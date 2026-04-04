@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin, Linkedin, Instagram, Facebook, ArrowRight, MessageCircle, Globe, Smartphone, Palette, Megaphone, Bot, Cloud, Users, Briefcase, FolderOpen, MessageSquare, BookOpen, PhoneCall, Building2, Award, Shield, Sparkles, Brain, Package, ShoppingCart } from "lucide-react";
 import netrexLogo from "@/assets/netrex-logo.png";
+import netrexLogoLite from "@/assets/netrex-logo-lite.png";
 import { Button } from "@/components/ui/button";
 import { FooterSkyline } from "@/components/layout/FooterSkyline";
 

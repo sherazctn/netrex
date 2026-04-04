@@ -6,6 +6,8 @@ import { Button } from "@/components/ui/button";
 import { LanguageSwitcher } from "@/components/ui/LanguageSwitcher";
 import { ThemeSwitcher } from "@/components/ui/ThemeSwitcher";
 import netrexLogo from "@/assets/netrex-logo.png";
+import netrexLogoLite from "@/assets/netrex-logo-lite.png";
+import { useTheme } from "next-themes";
 
 const serviceIcons: Record<string, typeof Globe> = {
   "Web Development": Globe,
