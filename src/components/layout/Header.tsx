@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown, Globe, Smartphone, Palette, Megaphone, Layers, ShoppingCart, Bot, Search, Cloud } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { LanguageSwitcher } from "@/components/ui/LanguageSwitcher";
+import { ThemeSwitcher } from "@/components/ui/ThemeSwitcher";
 import netrexLogo from "@/assets/netrex-logo.png";
 
 const serviceIcons: Record<string, typeof Globe> = {
