@@ -22,7 +22,7 @@ const Portfolio = () => {
   });
 
   const handleMouseEnter = (index: number, category: string) => {
-    if (category !== "Web") return;
+    if (category === "Mobile App") return; // Only scroll for web-type portfolio
     const img = imageRefs.current[index];
     if (!img) return;
     const containerH = img.parentElement?.clientHeight || 0;
