@@ -50,6 +50,8 @@ export function Header() {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const location = useLocation();
 
+  const { theme } = useTheme();
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
