@@ -100,7 +100,7 @@ export function IndustriesCarousel() {
               <div className="flex items-center gap-3">
                 <span className="text-3xl">{industry.icon}</span>
                 <span className="text-sm font-medium text-foreground/80 group-hover:text-primary transition-colors whitespace-nowrap">
-                  {industry.name}
+                  {t(industry.nameKey)}
                 </span>
               </div>
             </motion.div>
@@ -130,7 +130,7 @@ export function IndustriesCarousel() {
               <div className="flex items-center gap-3">
                 <span className="text-3xl">{industry.icon}</span>
                 <span className="text-sm font-medium text-foreground/80 group-hover:text-primary transition-colors whitespace-nowrap">
-                  {industry.name}
+                  {t(industry.nameKey)}
                 </span>
               </div>
             </motion.div>
@@ -160,7 +160,7 @@ export function IndustriesCarousel() {
               <div className="flex items-center gap-3">
                 <span className="text-3xl">{industry.icon}</span>
                 <span className="text-sm font-medium text-foreground/80 group-hover:text-primary transition-colors whitespace-nowrap">
-                  {industry.name}
+                  {t(industry.nameKey)}
                 </span>
               </div>
             </motion.div>
