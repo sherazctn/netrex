@@ -66,7 +66,7 @@ const socialLinks = [
 
 export function Footer() {
   return (
-    <footer className="bg-foreground text-background relative overflow-hidden">
+    <footer className="bg-[#1a1a1a] text-white relative overflow-hidden">
       <FooterSkyline />
 
       {/* CTA Section */}

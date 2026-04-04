@@ -78,7 +78,7 @@ export function Header() {
           {/* Logo */}
           <Link to="/" className="relative z-50">
             <motion.img
-              src={netrexLogo}
+              src={theme === "dark" ? netrexLogoLite : netrexLogo}
               alt="NETREX"
               className="h-10 md:h-12 w-auto"
               whileHover={{ scale: 1.02 }}
