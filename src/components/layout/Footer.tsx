@@ -70,7 +70,7 @@ export function Footer() {
       <FooterSkyline />
 
       {/* CTA Section */}
-      <div className="relative z-10 border-b border-background/10">
+      <div className="relative z-10 border-b border-white/10">
         <div className="container-wide py-16">
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <motion.div
@@ -82,7 +82,7 @@ export function Footer() {
               <h2 className="font-display text-3xl md:text-4xl font-bold mb-4">
                 Ready to Start Your <span className="text-primary">Project?</span>
               </h2>
-              <p className="text-background/70">
+              <p className="text-white/70">
                 Let's discuss your ideas and create something amazing together.
               </p>
             </motion.div>
@@ -100,7 +100,7 @@ export function Footer() {
                 </Button>
               </Link>
               <a href="https://wa.me/971502008313" target="_blank" rel="noopener noreferrer">
-                <Button variant="outline" size="lg" className="border-background/20 text-background hover:bg-background/10">
+                <Button variant="outline" size="lg" className="border-white/20 text-white hover:bg-white/10">
                   <MessageCircle className="h-5 w-5" />
                   WhatsApp
                 </Button>
@@ -111,7 +111,7 @@ export function Footer() {
       </div>
 
       {/* Contact Cards */}
-      <div className="relative z-10 border-b border-background/10">
+      <div className="relative z-10 border-b border-white/10">
         <div className="container-wide py-12">
           <div className="grid md:grid-cols-3 gap-6">
             <motion.a
@@ -120,14 +120,14 @@ export function Footer() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="flex items-center gap-4 p-6 rounded-2xl bg-background/5 border border-background/10 hover:border-primary/50 transition-colors group"
+              className="flex items-center gap-4 p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-primary/50 transition-colors group"
             >
               <div className="w-14 h-14 rounded-full bg-primary/20 flex items-center justify-center group-hover:bg-primary/30 transition-colors">
                 <Mail className="h-6 w-6 text-primary" />
               </div>
               <div>
-                <div className="text-sm text-background/60 mb-1">Email Us</div>
-                <div className="font-semibold text-background">info@netrexinc.com</div>
+                <div className="text-sm text-white/60 mb-1">Email Us</div>
+                <div className="font-semibold text-white">info@netrexinc.com</div>
               </div>
             </motion.a>
 
@@ -137,14 +137,14 @@ export function Footer() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="flex items-center gap-4 p-6 rounded-2xl bg-background/5 border border-background/10 hover:border-primary/50 transition-colors group"
+              className="flex items-center gap-4 p-6 rounded-2xl bg-white/5 border border-white/10 hover:border-primary/50 transition-colors group"
             >
               <div className="w-14 h-14 rounded-full bg-primary/20 flex items-center justify-center group-hover:bg-primary/30 transition-colors">
                 <Phone className="h-6 w-6 text-primary" />
               </div>
               <div>
-                <div className="text-sm text-background/60 mb-1">Call Us</div>
-                <div className="font-semibold text-background">+971 50 200 8313</div>
+                <div className="text-sm text-white/60 mb-1">Call Us</div>
+                <div className="font-semibold text-white">+971 50 200 8313</div>
               </div>
             </motion.a>
 
@@ -153,14 +153,14 @@ export function Footer() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="flex items-center gap-4 p-6 rounded-2xl bg-background/5 border border-background/10"
+              className="flex items-center gap-4 p-6 rounded-2xl bg-white/5 border border-white/10"
             >
               <div className="w-14 h-14 rounded-full bg-primary/20 flex items-center justify-center">
                 <MapPin className="h-6 w-6 text-primary" />
               </div>
               <div>
-                <div className="text-sm text-background/60 mb-1">Headquarters</div>
-                <div className="font-semibold text-background">Dubai, UAE</div>
+                <div className="text-sm text-white/60 mb-1">Headquarters</div>
+                <div className="font-semibold text-white">Dubai, UAE</div>
               </div>
             </motion.div>
           </div>
@@ -173,29 +173,29 @@ export function Footer() {
           {/* Brand Column */}
           <div className="lg:col-span-2">
             <Link to="/">
-              <img src={netrexLogo} alt="NETREX" className="h-12 w-auto brightness-0 invert mb-6" />
+              <img src={netrexLogoLite} alt="NETREX" className="h-12 w-auto mb-6" />
             </Link>
-            <p className="text-background/60 text-sm mb-3 max-w-sm">
+            <p className="text-white/60 text-sm mb-3 max-w-sm">
               NETREX — Where Innovation Meets The Real World. Delivering state-of-the-art 
               digital solutions to clients globally since 2016.
             </p>
-            <p className="text-background/40 text-xs mb-3 max-w-sm leading-relaxed">
+            <p className="text-white/40 text-xs mb-3 max-w-sm leading-relaxed">
               We specialize in web development, mobile apps, UI/UX design, branding, and digital marketing 
               for businesses across 20+ industries worldwide. Our team of 50+ experts delivers 
               enterprise-grade solutions from 9 global offices.
             </p>
-            <p className="text-background/40 text-xs mb-4 max-w-sm leading-relaxed">
+            <p className="text-white/40 text-xs mb-4 max-w-sm leading-relaxed">
               Trusted by startups, SMEs, and enterprises across the Middle East, North America, Europe, 
               Asia Pacific, and beyond. ISO certified and top-rated on Upwork, Fiverr, and Clutch.
             </p>
             <div className="flex items-center gap-3 mb-6">
-              <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-background/10 border border-background/10">
+              <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 border border-white/10">
                 <Award className="h-3.5 w-3.5 text-primary" />
-                <span className="text-xs text-background/70">Top Rated Agency</span>
+                <span className="text-xs text-white/70">Top Rated Agency</span>
               </div>
-              <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-background/10 border border-background/10">
+              <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 border border-white/10">
                 <Shield className="h-3.5 w-3.5 text-primary" />
-                <span className="text-xs text-background/70">ISO Certified</span>
+                <span className="text-xs text-white/70">ISO Certified</span>
               </div>
             </div>
             <div className="flex flex-wrap gap-3">
@@ -205,7 +205,7 @@ export function Footer() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full bg-background/10 flex items-center justify-center hover:bg-primary transition-colors"
+                  className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-primary transition-colors"
                   aria-label={social.label}
                 >
                   {'isCustom' in social && social.isCustom ? (
@@ -224,8 +224,8 @@ export function Footer() {
             <ul className="space-y-2">
               {footerLinks.services.map((link) => (
                 <li key={link.name}>
-                  <Link to={link.href} className="flex items-center gap-2 text-background/60 hover:text-primary transition-colors group text-xs">
-                    <link.icon className="h-3.5 w-3.5 text-background/35 group-hover:text-primary transition-colors" />
+                  <Link to={link.href} className="flex items-center gap-2 text-white/60 hover:text-primary transition-colors group text-xs">
+                    <link.icon className="h-3.5 w-3.5 text-white/35 group-hover:text-primary transition-colors" />
                     {link.name}
                   </Link>
                 </li>
@@ -239,8 +239,8 @@ export function Footer() {
             <ul className="space-y-2">
               {footerLinks.company.map((link) => (
                 <li key={link.name}>
-                  <Link to={link.href} className="flex items-center gap-2 text-background/60 hover:text-primary transition-colors group text-xs">
-                    <link.icon className="h-3.5 w-3.5 text-background/35 group-hover:text-primary transition-colors" />
+                  <Link to={link.href} className="flex items-center gap-2 text-white/60 hover:text-primary transition-colors group text-xs">
+                    <link.icon className="h-3.5 w-3.5 text-white/35 group-hover:text-primary transition-colors" />
                     {link.name}
                   </Link>
                 </li>
@@ -254,8 +254,8 @@ export function Footer() {
             <ul className="space-y-2">
               {footerLinks.locations.map((link) => (
                 <li key={link.name}>
-                  <Link to={link.href} className="flex items-center gap-2 text-background/60 hover:text-primary transition-colors group text-xs">
-                    <MapPin className="h-3.5 w-3.5 text-background/35 group-hover:text-primary transition-colors" />
+                  <Link to={link.href} className="flex items-center gap-2 text-white/60 hover:text-primary transition-colors group text-xs">
+                    <MapPin className="h-3.5 w-3.5 text-white/35 group-hover:text-primary transition-colors" />
                     {link.name}
                   </Link>
                 </li>
@@ -265,21 +265,21 @@ export function Footer() {
         </div>
 
         {/* Copyright */}
-        <div className="mt-12 pt-8 border-t border-background/10 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-background/50 text-sm">
+        <div className="mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
+          <p className="text-white/50 text-sm">
             © {new Date().getFullYear()} NETREX INC. All rights reserved.
           </p>
-          <div className="flex gap-6 text-sm text-background/50">
-            <Link to="/privacy" className="hover:text-background transition-colors">
+          <div className="flex gap-6 text-sm text-white/50">
+            <Link to="/privacy" className="hover:text-white transition-colors">
               Privacy Policy
             </Link>
-            <Link to="/terms" className="hover:text-background transition-colors">
+            <Link to="/terms" className="hover:text-white transition-colors">
               Terms of Service
             </Link>
-            <Link to="/legal" className="hover:text-background transition-colors">
+            <Link to="/legal" className="hover:text-white transition-colors">
               Legal
             </Link>
-            <Link to="/faq" className="hover:text-background transition-colors">
+            <Link to="/faq" className="hover:text-white transition-colors">
               FAQ
             </Link>
           </div>
