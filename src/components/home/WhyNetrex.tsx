@@ -8,56 +8,33 @@ import {
   Lightbulb 
 } from "lucide-react";
 import { CountUpNumber } from "@/components/ui/CountUpNumber";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const reasons = [
-  {
-    icon: Zap,
-    title: "Innovation First",
-    description: "We embrace new ideas and cutting-edge technologies to deliver solutions that set you apart.",
-  },
-  {
-    icon: Users,
-    title: "Client-Centric Focus",
-    description: "Your success is our priority. We work closely with you to understand and exceed your goals.",
-  },
-  {
-    icon: Globe2,
-    title: "Global Presence",
-    description: "With offices in UAE, USA, UK, Canada, Australia, and Pakistan, we serve clients worldwide.",
-  },
-  {
-    icon: Award,
-    title: "Proven Excellence",
-    description: "Top-rated on Upwork, Clutch, and recognized by Google Developers Agency Program.",
-  },
-  {
-    icon: HeartHandshake,
-    title: "Integrity & Transparency",
-    description: "We maintain honesty and openness in all our interactions and business dealings.",
-  },
-  {
-    icon: Lightbulb,
-    title: "Creative Solutions",
-    description: "Our team brings fresh perspectives and creative approaches to every challenge.",
-  },
+  { icon: Zap, titleKey: "why.innovation", descKey: "why.innovation.desc" },
+  { icon: Users, titleKey: "why.client", descKey: "why.client.desc" },
+  { icon: Globe2, titleKey: "why.global", descKey: "why.global.desc" },
+  { icon: Award, titleKey: "why.excellence", descKey: "why.excellence.desc" },
+  { icon: HeartHandshake, titleKey: "why.integrity", descKey: "why.integrity.desc" },
+  { icon: Lightbulb, titleKey: "why.creative", descKey: "why.creative.desc" },
 ];
 
 const stats = [
-  { value: 500, suffix: "+", label: "Projects Completed" },
-  { value: 200, suffix: "+", label: "Happy Clients" },
-  { value: 50, suffix: "+", label: "Industries Served" },
-  { value: 6, suffix: "", label: "Global Offices" },
+  { value: 500, suffix: "+", labelKey: "why.stat.projects" },
+  { value: 200, suffix: "+", labelKey: "why.stat.clients" },
+  { value: 50, suffix: "+", labelKey: "why.stat.industries" },
+  { value: 6, suffix: "", labelKey: "why.stat.offices" },
 ];
 
 export function WhyNetrex() {
+  const { t } = useLanguage();
+  
   return (
     <section className="section-padding relative overflow-hidden">
-      {/* Background Elements */}
       <div className="absolute top-0 left-0 w-[400px] h-[400px] bg-accent/10 rounded-full blur-[100px] -z-10"></div>
       <div className="absolute bottom-0 right-0 w-[400px] h-[400px] bg-primary/10 rounded-full blur-[100px] -z-10"></div>
 
       <div className="container-wide">
-        {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -66,23 +43,21 @@ export function WhyNetrex() {
           className="text-center max-w-3xl mx-auto mb-16"
         >
           <span className="inline-block text-sm font-semibold text-primary uppercase tracking-wider mb-4">
-            Why Choose Us
+            {t('why.badge')}
           </span>
           <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-            Why Businesses Choose{" "}
-            <span className="text-primary">NETREX</span>
+            {t('why.title')}{" "}
+            <span className="text-primary">{t('why.title.highlight')}</span>
           </h2>
           <p className="text-lg text-muted-foreground">
-            Since 2016, we've been helping businesses worldwide achieve their 
-            digital transformation goals with excellence and creativity.
+            {t('why.description')}
           </p>
         </motion.div>
 
-        {/* Reasons Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {reasons.map((reason, index) => (
             <motion.div
-              key={reason.title}
+              key={reason.titleKey}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -97,10 +72,10 @@ export function WhyNetrex() {
                 </div>
                 <div>
                   <h3 className="font-display text-xl font-bold mb-2 group-hover:text-primary transition-colors">
-                    {reason.title}
+                    {t(reason.titleKey)}
                   </h3>
                   <p className="text-muted-foreground">
-                    {reason.description}
+                    {t(reason.descKey)}
                   </p>
                 </div>
               </div>
@@ -108,7 +83,6 @@ export function WhyNetrex() {
           ))}
         </div>
 
-        {/* Stats Banner with Counter */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -123,7 +97,7 @@ export function WhyNetrex() {
                 <div className="font-display text-4xl md:text-5xl font-bold mb-2">
                   <CountUpNumber end={stat.value} suffix={stat.suffix} />
                 </div>
-                <div className="text-white/80">{stat.label}</div>
+                <div className="text-white/80">{t(stat.labelKey)}</div>
               </div>
             ))}
           </div>
