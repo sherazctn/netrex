@@ -137,8 +137,9 @@ export function Header() {
             ))}
           </div>
 
-          {/* CTA Buttons & Language */}
-          <div className="hidden lg:flex items-center gap-3">
+          {/* CTA Buttons, Theme & Language */}
+          <div className="hidden lg:flex items-center gap-2">
+            <ThemeSwitcher />
             <LanguageSwitcher />
             <Link to="/contact">
               <Button variant="hero" size="default">
