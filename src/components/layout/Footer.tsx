@@ -82,10 +82,10 @@ export function Footer() {
               transition={{ duration: 0.6 }}
             >
               <h2 className="font-display text-3xl md:text-4xl font-bold mb-4">
-                Ready to Start Your <span className="text-primary">Project?</span>
+                {t('footer.cta.title')} <span className="text-primary">{t('footer.cta.highlight')}</span>
               </h2>
               <p className="text-white/70">
-                Let's discuss your ideas and create something amazing together.
+                {t('footer.cta.description')}
               </p>
             </motion.div>
             <motion.div
@@ -128,7 +128,7 @@ export function Footer() {
                 <Mail className="h-6 w-6 text-primary" />
               </div>
               <div>
-                <div className="text-sm text-white/60 mb-1">Email Us</div>
+                <div className="text-sm text-white/60 mb-1">  {t('footer.emailUs')}</div>
                 <div className="font-semibold text-white">info@netrexinc.com</div>
               </div>
             </motion.a>
@@ -145,7 +145,7 @@ export function Footer() {
                 <Phone className="h-6 w-6 text-primary" />
               </div>
               <div>
-                <div className="text-sm text-white/60 mb-1">Call Us</div>
+                <div className="text-sm text-white/60 mb-1">  {t('footer.callUs')}</div>
                 <div className="font-semibold text-white">+971 50 200 8313</div>
               </div>
             </motion.a>
@@ -161,7 +161,7 @@ export function Footer() {
                 <MapPin className="h-6 w-6 text-primary" />
               </div>
               <div>
-                <div className="text-sm text-white/60 mb-1">Headquarters</div>
+                <div className="text-sm text-white/60 mb-1">  {t('footer.headquarters')}</div>
                 <div className="font-semibold text-white">Dubai, UAE</div>
               </div>
             </motion.div>
@@ -193,11 +193,11 @@ export function Footer() {
             <div className="flex items-center gap-3 mb-6">
               <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 border border-white/10">
                 <Award className="h-3.5 w-3.5 text-primary" />
-                <span className="text-xs text-white/70">Top Rated Agency</span>
+                <span className="text-xs text-white/70">  {t('footer.topRated')}</span>
               </div>
               <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 border border-white/10">
                 <Shield className="h-3.5 w-3.5 text-primary" />
-                <span className="text-xs text-white/70">ISO Certified</span>
+                <span className="text-xs text-white/70">  {t('footer.isoCertified')}</span>
               </div>
             </div>
             <div className="flex flex-wrap gap-3">
@@ -222,7 +222,7 @@ export function Footer() {
 
           {/* Services Links */}
           <div>
-            <h3 className="font-display font-semibold text-sm uppercase tracking-wider mb-4">Services</h3>
+            <h3 className="font-display font-semibold text-sm uppercase tracking-wider mb-4">  {t('footer.services')}</h3>
             <ul className="space-y-2">
               {footerLinks.services.map((link) => (
                 <li key={link.name}>
@@ -237,7 +237,7 @@ export function Footer() {
 
           {/* Company Links */}
           <div>
-            <h3 className="font-display font-semibold text-sm uppercase tracking-wider mb-4">Company</h3>
+            <h3 className="font-display font-semibold text-sm uppercase tracking-wider mb-4">  {t('footer.company')}</h3>
             <ul className="space-y-2">
               {footerLinks.company.map((link) => (
                 <li key={link.name}>
@@ -252,7 +252,7 @@ export function Footer() {
 
           {/* Locations */}
           <div>
-            <h3 className="font-display font-semibold text-sm uppercase tracking-wider mb-4">Locations</h3>
+            <h3 className="font-display font-semibold text-sm uppercase tracking-wider mb-4">  {t('footer.locations')}</h3>
             <ul className="space-y-2">
               {footerLinks.locations.map((link) => (
                 <li key={link.name}>
@@ -269,14 +269,14 @@ export function Footer() {
         {/* Copyright */}
         <div className="mt-12 pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-white/50 text-sm">
-            © {new Date().getFullYear()} NETREX INC. All rights reserved.
+            © {new Date().getFullYear()} NETREX INC. {t('footer.rights')}
           </p>
           <div className="flex gap-6 text-sm text-white/50">
             <Link to="/privacy" className="hover:text-white transition-colors">
-              Privacy Policy
+              {t('footer.privacy')}
             </Link>
             <Link to="/terms" className="hover:text-white transition-colors">
-              Terms of Service
+              {t('footer.terms')}
             </Link>
             <Link to="/legal" className="hover:text-white transition-colors">
               Legal
