@@ -338,7 +338,7 @@ export function WorldMapContact() {
                 className="w-full h-full min-h-[500px]"
               >
                 <iframe
-                  src={`https://www.google.com/maps?q=${activeLocation.coords.lat},${activeLocation.coords.lng}&z=15&output=embed`}
+                  src={`https://www.google.com/maps?q=${encodeURIComponent(activeLocation.address + ', ' + activeLocation.city + ', ' + activeLocation.country)}&z=16&output=embed`}
                   width="100%"
                   height="100%"
                   style={{ border: 0, minHeight: '500px' }}
