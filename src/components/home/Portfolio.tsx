@@ -122,8 +122,8 @@ export function Portfolio() {
                         alt={project.title}
                         loading="eager"
                         decoding="async"
-                        className={project.category === "Web" ? "absolute top-0 left-0 w-full h-auto" : "absolute top-0 left-0 w-full h-full object-contain"}
-                        style={project.category === "Web" ? { transform: "translateY(0)" } : undefined}
+                        className={project.category === "Mobile App" ? "absolute top-0 left-0 w-full h-full object-contain" : "absolute top-0 left-0 w-full h-auto"}
+                        style={project.category !== "Mobile App" ? { transform: "translateY(0)" } : undefined}
                       />
                       
                       <div className="absolute inset-0 bg-gradient-to-t from-foreground/90 via-foreground/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
