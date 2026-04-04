@@ -5,30 +5,30 @@ import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const industries = [
-  { name: "Real Estate", icon: "🏢" },
-  { name: "Healthcare", icon: "🏥" },
-  { name: "Finance & Banking", icon: "💰" },
-  { name: "E-Commerce", icon: "🛒" },
-  { name: "Education", icon: "📚" },
-  { name: "Travel & Tourism", icon: "✈️" },
-  { name: "Food & Restaurant", icon: "🍽️" },
-  { name: "Logistics", icon: "📦" },
-  { name: "Entertainment", icon: "🎬" },
-  { name: "Automotive", icon: "🚗" },
-  { name: "Fitness & Wellness", icon: "💪" },
-  { name: "Legal Services", icon: "⚖️" },
-  { name: "Insurance", icon: "🛡️" },
-  { name: "Manufacturing", icon: "🏭" },
-  { name: "Retail", icon: "🏪" },
-  { name: "Agriculture", icon: "🌾" },
-  { name: "Technology", icon: "💻" },
-  { name: "Media", icon: "📺" },
-  { name: "Construction", icon: "🏗️" },
-  { name: "Fashion", icon: "👗" },
-  { name: "Sports", icon: "⚽" },
-  { name: "Gaming", icon: "🎮" },
-  { name: "Energy", icon: "⚡" },
-  { name: "Telecom", icon: "📱" },
+  { nameKey: "industries.realEstate", icon: "🏢" },
+  { nameKey: "industries.healthcare", icon: "🏥" },
+  { nameKey: "industries.finance", icon: "💰" },
+  { nameKey: "industries.ecommerce", icon: "🛒" },
+  { nameKey: "industries.education", icon: "📚" },
+  { nameKey: "industries.travel", icon: "✈️" },
+  { nameKey: "industries.food", icon: "🍽️" },
+  { nameKey: "industries.logistics", icon: "📦" },
+  { nameKey: "industries.entertainment", icon: "🎬" },
+  { nameKey: "industries.automotive", icon: "🚗" },
+  { nameKey: "industries.fitness", icon: "💪" },
+  { nameKey: "industries.legal", icon: "⚖️" },
+  { nameKey: "industries.insurance", icon: "🛡️" },
+  { nameKey: "industries.manufacturing", icon: "🏭" },
+  { nameKey: "industries.retail", icon: "🏪" },
+  { nameKey: "industries.agriculture", icon: "🌾" },
+  { nameKey: "industries.technology", icon: "💻" },
+  { nameKey: "industries.media", icon: "📺" },
+  { nameKey: "industries.construction", icon: "🏗️" },
+  { nameKey: "industries.fashion", icon: "👗" },
+  { nameKey: "industries.sports", icon: "⚽" },
+  { nameKey: "industries.gaming", icon: "🎮" },
+  { nameKey: "industries.energy", icon: "⚡" },
+  { nameKey: "industries.telecom", icon: "📱" },
 ];
 
 export function IndustriesCarousel() {
@@ -100,7 +100,7 @@ export function IndustriesCarousel() {
               <div className="flex items-center gap-3">
                 <span className="text-3xl">{industry.icon}</span>
                 <span className="text-sm font-medium text-foreground/80 group-hover:text-primary transition-colors whitespace-nowrap">
-                  {industry.name}
+                  {t(industry.nameKey)}
                 </span>
               </div>
             </motion.div>
@@ -130,7 +130,7 @@ export function IndustriesCarousel() {
               <div className="flex items-center gap-3">
                 <span className="text-3xl">{industry.icon}</span>
                 <span className="text-sm font-medium text-foreground/80 group-hover:text-primary transition-colors whitespace-nowrap">
-                  {industry.name}
+                  {t(industry.nameKey)}
                 </span>
               </div>
             </motion.div>
@@ -160,7 +160,7 @@ export function IndustriesCarousel() {
               <div className="flex items-center gap-3">
                 <span className="text-3xl">{industry.icon}</span>
                 <span className="text-sm font-medium text-foreground/80 group-hover:text-primary transition-colors whitespace-nowrap">
-                  {industry.name}
+                  {t(industry.nameKey)}
                 </span>
               </div>
             </motion.div>

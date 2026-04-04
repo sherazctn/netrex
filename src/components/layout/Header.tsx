@@ -6,6 +6,8 @@ import { Button } from "@/components/ui/button";
 import { LanguageSwitcher } from "@/components/ui/LanguageSwitcher";
 import { ThemeSwitcher } from "@/components/ui/ThemeSwitcher";
 import netrexLogo from "@/assets/netrex-logo.png";
+import netrexLogoLite from "@/assets/netrex-logo-lite.png";
+import { useTheme } from "next-themes";
 
 const serviceIcons: Record<string, typeof Globe> = {
   "Web Development": Globe,
@@ -48,6 +50,8 @@ export function Header() {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const location = useLocation();
 
+  const { theme } = useTheme();
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
@@ -74,7 +78,7 @@ export function Header() {
           {/* Logo */}
           <Link to="/" className="relative z-50">
             <motion.img
-              src={netrexLogo}
+              src={theme === "dark" ? netrexLogoLite : netrexLogo}
               alt="NETREX"
               className="h-10 md:h-12 w-auto"
               whileHover={{ scale: 1.02 }}
