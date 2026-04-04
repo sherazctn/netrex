@@ -230,7 +230,7 @@ const Legal = () => (
                     </div>
                     <div>
                       <div className="text-xs text-muted-foreground mb-1">{reg.regType}</div>
-                      <div className="font-mono text-sm font-semibold text-primary">{reg.regNumber}</div>
+                      <div className="font-mono text-sm font-semibold text-primary">{maskRegNumber(reg.regNumber)}</div>
                     </div>
                     <div>
                       <div className="text-xs text-muted-foreground mb-1">Jurisdiction</div>
