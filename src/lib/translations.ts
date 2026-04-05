@@ -1250,6 +1250,8 @@ export const translations: Record<Language, Record<string, string>> = {
     'common.viewAll': 'すべて見る',
     'common.startProject': 'プロジェクトを開始',
     'common.getConsultation': '無料相談',
+    'footer.description2': 'ウェブ開発、モバイルアプリ、UI/UXデザイン、ブランディング、デジタルマーケティングを専門とし、世界20以上の業界の企業にサービスを提供しています。',
+    'portfolio.noResults': 'フィルターに一致するプロジェクトが見つかりませんでした。',
   },
 };
 
