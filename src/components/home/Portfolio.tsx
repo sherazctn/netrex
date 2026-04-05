@@ -34,7 +34,7 @@ export function Portfolio() {
     : homeItems.filter((p) => p.category === activeCategory);
 
   const handleMouseEnter = (index: number, category: string) => {
-    if (category === "Mobile App") return; // Only scroll for web-type portfolio (Web, E-Commerce, Branding, Marketing)
+    if (category === "Mobile App" || category === "Branding") return;
     const img = imageRefs.current[index];
     if (!img) return;
     const containerH = img.parentElement?.clientHeight || 0;
