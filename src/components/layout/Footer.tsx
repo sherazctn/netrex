@@ -178,17 +178,10 @@ export function Footer() {
               <img src={netrexLogoLite} alt="NETREX" className="h-12 w-auto mb-6" />
             </Link>
             <p className="text-white/60 text-sm mb-3 max-w-sm">
-              NETREX — Where Innovation Meets The Real World. Delivering state-of-the-art 
-              digital solutions to clients globally since 2016.
-            </p>
-            <p className="text-white/40 text-xs mb-3 max-w-sm leading-relaxed">
-              We specialize in web development, mobile apps, UI/UX design, branding, and digital marketing 
-              for businesses across 20+ industries worldwide. Our team of 50+ experts delivers 
-              enterprise-grade solutions from 9 global offices.
+              {t('footer.description')}
             </p>
             <p className="text-white/40 text-xs mb-4 max-w-sm leading-relaxed">
-              Trusted by startups, SMEs, and enterprises across the Middle East, North America, Europe, 
-              Asia Pacific, and beyond. ISO certified and top-rated on Upwork, Fiverr, and Clutch.
+              {t('footer.description2')}
             </p>
             <div className="flex items-center gap-3 mb-6">
               <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 border border-white/10">
