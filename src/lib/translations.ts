@@ -976,8 +976,9 @@ export const translations: Record<Language, Record<string, string>> = {
     'common.viewAll': 'Смотреть все',
     'common.startProject': 'Начать проект',
     'common.getConsultation': 'Бесплатная консультация',
+    'footer.description2': 'Мы специализируемся на веб-разработке, мобильных приложениях, UI/UX-дизайне, брендинге и цифровом маркетинге для бизнеса в более чем 20 отраслях по всему миру.',
+    'portfolio.noResults': 'Проекты, соответствующие вашим фильтрам, не найдены.',
   },
-  pt: {
     'nav.home': 'Início',
     'nav.services': 'Serviços',
     'nav.portfolio': 'Portfólio',
