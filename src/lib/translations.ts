@@ -153,6 +153,8 @@ export const translations: Record<Language, Record<string, string>> = {
     'common.viewAll': 'View All',
     'common.startProject': 'Start Your Project',
     'common.getConsultation': 'Get Free Consultation',
+    'footer.description2': 'We specialize in web development, mobile apps, UI/UX design, branding, and digital marketing for businesses across 20+ industries worldwide.',
+    'portfolio.noResults': 'No projects found matching your filters.',
   },
   ar: {
     'nav.home': 'الرئيسية',
@@ -289,8 +291,9 @@ export const translations: Record<Language, Record<string, string>> = {
     'common.viewAll': 'عرض الكل',
     'common.startProject': 'ابدأ مشروعك',
     'common.getConsultation': 'احصل على استشارة مجانية',
+    'footer.description2': 'نحن متخصصون في تطوير المواقع والتطبيقات وتصميم واجهات المستخدم والعلامات التجارية والتسويق الرقمي للشركات في أكثر من 20 صناعة حول العالم.',
+    'portfolio.noResults': 'لم يتم العثور على مشاريع تطابق الفلاتر.',
   },
-  zh: {
     'nav.home': '首页',
     'nav.services': '服务',
     'nav.portfolio': '作品集',
@@ -425,6 +428,8 @@ export const translations: Record<Language, Record<string, string>> = {
     'common.viewAll': '查看全部',
     'common.startProject': '开始您的项目',
     'common.getConsultation': '获取免费咨询',
+    'footer.description2': '我们专注于网站开发、移动应用、UI/UX设计、品牌建设和数字营销，服务覆盖全球20多个行业。',
+    'portfolio.noResults': '没有找到符合筛选条件的项目。',
   },
   fr: {
     'nav.home': 'Accueil',
@@ -561,6 +566,8 @@ export const translations: Record<Language, Record<string, string>> = {
     'common.viewAll': 'Voir tout',
     'common.startProject': 'Démarrer votre projet',
     'common.getConsultation': 'Consultation gratuite',
+    'footer.description2': 'Nous nous spécialisons dans le développement web, les apps mobiles, le design UI/UX, le branding et le marketing digital pour les entreprises de plus de 20 industries dans le monde.',
+    'portfolio.noResults': 'Aucun projet trouvé correspondant à vos filtres.',
   },
   es: {
     'nav.home': 'Inicio',
@@ -697,6 +704,8 @@ export const translations: Record<Language, Record<string, string>> = {
     'common.viewAll': 'Ver todo',
     'common.startProject': 'Iniciar tu proyecto',
     'common.getConsultation': 'Consulta gratuita',
+    'footer.description2': 'Nos especializamos en desarrollo web, apps móviles, diseño UI/UX, branding y marketing digital para empresas en más de 20 industrias en todo el mundo.',
+    'portfolio.noResults': 'No se encontraron proyectos que coincidan con tus filtros.',
   },
   de: {
     'nav.home': 'Startseite',
@@ -833,6 +842,8 @@ export const translations: Record<Language, Record<string, string>> = {
     'common.viewAll': 'Alle anzeigen',
     'common.startProject': 'Projekt starten',
     'common.getConsultation': 'Kostenlose Beratung',
+    'footer.description2': 'Wir sind spezialisiert auf Webentwicklung, mobile Apps, UI/UX-Design, Markenbildung und digitales Marketing für Unternehmen in über 20 Branchen weltweit.',
+    'portfolio.noResults': 'Keine Projekte gefunden, die Ihren Filtern entsprechen.',
   },
   ru: {
     'nav.home': 'Главная',
@@ -969,6 +980,8 @@ export const translations: Record<Language, Record<string, string>> = {
     'common.viewAll': 'Смотреть все',
     'common.startProject': 'Начать проект',
     'common.getConsultation': 'Бесплатная консультация',
+    'footer.description2': 'Мы специализируемся на веб-разработке, мобильных приложениях, UI/UX-дизайне, брендинге и цифровом маркетинге для бизнеса в более чем 20 отраслях по всему миру.',
+    'portfolio.noResults': 'Проекты, соответствующие вашим фильтрам, не найдены.',
   },
   pt: {
     'nav.home': 'Início',
@@ -1105,6 +1118,8 @@ export const translations: Record<Language, Record<string, string>> = {
     'common.viewAll': 'Ver tudo',
     'common.startProject': 'Iniciar seu projeto',
     'common.getConsultation': 'Consultoria gratuita',
+    'footer.description2': 'Somos especializados em desenvolvimento web, apps móveis, design UI/UX, branding e marketing digital para empresas em mais de 20 indústrias em todo o mundo.',
+    'portfolio.noResults': 'Nenhum projeto encontrado com os filtros selecionados.',
   },
   ja: {
     'nav.home': 'ホーム',
@@ -1241,6 +1256,8 @@ export const translations: Record<Language, Record<string, string>> = {
     'common.viewAll': 'すべて見る',
     'common.startProject': 'プロジェクトを開始',
     'common.getConsultation': '無料相談',
+    'footer.description2': 'ウェブ開発、モバイルアプリ、UI/UXデザイン、ブランディング、デジタルマーケティングを専門とし、世界20以上の業界の企業にサービスを提供しています。',
+    'portfolio.noResults': 'フィルターに一致するプロジェクトが見つかりませんでした。',
   },
 };
 

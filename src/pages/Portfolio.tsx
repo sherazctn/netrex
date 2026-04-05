@@ -3,26 +3,38 @@ import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
-import { useState, useRef } from "react";
+import { useState, useRef, useMemo } from "react";
 import { ArrowUpRight, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { PortfolioLightbox } from "@/components/portfolio/PortfolioLightbox";
 import { portfolioItems, portfolioCategories, portfolioTechnologies } from "@/data/portfolioData";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Portfolio = () => {
+  const { t } = useLanguage();
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedTech, setSelectedTech] = useState("All");
   const [lightbox, setLightbox] = useState<{ image: string; title: string; description: string } | null>(null);
   const imageRefs = useRef<(HTMLImageElement | null)[]>([]);
 
-  const filteredItems = portfolioItems.filter(item => {
+  // Shuffle items on mount for randomness
+  const shuffledItems = useMemo(() => {
+    const shuffled = [...portfolioItems];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    return shuffled;
+  }, []);
+
+  const filteredItems = shuffledItems.filter(item => {
     const categoryMatch = selectedCategory === "All" || item.category === selectedCategory;
     const techMatch = selectedTech === "All" || item.technology === selectedTech;
     return categoryMatch && techMatch;
   });
 
   const handleMouseEnter = (index: number, category: string) => {
-    if (category === "Mobile App") return; // Only scroll for web-type portfolio
+    if (category === "Mobile App" || category === "Branding") return;
     const img = imageRefs.current[index];
     if (!img) return;
     const containerH = img.parentElement?.clientHeight || 0;
@@ -55,14 +67,14 @@ const Portfolio = () => {
               className="text-center max-w-3xl mx-auto"
             >
               <span className="inline-block text-sm font-semibold text-primary uppercase tracking-wider mb-4">
-                Our Work
+                {t('portfolio.badge')}
               </span>
               <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-                Projects That{" "}
-                <span className="text-gradient">Deliver Results</span>
+                {t('portfolio.title')}{" "}
+                <span className="text-gradient">{t('portfolio.title.highlight')}</span>
               </h1>
               <p className="text-lg text-muted-foreground">
-                Explore our portfolio of {portfolioItems.length} successful projects across various industries and technologies.
+                {t('portfolio.description')}
               </p>
             </motion.div>
           </div>
@@ -129,19 +141,19 @@ const Portfolio = () => {
                     onMouseLeave={() => handleMouseLeave(index)}
                     onClick={() => setLightbox({ image: item.image, title: item.title, description: item.description })}
                   >
-                    <div className="relative aspect-[4/3] overflow-hidden bg-muted" style={item.category === "Mobile App" ? { backgroundColor: 'hsl(var(--primary) / 0.08)' } : undefined}>
+                    <div className="relative aspect-[4/3] overflow-hidden bg-muted" style={(item.category === "Mobile App" || item.category === "Branding") ? { backgroundColor: item.category === "Branding" ? '#ffffff' : 'hsl(var(--primary) / 0.08)' } : undefined}>
                       <img
                         ref={(el) => { imageRefs.current[index] = el; }}
                         src={item.image}
                         alt={item.title}
                         loading="eager"
                         decoding="async"
-                        className={item.category === "Mobile App" ? "absolute top-0 left-0 w-full h-full object-contain" : "absolute top-0 left-0 w-full h-auto"}
-                        style={item.category !== "Mobile App" ? { transform: "translateY(0)" } : undefined}
+                        className={(item.category === "Mobile App" || item.category === "Branding") ? "absolute top-0 left-0 w-full h-full object-contain p-4" : "absolute top-0 left-0 w-full h-auto"}
+                        style={(item.category !== "Mobile App" && item.category !== "Branding") ? { transform: "translateY(0)" } : undefined}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
                         <Button variant="glass" size="sm" className="text-white border-white/20">
-                          View Project
+                          {t('common.viewAll')}
                           <ExternalLink className="h-4 w-4" />
                         </Button>
                       </div>
@@ -173,7 +185,7 @@ const Portfolio = () => {
 
             {filteredItems.length === 0 && (
               <div className="text-center py-16">
-                <p className="text-muted-foreground text-lg">No projects found matching your filters.</p>
+                <p className="text-muted-foreground text-lg">{t('portfolio.noResults')}</p>
               </div>
             )}
           </div>
@@ -189,14 +201,14 @@ const Portfolio = () => {
               transition={{ duration: 0.6 }}
             >
               <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
-                Ready to Start Your Project?
+                {t('footer.cta.title')} {t('footer.cta.highlight')}
               </h2>
               <p className="text-white/90 text-lg md:text-xl max-w-2xl mx-auto mb-8">
-                Let's create something amazing together. Get in touch today.
+                {t('footer.cta.description')}
               </p>
               <Link to="/contact">
                 <Button variant="outline" size="lg" className="bg-white text-primary border-white hover:bg-white/90 hover:text-primary">
-                  Start Your Project
+                  {t('common.startProject')}
                   <ArrowUpRight className="h-5 w-5" />
                 </Button>
               </Link>

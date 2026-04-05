@@ -97,7 +97,7 @@ export function Footer() {
             >
               <Link to="/contact">
                 <Button variant="hero" size="lg" className="group">
-                  Get Free Consultation
+                  {t('footer.cta.button')}
                   <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
                 </Button>
               </Link>
@@ -178,17 +178,10 @@ export function Footer() {
               <img src={netrexLogoLite} alt="NETREX" className="h-12 w-auto mb-6" />
             </Link>
             <p className="text-white/60 text-sm mb-3 max-w-sm">
-              NETREX — Where Innovation Meets The Real World. Delivering state-of-the-art 
-              digital solutions to clients globally since 2016.
-            </p>
-            <p className="text-white/40 text-xs mb-3 max-w-sm leading-relaxed">
-              We specialize in web development, mobile apps, UI/UX design, branding, and digital marketing 
-              for businesses across 20+ industries worldwide. Our team of 50+ experts delivers 
-              enterprise-grade solutions from 9 global offices.
+              {t('footer.description')}
             </p>
             <p className="text-white/40 text-xs mb-4 max-w-sm leading-relaxed">
-              Trusted by startups, SMEs, and enterprises across the Middle East, North America, Europe, 
-              Asia Pacific, and beyond. ISO certified and top-rated on Upwork, Fiverr, and Clutch.
+              {t('footer.description2')}
             </p>
             <div className="flex items-center gap-3 mb-6">
               <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 border border-white/10">
@@ -226,7 +219,7 @@ export function Footer() {
             <ul className="space-y-2">
               {footerLinks.services.map((link) => (
                 <li key={link.name}>
-                  <Link to={link.href} className="flex items-center gap-2 text-white/60 hover:text-primary transition-colors group text-xs">
+                  <Link to={link.href} className="flex items-center gap-2 text-white/60 hover:text-primary transition-colors group text-sm">
                     <link.icon className="h-3.5 w-3.5 text-white/35 group-hover:text-primary transition-colors" />
                     {link.name}
                   </Link>
@@ -241,7 +234,7 @@ export function Footer() {
             <ul className="space-y-2">
               {footerLinks.company.map((link) => (
                 <li key={link.name}>
-                  <Link to={link.href} className="flex items-center gap-2 text-white/60 hover:text-primary transition-colors group text-xs">
+                  <Link to={link.href} className="flex items-center gap-2 text-white/60 hover:text-primary transition-colors group text-sm">
                     <link.icon className="h-3.5 w-3.5 text-white/35 group-hover:text-primary transition-colors" />
                     {link.name}
                   </Link>
@@ -256,7 +249,7 @@ export function Footer() {
             <ul className="space-y-2">
               {footerLinks.locations.map((link) => (
                 <li key={link.name}>
-                  <Link to={link.href} className="flex items-center gap-2 text-white/60 hover:text-primary transition-colors group text-xs">
+                  <Link to={link.href} className="flex items-center gap-2 text-white/60 hover:text-primary transition-colors group text-sm">
                     <MapPin className="h-3.5 w-3.5 text-white/35 group-hover:text-primary transition-colors" />
                     {link.name}
                   </Link>
@@ -279,7 +272,7 @@ export function Footer() {
               {t('footer.terms')}
             </Link>
             <Link to="/legal" className="hover:text-white transition-colors">
-              Legal
+              {t('footer.legal')}
             </Link>
             <Link to="/faq" className="hover:text-white transition-colors">
               FAQ

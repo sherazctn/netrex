@@ -34,7 +34,7 @@ export function Portfolio() {
     : homeItems.filter((p) => p.category === activeCategory);
 
   const handleMouseEnter = (index: number, category: string) => {
-    if (category === "Mobile App") return; // Only scroll for web-type portfolio (Web, E-Commerce, Branding, Marketing)
+    if (category === "Mobile App" || category === "Branding") return;
     const img = imageRefs.current[index];
     if (!img) return;
     const containerH = img.parentElement?.clientHeight || 0;
@@ -115,15 +115,15 @@ export function Portfolio() {
                     onMouseLeave={() => handleMouseLeave(index)}
                     onClick={() => setLightbox({ image: project.image, title: project.title, description: project.description })}
                   >
-                    <div className="relative aspect-[4/3] overflow-hidden bg-muted" style={project.category === "Mobile App" ? { backgroundColor: 'hsl(var(--primary) / 0.08)' } : undefined}>
+                    <div className="relative aspect-[4/3] overflow-hidden bg-muted" style={(project.category === "Mobile App" || project.category === "Branding") ? { backgroundColor: project.category === "Branding" ? '#ffffff' : 'hsl(var(--primary) / 0.08)' } : undefined}>
                       <img
                         ref={(el) => { imageRefs.current[index] = el; }}
                         src={project.image}
                         alt={project.title}
                         loading="eager"
                         decoding="async"
-                        className={project.category === "Mobile App" ? "absolute top-0 left-0 w-full h-full object-contain" : "absolute top-0 left-0 w-full h-auto"}
-                        style={project.category !== "Mobile App" ? { transform: "translateY(0)" } : undefined}
+                        className={(project.category === "Mobile App" || project.category === "Branding") ? "absolute top-0 left-0 w-full h-full object-contain p-4" : "absolute top-0 left-0 w-full h-auto"}
+                        style={(project.category !== "Mobile App" && project.category !== "Branding") ? { transform: "translateY(0)" } : undefined}
                       />
                       
                       <div className="absolute inset-0 bg-gradient-to-t from-foreground/90 via-foreground/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
