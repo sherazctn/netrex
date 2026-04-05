@@ -153,7 +153,7 @@ const Portfolio = () => {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
                         <Button variant="glass" size="sm" className="text-white border-white/20">
-                          View Project
+                          {t('common.viewAll')}
                           <ExternalLink className="h-4 w-4" />
                         </Button>
                       </div>
