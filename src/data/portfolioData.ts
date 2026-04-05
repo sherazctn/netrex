@@ -523,4 +523,115 @@ export const portfolioItems: PortfolioItem[] = [
     resultValue: { value: 60000, suffix: "+", label: "Connected Devices" },
     industry: "IoT & Smart Home"
   },
+  // Branding Logo Design Portfolio
+  {
+    id: 46,
+    title: "Hogar Properties",
+    category: "Branding",
+    technology: "Adobe Illustrator",
+    image: "/portfolio/hogar-properties.png",
+    description: "Luxury real estate brand identity with elegant gold monogram logo featuring house silhouette and premium typography",
+    result: "Brand recognition +180%",
+    resultValue: { value: 180, suffix: "%", label: "Brand Recognition" },
+    industry: "Real Estate"
+  },
+  {
+    id: 47,
+    title: "Celesta Clean",
+    category: "Branding",
+    technology: "Adobe Illustrator",
+    image: "/portfolio/celesta-clean.png",
+    description: "Fresh and modern cleaning service brand identity with vibrant green house icon, broom element, and sparkle accents",
+    result: "Brand awareness +200%",
+    resultValue: { value: 200, suffix: "%", label: "Brand Awareness" },
+    industry: "Cleaning Services"
+  },
+  {
+    id: 48,
+    title: "Enron Environmental Services",
+    category: "Branding",
+    technology: "Adobe Illustrator",
+    image: "/portfolio/enron-environmental.png",
+    description: "Eco-friendly environmental services logo with organic leaf elements in green tones and clean modern typography",
+    result: "Client trust +150%",
+    resultValue: { value: 150, suffix: "%", label: "Client Trust" },
+    industry: "Environmental"
+  },
+  {
+    id: 49,
+    title: "Digital Tribe",
+    category: "Branding",
+    technology: "Adobe Photoshop",
+    image: "/portfolio/digital-tribe.png",
+    description: "Bold digital agency brand identity with geometric mountain/arrow icon in navy and crimson, modern sans-serif typography",
+    result: "Lead generation +220%",
+    resultValue: { value: 220, suffix: "%", label: "Lead Generation" },
+    industry: "Digital Agency"
+  },
+  {
+    id: 50,
+    title: "Embodi Fitness",
+    category: "Branding",
+    technology: "Adobe Photoshop",
+    image: "/portfolio/embodi-fitness.jpg",
+    description: "Minimalist fitness brand identity with bold uppercase typography and clean black-on-white aesthetic for premium positioning",
+    result: "Membership +300%",
+    resultValue: { value: 300, suffix: "%", label: "Membership Growth" },
+    industry: "Health & Fitness"
+  },
+  {
+    id: 51,
+    title: "Lair Lighting",
+    category: "Branding",
+    technology: "Adobe Illustrator",
+    image: "/portfolio/lair-lighting.jpg",
+    description: "Vibrant orange lighting company brand with bold rounded typography and strong visual impact for commercial recognition",
+    result: "Sales increase +160%",
+    resultValue: { value: 160, suffix: "%", label: "Sales Increase" },
+    industry: "Lighting & Electronics"
+  },
+  {
+    id: 52,
+    title: "Twiggies",
+    category: "Branding",
+    technology: "Adobe Illustrator",
+    image: "/portfolio/twiggies.png",
+    description: "Playful and fun brand identity with quirky hand-drawn style typography, perfect for children's or food brand positioning",
+    result: "Brand recall +250%",
+    resultValue: { value: 250, suffix: "%", label: "Brand Recall" },
+    industry: "Food & Beverage"
+  },
+  {
+    id: 53,
+    title: "Elevare Coaching",
+    category: "Branding",
+    technology: "Adobe Photoshop",
+    image: "/portfolio/elevare-coaching.jpg",
+    description: "Professional coaching and leadership training brand with green-blue geometric icon symbolizing growth and transformation",
+    result: "Client base +190%",
+    resultValue: { value: 190, suffix: "%", label: "Client Growth" },
+    industry: "Coaching & Training"
+  },
+  {
+    id: 54,
+    title: "Melix Gold",
+    category: "Branding",
+    technology: "Adobe Illustrator",
+    image: "/portfolio/melix-gold.png",
+    description: "Luxury gold jewelry brand with elegant MG monogram, premium serif typography, and opulent gold color palette",
+    result: "Premium positioning +280%",
+    resultValue: { value: 280, suffix: "%", label: "Premium Positioning" },
+    industry: "Luxury & Jewelry"
+  },
+  {
+    id: 55,
+    title: "Balance Beauty Spa",
+    category: "Branding",
+    technology: "Adobe Photoshop",
+    image: "/portfolio/balance-beauty-spa.jpg",
+    description: "Elegant beauty spa brand with butterfly-woman silhouette, sparkle accents, and sophisticated serif typography",
+    result: "Bookings increase +210%",
+    resultValue: { value: 210, suffix: "%", label: "Booking Increase" },
+    industry: "Beauty & Wellness"
+  },
 ];
