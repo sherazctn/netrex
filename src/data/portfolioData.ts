@@ -19,7 +19,7 @@ export const servicePortfolioMap: Record<string, { categories: string[]; industr
   "mobile-app": { categories: ["Mobile App"], industries: [] },
   "ui-ux-design": { categories: ["Web", "Mobile App"], industries: [] },
   "digital-marketing": { categories: ["Marketing"], industries: ["Digital Marketing"] },
-  "branding": { categories: ["Branding"], industries: [] },
+  "branding": { categories: ["Branding"], industries: ["Branding", "Logo Design"] },
   "ecommerce": { categories: ["E-Commerce"], industries: [] },
   "ai-automation": { categories: ["Web"], industries: ["AgriTech", "PropTech", "HR Tech", "IT Consulting"] },
   "geo": { categories: ["Web", "Marketing"], industries: ["Digital Marketing"] },
