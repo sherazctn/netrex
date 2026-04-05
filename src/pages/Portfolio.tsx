@@ -201,14 +201,14 @@ const Portfolio = () => {
               transition={{ duration: 0.6 }}
             >
               <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
-                Ready to Start Your Project?
+                {t('footer.cta.title')} {t('footer.cta.highlight')}
               </h2>
               <p className="text-white/90 text-lg md:text-xl max-w-2xl mx-auto mb-8">
-                Let's create something amazing together. Get in touch today.
+                {t('footer.cta.description')}
               </p>
               <Link to="/contact">
                 <Button variant="outline" size="lg" className="bg-white text-primary border-white hover:bg-white/90 hover:text-primary">
-                  Start Your Project
+                  {t('common.startProject')}
                   <ArrowUpRight className="h-5 w-5" />
                 </Button>
               </Link>
