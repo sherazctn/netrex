@@ -5,13 +5,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useState, useRef, useMemo } from "react";
 import { ArrowUpRight, ExternalLink } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
-import { Link } from "react-router-dom";
-import { useState, useRef } from "react";
-import { ArrowUpRight, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { PortfolioLightbox } from "@/components/portfolio/PortfolioLightbox";
 import { portfolioItems, portfolioCategories, portfolioTechnologies } from "@/data/portfolioData";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Portfolio = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
