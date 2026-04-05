@@ -1113,8 +1113,9 @@ export const translations: Record<Language, Record<string, string>> = {
     'common.viewAll': 'Ver tudo',
     'common.startProject': 'Iniciar seu projeto',
     'common.getConsultation': 'Consultoria gratuita',
+    'footer.description2': 'Somos especializados em desenvolvimento web, apps móveis, design UI/UX, branding e marketing digital para empresas em mais de 20 indústrias em todo o mundo.',
+    'portfolio.noResults': 'Nenhum projeto encontrado com os filtros selecionados.',
   },
-  ja: {
     'nav.home': 'ホーム',
     'nav.services': 'サービス',
     'nav.portfolio': 'ポートフォリオ',
