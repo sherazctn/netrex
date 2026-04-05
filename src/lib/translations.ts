@@ -431,6 +431,7 @@ export const translations: Record<Language, Record<string, string>> = {
     'footer.description2': '我们专注于网站开发、移动应用、UI/UX设计、品牌建设和数字营销，服务覆盖全球20多个行业。',
     'portfolio.noResults': '没有找到符合筛选条件的项目。',
   },
+  fr: {
     'nav.home': 'Accueil',
     'nav.services': 'Services',
     'nav.portfolio': 'Portfolio',
