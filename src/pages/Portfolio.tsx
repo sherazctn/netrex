@@ -185,7 +185,7 @@ const Portfolio = () => {
 
             {filteredItems.length === 0 && (
               <div className="text-center py-16">
-                <p className="text-muted-foreground text-lg">No projects found matching your filters.</p>
+                <p className="text-muted-foreground text-lg">{t('portfolio.noResults')}</p>
               </div>
             )}
           </div>
