@@ -143,15 +143,15 @@ const Portfolio = () => {
                     onMouseLeave={() => handleMouseLeave(index)}
                     onClick={() => setLightbox({ image: item.image, title: item.title, description: item.description })}
                   >
-                    <div className="relative aspect-[4/3] overflow-hidden bg-muted" style={item.category === "Mobile App" ? { backgroundColor: 'hsl(var(--primary) / 0.08)' } : undefined}>
+                    <div className="relative aspect-[4/3] overflow-hidden bg-muted" style={(item.category === "Mobile App" || item.category === "Branding") ? { backgroundColor: item.category === "Branding" ? '#ffffff' : 'hsl(var(--primary) / 0.08)' } : undefined}>
                       <img
                         ref={(el) => { imageRefs.current[index] = el; }}
                         src={item.image}
                         alt={item.title}
                         loading="eager"
                         decoding="async"
-                        className={item.category === "Mobile App" ? "absolute top-0 left-0 w-full h-full object-contain" : "absolute top-0 left-0 w-full h-auto"}
-                        style={item.category !== "Mobile App" ? { transform: "translateY(0)" } : undefined}
+                        className={(item.category === "Mobile App" || item.category === "Branding") ? "absolute top-0 left-0 w-full h-full object-contain p-4" : "absolute top-0 left-0 w-full h-auto"}
+                        style={(item.category !== "Mobile App" && item.category !== "Branding") ? { transform: "translateY(0)" } : undefined}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
                         <Button variant="glass" size="sm" className="text-white border-white/20">
