@@ -153,6 +153,8 @@ export const translations: Record<Language, Record<string, string>> = {
     'common.viewAll': 'View All',
     'common.startProject': 'Start Your Project',
     'common.getConsultation': 'Get Free Consultation',
+    'footer.description2': 'We specialize in web development, mobile apps, UI/UX design, branding, and digital marketing for businesses across 20+ industries worldwide.',
+    'portfolio.noResults': 'No projects found matching your filters.',
   },
   ar: {
     'nav.home': 'الرئيسية',
