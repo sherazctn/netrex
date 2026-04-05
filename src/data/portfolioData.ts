@@ -11,7 +11,7 @@ export interface PortfolioItem {
 }
 
 export const portfolioCategories = ["All", "Web", "E-Commerce", "Mobile App", "Branding", "Marketing"];
-export const portfolioTechnologies = ["All", "React", "WordPress", "Wix", "Shopify", "Laravel", "Elementor", "Flutter", "React Native", "Swift", "Kotlin"];
+export const portfolioTechnologies = ["All", "React", "WordPress", "Wix", "Shopify", "Laravel", "Elementor", "Flutter", "React Native", "Swift", "Kotlin", "Adobe Photoshop", "Adobe Illustrator"];
 
 // Map service slugs to relevant portfolio categories/industries
 export const servicePortfolioMap: Record<string, { categories: string[]; industries: string[] }> = {
