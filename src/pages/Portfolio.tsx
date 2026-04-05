@@ -11,6 +11,7 @@ import { portfolioItems, portfolioCategories, portfolioTechnologies } from "@/da
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const Portfolio = () => {
+  const { t } = useLanguage();
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [selectedTech, setSelectedTech] = useState("All");
   const [lightbox, setLightbox] = useState<{ image: string; title: string; description: string } | null>(null);
