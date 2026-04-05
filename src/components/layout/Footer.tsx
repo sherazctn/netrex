@@ -272,7 +272,7 @@ export function Footer() {
               {t('footer.terms')}
             </Link>
             <Link to="/legal" className="hover:text-white transition-colors">
-              Legal
+              {t('footer.legal')}
             </Link>
             <Link to="/faq" className="hover:text-white transition-colors">
               FAQ
