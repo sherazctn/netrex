@@ -845,6 +845,7 @@ export const translations: Record<Language, Record<string, string>> = {
     'footer.description2': 'Wir sind spezialisiert auf Webentwicklung, mobile Apps, UI/UX-Design, Markenbildung und digitales Marketing für Unternehmen in über 20 Branchen weltweit.',
     'portfolio.noResults': 'Keine Projekte gefunden, die Ihren Filtern entsprechen.',
   },
+  ru: {
     'nav.home': 'Главная',
     'nav.services': 'Услуги',
     'nav.portfolio': 'Портфолио',
