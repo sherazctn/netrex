@@ -170,7 +170,7 @@ export function Hero() {
             duration: 0.6,
             delay: 0.1
           }} className="font-display text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold leading-[1.1] mb-6">
-              Where{" "}
+              {t('hero.title.where')}{" "}
               <span className="text-transparent" style={{
               WebkitTextStroke: '2px hsl(359 85% 53%)',
               WebkitTextFillColor: 'transparent'
