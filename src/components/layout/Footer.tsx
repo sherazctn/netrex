@@ -234,7 +234,7 @@ export function Footer() {
             <ul className="space-y-2">
               {footerLinks.company.map((link) => (
                 <li key={link.name}>
-                  <Link to={link.href} className="flex items-center gap-2 text-white/60 hover:text-primary transition-colors group text-xs">
+                  <Link to={link.href} className="flex items-center gap-2 text-white/60 hover:text-primary transition-colors group text-sm">
                     <link.icon className="h-3.5 w-3.5 text-white/35 group-hover:text-primary transition-colors" />
                     {link.name}
                   </Link>
