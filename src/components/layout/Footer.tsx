@@ -97,7 +97,7 @@ export function Footer() {
             >
               <Link to="/contact">
                 <Button variant="hero" size="lg" className="group">
-                  Get Free Consultation
+                  {t('footer.cta.button')}
                   <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
                 </Button>
               </Link>
