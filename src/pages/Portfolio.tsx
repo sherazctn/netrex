@@ -67,14 +67,14 @@ const Portfolio = () => {
               className="text-center max-w-3xl mx-auto"
             >
               <span className="inline-block text-sm font-semibold text-primary uppercase tracking-wider mb-4">
-                Our Work
+                {t('portfolio.badge')}
               </span>
               <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-                Projects That{" "}
-                <span className="text-gradient">Deliver Results</span>
+                {t('portfolio.title')}{" "}
+                <span className="text-gradient">{t('portfolio.title.highlight')}</span>
               </h1>
               <p className="text-lg text-muted-foreground">
-                Explore our portfolio of {portfolioItems.length} successful projects across various industries and technologies.
+                {t('portfolio.description')}
               </p>
             </motion.div>
           </div>
