@@ -15,7 +15,17 @@ const Portfolio = () => {
   const [lightbox, setLightbox] = useState<{ image: string; title: string; description: string } | null>(null);
   const imageRefs = useRef<(HTMLImageElement | null)[]>([]);
 
-  const filteredItems = portfolioItems.filter(item => {
+  // Shuffle items on mount for randomness
+  const shuffledItems = useMemo(() => {
+    const shuffled = [...portfolioItems];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    return shuffled;
+  }, []);
+
+  const filteredItems = shuffledItems.filter(item => {
     const categoryMatch = selectedCategory === "All" || item.category === selectedCategory;
     const techMatch = selectedTech === "All" || item.technology === selectedTech;
     return categoryMatch && techMatch;
