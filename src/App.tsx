@@ -14,6 +14,8 @@ import Portfolio from "./pages/Portfolio";
 import Blog from "./pages/Blog";
 import BlogPost from "./pages/BlogPost";
 import About from "./pages/About";
+import Mission from "./pages/Mission";
+import Vision from "./pages/Vision";
 import Testimonials from "./pages/Testimonials";
 import Careers from "./pages/Careers";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
@@ -28,6 +30,9 @@ import AdminBlog from "./pages/admin/AdminBlog";
 import AdminPortfolio from "./pages/admin/AdminPortfolio";
 import AdminOffices from "./pages/admin/AdminOffices";
 import AdminSettings from "./pages/admin/AdminSettings";
+import WebsiteROICalculator from "./pages/tools/WebsiteROICalculator";
+import MobileAppROICalculator from "./pages/tools/MobileAppROICalculator";
+import MarketingROICalculator from "./pages/tools/MarketingROICalculator";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -50,12 +55,19 @@ const App = () => (
             <Route path="/blog" element={<Blog />} />
             <Route path="/blog/:id" element={<BlogPost />} />
             <Route path="/about" element={<About />} />
+            <Route path="/mission" element={<Mission />} />
+            <Route path="/vision" element={<Vision />} />
             <Route path="/testimonials" element={<Testimonials />} />
             <Route path="/careers" element={<Careers />} />
             <Route path="/privacy" element={<PrivacyPolicy />} />
             <Route path="/terms" element={<TermsOfService />} />
             <Route path="/legal" element={<Legal />} />
             <Route path="/faq" element={<FAQ />} />
+            
+            {/* Tools */}
+            <Route path="/tools/website-roi" element={<WebsiteROICalculator />} />
+            <Route path="/tools/mobile-app-roi" element={<MobileAppROICalculator />} />
+            <Route path="/tools/marketing-roi" element={<MarketingROICalculator />} />
             
             {/* Admin Routes */}
             <Route path="/admin" element={<AdminLogin />} />
