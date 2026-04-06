@@ -91,7 +91,7 @@ const locations = [
     flag: "🇦🇺",
     address: "19 Bank Pl, Melbourne VIC 3000",
     phone: "+61 3 9000 0000",
-    email: "australia@netrexinc.com",
+    email: "au@netrexinc.com",
     hours: "Mon - Fri: 9AM - 5PM",
     coords: { lat: -37.8136, lng: 144.9631 },
     isHQ: false,
