@@ -121,7 +121,7 @@ const locations = [
     flag: "🇸🇦",
     address: "22 King Abdullah Rd, Riyadh 12211",
     phone: "+966 11 234 5678",
-    email: "ksa@netrexinc.com",
+    email: "sa@netrexinc.com",
     hours: "Sun - Thu: 9AM - 6PM",
     coords: { lat: 24.7136, lng: 46.6753 },
     isHQ: false,
