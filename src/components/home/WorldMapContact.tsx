@@ -136,7 +136,7 @@ const locations = [
     flag: "🇵🇰",
     address: "21, J3 Block, Phase 2, Johar Town, Lahore",
     phone: "+92 42 3000 0000",
-    email: "pakistan@netrexinc.com",
+    email: "pk@netrexinc.com",
     hours: "Mon - Fri: 9AM - 6PM",
     coords: { lat: 31.4697, lng: 74.2728 },
     isHQ: false,
