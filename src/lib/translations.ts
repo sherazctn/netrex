@@ -294,6 +294,7 @@ export const translations: Record<Language, Record<string, string>> = {
     'footer.description2': 'نحن متخصصون في تطوير المواقع والتطبيقات وتصميم واجهات المستخدم والعلامات التجارية والتسويق الرقمي للشركات في أكثر من 20 صناعة حول العالم.',
     'portfolio.noResults': 'لم يتم العثور على مشاريع تطابق الفلاتر.',
   },
+  zh: {
     'nav.home': '首页',
     'nav.services': '服务',
     'nav.portfolio': '作品集',
