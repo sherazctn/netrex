@@ -106,7 +106,7 @@ const locations = [
     flag: "🇸🇬",
     address: "Level 39, Marina Bay Financial Centre, Tower 2",
     phone: "+65 6123 4567",
-    email: "singapore@netrexinc.com",
+    email: "sg@netrexinc.com",
     hours: "Mon - Fri: 9AM - 6PM",
     coords: { lat: 1.2789, lng: 103.8536 },
     isHQ: false,
