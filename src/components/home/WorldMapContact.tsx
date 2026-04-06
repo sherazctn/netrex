@@ -76,7 +76,7 @@ const locations = [
     flag: "🇨🇦",
     address: "70 Burrard St, Vancouver, BC",
     phone: "+1 604 555 0189",
-    email: "canada@netrexinc.com",
+    email: "ca@netrexinc.com",
     hours: "Mon - Fri: 9AM - 5PM",
     coords: { lat: 49.2849, lng: -123.1140 },
     isHQ: false,
