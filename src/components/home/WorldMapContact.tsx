@@ -61,7 +61,7 @@ const locations = [
     flag: "🇩🇪",
     address: "Kurfürstendamm 14, 10719 Berlin",
     phone: "+49 30 1234 5678",
-    email: "germany@netrexinc.com",
+    email: "de@netrexinc.com",
     hours: "Mon - Fri: 9AM - 5PM",
     coords: { lat: 52.5038, lng: 13.3286 },
     isHQ: false,
