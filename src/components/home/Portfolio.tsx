@@ -4,13 +4,11 @@ import { Link } from "react-router-dom";
 import { ArrowUpRight, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { CountUpNumber } from "@/components/ui/CountUpNumber";
 import { PortfolioLightbox } from "@/components/portfolio/PortfolioLightbox";
 import { portfolioItems } from "@/data/portfolioData";
 
 const categories = ["All", "Web", "E-Commerce", "Branding", "Marketing"];
 
-// Fisher-Yates shuffle
 function shuffleArray<T>(array: T[]): T[] {
   const shuffled = [...array];
   for (let i = shuffled.length - 1; i > 0; i--) {
@@ -26,7 +24,6 @@ export function Portfolio() {
   const [lightbox, setLightbox] = useState<{ image: string; title: string; description: string } | null>(null);
   const imageRefs = useRef<(HTMLImageElement | null)[]>([]);
 
-  // Shuffle once on mount, pick 6 random items
   const homeItems = useMemo(() => shuffleArray(portfolioItems).slice(0, 6), []);
 
   const filteredProjects = activeCategory === "All"
@@ -89,7 +86,7 @@ export function Portfolio() {
                 onClick={() => setActiveCategory(category)}
                 className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-300 ${
                   activeCategory === category
-                    ? "bg-gradient-brand text-white shadow-md"
+                    ? "bg-primary text-white shadow-md shadow-primary/30"
                     : "bg-card border border-border text-foreground/70 hover:border-primary/50 hover:text-primary"
                 }`}
               >
@@ -125,23 +122,6 @@ export function Portfolio() {
                         className={(project.category === "Mobile App" || project.category === "Branding") ? "absolute top-0 left-0 w-full h-full object-contain p-4" : "absolute top-0 left-0 w-full h-auto"}
                         style={(project.category !== "Mobile App" && project.category !== "Branding") ? { transform: "translateY(0)" } : undefined}
                       />
-                      
-                      <div className="absolute inset-0 bg-gradient-to-t from-foreground/90 via-foreground/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <div className="absolute bottom-4 left-4 right-4">
-                          <div className="p-4 rounded-2xl bg-background/95 backdrop-blur-sm">
-                            <div className="text-2xl font-display font-bold text-primary">
-                              {project.resultValue && (
-                                <CountUpNumber
-                                  end={project.resultValue.value}
-                                  suffix={project.resultValue.suffix}
-                                  duration={1500}
-                                />
-                              )}
-                            </div>
-                            <div className="text-sm text-muted-foreground">{project.resultValue?.label}</div>
-                          </div>
-                        </div>
-                      </div>
 
                       <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                         <div className="w-12 h-12 rounded-full bg-primary flex items-center justify-center shadow-lg">
