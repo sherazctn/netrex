@@ -438,6 +438,10 @@ export const translations: Record<Language, Record<string, string>> = {
     'common.startProject': '开始您的项目',
     'common.getConsultation': '获取免费咨询',
     'footer.description2': '我们专注于网站开发、移动应用、UI/UX设计、品牌建设和数字营销，服务覆盖全球20多个行业。',
+    'footer.freeTools': '免费工具',
+    'footer.awards': '奖项与认证',
+    'nav.mission': '我们的使命',
+    'nav.vision': '我们的愿景',
     'portfolio.noResults': '没有找到符合筛选条件的项目。',
   },
   fr: {
