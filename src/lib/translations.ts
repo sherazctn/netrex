@@ -296,6 +296,10 @@ export const translations: Record<Language, Record<string, string>> = {
     'common.startProject': 'ابدأ مشروعك',
     'common.getConsultation': 'احصل على استشارة مجانية',
     'footer.description2': 'نحن متخصصون في تطوير المواقع والتطبيقات وتصميم واجهات المستخدم والعلامات التجارية والتسويق الرقمي للشركات في أكثر من 20 صناعة حول العالم.',
+    'footer.freeTools': 'أدوات مجانية',
+    'footer.awards': 'الجوائز والشهادات',
+    'nav.mission': 'مهمتنا',
+    'nav.vision': 'رؤيتنا',
     'portfolio.noResults': 'لم يتم العثور على مشاريع تطابق الفلاتر.',
   },
   zh: {
