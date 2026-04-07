@@ -33,6 +33,9 @@ import AdminSettings from "./pages/admin/AdminSettings";
 import WebsiteROICalculator from "./pages/tools/WebsiteROICalculator";
 import MobileAppROICalculator from "./pages/tools/MobileAppROICalculator";
 import MarketingROICalculator from "./pages/tools/MarketingROICalculator";
+import BrandingROICalculator from "./pages/tools/BrandingROICalculator";
+import EcommerceROICalculator from "./pages/tools/EcommerceROICalculator";
+import SEOROICalculator from "./pages/tools/SEOROICalculator";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
