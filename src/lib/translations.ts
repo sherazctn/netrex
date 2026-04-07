@@ -1006,6 +1006,10 @@ export const translations: Record<Language, Record<string, string>> = {
     'common.startProject': 'Начать проект',
     'common.getConsultation': 'Бесплатная консультация',
     'footer.description2': 'Мы специализируемся на веб-разработке, мобильных приложениях, UI/UX-дизайне, брендинге и цифровом маркетинге для бизнеса в более чем 20 отраслях по всему миру.',
+    'footer.freeTools': 'Бесплатные инструменты',
+    'footer.awards': 'Награды и сертификаты',
+    'nav.mission': 'Наша миссия',
+    'nav.vision': 'Наше видение',
     'portfolio.noResults': 'Проекты, соответствующие вашим фильтрам, не найдены.',
   },
   pt: {
