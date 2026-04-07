@@ -368,10 +368,9 @@ export function WorldMapContact() {
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <PhoneInput
                       value={phoneNumber}
-                      onChange={setPhoneNumber}
-                      dialCode={phoneDialCode}
-                      onDialCodeChange={setPhoneDialCode}
-                      countryCode={activeLocation.countryCode}
+                      onChange={handlePhoneChange}
+                      selectedCountryCode={activeLocation.countryCode}
+                      darkMode
                       className="bg-white/5 border-white/10 text-white placeholder:text-white/40"
                     />
                     <Input
