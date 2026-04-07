@@ -722,6 +722,10 @@ export const translations: Record<Language, Record<string, string>> = {
     'common.startProject': 'Iniciar tu proyecto',
     'common.getConsultation': 'Consulta gratuita',
     'footer.description2': 'Nos especializamos en desarrollo web, apps móviles, diseño UI/UX, branding y marketing digital para empresas en más de 20 industrias en todo el mundo.',
+    'footer.freeTools': 'Herramientas Gratuitas',
+    'footer.awards': 'Premios y Certificaciones',
+    'nav.mission': 'Nuestra Misión',
+    'nav.vision': 'Nuestra Visión',
     'portfolio.noResults': 'No se encontraron proyectos que coincidan con tus filtros.',
   },
   de: {
