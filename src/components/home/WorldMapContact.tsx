@@ -137,6 +137,10 @@ export function WorldMapContact() {
   const [activeLocation, setActiveLocation] = useState(locations[0]);
   const [phoneNumber, setPhoneNumber] = useState("");
   const [phoneDialCode, setPhoneDialCode] = useState("+971");
+  const handlePhoneChange = (val: string, dialCode: string) => {
+    setPhoneNumber(val);
+    setPhoneDialCode(dialCode);
+  };
   const [showSuggestions, setShowSuggestions] = useState(false);
   const suggestionsRef = useRef<HTMLDivElement>(null);
   const [formData, setFormData] = useState({
