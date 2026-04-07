@@ -154,6 +154,10 @@ export const translations: Record<Language, Record<string, string>> = {
     'common.startProject': 'Start Your Project',
     'common.getConsultation': 'Get Free Consultation',
     'footer.description2': 'We specialize in web development, mobile apps, UI/UX design, branding, and digital marketing for businesses across 20+ industries worldwide.',
+    'footer.freeTools': 'Free Tools',
+    'footer.awards': 'Awards & Certifications',
+    'nav.mission': 'Our Mission',
+    'nav.vision': 'Our Vision',
     'portfolio.noResults': 'No projects found matching your filters.',
   },
   ar: {
