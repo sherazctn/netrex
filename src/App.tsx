@@ -33,6 +33,9 @@ import AdminSettings from "./pages/admin/AdminSettings";
 import WebsiteROICalculator from "./pages/tools/WebsiteROICalculator";
 import MobileAppROICalculator from "./pages/tools/MobileAppROICalculator";
 import MarketingROICalculator from "./pages/tools/MarketingROICalculator";
+import BrandingROICalculator from "./pages/tools/BrandingROICalculator";
+import EcommerceROICalculator from "./pages/tools/EcommerceROICalculator";
+import SEOROICalculator from "./pages/tools/SEOROICalculator";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -68,6 +71,9 @@ const App = () => (
             <Route path="/tools/website-roi" element={<WebsiteROICalculator />} />
             <Route path="/tools/mobile-app-roi" element={<MobileAppROICalculator />} />
             <Route path="/tools/marketing-roi" element={<MarketingROICalculator />} />
+            <Route path="/tools/branding-roi" element={<BrandingROICalculator />} />
+            <Route path="/tools/ecommerce-roi" element={<EcommerceROICalculator />} />
+            <Route path="/tools/seo-roi" element={<SEOROICalculator />} />
             
             {/* Admin Routes */}
             <Route path="/admin" element={<AdminLogin />} />

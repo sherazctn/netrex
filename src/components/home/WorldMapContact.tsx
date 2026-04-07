@@ -10,138 +10,84 @@ import { useToast } from "@/hooks/use-toast";
 
 const locations = [
   {
-    id: "ae",
-    country: "UAE",
-    city: "Dubai",
-    flag: "🇦🇪",
+    id: "ae", country: "UAE", city: "Dubai", flag: "🇦🇪",
     address: "Office 523, Block-C, Building 9W, Dubai Airport Free Zone",
-    phone: "+971 50 200 8313",
-    email: "info@netrexinc.com",
+    phone: "+971 50 200 8313", email: "info@netrexinc.com",
     hours: "Sun - Thu: 9AM - 6PM",
-    coords: { lat: 25.2532, lng: 55.3657 }, // DAFZA Building 9W
-    isHQ: true,
-    dialCode: "+971",
-    countryCode: "AE",
+    coords: { lat: 25.2532, lng: 55.3657 }, isHQ: true,
+    dialCode: "+971", countryCode: "AE",
     mapsUrl: "https://www.google.com/maps/search/NETREX+Web+Design+Development+Mobile+Apps+Digital+Marketing+Agency+Dubai+UAE",
   },
   {
-    id: "us",
-    country: "USA",
-    city: "New York",
-    flag: "🇺🇸",
+    id: "us", country: "USA", city: "New York", flag: "🇺🇸",
     address: "418 Broadway STE N, Albany, New York 12207",
-    phone: "+1 518 555 0123",
-    email: "usa@netrexinc.com",
+    phone: "+1 518 555 0123", email: "usa@netrexinc.com",
     hours: "Mon - Fri: 9AM - 5PM",
-    coords: { lat: 42.6526, lng: -73.7562 },
-    isHQ: false,
-    dialCode: "+1",
-    countryCode: "US",
+    coords: { lat: 42.6526, lng: -73.7562 }, isHQ: false,
+    dialCode: "+1", countryCode: "US",
     mapsUrl: "https://www.google.com/maps/place/418+Broadway+STE+N,+Albany,+NY+12207",
   },
   {
-    id: "uk",
-    country: "UK",
-    city: "London",
-    flag: "🇬🇧",
+    id: "uk", country: "UK", city: "London", flag: "🇬🇧",
     address: "25 The Shard, 32 London Bridge St, London",
-    phone: "+44 20 7946 0958",
-    email: "uk@netrexinc.com",
+    phone: "+44 20 7946 0958", email: "uk@netrexinc.com",
     hours: "Mon - Fri: 9AM - 5PM",
-    coords: { lat: 51.5045, lng: -0.0865 },
-    isHQ: false,
-    dialCode: "+44",
-    countryCode: "GB",
+    coords: { lat: 51.5045, lng: -0.0865 }, isHQ: false,
+    dialCode: "+44", countryCode: "GB",
     mapsUrl: "https://www.google.com/maps/search/NETREX+Web+Design+Development+Mobile+Apps+Digital+Marketing+Agency+London+UK",
   },
   {
-    id: "de",
-    country: "Germany",
-    city: "Berlin",
-    flag: "🇩🇪",
+    id: "de", country: "Germany", city: "Berlin", flag: "🇩🇪",
     address: "Kurfürstendamm 14, 10719 Berlin",
-    phone: "+49 30 1234 5678",
-    email: "de@netrexinc.com",
+    phone: "+49 30 1234 5678", email: "de@netrexinc.com",
     hours: "Mon - Fri: 9AM - 5PM",
-    coords: { lat: 52.5038, lng: 13.3286 },
-    isHQ: false,
-    dialCode: "+49",
-    countryCode: "DE",
+    coords: { lat: 52.5038, lng: 13.3286 }, isHQ: false,
+    dialCode: "+49", countryCode: "DE",
     mapsUrl: "https://www.google.com/maps/search/Netrex+UG+Berlin",
   },
   {
-    id: "ca",
-    country: "Canada",
-    city: "Vancouver",
-    flag: "🇨🇦",
+    id: "ca", country: "Canada", city: "Vancouver", flag: "🇨🇦",
     address: "70 Burrard St, Vancouver, BC",
-    phone: "+1 604 555 0189",
-    email: "ca@netrexinc.com",
+    phone: "+1 604 555 0189", email: "ca@netrexinc.com",
     hours: "Mon - Fri: 9AM - 5PM",
-    coords: { lat: 49.2849, lng: -123.1140 },
-    isHQ: false,
-    dialCode: "+1",
-    countryCode: "CA",
+    coords: { lat: 49.2849, lng: -123.1140 }, isHQ: false,
+    dialCode: "+1", countryCode: "CA",
     mapsUrl: "https://www.google.com/maps/search/NETREX+Web+Design+Development+Mobile+Apps+Digital+Marketing+Agency+Vancouver+Canada",
   },
   {
-    id: "au",
-    country: "Australia",
-    city: "Melbourne",
-    flag: "🇦🇺",
+    id: "au", country: "Australia", city: "Melbourne", flag: "🇦🇺",
     address: "19 Bank Pl, Melbourne VIC 3000",
-    phone: "+61 3 9000 0000",
-    email: "au@netrexinc.com",
+    phone: "+61 3 9000 0000", email: "au@netrexinc.com",
     hours: "Mon - Fri: 9AM - 5PM",
-    coords: { lat: -37.8136, lng: 144.9631 },
-    isHQ: false,
-    dialCode: "+61",
-    countryCode: "AU",
+    coords: { lat: -37.8136, lng: 144.9631 }, isHQ: false,
+    dialCode: "+61", countryCode: "AU",
     mapsUrl: "https://www.google.com/maps/search/Netrex+Pty+Ltd+Melbourne",
   },
   {
-    id: "sg",
-    country: "Singapore",
-    city: "Singapore",
-    flag: "🇸🇬",
+    id: "sg", country: "Singapore", city: "Singapore", flag: "🇸🇬",
     address: "Level 39, Marina Bay Financial Centre, Tower 2",
-    phone: "+65 6123 4567",
-    email: "sg@netrexinc.com",
+    phone: "+65 6123 4567", email: "sg@netrexinc.com",
     hours: "Mon - Fri: 9AM - 6PM",
-    coords: { lat: 1.2789, lng: 103.8536 },
-    isHQ: false,
-    dialCode: "+65",
-    countryCode: "SG",
+    coords: { lat: 1.2789, lng: 103.8536 }, isHQ: false,
+    dialCode: "+65", countryCode: "SG",
     mapsUrl: "https://www.google.com/maps/search/Netrex+Pte+Ltd+Singapore",
   },
   {
-    id: "sa",
-    country: "Saudi Arabia",
-    city: "Riyadh",
-    flag: "🇸🇦",
+    id: "sa", country: "Saudi Arabia", city: "Riyadh", flag: "🇸🇦",
     address: "22 King Abdullah Rd, Riyadh 12211",
-    phone: "+966 11 234 5678",
-    email: "sa@netrexinc.com",
+    phone: "+966 11 234 5678", email: "sa@netrexinc.com",
     hours: "Sun - Thu: 9AM - 6PM",
-    coords: { lat: 24.7136, lng: 46.6753 },
-    isHQ: false,
-    dialCode: "+966",
-    countryCode: "SA",
+    coords: { lat: 24.7136, lng: 46.6753 }, isHQ: false,
+    dialCode: "+966", countryCode: "SA",
     mapsUrl: "https://www.google.com/maps/search/Netrex+Est+Riyadh",
   },
   {
-    id: "pk",
-    country: "Pakistan",
-    city: "Lahore",
-    flag: "🇵🇰",
+    id: "pk", country: "Pakistan", city: "Lahore", flag: "🇵🇰",
     address: "21, J3 Block, Phase 2, Johar Town, Lahore",
-    phone: "+92 42 3000 0000",
-    email: "pk@netrexinc.com",
+    phone: "+92 42 3000 0000", email: "pk@netrexinc.com",
     hours: "Mon - Fri: 9AM - 6PM",
-    coords: { lat: 31.4697, lng: 74.2728 },
-    isHQ: false,
-    dialCode: "+92",
-    countryCode: "PK",
+    coords: { lat: 31.4697, lng: 74.2728 }, isHQ: false,
+    dialCode: "+92", countryCode: "PK",
     mapsUrl: "https://www.google.com/maps/search/NETREX+Web+Design+Development+Mobile+Apps+Digital+Marketing+Agency+Lahore+Pakistan",
   },
 ];
@@ -157,7 +103,6 @@ const quickSuggestions = [
   { label: "☁️ Cloud Migration", text: "I need to migrate my existing application to the cloud with proper DevOps pipeline and scalability." },
 ];
 
-// Spam/job/marketing detection
 const spamPatterns = [
   /\b(looking for (a )?job|job (opening|opportunity|vacancy|position)|apply for|resume|curriculum vitae|cv attached)\b/i,
   /\b(seo services|link building|backlink|guest post|sponsored post|buy (links|traffic|followers))\b/i,
@@ -170,25 +115,19 @@ const spamPatterns = [
 
 function isSpamMessage(message: string, name: string, email: string): string | null {
   const combined = `${name} ${message}`.toLowerCase();
-  
   for (const pattern of spamPatterns) {
     if (pattern.test(combined)) {
       return "This form is for project inquiries only. Job applications, marketing pitches, and spam are not accepted.";
     }
   }
-  
-  // Check for very short messages
   if (message.trim().length < 20) {
     return "Please provide more details about your project requirements (at least 20 characters).";
   }
-  
-  // Check for free email domains used suspiciously with marketing keywords
   const freeEmailDomains = ["mailinator.com", "guerrillamail.com", "tempmail.com", "throwaway.email"];
   const emailDomain = email.split("@")[1]?.toLowerCase();
   if (emailDomain && freeEmailDomains.includes(emailDomain)) {
     return "Please use a valid business email address.";
   }
-  
   return null;
 }
 
@@ -198,20 +137,20 @@ export function WorldMapContact() {
   const [activeLocation, setActiveLocation] = useState(locations[0]);
   const [phoneNumber, setPhoneNumber] = useState("");
   const [phoneDialCode, setPhoneDialCode] = useState("+971");
+  const handlePhoneChange = (val: string, dialCode: string) => {
+    setPhoneNumber(val);
+    setPhoneDialCode(dialCode);
+  };
   const [showSuggestions, setShowSuggestions] = useState(false);
   const suggestionsRef = useRef<HTMLDivElement>(null);
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    company: "",
-    message: "",
+    name: "", email: "", company: "", message: "",
   });
 
   useEffect(() => {
     setPhoneDialCode(activeLocation.dialCode);
   }, [activeLocation]);
 
-  // Close suggestions on outside click
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
       if (suggestionsRef.current && !suggestionsRef.current.contains(e.target as Node)) {
@@ -224,27 +163,17 @@ export function WorldMapContact() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-
-    // Spam check
     const spamResult = isSpamMessage(formData.message, formData.name, formData.email);
     if (spamResult) {
-      toast({
-        title: "Submission Blocked",
-        description: spamResult,
-        variant: "destructive",
-      });
+      toast({ title: "Submission Blocked", description: spamResult, variant: "destructive" });
       return;
     }
-
     const subject = encodeURIComponent(`New Inquiry from ${formData.name} - ${formData.company || 'Website'}`);
     const body = encodeURIComponent(
       `Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${phoneDialCode} ${phoneNumber}\nCompany: ${formData.company}\nLocation: ${activeLocation.city}, ${activeLocation.country}\n\nMessage:\n${formData.message}`
     );
     window.open(`mailto:leads@netrexinc.com?subject=${subject}&body=${body}`, '_blank');
-    toast({
-      title: "Opening email client...",
-      description: "Your inquiry is being prepared. You can also email us directly at leads@netrexinc.com",
-    });
+    toast({ title: "Opening email client...", description: "Your inquiry is being prepared." });
     setFormData({ name: "", email: "", company: "", message: "" });
     setPhoneNumber("");
   };
@@ -259,7 +188,7 @@ export function WorldMapContact() {
   };
 
   return (
-    <section className="section-padding bg-foreground text-background overflow-hidden">
+    <section className="section-padding bg-[#1a1a1a] text-white overflow-hidden">
       <div className="container-wide">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -275,12 +204,12 @@ export function WorldMapContact() {
             {t('contact.title')}{" "}
             <span className="text-primary">{t('contact.title.highlight')}</span>
           </h2>
-          <p className="text-background/70 max-w-2xl mx-auto">
+          <p className="text-white/70 max-w-2xl mx-auto">
             {t('contact.description')}
           </p>
         </motion.div>
 
-        {/* Country Tabs with bigger active pill + pulse */}
+        {/* Country Tabs */}
         <div className="flex flex-wrap justify-center gap-2 mb-12">
           {locations.map((location) => {
             const isActive = activeLocation.id === location.id;
@@ -295,7 +224,7 @@ export function WorldMapContact() {
                 className={`relative transition-all ${
                   isActive
                     ? "px-7 py-3.5 rounded-full text-sm font-bold bg-primary text-white shadow-lg shadow-primary/30"
-                    : "px-5 py-3 rounded-full text-sm font-medium bg-background/10 text-background hover:bg-background/20"
+                    : "px-5 py-3 rounded-full text-sm font-medium bg-white/10 text-white hover:bg-white/20"
                 }`}
               >
                 {isActive && (
@@ -309,9 +238,7 @@ export function WorldMapContact() {
                   <span className="mr-2">{location.flag}</span>
                   {location.city}
                   {location.isHQ && (
-                    <span className="ml-2 px-2 py-0.5 text-[10px] bg-white/20 rounded-full">
-                      HQ
-                    </span>
+                    <span className="ml-2 px-2 py-0.5 text-[10px] bg-white/20 rounded-full">HQ</span>
                   )}
                 </span>
               </motion.button>
@@ -326,7 +253,7 @@ export function WorldMapContact() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="relative rounded-3xl overflow-hidden bg-background/5"
+            className="relative rounded-3xl overflow-hidden bg-white/5"
           >
             <AnimatePresence mode="wait">
               <motion.div
@@ -349,42 +276,27 @@ export function WorldMapContact() {
                   className="grayscale hover:grayscale-0 transition-all duration-500"
                 />
                 
-                <div className="absolute bottom-4 left-4 bg-background/90 backdrop-blur-sm px-4 py-2 rounded-xl shadow-lg">
+                <div className="absolute bottom-4 left-4 bg-[#1a1a1a]/90 backdrop-blur-sm px-4 py-2 rounded-xl shadow-lg">
                   <div className="flex items-center gap-2">
                     <span className="text-2xl">{activeLocation.flag}</span>
                     <div>
-                      <div className="font-bold text-foreground">{activeLocation.city}</div>
-                      <div className="text-sm text-muted-foreground">{activeLocation.country}</div>
+                      <div className="font-bold text-white">{activeLocation.city}</div>
+                      <div className="text-sm text-white/60">{activeLocation.country}</div>
                     </div>
                   </div>
                 </div>
 
-                {/* Clickable map marker */}
                 <button
                   onClick={handleMapMarkerClick}
                   className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-full z-10 cursor-pointer group"
                   title="Open in Google Maps"
                 >
-                  <motion.div
-                    animate={{ y: [0, -8, 0] }}
-                    transition={{ duration: 1.5, repeat: Infinity }}
-                  >
+                  <motion.div animate={{ y: [0, -8, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>
                     <div className="relative">
-                      <motion.div
-                        className="absolute -inset-3 rounded-full bg-primary/20"
-                        animate={{ scale: [1, 1.8, 1], opacity: [0.6, 0, 0.6] }}
-                        transition={{ duration: 2, repeat: Infinity }}
-                      />
-                      <motion.div
-                        className="absolute -inset-2 rounded-full bg-primary/30"
-                        animate={{ scale: [1, 1.5, 1], opacity: [0.8, 0, 0.8] }}
-                        transition={{ duration: 2, repeat: Infinity, delay: 0.3 }}
-                      />
+                      <motion.div className="absolute -inset-3 rounded-full bg-primary/20" animate={{ scale: [1, 1.8, 1], opacity: [0.6, 0, 0.6] }} transition={{ duration: 2, repeat: Infinity }} />
+                      <motion.div className="absolute -inset-2 rounded-full bg-primary/30" animate={{ scale: [1, 1.5, 1], opacity: [0.8, 0, 0.8] }} transition={{ duration: 2, repeat: Infinity, delay: 0.3 }} />
                       <svg width="44" height="54" viewBox="0 0 44 54" fill="none" className="group-hover:scale-110 transition-transform">
-                        <path
-                          d="M22 0C9.85 0 0 9.85 0 22c0 16.5 22 32 22 32s22-15.5 22-32C44 9.85 34.15 0 22 0z"
-                          fill="hsl(359 85% 53%)"
-                        />
+                        <path d="M22 0C9.85 0 0 9.85 0 22c0 16.5 22 32 22 32s22-15.5 22-32C44 9.85 34.15 0 22 0z" fill="hsl(359 85% 53%)" />
                         <circle cx="22" cy="20" r="10" fill="white" />
                         <text x="22" y="25" textAnchor="middle" fill="hsl(359 85% 53%)" fontSize="14" fontWeight="bold" fontFamily="Inter, sans-serif">N</text>
                       </svg>
@@ -413,141 +325,123 @@ export function WorldMapContact() {
                 className="flex-1 flex flex-col"
               >
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-                  <div className="p-5 rounded-2xl bg-background/5 border border-background/10">
+                  <div className="p-5 rounded-2xl bg-white/5 border border-white/10">
                     <Phone className="h-6 w-6 text-primary mb-3" />
-                    <div className="text-sm text-background/60 mb-1">{t('contact.phone')}</div>
-                    <a href={`tel:${activeLocation.phone}`} className="font-semibold text-background hover:text-primary transition-colors text-sm">
+                    <div className="text-sm text-white/60 mb-1">{t('contact.phone')}</div>
+                    <a href={`tel:${activeLocation.phone}`} className="font-semibold text-white hover:text-primary transition-colors text-sm">
                       {activeLocation.phone}
                     </a>
                   </div>
-                  <div className="p-5 rounded-2xl bg-background/5 border border-background/10">
+                  <div className="p-5 rounded-2xl bg-white/5 border border-white/10">
                     <Mail className="h-6 w-6 text-primary mb-3" />
-                    <div className="text-sm text-background/60 mb-1">{t('contact.email')}</div>
-                    <a href={`mailto:${activeLocation.email}`} className="font-semibold text-background hover:text-primary transition-colors text-sm break-all">
+                    <div className="text-sm text-white/60 mb-1">{t('contact.email')}</div>
+                    <a href={`mailto:${activeLocation.email}`} className="font-semibold text-white hover:text-primary transition-colors text-sm break-all">
                       {activeLocation.email}
                     </a>
                   </div>
-                  <div className="p-5 rounded-2xl bg-background/5 border border-background/10">
+                  <div className="p-5 rounded-2xl bg-white/5 border border-white/10">
                     <Clock className="h-6 w-6 text-primary mb-3" />
-                    <div className="text-sm text-background/60 mb-1">{t('contact.hours')}</div>
-                    <div className="font-semibold text-background text-sm">
-                      {activeLocation.hours}
-                    </div>
+                    <div className="text-sm text-white/60 mb-1">{t('contact.hours')}</div>
+                    <div className="font-semibold text-white text-sm">{activeLocation.hours}</div>
                   </div>
                 </div>
 
-                <div className="p-5 rounded-2xl bg-background/5 border border-background/10 mb-8">
-                  <div className="flex items-start gap-4">
-                    <MapPin className="h-6 w-6 text-primary flex-shrink-0 mt-0.5" />
-                    <div>
-                      <div className="text-sm text-background/60 mb-1">{t('contact.address')}</div>
-                      <div className="font-semibold text-background">
-                        {activeLocation.address}
-                      </div>
-                    </div>
+                <form onSubmit={handleSubmit} className="flex-1 flex flex-col gap-4">
+                  <h3 className="font-display text-xl font-bold mb-2">{t('contact.form.title')}</h3>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <Input
+                      placeholder={t('contact.form.name')}
+                      value={formData.name}
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      required
+                      className="bg-white/5 border-white/10 text-white placeholder:text-white/40 focus:border-primary"
+                    />
+                    <Input
+                      type="email"
+                      placeholder={t('contact.form.email')}
+                      value={formData.email}
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      required
+                      className="bg-white/5 border-white/10 text-white placeholder:text-white/40 focus:border-primary"
+                    />
                   </div>
-                </div>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <PhoneInput
+                      value={phoneNumber}
+                      onChange={handlePhoneChange}
+                      selectedCountryCode={activeLocation.countryCode}
+                      darkMode
+                      className="bg-white/5 border-white/10 text-white placeholder:text-white/40"
+                    />
+                    <Input
+                      placeholder={t('contact.form.company')}
+                      value={formData.company}
+                      onChange={(e) => setFormData({ ...formData, company: e.target.value })}
+                      className="bg-white/5 border-white/10 text-white placeholder:text-white/40 focus:border-primary"
+                    />
+                  </div>
 
-                <div className="flex-1 p-6 rounded-3xl bg-background/5 border border-background/10">
-                  <h3 className="font-display font-bold text-xl mb-6">{t('contact.form.title')}</h3>
-                  <form className="space-y-4" onSubmit={handleSubmit}>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <Input
-                        placeholder={t('contact.form.name')}
-                        value={formData.name}
-                        onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                        className="bg-background/10 border-background/20 text-background placeholder:text-background/40 rounded-full h-12"
-                        required
-                      />
-                      <Input
-                        type="email"
-                        placeholder={t('contact.form.email')}
-                        value={formData.email}
-                        onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                        className="bg-background/10 border-background/20 text-background placeholder:text-background/40 rounded-full h-12"
-                        required
-                      />
-                    </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <PhoneInput
-                        value={phoneNumber}
-                        onChange={(value, dialCode) => {
-                          setPhoneNumber(value);
-                          setPhoneDialCode(dialCode);
-                        }}
-                        placeholder={t('contact.form.phone')}
-                        darkMode
-                        className="h-12"
-                        selectedCountryCode={activeLocation.countryCode}
-                      />
-                      <Input
-                        placeholder={t('contact.form.company')}
-                        value={formData.company}
-                        onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                        className="bg-background/10 border-background/20 text-background placeholder:text-background/40 rounded-full h-12"
-                      />
-                    </div>
-                    {/* Message field with wizard button */}
-                    <div className="relative" ref={suggestionsRef}>
-                      <Textarea
-                        placeholder={t('contact.form.message')}
-                        value={formData.message}
-                        onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                        className="bg-background/10 border-background/20 text-background placeholder:text-background/40 min-h-[120px] rounded-2xl resize-none pr-12"
-                        required
-                      />
-                      <button
-                        type="button"
-                        onClick={() => setShowSuggestions(!showSuggestions)}
-                        className="absolute top-3 right-3 w-8 h-8 rounded-lg bg-primary/20 hover:bg-primary/40 flex items-center justify-center transition-colors group"
-                        title="Quick project suggestions"
-                      >
-                        <Wand2 className="h-4 w-4 text-primary group-hover:text-white transition-colors" />
-                      </button>
+                  <div className="relative flex-1" ref={suggestionsRef}>
+                    <Textarea
+                      placeholder={t('contact.form.message')}
+                      value={formData.message}
+                      onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                      onFocus={() => !formData.message && setShowSuggestions(true)}
+                      required
+                      className="bg-white/5 border-white/10 text-white placeholder:text-white/40 focus:border-primary min-h-[120px] resize-none"
+                    />
+                    <button
+                      type="button"
+                      onClick={() => setShowSuggestions(!showSuggestions)}
+                      className="absolute top-3 right-3 p-1.5 rounded-lg bg-primary/10 text-primary hover:bg-primary/20 transition-colors"
+                      title="Quick suggestions"
+                    >
+                      <Wand2 className="h-4 w-4" />
+                    </button>
 
-                      <AnimatePresence>
-                        {showSuggestions && (
-                          <motion.div
-                            initial={{ opacity: 0, y: -10, scale: 0.95 }}
-                            animate={{ opacity: 1, y: 0, scale: 1 }}
-                            exit={{ opacity: 0, y: -10, scale: 0.95 }}
-                            transition={{ duration: 0.2 }}
-                            className="absolute bottom-full left-0 right-0 mb-2 p-3 rounded-2xl bg-background border border-border shadow-2xl z-50 max-h-[280px] overflow-y-auto"
-                          >
-                            <div className="flex items-center justify-between mb-2 px-1">
-                              <span className="text-xs font-semibold text-muted-foreground">Quick Suggestions</span>
-                              <button onClick={() => setShowSuggestions(false)} className="text-muted-foreground hover:text-foreground">
-                                <X className="h-3.5 w-3.5" />
+                    <AnimatePresence>
+                      {showSuggestions && (
+                        <motion.div
+                          initial={{ opacity: 0, y: 10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: 10 }}
+                          className="absolute top-full left-0 right-0 mt-2 bg-[#2a2a2a] border border-white/10 rounded-2xl p-3 z-20 shadow-xl max-h-60 overflow-y-auto"
+                        >
+                          <div className="flex items-center justify-between mb-2">
+                            <span className="text-xs text-white/50 font-medium">Quick Suggestions</span>
+                            <button onClick={() => setShowSuggestions(false)} className="text-white/40 hover:text-white">
+                              <X className="h-3.5 w-3.5" />
+                            </button>
+                          </div>
+                          <div className="flex flex-wrap gap-2">
+                            {quickSuggestions.map((s) => (
+                              <button
+                                key={s.label}
+                                type="button"
+                                onClick={() => handleSuggestionClick(s.text)}
+                                className="px-3 py-1.5 rounded-full text-xs font-medium bg-white/10 text-white/70 hover:bg-primary/20 hover:text-primary transition-colors"
+                              >
+                                {s.label}
                               </button>
-                            </div>
-                            <div className="grid grid-cols-2 gap-2">
-                              {quickSuggestions.map((s, i) => (
-                                <button
-                                  key={i}
-                                  type="button"
-                                  onClick={() => handleSuggestionClick(s.text)}
-                                  className="text-left p-2.5 rounded-xl bg-secondary/80 hover:bg-primary/10 border border-border hover:border-primary/30 transition-all text-xs font-medium text-foreground"
-                                >
-                                  {s.label}
-                                </button>
-                              ))}
-                            </div>
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
-                    </div>
+                            ))}
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
 
-                    <div className="flex items-center gap-2 text-background/40 text-xs">
-                      <ShieldAlert className="h-3.5 w-3.5" />
-                      <span>Project inquiries only — no job applications, marketing pitches, or spam.</span>
-                    </div>
-
-                    <Button type="submit" size="lg" className="w-full group text-base bg-primary hover:bg-primary/90 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300">
-                      <Send className="h-5 w-5 transition-transform group-hover:translate-x-1 group-hover:rotate-12" />
-                      {t('contact.form.submit')}
-                    </Button>
-                  </form>
-                </div>
+                  <Button type="submit" variant="hero" size="lg" className="w-full group">
+                    <Send className="h-5 w-5" />
+                    {t('contact.form.submit')}
+                    <motion.span
+                      className="inline-block"
+                      animate={{ x: [0, 4, 0] }}
+                      transition={{ duration: 1.5, repeat: Infinity }}
+                    >
+                      →
+                    </motion.span>
+                  </Button>
+                </form>
               </motion.div>
             </AnimatePresence>
           </motion.div>

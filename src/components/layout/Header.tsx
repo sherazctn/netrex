@@ -1,13 +1,14 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ChevronDown, Globe, Smartphone, Palette, Megaphone, Layers, ShoppingCart, Bot, Search, Cloud, Users, Eye, Target, MessageSquare, Scale } from "lucide-react";
+import { Menu, X, ChevronDown, Globe, Smartphone, Palette, Megaphone, Layers, ShoppingCart, Bot, Search, Cloud, Users, Eye, Target, MessageSquare, Scale, Factory } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { LanguageSwitcher } from "@/components/ui/LanguageSwitcher";
 import { ThemeSwitcher } from "@/components/ui/ThemeSwitcher";
 import netrexLogo from "@/assets/netrex-logo.png";
 import netrexLogoLite from "@/assets/netrex-logo-lite.png";
 import { useTheme } from "next-themes";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const serviceIcons: Record<string, typeof Globe> = {
   "Web Development": Globe,
@@ -34,35 +35,38 @@ const mobileSubMenuVariants = {
 };
 
 const navLinks = [
-  { name: "Home", href: "/" },
+  { name: "Home", href: "/", tKey: "nav.home" },
   {
     name: "About",
     href: "/about",
+    tKey: "nav.about",
     dropdown: [
-      { name: "About Us", href: "/about", icon: Users },
-      { name: "Our Mission", href: "/mission", icon: Target },
-      { name: "Our Vision", href: "/vision", icon: Eye },
-      { name: "Testimonials", href: "/testimonials", icon: MessageSquare },
+      { name: "About Us", href: "/about", icon: Users, tKey: "nav.about" },
+      { name: "Our Mission", href: "/mission", icon: Target, tKey: "nav.mission" },
+      { name: "Our Vision", href: "/vision", icon: Eye, tKey: "nav.vision" },
+      { name: "Testimonials", href: "/testimonials", icon: MessageSquare, tKey: "nav.testimonials" },
     ],
   },
   { 
     name: "Services", 
     href: "/services",
+    tKey: "nav.services",
     dropdown: [
-      { name: "Web Development", href: "/services/web-development" },
-      { name: "Mobile App Development", href: "/services/mobile-app" },
-      { name: "UI/UX Design", href: "/services/ui-ux-design" },
-      { name: "Digital Marketing", href: "/services/digital-marketing" },
-      { name: "Branding", href: "/services/branding" },
-      { name: "E-Commerce", href: "/services/ecommerce" },
-      { name: "AI & Automation", href: "/services/ai-automation" },
-      { name: "GEO", href: "/services/geo" },
-      { name: "Cloud Solutions", href: "/services/cloud-solutions" },
+      { name: "Web Development", href: "/services/web-development", tKey: "services.web" },
+      { name: "Mobile App Development", href: "/services/mobile-app", tKey: "services.mobile" },
+      { name: "UI/UX Design", href: "/services/ui-ux-design", tKey: "services.uiux" },
+      { name: "Digital Marketing", href: "/services/digital-marketing", tKey: "services.marketing" },
+      { name: "Branding", href: "/services/branding", tKey: "services.branding" },
+      { name: "E-Commerce", href: "/services/ecommerce", tKey: "services.ecommerce" },
+      { name: "AI & Automation", href: "/services/ai-automation", tKey: "services.ai" },
+      { name: "GEO", href: "/services/geo", tKey: "services.geo" },
+      { name: "Cloud Solutions", href: "/services/cloud-solutions", tKey: "services.cloud" },
     ]
   },
-  { name: "Portfolio", href: "/portfolio" },
-  { name: "Blog", href: "/blog" },
-  { name: "Legal", href: "/legal" },
+  { name: "Industries", href: "/industries", tKey: "nav.industries" },
+  { name: "Portfolio", href: "/portfolio", tKey: "nav.portfolio" },
+  { name: "Blog", href: "/blog", tKey: "nav.blog" },
+  { name: "Legal", href: "/legal", tKey: "footer.legal" },
 ];
 
 export function Header() {
@@ -71,7 +75,7 @@ export function Header() {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [mobileDropdown, setMobileDropdown] = useState<string | null>(null);
   const location = useLocation();
-
+  const { t } = useLanguage();
   const { theme } = useTheme();
 
   useEffect(() => {
@@ -93,6 +97,11 @@ export function Header() {
     return serviceIcons[item.name] || Globe;
   };
 
+  const getLabel = (item: { name: string; tKey?: string }) => {
+    if (item.tKey) return t(item.tKey);
+    return item.name;
+  };
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -103,7 +112,6 @@ export function Header() {
     >
       <div className="container-wide">
         <nav className="flex items-center justify-between">
-          {/* Logo */}
           <Link to="/" className="relative z-[60]">
             <motion.img
               src={theme === "dark" ? netrexLogoLite : netrexLogo}
@@ -131,13 +139,12 @@ export function Header() {
                       : "text-foreground/80"
                   }`}
                 >
-                  {link.name}
+                  {getLabel(link)}
                   {link.dropdown && (
                     <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${activeDropdown === link.name ? 'rotate-180' : ''}`} />
                   )}
                 </Link>
 
-                {/* Dropdown Menu with Icons */}
                 <AnimatePresence>
                   {link.dropdown && activeDropdown === link.name && (
                     <motion.div
@@ -163,7 +170,7 @@ export function Header() {
                               <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:scale-110 transition-all">
                                 <IconComp className="h-4 w-4 text-primary group-hover:text-white transition-colors" />
                               </div>
-                              {item.name}
+                              {getLabel(item)}
                             </Link>
                           </motion.div>
                         );
@@ -181,7 +188,7 @@ export function Header() {
             <LanguageSwitcher />
             <Link to="/contact">
               <Button variant="hero" size="default">
-                Get in Touch
+                {t('nav.getInTouch')}
               </Button>
             </Link>
           </div>
@@ -234,7 +241,7 @@ export function Header() {
                               : "text-foreground/80 hover:bg-secondary"
                           }`}
                         >
-                          {link.name}
+                          {getLabel(link)}
                           <ChevronDown className={`h-5 w-5 transition-transform duration-300 ${mobileDropdown === link.name ? 'rotate-180' : ''}`} />
                         </button>
                         <AnimatePresence>
@@ -260,7 +267,7 @@ export function Header() {
                                       className="flex items-center gap-3 py-2 px-4 text-sm text-muted-foreground hover:text-primary hover:bg-secondary rounded-full transition-colors"
                                     >
                                       <IconComp className="h-4 w-4 text-primary" />
-                                      {item.name}
+                                      {getLabel(item)}
                                     </Link>
                                   </motion.div>
                                 );
@@ -278,7 +285,7 @@ export function Header() {
                             : "text-foreground/80 hover:bg-secondary"
                         }`}
                       >
-                        {link.name}
+                        {getLabel(link)}
                       </Link>
                     )}
                   </motion.div>
@@ -292,7 +299,7 @@ export function Header() {
               >
                 <Link to="/contact">
                   <Button variant="hero" size="lg" className="w-full">
-                    Get in Touch
+                    {t('nav.getInTouch')}
                   </Button>
                 </Link>
               </motion.div>
