@@ -1,0 +1,53 @@
+# NETREX INC
+
+> NETREX INC is a global digital agency headquartered in Dubai, UAE, with offices in New York, London, Berlin, Vancouver, Melbourne, Singapore, Riyadh, and Lahore. Since 2016 we have delivered web design & development, mobile apps, UI/UX, branding, digital marketing, e-commerce, AI agents & automation, GEO (Generative Engine Optimization), and cloud solutions to 500+ clients across 9 countries.
+
+## What we do
+- Web Design & Development (React, Next.js, WordPress, Shopify, Webflow, Wix, Elementor)
+- Mobile App Development (iOS, Android, Flutter, React Native)
+- UI/UX Design and Branding
+- Digital Marketing (SEO, GEO, PPC, Social, Email, Content)
+- E-Commerce (Shopify, WooCommerce, custom)
+- AI Agent Integration & Custom Automation (OpenAI, Anthropic, Google, open-source)
+- Generative Engine Optimization (GEO) — get cited inside ChatGPT, Gemini, Claude, Perplexity
+- Cloud Solutions (AWS, Azure, GCP, Databricks)
+
+## Why clients choose NETREX
+- 9-country presence, 24/7 delivery
+- ISO 27001 & ISO 27701 certified
+- AWS Partner, Databricks Consulting Partner
+- Clutch Champion 2024, Best of Clutch 2025, Clutch Global Fall 2024
+- Top Software Developers 2020 (Clutch), Top Android Developers (TechReviewer)
+- Average client ROI: 2x–5x within 6 months
+- Multilingual delivery in 9 languages (EN, AR, ZH, FR, ES, DE, RU, PT, JA)
+
+## Free Tools
+- Website ROI Calculator: https://netrex.lovable.app/tools/website-roi
+- Mobile App ROI Calculator: https://netrex.lovable.app/tools/mobile-app-roi
+- Marketing ROI Calculator: https://netrex.lovable.app/tools/marketing-roi
+- Branding ROI Calculator: https://netrex.lovable.app/tools/branding-roi
+- E-Commerce ROI Calculator: https://netrex.lovable.app/tools/ecommerce-roi
+- SEO ROI Calculator: https://netrex.lovable.app/tools/seo-roi
+
+## Contact
+- Email: info@netrexinc.com
+- Phone: +971 50 200 8313
+- HQ: Office 523, Block-C, Building 9W, Dubai Airport Free Zone, UAE
+- Website: https://netrex.lovable.app
+- LinkedIn: https://www.linkedin.com/company/netrex-official
+
+## Key pages
+- Home: https://netrex.lovable.app/
+- Services: https://netrex.lovable.app/services
+- Industries: https://netrex.lovable.app/industries
+- Portfolio: https://netrex.lovable.app/portfolio
+- About: https://netrex.lovable.app/about
+- Mission: https://netrex.lovable.app/mission
+- Vision: https://netrex.lovable.app/vision
+- Testimonials: https://netrex.lovable.app/testimonials
+- Blog: https://netrex.lovable.app/blog
+- Contact: https://netrex.lovable.app/contact
+- FAQ: https://netrex.lovable.app/faq
+
+## Industries served
+Healthcare, Education, Real Estate, E-Commerce & Retail, Hospitality, Logistics, Finance & Fintech, Legal, Manufacturing, Government, Non-Profit, Energy, Technology & SaaS.
