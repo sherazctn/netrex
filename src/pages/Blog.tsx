@@ -103,7 +103,7 @@ const Blog = () => {
                     Featured
                   </span>
                   <h2 className="font-display text-2xl md:text-3xl font-bold mb-4 hover:text-primary transition-colors">
-                    <Link to={`/blog/${featuredPost.id}`}>{featuredPost.title}</Link>
+                    <Link to={`/blog/${featuredPost.slug}`}>{featuredPost.title}</Link>
                   </h2>
                   <p className="text-muted-foreground mb-6">
                     {featuredPost.excerpt}
@@ -122,7 +122,7 @@ const Blog = () => {
                       {featuredPost.readTime}
                     </span>
                   </div>
-                  <Link to={`/blog/${featuredPost.id}`}>
+                  <Link to={`/blog/${featuredPost.slug}`}>
                     <Button variant="hero" className="group">
                       Read Article
                       <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -159,7 +159,7 @@ const Blog = () => {
                       {post.category}
                     </span>
                     <h3 className="font-display text-xl font-bold mb-2 group-hover:text-primary transition-colors">
-                      <Link to={`/blog/${post.id}`}>{post.title}</Link>
+                      <Link to={`/blog/${post.slug}`}>{post.title}</Link>
                     </h3>
                     <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
                       {post.excerpt}
