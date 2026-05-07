@@ -388,7 +388,7 @@ export function WorldMapContact() {
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       onFocus={() => !formData.message && setShowSuggestions(true)}
                       required
-                      className="bg-white/5 border-white/10 text-white placeholder:text-white/40 focus:border-primary min-h-[120px] resize-none"
+                      className="bg-white/5 border-white/10 text-white placeholder:text-white/40 focus:border-primary min-h-[120px] resize-none rounded-[20px]"
                     />
                     <button
                       type="button"
