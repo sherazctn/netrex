@@ -8,76 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
 
-const blogCategories = ["All", "Technology", "Design", "Marketing", "Business", "Case Studies"];
-
-const blogPosts = [
-  {
-    id: 1,
-    title: "The Future of AI in Web Development",
-    excerpt: "Explore how artificial intelligence is transforming the way we build and interact with websites.",
-    category: "Technology",
-    author: "Sheraz Khan",
-    date: "Jan 15, 2025",
-    readTime: "5 min read",
-    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=600&h=400&fit=crop",
-    featured: true
-  },
-  {
-    id: 2,
-    title: "Mobile-First Design: Why It Matters",
-    excerpt: "Learn why designing for mobile devices first leads to better user experiences across all platforms.",
-    category: "Design",
-    author: "Sarah Ahmed",
-    date: "Jan 12, 2025",
-    readTime: "4 min read",
-    image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&h=400&fit=crop",
-    featured: false
-  },
-  {
-    id: 3,
-    title: "SEO Trends to Watch in 2025",
-    excerpt: "Stay ahead of the competition with these emerging SEO strategies and best practices.",
-    category: "Marketing",
-    author: "Ahmed Hassan",
-    date: "Jan 10, 2025",
-    readTime: "6 min read",
-    image: "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=600&h=400&fit=crop",
-    featured: false
-  },
-  {
-    id: 4,
-    title: "Building Scalable E-Commerce Platforms",
-    excerpt: "Technical insights on creating e-commerce solutions that grow with your business.",
-    category: "Technology",
-    author: "Sheraz Khan",
-    date: "Jan 8, 2025",
-    readTime: "8 min read",
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop",
-    featured: false
-  },
-  {
-    id: 5,
-    title: "The Psychology of Color in Branding",
-    excerpt: "How color choices impact brand perception and customer behavior.",
-    category: "Design",
-    author: "Fatima Ali",
-    date: "Jan 5, 2025",
-    readTime: "4 min read",
-    image: "https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=600&h=400&fit=crop",
-    featured: false
-  },
-  {
-    id: 6,
-    title: "Case Study: 300% Revenue Growth",
-    excerpt: "How we helped a fashion brand transform their digital presence and triple online sales.",
-    category: "Case Studies",
-    author: "Sheraz Khan",
-    date: "Jan 3, 2025",
-    readTime: "10 min read",
-    image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&h=400&fit=crop",
-    featured: true
-  }
-];
+import { blogPosts, blogCategories } from "@/data/blogData";
 
 const Blog = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
@@ -172,7 +103,7 @@ const Blog = () => {
                     Featured
                   </span>
                   <h2 className="font-display text-2xl md:text-3xl font-bold mb-4 hover:text-primary transition-colors">
-                    <Link to={`/blog/${featuredPost.id}`}>{featuredPost.title}</Link>
+                    <Link to={`/blog/${featuredPost.slug}`}>{featuredPost.title}</Link>
                   </h2>
                   <p className="text-muted-foreground mb-6">
                     {featuredPost.excerpt}
@@ -191,7 +122,7 @@ const Blog = () => {
                       {featuredPost.readTime}
                     </span>
                   </div>
-                  <Link to={`/blog/${featuredPost.id}`}>
+                  <Link to={`/blog/${featuredPost.slug}`}>
                     <Button variant="hero" className="group">
                       Read Article
                       <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -228,7 +159,7 @@ const Blog = () => {
                       {post.category}
                     </span>
                     <h3 className="font-display text-xl font-bold mb-2 group-hover:text-primary transition-colors">
-                      <Link to={`/blog/${post.id}`}>{post.title}</Link>
+                      <Link to={`/blog/${post.slug}`}>{post.title}</Link>
                     </h3>
                     <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
                       {post.excerpt}
