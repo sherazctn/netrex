@@ -552,8 +552,8 @@ const servicesData: Record<string, {
     { title: "Continuous Learning", description: "Always adapting to AI changes", icon: Clock }],
 
     caseStudies: [
-    { title: "SaaS Company GEO", description: "Optimized content for AI search visibility", result: "Featured in 40% of relevant AI responses", image: "https://images.unsplash.com/photo-1676277791608-ac54525aa94d?w=600&h=800&fit=crop" },
-    { title: "E-commerce GEO", description: "Product content optimization for AI", result: "3x increase in AI-referred traffic", image: "https://images.unsplash.com/photo-1675271591211-98b14e07786c?w=600&h=800&fit=crop" }]
+    { title: "SaaS Company GEO", description: "Optimized content for AI search visibility", result: "Featured in 40% of relevant AI responses", image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=600&h=800&fit=crop" },
+    { title: "E-commerce GEO", description: "Product content optimization for AI", result: "3x increase in AI-referred traffic", image: "https://images.unsplash.com/photo-1655720828018-edd2daec9349?w=600&h=800&fit=crop" }]
 
   },
   "cloud-solutions": {
