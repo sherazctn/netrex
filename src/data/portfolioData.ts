@@ -634,4 +634,15 @@ export const portfolioItems: PortfolioItem[] = [
     resultValue: { value: 210, suffix: "%", label: "Booking Increase" },
     industry: "Beauty & Wellness"
   },
+  {
+    id: 56,
+    title: "Remedy Industrial Automation",
+    category: "Web",
+    technology: "Wix",
+    image: "/portfolio/remedy-industrial-automation.png",
+    description: "Dark-themed industrial automation site for a UK electronic-repair specialist with bold red accents, capability matrix and 24/7 emergency CTA",
+    result: "15,000+ repairs showcased, 24/7 lead capture",
+    resultValue: { value: 98, suffix: "%", label: "Uptime Rate" },
+    industry: "Industrial Automation"
+  },
 ];
