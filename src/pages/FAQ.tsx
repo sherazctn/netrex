@@ -4,6 +4,7 @@ import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
+import { Helmet } from "react-helmet-async";
 
 const faqs = [
   { q: "What services does NETREX offer?", a: "We offer web development, mobile app development, UI/UX design, digital marketing, branding, e-commerce solutions, AI & automation, and cloud solutions. Our team of 50+ experts works across all major technologies." },
