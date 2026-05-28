@@ -125,6 +125,11 @@ const processSteps = [
 const About = () => {
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="About — NETREX Inc"
+        description="Learn about NETREX Inc's story, mission, values, and global team. A digital agency delivering web, mobile, AI & marketing solutions across 9 countries since 2016."
+        canonical="https://netrex.lovable.app/about"
+      />
       <Header />
       <main>
         {/* Hero Section */}
