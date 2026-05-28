@@ -3,6 +3,7 @@ import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import { ClientLogos } from "@/components/home/ClientLogos";
 import { BrandsWeWork } from "@/components/home/BrandsWeWork";
+import { SEO } from "@/components/SEO";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight, Award, Globe2, Users, Lightbulb, Target, Heart, Trophy, Star, GraduationCap, Briefcase, Shield, Zap } from "lucide-react";
@@ -124,6 +125,11 @@ const processSteps = [
 const About = () => {
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="About — NETREX Inc"
+        description="Learn about NETREX Inc's story, mission, values, and global team. A digital agency delivering web, mobile, AI & marketing solutions across 9 countries since 2016."
+        canonical="https://netrex.lovable.app/about"
+      />
       <Header />
       <main>
         {/* Hero Section */}

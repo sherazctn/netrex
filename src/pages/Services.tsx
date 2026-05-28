@@ -1,6 +1,7 @@
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
+import { SEO } from "@/components/SEO";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight, Globe, Smartphone, Palette, Megaphone, Package, Sparkles, Brain, Cloud } from "lucide-react";
@@ -75,6 +76,11 @@ const services = [
 const Services = () => {
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="Services — NETREX Inc"
+        description="NETREX Inc services: web development, mobile apps, UI/UX design, digital marketing, branding, e-commerce, AI automation, GEO, and cloud solutions."
+        canonical="https://netrex.lovable.app/services"
+      />
       <Header />
       <main>
         {/* Hero Section */}

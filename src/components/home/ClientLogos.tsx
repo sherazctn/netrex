@@ -48,7 +48,7 @@ export function ClientLogos() {
               className="flex-shrink-0 px-6 py-3 rounded-xl bg-card border border-border hover:border-primary/20 transition-all"
             >
               <div className="h-8 flex items-center justify-center">
-                <span className="text-lg font-bold text-muted-foreground/60 hover:text-muted-foreground transition-colors">
+                <span className="text-lg font-bold text-muted-foreground hover:text-foreground transition-colors">
                   {client.name}
                 </span>
               </div>

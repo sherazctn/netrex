@@ -1,6 +1,7 @@
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
+import { SEO } from "@/components/SEO";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useState, useRef, useMemo } from "react";
@@ -55,6 +56,11 @@ const Portfolio = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="Portfolio — NETREX Inc | 46+ Projects Delivered"
+        description="Browse 46+ delivered projects by NETREX Inc — web development, mobile apps, branding, e-commerce, and AI automation across 9 countries."
+        canonical="https://netrex.lovable.app/portfolio"
+      />
       <Header />
       <main>
         {/* Hero Section */}
