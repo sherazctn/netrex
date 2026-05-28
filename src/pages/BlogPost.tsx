@@ -28,8 +28,40 @@ const BlogPost = () => {
   const shareText = encodeURIComponent(post.title);
   const related = blogPosts.filter((p) => p.id !== post.id && p.category === post.category).slice(0, 3);
 
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: post.title,
+    description: post.excerpt,
+    image: post.image,
+    author: { "@type": "Person", name: post.author },
+    publisher: {
+      "@type": "Organization",
+      name: "NETREX INC",
+      logo: { "@type": "ImageObject", url: "https://netrex.lovable.app/favicon.ico" },
+    },
+    datePublished: post.date,
+    keywords: (post.keywords ?? []).join(", "),
+    mainEntityOfPage: typeof window !== "undefined" ? window.location.href : "",
+  };
+
   return (
     <div className="min-h-screen bg-background">
+      <Helmet>
+        <title>{post.title} — NETREX Blog</title>
+        <meta name="description" content={post.excerpt} />
+        <link rel="canonical" href={`https://netrex.lovable.app/blog/${post.slug}`} />
+        <meta property="og:title" content={post.title} />
+        <meta property="og:description" content={post.excerpt} />
+        <meta property="og:url" content={`https://netrex.lovable.app/blog/${post.slug}`} />
+        <meta property="og:type" content="article" />
+        <meta property="og:image" content={post.image} />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={post.title} />
+        <meta name="twitter:description" content={post.excerpt} />
+        <meta name="twitter:image" content={post.image} />
+        <script type="application/ld+json">{JSON.stringify(articleSchema)}</script>
+      </Helmet>
       <Header />
       <main>
         <section className="pt-32 pb-8">
