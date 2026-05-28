@@ -3,6 +3,7 @@ import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import { WorldMapContact } from "@/components/home/WorldMapContact";
 import { motion } from "framer-motion";
+import { Helmet } from "react-helmet-async";
 
 const Contact = () => {
   return (
