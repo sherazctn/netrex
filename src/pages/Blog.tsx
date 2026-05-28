@@ -1,6 +1,7 @@
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
+import { SEO } from "@/components/SEO";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight, Calendar, User, Clock } from "lucide-react";
