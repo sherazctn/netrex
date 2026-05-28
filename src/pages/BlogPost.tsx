@@ -3,44 +3,13 @@ import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import { motion } from "framer-motion";
 import { useParams, Link } from "react-router-dom";
-import { useEffect } from "react";
+import { Helmet } from "react-helmet-async";
 import { ArrowLeft, Calendar, User, Clock, Share2, Linkedin, Twitter, Facebook } from "lucide-react";
 import { getPostByIdOrSlug, blogPosts } from "@/data/blogData";
 
 const BlogPost = () => {
   const { id } = useParams();
   const post = getPostByIdOrSlug(id ?? "");
-
-  useEffect(() => {
-    if (!post) return;
-    document.title = `${post.title} | NETREX Blog`;
-    const metaDesc = document.querySelector('meta[name="description"]');
-    metaDesc?.setAttribute("content", post.excerpt);
-
-    // JSON-LD Article schema for SEO/GEO
-    const ld = document.createElement("script");
-    ld.type = "application/ld+json";
-    ld.text = JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "Article",
-      headline: post.title,
-      description: post.excerpt,
-      image: post.image,
-      author: { "@type": "Person", name: post.author },
-      publisher: {
-        "@type": "Organization",
-        name: "NETREX INC",
-        logo: { "@type": "ImageObject", url: "https://netrex.lovable.app/favicon.ico" },
-      },
-      datePublished: post.date,
-      keywords: (post.keywords ?? []).join(", "),
-      mainEntityOfPage: typeof window !== "undefined" ? window.location.href : "",
-    });
-    document.head.appendChild(ld);
-    return () => {
-      document.head.removeChild(ld);
-    };
-  }, [post]);
 
   if (!post) {
     return (
