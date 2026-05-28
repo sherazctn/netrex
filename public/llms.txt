@@ -36,18 +36,18 @@
 - Website: https://netrex.lovable.app
 - LinkedIn: https://www.linkedin.com/company/netrex-official
 
-## Key pages
-- Home: https://netrex.lovable.app/
-- Services: https://netrex.lovable.app/services
-- Industries: https://netrex.lovable.app/industries
-- Portfolio: https://netrex.lovable.app/portfolio
-- About: https://netrex.lovable.app/about
-- Mission: https://netrex.lovable.app/mission
-- Vision: https://netrex.lovable.app/vision
-- Testimonials: https://netrex.lovable.app/testimonials
-- Blog: https://netrex.lovable.app/blog
-- Contact: https://netrex.lovable.app/contact
-- FAQ: https://netrex.lovable.app/faq
+## Pages
+- [Home](/): Global digital agency — web, mobile, branding, AI & cloud.
+- [Services](/services): 9 service lines from web development to AI agents.
+- [Industries](/industries): Sector-specific digital solutions.
+- [Portfolio](/portfolio): 46+ delivered projects with real results.
+- [About](/about): Company history, team, and global offices.
+- [Mission](/mission): Our mission and commitment to client success.
+- [Vision](/vision): Where we're headed and how we innovate.
+- [Testimonials](/testimonials): Client reviews and video case studies.
+- [Blog](/blog): Insights on AI, GEO, design trends, and digital strategy.
+- [Contact](/contact): Get a quote, book a call, or visit an office.
+- [FAQ](/faq): Common questions answered.
 
 ## Industries served
 Healthcare, Education, Real Estate, E-Commerce & Retail, Hospitality, Logistics, Finance & Fintech, Legal, Manufacturing, Government, Non-Profit, Energy, Technology & SaaS.
