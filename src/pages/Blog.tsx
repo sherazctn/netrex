@@ -128,12 +128,12 @@ const Blog = () => {
                       {featuredPost.readTime}
                     </span>
                   </div>
-                  <Link to={`/blog/${featuredPost.slug}`}>
-                    <Button variant="hero" className="group">
+                  <Button asChild variant="hero" className="group">
+                    <Link to={`/blog/${featuredPost.slug}`}>
                       Read Article
                       <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                    </Button>
-                  </Link>
+                    </Link>
+                  </Button>
                 </div>
               </motion.article>
             </div>
