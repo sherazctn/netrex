@@ -23,7 +23,7 @@ const technologies = [
   { name: "Vue.js", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg", size: "md" },
   { name: "Angular", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg", size: "sm" },
   { name: "WordPress", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-plain.svg", size: "lg" },
-  { name: "Shopify", logo: "https://cdn.simpleicons.org/shopify/7AB55C", size: "md" },
+  { name: "Shopify", logo: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/shopify.svg", size: "md" },
   { name: "Figma", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg", size: "lg" },
   { name: "Tailwind", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg", size: "md" },
   { name: "GraphQL", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain.svg", size: "sm" },
@@ -31,7 +31,7 @@ const technologies = [
   { name: "GitHub", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg", size: "sm" },
   { name: "Jira", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg", size: "sm" },
   { name: "TensorFlow", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg", size: "md" },
-  { name: "OpenAI", logo: "https://cdn.simpleicons.org/openai/412991", size: "lg" },
+  { name: "OpenAI", logo: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/openai.svg", size: "lg" },
 ];
 
 const sizeClasses = {

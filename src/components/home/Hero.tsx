@@ -135,10 +135,10 @@ export function Hero() {
               <span className="text-sm font-medium text-foreground">{t('hero.badge')}</span>
               <div className="flex items-center gap-1.5 ml-1">
                 {[
-                  { src: "https://cdn.simpleicons.org/upwork/6FDA44", alt: "Upwork" },
+                  { src: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/upwork.svg", alt: "Upwork" },
                   { src: "/lovable-uploads/651e2013-4e21-40f3-94d8-84fcdfe29eff.png", alt: "Fiverr" },
                   { src: "/lovable-uploads/ced4b15c-5f92-4389-8b5a-d1a1565a8cea.jpg", alt: "Clutch" },
-                  { src: "https://cdn.simpleicons.org/goodreads/372213", alt: "GoodFirms" },
+                  { src: "https://www.google.com/s2/favicons?domain=goodfirms.co&sz=128", alt: "GoodFirms" },
                 ].map((logo, i) => (
                   <motion.img
                     key={logo.alt}
@@ -474,7 +474,7 @@ export function Hero() {
                 <div className="font-semibold text-foreground">Top Rated</div>
                 <div className="text-sm text-muted-foreground flex items-center gap-1.5">
                   {[
-                    { src: "https://cdn.simpleicons.org/upwork/6FDA44", alt: "Upwork" },
+                    { src: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/upwork.svg", alt: "Upwork" },
                     { src: "/lovable-uploads/651e2013-4e21-40f3-94d8-84fcdfe29eff.png", alt: "Fiverr" },
                     { src: "/lovable-uploads/ced4b15c-5f92-4389-8b5a-d1a1565a8cea.jpg", alt: "Clutch" },
                   ].map((logo, i) => (
