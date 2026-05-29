@@ -100,33 +100,41 @@ const BlogPost = () => {
         <section className="pb-16">
           <div className="container-wide max-w-3xl mx-auto">
             <article className="prose prose-lg max-w-none">
-              {post.content.split("\n\n").map((paragraph, i) => {
-                if (paragraph.startsWith("## ")) {
-                  return <h2 key={i} className="font-display text-2xl font-bold mt-10 mb-4 text-foreground">{paragraph.replace("## ", "")}</h2>;
-                }
-                if (paragraph.startsWith("- ")) {
-                  return (
-                    <ul key={i} className="space-y-2 my-4">
-                      {paragraph.split("\n").map((item, j) => (
-                        <li key={j} className="text-muted-foreground flex items-start gap-2">
-                          <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2.5 flex-shrink-0" />
-                          <span dangerouslySetInnerHTML={{ __html: item.replace("- ", "").replace(/\*\*(.*?)\*\*/g, '<strong class="text-foreground">$1</strong>') }} />
-                        </li>
-                      ))}
-                    </ul>
-                  );
-                }
-                if (paragraph.match(/^\d\./)) {
-                  return (
-                    <ol key={i} className="space-y-2 my-4 list-decimal list-inside">
-                      {paragraph.split("\n").map((item, j) => (
-                        <li key={j} className="text-muted-foreground" dangerouslySetInnerHTML={{ __html: item.replace(/^\d+\.\s*/, "").replace(/\*\*(.*?)\*\*/g, '<strong class="text-foreground">$1</strong>') }} />
-                      ))}
-                    </ol>
-                  );
-                }
-                return <p key={i} className="text-muted-foreground leading-relaxed mb-6" dangerouslySetInnerHTML={{ __html: paragraph.replace(/\*\*(.*?)\*\*/g, '<strong class="text-foreground">$1</strong>') }} />;
-              })}
+              {(() => {
+                // Format inline: ***text*** → gradient, **text** → bold, *text* → italic
+                const fmt = (s: string) =>
+                  s
+                    .replace(/\*\*\*(.+?)\*\*\*/g, '<span class="text-gradient font-bold">$1</span>')
+                    .replace(/\*\*(.+?)\*\*/g, '<strong class="text-foreground font-bold">$1</strong>')
+                    .replace(/(^|[\s(])\*([^*\n]+?)\*(?=[\s.,;:!?)]|$)/g, '$1<em class="italic text-foreground/90">$2</em>');
+                return post.content.split("\n\n").map((paragraph, i) => {
+                  if (paragraph.startsWith("## ")) {
+                    return <h2 key={i} className="font-display text-2xl md:text-3xl font-bold mt-10 mb-4 text-foreground" dangerouslySetInnerHTML={{ __html: fmt(paragraph.replace("## ", "")) }} />;
+                  }
+                  if (paragraph.startsWith("- ")) {
+                    return (
+                      <ul key={i} className="space-y-2 my-4">
+                        {paragraph.split("\n").map((item, j) => (
+                          <li key={j} className="text-muted-foreground flex items-start gap-2 leading-relaxed">
+                            <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2.5 flex-shrink-0" />
+                            <span dangerouslySetInnerHTML={{ __html: fmt(item.replace("- ", "")) }} />
+                          </li>
+                        ))}
+                      </ul>
+                    );
+                  }
+                  if (paragraph.match(/^\d\./)) {
+                    return (
+                      <ol key={i} className="space-y-2 my-4 list-decimal list-inside marker:text-primary marker:font-bold">
+                        {paragraph.split("\n").map((item, j) => (
+                          <li key={j} className="text-muted-foreground leading-relaxed" dangerouslySetInnerHTML={{ __html: fmt(item.replace(/^\d+\.\s*/, "")) }} />
+                        ))}
+                      </ol>
+                    );
+                  }
+                  return <p key={i} className="text-muted-foreground leading-relaxed mb-6 text-base md:text-lg" dangerouslySetInnerHTML={{ __html: fmt(paragraph) }} />;
+                });
+              })()}
             </article>
 
             <div className="mt-12 pt-8 border-t border-border">
