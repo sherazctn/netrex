@@ -354,7 +354,7 @@ export function WorldMapContact() {
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       required
-                      className="bg-white/5 border-white/10 text-white placeholder:text-white/40 focus:border-primary"
+                      className="bg-white/5 border-white/10 text-white placeholder:text-white/75 focus:border-primary"
                     />
                     <Input
                       type="email"
@@ -362,7 +362,7 @@ export function WorldMapContact() {
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       required
-                      className="bg-white/5 border-white/10 text-white placeholder:text-white/40 focus:border-primary"
+                      className="bg-white/5 border-white/10 text-white placeholder:text-white/75 focus:border-primary"
                     />
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -371,13 +371,13 @@ export function WorldMapContact() {
                       onChange={handlePhoneChange}
                       selectedCountryCode={activeLocation.countryCode}
                       darkMode
-                      className="bg-white/5 border-white/10 text-white placeholder:text-white/40"
+                      className="bg-white/5 border-white/10 text-white placeholder:text-white/75"
                     />
                     <Input
                       placeholder={t('contact.form.company')}
                       value={formData.company}
                       onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                      className="bg-white/5 border-white/10 text-white placeholder:text-white/40 focus:border-primary"
+                      className="bg-white/5 border-white/10 text-white placeholder:text-white/75 focus:border-primary"
                     />
                   </div>
 
@@ -388,7 +388,7 @@ export function WorldMapContact() {
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       onFocus={() => !formData.message && setShowSuggestions(true)}
                       required
-                      className="bg-white/5 border-white/10 text-white placeholder:text-white/40 focus:border-primary min-h-[120px] resize-none rounded-[20px]"
+                      className="bg-white/5 border-white/10 text-white placeholder:text-white/75 focus:border-primary min-h-[120px] resize-none rounded-[20px]"
                     />
                     <button
                       type="button"
@@ -408,8 +408,8 @@ export function WorldMapContact() {
                           className="absolute top-full left-0 right-0 mt-2 bg-[#2a2a2a] border border-white/10 rounded-2xl p-3 z-20 shadow-xl max-h-60 overflow-y-auto"
                         >
                           <div className="flex items-center justify-between mb-2">
-                            <span className="text-xs text-white/50 font-medium">Quick Suggestions</span>
-                            <button onClick={() => setShowSuggestions(false)} className="text-white/40 hover:text-white">
+                            <span className="text-xs text-white/80 font-medium">Quick Suggestions</span>
+                            <button onClick={() => setShowSuggestions(false)} className="text-white/75 hover:text-white">
                               <X className="h-3.5 w-3.5" />
                             </button>
                           </div>

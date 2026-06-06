@@ -201,7 +201,7 @@ export function Footer() {
             <p className="text-white/60 text-sm mb-3 max-w-sm leading-relaxed">
               {t('footer.description')}
             </p>
-            <p className="text-white/40 text-xs mb-4 max-w-sm leading-relaxed">
+            <p className="text-white/75 text-xs mb-4 max-w-sm leading-relaxed">
               {t('footer.description2')}
             </p>
             <div className="flex items-center gap-3 mb-6">
@@ -300,7 +300,7 @@ export function Footer() {
 
         {/* Awards & Certifications */}
         <div className="mt-12 pt-8 border-t border-white/10">
-          <h3 className="text-center text-sm font-semibold uppercase tracking-wider text-white/50 mb-6">
+          <h3 className="text-center text-sm font-semibold uppercase tracking-wider text-white/80 mb-6">
             {t('footer.awards')}
           </h3>
           <div className="flex flex-wrap justify-center items-center gap-6">
@@ -318,10 +318,10 @@ export function Footer() {
 
         {/* Copyright */}
         <div className="mt-8 pt-6 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-white/50 text-sm">
+          <p className="text-white/80 text-sm">
             © 2016–{new Date().getFullYear()} NETREX INC. {t('footer.rights')}
           </p>
-          <div className="flex gap-6 text-sm text-white/50">
+          <div className="flex gap-6 text-sm text-white/80">
             <Link to="/privacy" className="hover:text-white transition-colors">
               {t('footer.privacy')}
             </Link>
