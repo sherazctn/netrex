@@ -15,6 +15,16 @@ export interface BlogPost {
 
 export const blogCategories = ["All", "Technology", "Design", "Marketing", "Business", "Case Studies", "AI & GEO"];
 
+// Parses our "MMM DD, YYYY" date strings into a sortable timestamp.
+export const parseBlogDate = (s: string): number => {
+  const t = Date.parse(s);
+  return isNaN(t) ? 0 : t;
+};
+
+// Returns blog posts sorted by most recent first.
+export const getSortedBlogPosts = (): BlogPost[] =>
+  [...blogPosts].sort((a, b) => parseBlogDate(b.date) - parseBlogDate(a.date));
+
 export const blogPosts: BlogPost[] = [
   {
     id: 1,
