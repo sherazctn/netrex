@@ -645,4 +645,93 @@ export const portfolioItems: PortfolioItem[] = [
     resultValue: { value: 98, suffix: "%", label: "Uptime Rate" },
     industry: "Industrial Automation"
   },
+  // ============ NEW PORTFOLIO ADDITIONS (June 2026) ============
+  {
+    id: 57,
+    title: "DisciplineA Trading Platform",
+    category: "Web",
+    technology: "Wix",
+    image: "/portfolio/disciplinea.png",
+    description: "Dark-themed crypto and stock trading discipline platform with mobile app showcase, signals, performance dashboards and live trader testimonials",
+    result: "10K+ traders onboarded",
+    resultValue: { value: 10000, suffix: "+", label: "Traders Onboarded" },
+    industry: "FinTech"
+  },
+  {
+    id: 58,
+    title: "Love U Hormone Therapy",
+    category: "E-Commerce",
+    technology: "WordPress",
+    image: "/portfolio/love-u.png",
+    description: "Premium peptide, hormone and ED therapy e-commerce with clinician-led product catalog, subscription plans and real client transformations",
+    result: "2,500+ active patients",
+    resultValue: { value: 2500, suffix: "+", label: "Active Patients" },
+    industry: "Healthcare & Wellness"
+  },
+  {
+    id: 59,
+    title: "Artisans Heritage Toronto",
+    category: "Web",
+    technology: "Wix",
+    image: "/portfolio/artisans-heritage.png",
+    description: "Inclusive arts and heritage nonprofit website with festival listings, documentaries, programs, voices interviews and donation flows",
+    result: "1,200+ artists featured",
+    resultValue: { value: 1200, suffix: "+", label: "Artists Featured" },
+    industry: "Arts & Culture"
+  },
+  {
+    id: 60,
+    title: "757 Bin Masters",
+    category: "Web",
+    technology: "React",
+    image: "/portfolio/bin-masters-757.png",
+    description: "Exterior cleaning and bin-washing service site with before/after slider, pricing plans, booking flow, reviews and Virginia service-area pages",
+    result: "500+ recurring customers",
+    resultValue: { value: 500, suffix: "+", label: "Recurring Customers" },
+    industry: "Home Services"
+  },
+  {
+    id: 61,
+    title: "757 Bin Masters Logo",
+    category: "Branding",
+    technology: "Adobe Photoshop",
+    image: "/portfolio/bin-masters-logo.png",
+    description: "Bold shield-style logo for an exterior cleaning brand featuring 757 area code, photoreal bin imagery, water splash and emerald-on-black palette",
+    result: "Brand recognition +240%",
+    resultValue: { value: 240, suffix: "%", label: "Brand Recognition" },
+    industry: "Cleaning Services"
+  },
+  {
+    id: 62,
+    title: "DonVex Pressure Washing",
+    category: "Web",
+    technology: "React",
+    image: "/portfolio/donvex.png",
+    description: "South Florida pressure-washing site with service grid, maintenance plans, before/after slider, instant estimate form and county service map",
+    result: "500+ jobs booked",
+    resultValue: { value: 500, suffix: "+", label: "Jobs Booked" },
+    industry: "Home Services"
+  },
+  {
+    id: 63,
+    title: "Belle on Wheels",
+    category: "Branding",
+    technology: "Adobe Illustrator",
+    image: "/portfolio/belle-on-wheels-logo.png",
+    description: "Accessible travel concierge brand identity for theme parks and cruises, featuring an empowered powerchair character, castle and cruise ship motifs",
+    result: "Audience reach +320%",
+    resultValue: { value: 320, suffix: "%", label: "Audience Reach" },
+    industry: "Travel & Accessibility"
+  },
+  {
+    id: 64,
+    title: "Artists & Artisans Network",
+    category: "Mobile App",
+    technology: "React Native",
+    image: "/portfolio/artists-artisans-app.png",
+    description: "Campus art-school networking app with student profiles, portfolios, campus hub feed, events, badges and guest-lecture discovery across three screens",
+    result: "15K+ student profiles",
+    resultValue: { value: 15000, suffix: "+", label: "Student Profiles" },
+    industry: "Education"
+  },
 ];
