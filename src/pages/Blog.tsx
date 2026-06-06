@@ -9,19 +9,23 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
 
-import { blogPosts, blogCategories } from "@/data/blogData";
+import { blogPosts, blogCategories, getSortedBlogPosts } from "@/data/blogData";
 
 const Blog = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
 
-  const filteredPosts = blogPosts.filter(post => {
+  // Always show newest posts first.
+  const sortedPosts = getSortedBlogPosts();
+
+  const filteredPosts = sortedPosts.filter(post => {
     const categoryMatch = selectedCategory === "All" || post.category === selectedCategory;
     const searchMatch = post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
                        post.excerpt.toLowerCase().includes(searchQuery.toLowerCase());
     return categoryMatch && searchMatch;
   });
 
+  // Featured article is pinned in the data layer; do not auto-rotate it.
   const featuredPost = blogPosts.find(post => post.featured);
 
   return (
@@ -128,7 +132,10 @@ const Blog = () => {
                       {featuredPost.readTime}
                     </span>
                   </div>
-                  <Button asChild variant="hero" className="group">
+                  <Button
+                    asChild
+                    className="group bg-primary text-white hover:bg-black hover:text-white rounded-full shadow-md hover:shadow-lg"
+                  >
                     <Link to={`/blog/${featuredPost.slug}`}>
                       Read Article
                       <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -172,6 +179,10 @@ const Blog = () => {
                     </p>
                     <div className="flex items-center justify-between text-xs text-muted-foreground">
                       <span>{post.author}</span>
+                      <span className="flex items-center gap-1">
+                        <Calendar className="h-3 w-3" />
+                        {post.date}
+                      </span>
                       <span className="flex items-center gap-1">
                         <Clock className="h-3 w-3" />
                         {post.readTime}
