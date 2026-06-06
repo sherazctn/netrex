@@ -37,7 +37,6 @@ export const blogPosts: BlogPost[] = [
     date: "Jan 15, 2025",
     readTime: "5 min read",
     image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=600&fit=crop",
-    featured: true,
     keywords: ["AI web development", "AI tools", "machine learning", "code generation"],
   },
   {
@@ -103,7 +102,6 @@ export const blogPosts: BlogPost[] = [
     date: "Jan 3, 2025",
     readTime: "10 min read",
     image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1200&h=600&fit=crop",
-    featured: true,
     keywords: ["case study", "revenue growth", "fashion ecommerce"],
   },
   // ============ NEW POSTS ============
@@ -118,7 +116,6 @@ export const blogPosts: BlogPost[] = [
     date: "May 5, 2026",
     readTime: "9 min read",
     image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=1200&h=600&fit=crop",
-    featured: true,
     keywords: ["GEO", "generative engine optimization", "ChatGPT SEO", "Perplexity ranking", "AI search", "LLM optimization"],
   },
   {
