@@ -45,6 +45,7 @@ const navLinks = [
       { name: "Our Mission", href: "/mission", icon: Target, tKey: "nav.mission" },
       { name: "Our Vision", href: "/vision", icon: Eye, tKey: "nav.vision" },
       { name: "Testimonials", href: "/testimonials", icon: MessageSquare, tKey: "nav.testimonials" },
+      { name: "Legal", href: "/legal", icon: Scale, tKey: "footer.legal" },
     ],
   },
   { 
@@ -66,7 +67,6 @@ const navLinks = [
   { name: "Industries", href: "/industries", tKey: "nav.industries" },
   { name: "Portfolio", href: "/portfolio", tKey: "nav.portfolio" },
   { name: "Blog", href: "/blog", tKey: "nav.blog" },
-  { name: "Legal", href: "/legal", tKey: "footer.legal" },
 ];
 
 export function Header() {
