@@ -74,7 +74,7 @@ const BlogPost = () => {
               <span className="inline-block px-3 py-1 text-xs font-medium rounded-full bg-primary/10 text-primary mb-4">
                 {post.category}
               </span>
-              <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-6">{post.title}</h1>
+              <h1 className="font-display text-2xl md:text-3xl lg:text-4xl font-bold mb-6 leading-tight">{post.title}</h1>
               <div className="flex flex-wrap items-center gap-6 text-sm text-muted-foreground mb-8">
                 <span className="flex items-center gap-2"><User className="h-4 w-4" />{post.author}</span>
                 <span className="flex items-center gap-2"><Calendar className="h-4 w-4" />{post.date}</span>
