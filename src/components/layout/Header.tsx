@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ChevronDown, Globe, Smartphone, Palette, Megaphone, Layers, ShoppingCart, Bot, Search, Cloud, Users, Eye, Target, MessageSquare, Scale, Factory, FileText } from "lucide-react";
+import { Menu, X, ChevronDown, Globe, Smartphone, Palette, Megaphone, Layers, ShoppingCart, Bot, Search, Cloud, Users, Eye, Target, MessageSquare, Scale, Factory } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { LanguageSwitcher } from "@/components/ui/LanguageSwitcher";
 import { ThemeSwitcher } from "@/components/ui/ThemeSwitcher";
