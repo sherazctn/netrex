@@ -145,6 +145,9 @@ export function Hero() {
                     src={logo.src}
                     alt={logo.alt}
                     className="h-3.5 w-3.5 object-contain"
+                    width="14"
+                    height="14"
+                    fetchPriority="high"
                     animate={{
                       scale: [1, 1.3, 1],
                       opacity: [0.7, 1, 0.7],
@@ -483,6 +486,9 @@ export function Hero() {
                       src={logo.src}
                       alt={logo.alt}
                       className="h-3.5 w-3.5 object-contain"
+                      width="14"
+                      height="14"
+                      fetchPriority="high"
                       animate={{
                         scale: [1, 1.3, 1],
                         opacity: [0.7, 1, 0.7],
