@@ -99,7 +99,7 @@ const BlogPost = () => {
 
         <section className="pb-16">
           <div className="container-wide max-w-3xl mx-auto">
-            <article className="prose prose-lg max-w-none">
+            <article className="prose prose-base max-w-none">
               {(() => {
                 // Format inline: ***text*** → gradient, **text** → bold, *text* → italic
                 const fmt = (s: string) =>
@@ -109,14 +109,14 @@ const BlogPost = () => {
                     .replace(/(^|[\s(])\*([^*\n]+?)\*(?=[\s.,;:!?)]|$)/g, '$1<em class="italic text-foreground/90">$2</em>');
                 return post.content.split("\n\n").map((paragraph, i) => {
                   if (paragraph.startsWith("## ")) {
-                    return <h2 key={i} className="font-display text-2xl md:text-3xl font-bold mt-10 mb-4 text-foreground" dangerouslySetInnerHTML={{ __html: fmt(paragraph.replace("## ", "")) }} />;
+                    return <h2 key={i} className="font-display text-xl md:text-2xl font-bold mt-8 mb-3 text-foreground leading-snug" dangerouslySetInnerHTML={{ __html: fmt(paragraph.replace("## ", "")) }} />;
                   }
                   if (paragraph.startsWith("- ")) {
                     return (
                       <ul key={i} className="space-y-2 my-4">
                         {paragraph.split("\n").map((item, j) => (
-                          <li key={j} className="text-muted-foreground flex items-start gap-2 leading-relaxed">
-                            <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2.5 flex-shrink-0" />
+                          <li key={j} className="text-muted-foreground flex items-start gap-2 leading-relaxed text-[15px] md:text-base">
+                            <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
                             <span dangerouslySetInnerHTML={{ __html: fmt(item.replace("- ", "")) }} />
                           </li>
                         ))}
@@ -127,12 +127,12 @@ const BlogPost = () => {
                     return (
                       <ol key={i} className="space-y-2 my-4 list-decimal list-inside marker:text-primary marker:font-bold">
                         {paragraph.split("\n").map((item, j) => (
-                          <li key={j} className="text-muted-foreground leading-relaxed" dangerouslySetInnerHTML={{ __html: fmt(item.replace(/^\d+\.\s*/, "")) }} />
+                          <li key={j} className="text-muted-foreground leading-relaxed text-[15px] md:text-base" dangerouslySetInnerHTML={{ __html: fmt(item.replace(/^\d+\.\s*/, "")) }} />
                         ))}
                       </ol>
                     );
                   }
-                  return <p key={i} className="text-muted-foreground leading-relaxed mb-6 text-base md:text-lg" dangerouslySetInnerHTML={{ __html: fmt(paragraph) }} />;
+                  return <p key={i} className="text-muted-foreground leading-relaxed mb-5 text-[15px] md:text-base" dangerouslySetInnerHTML={{ __html: fmt(paragraph) }} />;
                 });
               })()}
             </article>
