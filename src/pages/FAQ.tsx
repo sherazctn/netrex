@@ -36,10 +36,10 @@ const FAQ = () => {
   return (
     <div className="min-h-screen bg-background">
       <Helmet>
-        <title>FAQ — NETREX Inc</title>
+        <title>FAQ - NETREX Inc</title>
         <meta name="description" content="Frequently asked questions about NETREX services, pricing, process, and technologies. Get answers about web development, mobile apps, AI automation, and more." />
         <link rel="canonical" href="https://netrex.lovable.app/faq" />
-        <meta property="og:title" content="FAQ — NETREX Inc" />
+        <meta property="og:title" content="FAQ - NETREX Inc" />
         <meta property="og:description" content="Answers to common questions about NETREX web development, mobile apps, AI automation, pricing, and process." />
         <meta property="og:url" content="https://netrex.lovable.app/faq" />
         <meta property="og:type" content="website" />

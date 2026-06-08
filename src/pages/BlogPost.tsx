@@ -48,7 +48,7 @@ const BlogPost = () => {
   return (
     <div className="min-h-screen bg-background">
       <Helmet>
-        <title>{post.title} — NETREX Blog</title>
+        <title>{post.title} - NETREX Blog</title>
         <meta name="description" content={post.excerpt} />
         <link rel="canonical" href={`https://netrex.lovable.app/blog/${post.slug}`} />
         <meta property="og:title" content={post.title} />

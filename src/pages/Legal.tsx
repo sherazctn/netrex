@@ -39,7 +39,7 @@ const registrations = [
     email: "info@netrexinc.com",
     jurisdiction: "Dubai Airport Free Zone Authority",
     incorporationDate: "2016",
-    status: "Active — Principal Entity",
+    status: "Active - Principal Entity",
   },
   {
     country: "Australia",
@@ -295,14 +295,14 @@ const Legal = () => (
                 protection laws, including but not limited to:
               </p>
               <ul className="list-disc list-inside space-y-2 ml-2">
-                <li><strong className="text-foreground">GDPR</strong> — General Data Protection Regulation (EU/UK)</li>
-                <li><strong className="text-foreground">CCPA</strong> — California Consumer Privacy Act (USA)</li>
-                <li><strong className="text-foreground">PDPA</strong> — Personal Data Protection Act (Singapore)</li>
-                <li><strong className="text-foreground">APPs</strong> — Australian Privacy Principles (Australia)</li>
-                <li><strong className="text-foreground">PDPL</strong> — Personal Data Protection Law (Saudi Arabia)</li>
-                <li><strong className="text-foreground">PECA</strong> — Prevention of Electronic Crimes Act (Pakistan)</li>
-                <li><strong className="text-foreground">BDSG</strong> — Bundesdatenschutzgesetz (Germany)</li>
-                <li><strong className="text-foreground">PIPEDA</strong> — Personal Information Protection Act (Canada)</li>
+                <li><strong className="text-foreground">GDPR</strong> - General Data Protection Regulation (EU/UK)</li>
+                <li><strong className="text-foreground">CCPA</strong> - California Consumer Privacy Act (USA)</li>
+                <li><strong className="text-foreground">PDPA</strong> - Personal Data Protection Act (Singapore)</li>
+                <li><strong className="text-foreground">APPs</strong> - Australian Privacy Principles (Australia)</li>
+                <li><strong className="text-foreground">PDPL</strong> - Personal Data Protection Law (Saudi Arabia)</li>
+                <li><strong className="text-foreground">PECA</strong> - Prevention of Electronic Crimes Act (Pakistan)</li>
+                <li><strong className="text-foreground">BDSG</strong> - Bundesdatenschutzgesetz (Germany)</li>
+                <li><strong className="text-foreground">PIPEDA</strong> - Personal Information Protection Act (Canada)</li>
               </ul>
               <p>
                 We implement industry-standard security measures including encryption at rest and in transit, 
@@ -364,9 +364,9 @@ const Legal = () => (
                 In the event of a dispute, NETREX follows a structured resolution process:
               </p>
               <ol className="list-decimal list-inside space-y-2 ml-2">
-                <li><strong className="text-foreground">Direct Negotiation</strong> — Parties attempt to resolve the matter through direct communication within 15 business days.</li>
-                <li><strong className="text-foreground">Mediation</strong> — If unresolved, the dispute is referred to a neutral mediator agreed upon by both parties.</li>
-                <li><strong className="text-foreground">Arbitration</strong> — Final resolution through binding arbitration under the rules of the applicable jurisdiction.</li>
+                <li><strong className="text-foreground">Direct Negotiation</strong> - Parties attempt to resolve the matter through direct communication within 15 business days.</li>
+                <li><strong className="text-foreground">Mediation</strong> - If unresolved, the dispute is referred to a neutral mediator agreed upon by both parties.</li>
+                <li><strong className="text-foreground">Arbitration</strong> - Final resolution through binding arbitration under the rules of the applicable jurisdiction.</li>
               </ol>
               <p>
                 The governing law and arbitration venue depend on the contracting entity and the client's location 

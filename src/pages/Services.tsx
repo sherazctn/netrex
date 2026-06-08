@@ -77,7 +77,7 @@ const Services = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="Services — NETREX Inc"
+        title="Services - NETREX Inc"
         description="NETREX Inc services: web development, mobile apps, UI/UX design, digital marketing, branding, e-commerce, AI automation, GEO, and cloud solutions."
         canonical="https://netrex.lovable.app/services"
       />

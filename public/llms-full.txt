@@ -9,7 +9,7 @@
 - Digital Marketing (SEO, GEO, PPC, Social, Email, Content)
 - E-Commerce (Shopify, WooCommerce, custom)
 - AI Agent Integration & Custom Automation (OpenAI, Anthropic, Google, open-source)
-- Generative Engine Optimization (GEO) — get cited inside ChatGPT, Gemini, Claude, Perplexity
+- Generative Engine Optimization (GEO) - get cited inside ChatGPT, Gemini, Claude, Perplexity
 - Cloud Solutions (AWS, Azure, GCP, Databricks)
 
 ## Why clients choose NETREX
