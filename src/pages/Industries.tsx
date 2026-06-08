@@ -1,4 +1,5 @@
 import { Header } from "@/components/layout/Header";
+import { SEO } from "@/components/SEO";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import { motion } from "framer-motion";
@@ -62,6 +63,11 @@ const allIndustries = [
 const Industries = () => {
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="Industries We Serve - NETREX Inc"
+        description="NETREX Inc serves 20+ industries including real estate, healthcare, finance, e-commerce, education, travel, and more with custom digital solutions."
+        canonical="https://netrex.lovable.app/industries"
+      />
       <Header />
       <main>
         {/* Hero Section */}

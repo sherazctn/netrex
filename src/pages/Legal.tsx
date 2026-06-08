@@ -1,4 +1,5 @@
 import { Header } from "@/components/layout/Header";
+import { SEO } from "@/components/SEO";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import { motion } from "framer-motion";
@@ -152,6 +153,11 @@ function maskRegNumber(num: string): string {
 
 const Legal = () => (
   <div className="min-h-screen bg-background">
+    <SEO
+      title="Legal & Regulatory Information - NETREX Inc"
+      description="NETREX Inc legal entities and registrations. View our company registration details across UAE, UK, USA, Australia, Germany, Singapore, and Saudi Arabia."
+      canonical="https://netrex.lovable.app/legal"
+    />
     <Header />
     <main>
       <section className="pt-32 pb-16 bg-secondary/30">

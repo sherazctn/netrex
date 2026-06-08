@@ -14,6 +14,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { portfolioItems, servicePortfolioMap } from "@/data/portfolioData";
+import { SEO } from "@/components/SEO";
 
 function shuffleArray<T>(array: T[]): T[] {
   const shuffled = [...array];
@@ -638,6 +639,12 @@ const ServicePage = () => {
   if (!data) {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center">
+        <SEO
+          title="Service Not Found - NETREX Inc"
+          description="The requested service could not be found."
+          canonical="https://netrex.lovable.app/services"
+          noindex
+        />
         <div className="text-center">
           <h1 className="text-4xl font-bold mb-4">Service Not Found</h1>
           <Link to="/services" className="text-primary hover:underline">
@@ -650,6 +657,11 @@ const ServicePage = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title={`${data.title} - NETREX Inc Services`}
+        description={data.description}
+        canonical={`https://netrex.lovable.app/services/${service}`}
+      />
       <Header />
       <main>
         {/* Hero Section - No Image */}

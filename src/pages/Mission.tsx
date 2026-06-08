@@ -1,4 +1,5 @@
 import { Header } from "@/components/layout/Header";
+import { SEO } from "@/components/SEO";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import { motion } from "framer-motion";
@@ -54,6 +55,11 @@ const commitments = [
 const Mission = () => {
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="Our Mission - NETREX Inc"
+        description="NETREX Inc's mission is to empower businesses worldwide with innovative digital solutions, from web development and AI automation to branding and marketing."
+        canonical="https://netrex.lovable.app/mission"
+      />
       <Header />
       <main>
         {/* Hero */}

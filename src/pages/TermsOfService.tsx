@@ -1,10 +1,16 @@
 import { Header } from "@/components/layout/Header";
+import { SEO } from "@/components/SEO";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import { motion } from "framer-motion";
 
 const TermsOfService = () => (
   <div className="min-h-screen bg-background">
+    <SEO
+      title="Terms of Service - NETREX Inc"
+      description="NETREX Inc Terms of Service. Read the terms governing the use of our website and digital services across 9 countries."
+      canonical="https://netrex.lovable.app/terms"
+    />
     <Header />
     <main>
       <section className="pt-32 pb-16 bg-secondary/30">
