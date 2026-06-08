@@ -1,4 +1,5 @@
 import { Header } from "@/components/layout/Header";
+import { SEO } from "@/components/SEO";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import { motion } from "framer-motion";
@@ -17,6 +18,11 @@ const openPositions = [
 
 const Careers = () => (
   <div className="min-h-screen bg-background">
+    <SEO
+      title="Careers - NETREX Inc | Join Our Global Team"
+      description="Join NETREX Inc's global team. Explore open positions in engineering, design, marketing, and operations across Dubai, Lahore, and remote locations."
+      canonical="https://netrex.lovable.app/careers"
+    />
     <Header />
     <main>
       <section className="pt-32 pb-16 bg-secondary/30">

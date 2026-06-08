@@ -1,4 +1,5 @@
 import { Header } from "@/components/layout/Header";
+import { SEO } from "@/components/SEO";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import { motion } from "framer-motion";
@@ -119,6 +120,11 @@ const stats = [
 const Testimonials = () => {
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="Client Testimonials - NETREX Inc"
+        description="See what clients say about NETREX Inc. Read verified reviews from businesses across UAE, USA, UK, and 6 other countries."
+        canonical="https://netrex.lovable.app/testimonials"
+      />
       <Header />
       <main>
         {/* Hero Section */}

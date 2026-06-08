@@ -1,4 +1,5 @@
 import { Header } from "@/components/layout/Header";
+import { SEO } from "@/components/SEO";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import { motion } from "framer-motion";
@@ -57,6 +58,11 @@ const futureTech = [
 const Vision = () => {
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="Our Vision - NETREX Inc"
+        description="Discover NETREX Inc's vision for the future: AI-first agency, 15 global offices by 2026, 1000+ enterprise clients, and carbon-neutral operations."
+        canonical="https://netrex.lovable.app/vision"
+      />
       <Header />
       <main>
         {/* Hero */}

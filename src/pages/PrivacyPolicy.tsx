@@ -1,10 +1,16 @@
 import { Header } from "@/components/layout/Header";
+import { SEO } from "@/components/SEO";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import { motion } from "framer-motion";
 
 const PrivacyPolicy = () => (
   <div className="min-h-screen bg-background">
+    <SEO
+      title="Privacy Policy - NETREX Inc"
+      description="NETREX Inc Privacy Policy. Learn how we collect, use, and protect your personal information across our global operations."
+      canonical="https://netrex.lovable.app/privacy"
+    />
     <Header />
     <main>
       <section className="pt-32 pb-16 bg-secondary/30">
