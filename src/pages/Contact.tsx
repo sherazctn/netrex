@@ -52,7 +52,7 @@ const contactSchema = {
       "name": "NETREX INC - London",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "32 London Bridge St",
+        "streetAddress": "25 The Shard, 32 London Bridge St",
         "addressLocality": "London",
         "addressCountry": "GB",
       },
@@ -65,7 +65,7 @@ const contactSchema = {
       "name": "NETREX INC - Berlin",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "Kurfürstendamm 14",
+        "streetAddress": "Kurfürstendamm 14, 10719 Berlin",
         "addressLocality": "Berlin",
         "addressCountry": "DE",
       },
@@ -92,7 +92,7 @@ const contactSchema = {
       "name": "NETREX INC - Melbourne",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "19 Bank Pl",
+        "streetAddress": "19 Bank Pl, Melbourne VIC 3000",
         "addressLocality": "Melbourne",
         "addressCountry": "AU",
       },
@@ -118,13 +118,26 @@ const contactSchema = {
       "name": "NETREX INC - Riyadh",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "22 King Abdullah Rd",
+        "streetAddress": "22 King Abdullah Rd, Riyadh 12211",
         "addressLocality": "Riyadh",
         "addressCountry": "SA",
       },
       "telephone": "+966-11-234-5678",
       "email": "sa@netrexinc.com",
       "openingHours": "Su-Th 09:00-18:00",
+    },
+    {
+      "@type": "LocalBusiness",
+      "name": "NETREX INC - Lahore",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "21, J3 Block, Phase 2, Johar Town",
+        "addressLocality": "Lahore",
+        "addressCountry": "PK",
+      },
+      "telephone": "+92-42-3000-0000",
+      "email": "pk@netrexinc.com",
+      "openingHours": "Mo-Fr 09:00-18:00",
     },
   ],
 };
