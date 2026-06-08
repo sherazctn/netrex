@@ -22,7 +22,7 @@ const contactSchema = {
   "department": [
     {
       "@type": "LocalBusiness",
-      "name": "NETREX INC — Dubai HQ",
+      "name": "NETREX INC - Dubai HQ",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Office 523, Block-C, Building 9W, Dubai Airport Free Zone",
@@ -35,7 +35,7 @@ const contactSchema = {
     },
     {
       "@type": "LocalBusiness",
-      "name": "NETREX INC — New York",
+      "name": "NETREX INC - New York",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "418 Broadway STE N",
@@ -49,7 +49,7 @@ const contactSchema = {
     },
     {
       "@type": "LocalBusiness",
-      "name": "NETREX INC — London",
+      "name": "NETREX INC - London",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "32 London Bridge St",
@@ -62,7 +62,7 @@ const contactSchema = {
     },
     {
       "@type": "LocalBusiness",
-      "name": "NETREX INC — Berlin",
+      "name": "NETREX INC - Berlin",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Kurfürstendamm 14",
@@ -75,7 +75,7 @@ const contactSchema = {
     },
     {
       "@type": "LocalBusiness",
-      "name": "NETREX INC — Vancouver",
+      "name": "NETREX INC - Vancouver",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "70 Burrard St",
@@ -89,7 +89,7 @@ const contactSchema = {
     },
     {
       "@type": "LocalBusiness",
-      "name": "NETREX INC — Melbourne",
+      "name": "NETREX INC - Melbourne",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "19 Bank Pl",
@@ -102,7 +102,7 @@ const contactSchema = {
     },
     {
       "@type": "LocalBusiness",
-      "name": "NETREX INC — Singapore",
+      "name": "NETREX INC - Singapore",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Level 39, Marina Bay Financial Centre, Tower 2",
@@ -115,7 +115,7 @@ const contactSchema = {
     },
     {
       "@type": "LocalBusiness",
-      "name": "NETREX INC — Riyadh",
+      "name": "NETREX INC - Riyadh",
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "22 King Abdullah Rd",
@@ -133,10 +133,10 @@ const Contact = () => {
   return (
     <div className="min-h-screen bg-background">
       <Helmet>
-        <title>Contact — NETREX Inc | Get a Quote</title>
+        <title>Contact - NETREX Inc | Get a Quote</title>
         <meta name="description" content="Contact NETREX Inc for web development, mobile apps, AI automation, branding, and digital marketing. Offices in Dubai, New York, London, Berlin, Vancouver, Melbourne, Singapore, Riyadh & Lahore." />
         <link rel="canonical" href="https://netrex.lovable.app/contact" />
-        <meta property="og:title" content="Contact — NETREX Inc | Get a Quote" />
+        <meta property="og:title" content="Contact - NETREX Inc | Get a Quote" />
         <meta property="og:description" content="Get in touch with NETREX Inc. Offices in 9 countries. Free consultation for web, mobile, AI & digital marketing projects." />
         <meta property="og:url" content="https://netrex.lovable.app/contact" />
         <meta property="og:type" content="website" />

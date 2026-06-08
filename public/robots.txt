@@ -1,4 +1,4 @@
-# NETREX INC — robots.txt
+# NETREX INC - robots.txt
 # Allow all standard search & AI crawlers (GEO-ready)
 
 User-agent: *

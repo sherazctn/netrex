@@ -11,7 +11,7 @@ const missionPillars = [
   {
     icon: Lightbulb,
     title: "Innovation-Driven Solutions",
-    description: "We leverage cutting-edge technologies — from AI and machine learning to cloud-native architectures — to build solutions that don't just solve today's problems but anticipate tomorrow's challenges. Every project we undertake pushes the boundaries of what's possible in digital transformation.",
+    description: "We leverage cutting-edge technologies - from AI and machine learning to cloud-native architectures - to build solutions that don't just solve today's problems but anticipate tomorrow's challenges. Every project we undertake pushes the boundaries of what's possible in digital transformation.",
   },
   {
     icon: Users,
@@ -31,7 +31,7 @@ const missionPillars = [
   {
     icon: TrendingUp,
     title: "Measurable Results",
-    description: "We believe in data-driven excellence. Every solution we deliver is designed with clear, measurable outcomes — whether it's a 300% increase in lead generation, 50% reduction in operational costs, or 10x improvement in user engagement.",
+    description: "We believe in data-driven excellence. Every solution we deliver is designed with clear, measurable outcomes - whether it's a 300% increase in lead generation, 50% reduction in operational costs, or 10x improvement in user engagement.",
   },
   {
     icon: Heart,
@@ -180,7 +180,7 @@ const Mission = () => {
                   Promises We Keep, <span className="text-primary">Every Day</span>
                 </h2>
                 <p className="text-muted-foreground text-lg mb-8">
-                  These aren't just words on a page — they're the standards we hold ourselves accountable to in every project, every interaction, and every line of code.
+                  These aren't just words on a page - they're the standards we hold ourselves accountable to in every project, every interaction, and every line of code.
                 </p>
                 <Link to="/contact">
                   <Button variant="hero" size="lg" className="group">

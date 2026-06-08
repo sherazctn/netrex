@@ -104,7 +104,7 @@ const MarketingROICalculator = () => {
                 Marketing ROI <span className="text-primary">Calculator</span>
               </h1>
               <p className="text-lg text-muted-foreground">
-                Should you invest in digital marketing? See exactly how much revenue structured marketing can generate compared to doing nothing — backed by real client data.
+                Should you invest in digital marketing? See exactly how much revenue structured marketing can generate compared to doing nothing - backed by real client data.
               </p>
             </motion.div>
           </div>

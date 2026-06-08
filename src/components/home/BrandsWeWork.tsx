@@ -72,7 +72,7 @@ export function BrandsWeWork() {
             Brands We <span className="text-primary">Work With</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Trusted by leading brands across the globe — from startups to enterprise.
+            Trusted by leading brands across the globe - from startups to enterprise.
           </p>
         </motion.div>
 

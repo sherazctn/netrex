@@ -21,7 +21,7 @@ export function SEO({
   schema,
   noindex = false,
 }: SEOProps) {
-  const fullTitle = title.includes("NETREX") ? title : `${title} — NETREX Inc`;
+  const fullTitle = title.includes("NETREX") ? title : `${title} - NETREX Inc`;
 
   return (
     <Helmet>

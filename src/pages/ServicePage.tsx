@@ -332,7 +332,7 @@ const servicesData: Record<string, {
     title: "UI/UX Design",
     description: "We design intuitive, beautiful digital experiences that delight users.",
     hero: "Design Experiences That Delight",
-    longDescription: "Great design is more than aesthetics—it's about creating seamless experiences that solve problems and drive engagement. Our human-centered approach ensures every pixel serves a purpose.",
+    longDescription: "Great design is more than aesthetics-it's about creating seamless experiences that solve problems and drive engagement. Our human-centered approach ensures every pixel serves a purpose.",
     features: [
     { title: "User Research", description: "Deep understanding of user needs and behaviors" },
     { title: "Wireframing & Prototyping", description: "Interactive prototypes for testing ideas" },
@@ -408,7 +408,7 @@ const servicesData: Record<string, {
     title: "Branding",
     description: "We build memorable brands that connect with audiences.",
     hero: "Build a Brand That Stands Out",
-    longDescription: "Your brand is more than a logo—it's the entire experience customers have with your company. We create cohesive brand identities that resonate and build lasting connections.",
+    longDescription: "Your brand is more than a logo-it's the entire experience customers have with your company. We create cohesive brand identities that resonate and build lasting connections.",
     features: [
     { title: "Brand Strategy", description: "Positioning and messaging that differentiates" },
     { title: "Logo Design", description: "Memorable marks that represent your brand" },
@@ -930,7 +930,7 @@ const ServicePage = () => {
                 Why Choose NETREX for {data.title}?
               </h2>
               <p className="text-white/80 max-w-2xl mx-auto">
-                We're not just another agency—we're your growth partner.
+                We're not just another agency-we're your growth partner.
               </p>
             </motion.div>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">

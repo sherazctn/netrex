@@ -83,7 +83,7 @@ export function PortfolioLightbox({ isOpen, onClose, image, title, description }
             </button>
           </div>
 
-          {/* Scrollable Image Area — like Behance */}
+          {/* Scrollable Image Area - like Behance */}
           <div
             ref={scrollContainerRef}
             className="flex-1 overflow-auto"

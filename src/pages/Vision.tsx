@@ -16,7 +16,7 @@ const visionGoals = [
   {
     year: "2026",
     title: "15 Global Offices",
-    description: "Expand our physical presence to 15 countries including Japan, South Korea, Brazil, and Nigeria — bringing world-class digital solutions closer to emerging markets and high-growth economies.",
+    description: "Expand our physical presence to 15 countries including Japan, South Korea, Brazil, and Nigeria - bringing world-class digital solutions closer to emerging markets and high-growth economies.",
     icon: Globe2,
   },
   {
@@ -28,19 +28,19 @@ const visionGoals = [
   {
     year: "2028",
     title: "Carbon-Neutral Operations",
-    description: "Achieve full carbon neutrality across all operations through green hosting, remote-first policies, and renewable energy-powered offices — proving that growth and sustainability coexist.",
+    description: "Achieve full carbon neutrality across all operations through green hosting, remote-first policies, and renewable energy-powered offices - proving that growth and sustainability coexist.",
     icon: Leaf,
   },
   {
     year: "2029",
     title: "NETREX Academy Launch",
-    description: "Launch a full-scale tech education platform offering free and subsidized courses in web development, AI, and digital marketing — training 100,000+ professionals worldwide.",
+    description: "Launch a full-scale tech education platform offering free and subsidized courses in web development, AI, and digital marketing - training 100,000+ professionals worldwide.",
     icon: Sparkles,
   },
   {
     year: "2030",
     title: "Industry Standard Setter",
-    description: "Become the benchmark for digital agency excellence — publishing open standards for web performance, accessibility, and ethical AI that the entire industry adopts.",
+    description: "Become the benchmark for digital agency excellence - publishing open standards for web performance, accessibility, and ethical AI that the entire industry adopts.",
     icon: Rocket,
   },
 ];
@@ -80,7 +80,7 @@ const Vision = () => {
                 <span className="text-primary">Digital Innovation</span>
               </h1>
               <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-                We envision a world where every business — regardless of size, location, or industry — has access to transformative digital technology that levels the playing field. By 2030, NETREX aims to be the most trusted and impactful digital agency on the planet.
+                We envision a world where every business - regardless of size, location, or industry - has access to transformative digital technology that levels the playing field. By 2030, NETREX aims to be the most trusted and impactful digital agency on the planet.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <Link to="/contact">
@@ -112,10 +112,10 @@ const Vision = () => {
                 <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-primary/50 to-primary" />
                 <Eye className="h-12 w-12 text-primary mx-auto mb-6" />
                 <blockquote className="font-display text-2xl md:text-3xl font-bold mb-6 leading-relaxed">
-                  "To become the world's most impactful digital agency — where technology meets humanity, innovation meets integrity, and every project creates lasting value for businesses and communities alike."
+                  "To become the world's most impactful digital agency - where technology meets humanity, innovation meets integrity, and every project creates lasting value for businesses and communities alike."
                 </blockquote>
                 <p className="text-muted-foreground text-lg">
-                  — Sheraz Khan, Founder & CEO, NETREX INC.
+                  - Sheraz Khan, Founder & CEO, NETREX INC.
                 </p>
               </div>
             </motion.div>
@@ -135,7 +135,7 @@ const Vision = () => {
                 Our Roadmap
               </span>
               <h2 className="font-display text-3xl md:text-4xl font-bold mb-4">
-                Strategic Goals <span className="text-primary">2025 — 2030</span>
+                Strategic Goals <span className="text-primary">2025 - 2030</span>
               </h2>
               <p className="text-muted-foreground text-lg">
                 A clear, ambitious roadmap that charts our course from where we are today to where we're determined to be.

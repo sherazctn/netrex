@@ -31,7 +31,7 @@ const Blog = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="Blog — NETREX Inc | AI, GEO, Design & Digital Strategy"
+        title="Blog - NETREX Inc | AI, GEO, Design & Digital Strategy"
         description="Read NETREX Inc's blog for insights on AI, Generative Engine Optimization (GEO), web design trends, mobile apps, and digital marketing strategy."
         canonical="https://netrex.lovable.app/blog"
       />

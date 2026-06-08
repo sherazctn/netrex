@@ -126,7 +126,7 @@ const About = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="About — NETREX Inc"
+        title="About - NETREX Inc"
         description="Learn about NETREX Inc's story, mission, values, and global team. A digital agency delivering web, mobile, AI & marketing solutions across 9 countries since 2016."
         canonical="https://netrex.lovable.app/about"
       />
@@ -291,13 +291,13 @@ const About = () => {
                   <p>
                     Our journey has been marked by continuous innovation, unwavering commitment to quality, 
                     and a passion for creating digital experiences that make a difference. We've had the 
-                    privilege of working with startups, SMEs, and Fortune 500 companies alike — delivering 
+                    privilege of working with startups, SMEs, and Fortune 500 companies alike - delivering 
                     over 500 successful projects across web development, mobile apps, AI, cloud, and digital marketing.
                   </p>
                   <p>
                     From building cutting-edge e-commerce platforms in Dubai to launching AI-powered solutions 
                     for clients in New York, our team combines deep technical expertise with creative thinking. 
-                    We believe that technology should empower businesses, not complicate them — and every solution 
+                    We believe that technology should empower businesses, not complicate them - and every solution 
                     we build reflects that philosophy.
                   </p>
                   <p>
@@ -308,7 +308,7 @@ const About = () => {
                   </p>
                   <p>
                     As we look to the future, we're investing heavily in AI, machine learning, and next-generation 
-                    cloud technologies — ensuring our clients are always ahead of the curve. Whether you need a 
+                    cloud technologies - ensuring our clients are always ahead of the curve. Whether you need a 
                     simple website or a complex enterprise platform, NETREX is your partner in digital transformation.
                   </p>
                 </div>
