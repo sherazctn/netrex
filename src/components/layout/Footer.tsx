@@ -198,11 +198,8 @@ export function Footer() {
             <Link to="/">
               <img src={netrexLogoLite} alt="NETREX" className="h-12 w-auto mb-6" />
             </Link>
-            <p className="text-white/60 text-sm mb-3 max-w-sm leading-relaxed">
+            <p className="text-white/60 text-sm mb-4 max-w-sm leading-relaxed">
               {t('footer.description')}
-            </p>
-            <p className="text-white/75 text-xs mb-4 max-w-sm leading-relaxed">
-              {t('footer.description2')}
             </p>
             <div className="flex items-center gap-3 mb-6">
               <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 border border-white/10">
