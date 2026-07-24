@@ -204,112 +204,168 @@ const About = () => {
         </section>
 
         {/* CEO Message */}
-        <section className="section-padding bg-gradient-to-br from-secondary/40 via-background to-secondary/20 relative overflow-hidden">
-          <div className="absolute inset-0 opacity-5 pointer-events-none">
-            <div className="absolute top-10 -left-20 w-96 h-96 bg-primary rounded-full blur-3xl" />
-            <div className="absolute bottom-10 -right-20 w-96 h-96 bg-accent rounded-full blur-3xl" />
+        <section className="relative py-24 md:py-32 overflow-hidden bg-gradient-to-b from-background via-secondary/20 to-background">
+          {/* Decorative background */}
+          <div className="absolute inset-0 pointer-events-none">
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[80%] h-[1px] bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
+            <div className="absolute -top-32 -left-32 w-[500px] h-[500px] rounded-full bg-primary/10 blur-[120px]" />
+            <div className="absolute -bottom-32 -right-32 w-[500px] h-[500px] rounded-full bg-accent/10 blur-[120px]" />
+            <svg className="absolute inset-0 w-full h-full opacity-[0.03]" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <pattern id="ceo-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+                  <path d="M 40 0 L 0 0 0 40" fill="none" stroke="currentColor" strokeWidth="1" />
+                </pattern>
+              </defs>
+              <rect width="100%" height="100%" fill="url(#ceo-grid)" />
+            </svg>
           </div>
+
           <div className="container-wide relative z-10">
+            {/* Heading */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="text-center max-w-3xl mx-auto mb-12"
+              className="text-center max-w-3xl mx-auto mb-16"
             >
-              <span className="inline-block text-sm font-semibold text-primary uppercase tracking-wider mb-4">
-                CEO Message
-              </span>
-              <h2 className="font-display text-3xl md:text-4xl font-bold mb-4">
-                A Word From Our <span className="text-primary">CEO</span>
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 mb-5">
+                <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+                <span className="text-xs font-semibold text-primary uppercase tracking-[0.2em]">
+                  Leadership
+                </span>
+              </div>
+              <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-5 tracking-tight">
+                A Word From Our{" "}
+                <span className="bg-gradient-to-r from-primary via-primary to-accent bg-clip-text text-transparent">
+                  CEO
+                </span>
               </h2>
-              <p className="text-muted-foreground">
-                Leadership rooted in a single promise - client satisfaction, always.
+              <p className="text-muted-foreground text-lg">
+                Rooted in one promise - client satisfaction, always.
               </p>
             </motion.div>
 
-            <div className="grid lg:grid-cols-5 gap-10 items-center max-w-6xl mx-auto">
-              <motion.div
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                className="lg:col-span-2"
-              >
-                <div className="relative">
-                  <div className="absolute -inset-4 bg-gradient-to-br from-primary/20 via-accent/20 to-primary/10 rounded-3xl blur-2xl" />
-                  <div className="relative rounded-3xl overflow-hidden border-4 border-background shadow-2xl aspect-[4/5]">
-                    <img
-                      src={ceoPortrait.url}
-                      alt="Sheraz Khan, Founder & CEO of NETREX Inc"
-                      className="w-full h-full object-cover"
-                    />
-                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent p-6">
-                      <div className="font-display font-bold text-white text-xl">Sheraz Khan</div>
-                      <div className="text-white/80 text-sm">Founder &amp; CEO, NETREX Inc</div>
-                    </div>
-                  </div>
-                  <div className="absolute -top-4 -right-4 w-14 h-14 rounded-2xl bg-primary flex items-center justify-center shadow-xl">
-                    <Quote className="h-6 w-6 text-white" />
-                  </div>
-                </div>
-              </motion.div>
+            {/* Card */}
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              className="max-w-6xl mx-auto relative"
+            >
+              {/* Glow behind card */}
+              <div className="absolute -inset-1 bg-gradient-to-r from-primary/30 via-accent/20 to-primary/30 rounded-[2rem] blur-2xl opacity-60" />
 
-              <motion.div
-                initial={{ opacity: 0, x: 30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.15 }}
-                className="lg:col-span-3 space-y-5"
-              >
-                <p className="text-lg md:text-xl leading-relaxed text-foreground font-medium">
-                  <span className="text-primary font-display text-3xl leading-none mr-1">"</span>
-                  My vision for NETREX is simple - to deliver world-class digital services to
-                  every corner of the globe, with one guiding principle at the heart of it all:
-                  <span className="text-primary font-semibold"> client satisfaction</span>.
-                </p>
-                <p className="text-muted-foreground leading-relaxed">
-                  We don't just build websites, apps, or campaigns. We craft
-                  <span className="font-semibold text-foreground"> experiences </span>
-                  our clients remember for a lifetime. Every project is a partnership, every
-                  deadline a promise, and every launch a moment we celebrate together.
-                </p>
-                <p className="text-muted-foreground leading-relaxed">
-                  That commitment is why <span className="font-semibold text-foreground">92% of our
-                  clients come back</span> - and why teams in Dubai, New York, London, and beyond
-                  choose NETREX as their long-term digital partner. Excellence isn't a
-                  destination for us; it's the standard we hold ourselves to, every single day.
-                </p>
-                <div className="pt-4 flex flex-wrap gap-6 items-center">
-                  <div>
-                    <div className="text-3xl font-display font-bold text-primary">
-                      <CountUpNumber end={92} suffix="%" />
+              <div className="relative grid lg:grid-cols-12 gap-0 bg-card/95 backdrop-blur-sm border border-border/50 rounded-[2rem] overflow-hidden shadow-2xl">
+                {/* Portrait */}
+                <div className="lg:col-span-5 relative bg-gradient-to-br from-primary/5 via-background to-accent/5 p-6 lg:p-8 flex items-center justify-center">
+                  <div className="relative w-full">
+                    <div className="absolute -inset-3 bg-gradient-to-tr from-primary/40 to-accent/30 rounded-[1.75rem] blur-xl opacity-70" />
+                    <div className="relative aspect-[4/5] rounded-[1.5rem] overflow-hidden ring-1 ring-border/60 shadow-2xl">
+                      <img
+                        src={ceoPortrait.url}
+                        alt="Sheraz Khan, Founder & CEO of NETREX Inc"
+                        className="w-full h-full object-cover"
+                        loading="lazy"
+                      />
+                      {/* Signature plate */}
+                      <div className="absolute bottom-4 left-4 right-4 bg-background/95 backdrop-blur-md rounded-2xl p-4 border border-border/60 shadow-lg">
+                        <div className="flex items-center gap-3">
+                          <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center shrink-0">
+                            <span className="text-white font-display font-bold text-sm">SK</span>
+                          </div>
+                          <div className="min-w-0">
+                            <div className="font-display font-bold text-foreground text-base leading-tight truncate">
+                              Sheraz Khan
+                            </div>
+                            <div className="text-muted-foreground text-xs truncate">
+                              Founder &amp; CEO, NETREX Inc
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                    <div className="text-sm text-muted-foreground">Recurring Clients</div>
-                  </div>
-                  <div className="h-10 w-px bg-border" />
-                  <div>
-                    <div className="text-3xl font-display font-bold text-primary">
-                      <CountUpNumber end={9} />
+                    {/* Floating quote badge */}
+                    <div className="absolute -top-3 -right-3 w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-xl rotate-6">
+                      <Quote className="h-7 w-7 text-white" />
                     </div>
-                    <div className="text-sm text-muted-foreground">Global Offices</div>
-                  </div>
-                  <div className="h-10 w-px bg-border" />
-                  <div>
-                    <div className="text-3xl font-display font-bold text-primary">
-                      <CountUpNumber end={15} suffix="+" />
-                    </div>
-                    <div className="text-sm text-muted-foreground">Years Leading</div>
                   </div>
                 </div>
-                <div className="pt-4">
-                  <div className="font-display text-lg font-bold text-foreground">Sheraz Khan</div>
-                  <div className="text-sm text-muted-foreground">Founder &amp; CEO, NETREX Inc</div>
+
+                {/* Message */}
+                <div className="lg:col-span-7 p-8 md:p-10 lg:p-12 flex flex-col justify-center">
+                  <Quote className="h-10 w-10 text-primary/20 mb-4" />
+
+                  <blockquote className="space-y-5">
+                    <p className="font-display text-xl md:text-2xl leading-relaxed text-foreground font-medium">
+                      My vision for NETREX is simple - deliver{" "}
+                      <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent font-bold">
+                        world-class digital services
+                      </span>{" "}
+                      to every corner of the globe, guided by one principle:{" "}
+                      <span className="text-primary font-bold">client satisfaction</span>.
+                    </p>
+                    <p className="text-muted-foreground leading-relaxed text-base md:text-lg">
+                      We don't just build websites, apps, or campaigns - we craft{" "}
+                      <span className="font-semibold text-foreground">experiences</span> our clients
+                      remember for a lifetime. Every project is a partnership, every deadline a
+                      promise, and every launch a moment we celebrate together.
+                    </p>
+                    <p className="text-muted-foreground leading-relaxed text-base md:text-lg">
+                      That commitment is why{" "}
+                      <span className="font-semibold text-foreground">
+                        92% of our clients return
+                      </span>{" "}
+                      - and why teams in Dubai, New York, London, and beyond choose NETREX as their
+                      long-term digital partner.
+                    </p>
+                  </blockquote>
+
+                  {/* Divider */}
+                  <div className="my-8 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+
+                  {/* Stats */}
+                  <div className="grid grid-cols-3 gap-4 md:gap-6">
+                    {[
+                      { end: 92, suffix: "%", label: "Recurring Clients" },
+                      { end: 9, suffix: "", label: "Global Offices" },
+                      { end: 15, suffix: "+", label: "Years Leading" },
+                    ].map((stat, i) => (
+                      <div key={stat.label} className="group">
+                        <div className="font-display text-3xl md:text-4xl font-bold bg-gradient-to-br from-primary to-accent bg-clip-text text-transparent mb-1">
+                          <CountUpNumber end={stat.end} suffix={stat.suffix} />
+                        </div>
+                        <div className="text-xs md:text-sm text-muted-foreground font-medium leading-tight">
+                          {stat.label}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Signature */}
+                  <div className="mt-8 flex items-center gap-4 pt-6 border-t border-border/50">
+                    <div className="flex-1">
+                      <div className="font-display italic text-xl text-foreground">
+                        Sheraz Khan
+                      </div>
+                      <div className="text-xs text-muted-foreground uppercase tracking-widest mt-0.5">
+                        Founder &amp; CEO - NETREX Inc
+                      </div>
+                    </div>
+                    <Link to="/contact">
+                      <Button variant="hero" size="sm" className="group">
+                        Connect
+                        <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                      </Button>
+                    </Link>
+                  </div>
                 </div>
-              </motion.div>
-            </div>
+              </div>
+            </motion.div>
           </div>
         </section>
+
 
         {/* Client Logos */}
         <ClientLogos />
