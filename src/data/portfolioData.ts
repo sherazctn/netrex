@@ -746,14 +746,91 @@ export const portfolioItems: PortfolioItem[] = [
     industry: "Healthcare"
   },
   {
-    id: 66,
-    title: "Mickey Magic Vacations",
+    id: 67,
+    title: "Vivian Worden",
+    category: "Web",
+    technology: "Wix",
+    image: "/portfolio/vivian-worden.jpeg",
+    description: "Romantic dark-fantasy author website with cinematic hero, book previews, free-chapter opt-in and newsletter for reader loyalty",
+    result: "5K+ chapter opt-ins",
+    resultValue: { value: 5000, suffix: "+", label: "Chapter Opt-ins" },
+    industry: "Publishing"
+  },
+  {
+    id: 68,
+    title: "Chicago Pro Auto Centers",
+    category: "Web",
+    technology: "Wix",
+    image: "/portfolio/chicago-pro.png",
+    description: "Precision automotive service website with appointment booking, service catalog, testimonials and Google Maps integration for a Chicago repair shop",
+    result: "3x more appointments",
+    resultValue: { value: 300, suffix: "%", label: "Appointments" },
+    industry: "Automotive"
+  },
+  {
+    id: 69,
+    title: "Tiler by Trade",
+    category: "Web",
+    technology: "Wix",
+    image: "/portfolio/tiler-by-trade.png",
+    description: "Sydney-based premium tiling and waterproofing contractor site with process breakdown, service gallery and quote request funnel",
+    result: "$5M+ project value",
+    resultValue: { value: 5, suffix: "M+", label: "Project Value ($)" },
+    industry: "Construction"
+  },
+  {
+    id: 70,
+    title: "Zahar Mark",
+    category: "Web",
+    technology: "Wix",
+    image: "/portfolio/zahar-mark.png",
+    description: "Global photography, content and AI-visuals portfolio for a marketing creator with case studies, custom project types and quote form",
+    result: "$30M+ managed spend",
+    resultValue: { value: 30, suffix: "M+", label: "Managed Spend ($)" },
+    industry: "Marketing"
+  },
+  {
+    id: 71,
+    title: "A Dad That Cleans",
+    category: "Web",
+    technology: "Wix",
+    image: "/portfolio/a-dad-that-cleans.png",
+    description: "Orlando mobile auto detailing brand with before/after transformations, tiered packages, mobile-service booking and 5-star Google reviews",
+    result: "6000+ vehicles detailed",
+    resultValue: { value: 6000, suffix: "+", label: "Vehicles Detailed" },
+    industry: "Automotive"
+  },
+  {
+    id: 72,
+    title: "Unlocking Therapy",
+    category: "Web",
+    technology: "Wix",
+    image: "/portfolio/unlocking-therapy.png",
+    description: "Bilingual (English/Mandarin) psychotherapy practice website in Singapore with focus-area cards, client stories and free consultation booking",
+    result: "84% client retention",
+    resultValue: { value: 84, suffix: "%", label: "Client Retention" },
+    industry: "Healthcare"
+  },
+  {
+    id: 73,
+    title: "Element Fitness",
     category: "Branding",
     technology: "Adobe Illustrator",
-    image: "/portfolio/mickey-magic-vacations-logo.png",
-    description: "Enchanting travel-agency logo blending a genie lamp, castle silhouette and cruise ship under a fireworks sky - crafted for a Disney-focused family vacation planner",
-    result: "Bookings +180%",
-    resultValue: { value: 180, suffix: "%", label: "Bookings Growth" },
-    industry: "Travel & Tourism"
+    image: "/portfolio/element-fitness-logo.png",
+    description: "Luxury gold-on-black wordmark identity for a premium fitness brand, engineered for signage, apparel and gym interior branding",
+    result: "Brand recognition +260%",
+    resultValue: { value: 260, suffix: "%", label: "Brand Recognition" },
+    industry: "Fitness"
+  },
+  {
+    id: 74,
+    title: "HS Nexus",
+    category: "Branding",
+    technology: "Adobe Illustrator",
+    image: "/portfolio/hs-nexus-logo.png",
+    description: "Corporate technology brand identity with an interconnected-cubes mark symbolizing innovation, networks and scalable growth",
+    result: "Enterprise reach +200%",
+    resultValue: { value: 200, suffix: "%", label: "Enterprise Reach" },
+    industry: "Technology"
   },
 ];
