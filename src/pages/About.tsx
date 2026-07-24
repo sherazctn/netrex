@@ -6,9 +6,10 @@ import { BrandsWeWork } from "@/components/home/BrandsWeWork";
 import { SEO } from "@/components/SEO";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ArrowRight, Award, Globe2, Users, Lightbulb, Target, Heart, Trophy, Star, GraduationCap, Briefcase, Shield, Zap } from "lucide-react";
+import { ArrowRight, Award, Globe2, Users, Lightbulb, Target, Heart, Trophy, Star, GraduationCap, Briefcase, Shield, Zap, Quote } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { CountUpNumber } from "@/components/ui/CountUpNumber";
+import ceoPortrait from "@/assets/sheraz-khan-ceo.png.asset.json";
 
 const values = [
 {
@@ -37,7 +38,7 @@ const team = [
 {
   name: "Sheraz Khan",
   role: "Founder & CEO",
-  image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop",
+  image: ceoPortrait.url,
   bio: "Visionary leader with 15+ years in digital transformation"
 },
 {
