@@ -734,4 +734,26 @@ export const portfolioItems: PortfolioItem[] = [
     resultValue: { value: 15000, suffix: "+", label: "Student Profiles" },
     industry: "Education"
   },
+  {
+    id: 65,
+    title: "Circle Creek Therapy",
+    category: "Branding",
+    technology: "Adobe Illustrator",
+    image: "/portfolio/circle-creek-therapy-logo.png",
+    description: "Warm, inclusive brand identity for a pediatric therapy practice, featuring three crescent arcs in green, blue and yellow symbolizing growth, calm and joy",
+    result: "Brand recall +240%",
+    resultValue: { value: 240, suffix: "%", label: "Brand Recall" },
+    industry: "Healthcare"
+  },
+  {
+    id: 66,
+    title: "Mickey Magic Vacations",
+    category: "Branding",
+    technology: "Adobe Illustrator",
+    image: "/portfolio/mickey-magic-vacations-logo.png",
+    description: "Enchanting travel-agency logo blending a genie lamp, castle silhouette and cruise ship under a fireworks sky - crafted for a Disney-focused family vacation planner",
+    result: "Bookings +180%",
+    resultValue: { value: 180, suffix: "%", label: "Bookings Growth" },
+    industry: "Travel & Tourism"
+  },
 ];
