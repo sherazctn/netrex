@@ -1,15 +1,16 @@
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
-import { ClientLogos } from "@/components/home/ClientLogos";
 import { BrandsWeWork } from "@/components/home/BrandsWeWork";
 import { SEO } from "@/components/SEO";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ArrowRight, Award, Globe2, Users, Lightbulb, Target, Heart, Trophy, Star, GraduationCap, Briefcase, Shield, Zap, Quote } from "lucide-react";
+import { ArrowRight, Award, Globe2, Users, Lightbulb, Target, Heart, Trophy, Star, GraduationCap, Briefcase, Shield, Zap, Quote, Rocket, CheckCircle2, Sparkles, TrendingUp, Layers, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { CountUpNumber } from "@/components/ui/CountUpNumber";
 import ceoPortrait from "@/assets/sheraz-khan-ceo.png.asset.json";
+import gurpreetPortrait from "@/assets/gurpreet-singh.png.asset.json";
+import sajjadPortrait from "@/assets/sajjad-khan.jpg.asset.json";
 
 const values = [
 {
@@ -44,44 +45,83 @@ const team = [
 {
   name: "Gurpreet Singh",
   role: "CMO",
-  image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop",
+  image: gurpreetPortrait.url,
   bio: "Growth strategist with expertise in global marketing campaigns"
 },
 {
   name: "Sajjad Khan",
   role: "COO",
-  image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300&h=300&fit=crop",
+  image: sajjadPortrait.url,
   bio: "Operations expert ensuring seamless project delivery worldwide"
 },
 {
   name: "Ahmed Hassan",
   role: "CTO",
-  image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=300&h=300&fit=crop",
+  image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=400&fit=crop",
   bio: "Tech expert specializing in scalable cloud architectures"
 },
 {
   name: "Sarah Mitchell",
   role: "Creative Director",
-  image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=300&h=300&fit=crop",
+  image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop",
   bio: "Award-winning designer passionate about user experiences"
 },
 {
   name: "Fatima Ali",
   role: "HR Director",
-  image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&h=300&fit=crop",
+  image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop",
   bio: "People-first leader building high-performing global teams"
 },
 {
   name: "David Park",
   role: "Lead Developer",
-  image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=300&h=300&fit=crop",
+  image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop",
   bio: "Full-stack engineer with 10+ years building enterprise solutions"
 },
 {
   name: "Ayesha Malik",
   role: "Project Manager",
-  image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&h=300&fit=crop",
+  image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop",
   bio: "PMP-certified PM ensuring on-time, on-budget delivery"
+}];
+
+
+const boardMembers = [
+{
+  name: "Dr. Rashid Khan",
+  role: "Chairman of the Board",
+  image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&fit=crop",
+  bio: "Serial entrepreneur & investor with 25+ years scaling MENA tech firms"
+},
+{
+  name: "Amelia Roberts",
+  role: "Independent Director",
+  image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop",
+  bio: "Former VP at a global consultancy; expert in enterprise digital strategy"
+},
+{
+  name: "Yusuf Al-Mansouri",
+  role: "Board Advisor - Finance",
+  image: "https://images.unsplash.com/photo-1566492031773-4f4e44671857?w=400&h=400&fit=crop",
+  bio: "CFO-level advisor guiding financial strategy across 9 offices"
+},
+{
+  name: "Elena Petrova",
+  role: "Board Advisor - Product",
+  image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=400&fit=crop",
+  bio: "Ex-FAANG PM shaping our AI product roadmap for 2027 and beyond"
+},
+{
+  name: "Rajesh Menon",
+  role: "Board Advisor - Technology",
+  image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop",
+  bio: "Cloud architect steering our global infrastructure & AI investments"
+},
+{
+  name: "Aisha Al-Suwaidi",
+  role: "Board Advisor - Governance",
+  image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=400&h=400&fit=crop",
+  bio: "Governance & ESG leader ensuring compliance across 9 jurisdictions"
 }];
 
 
@@ -102,7 +142,10 @@ const awards = [
 { title: "Agency Partner", platform: "Google Developers", year: "2023", logo: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/google.svg" },
 { title: "Top Rated Seller", platform: "Fiverr", year: "2024", logo: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/fiverr.svg" },
 { title: "Rising Star", platform: "DesignRush", year: "2023", logo: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/dribbble.svg" },
-{ title: "Best Web Agency", platform: "GoodFirms", year: "2024", logo: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/g2.svg" }];
+{ title: "Best Web Agency", platform: "GoodFirms", year: "2024", logo: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/g2.svg" },
+{ title: "Meta Business Partner", platform: "Meta", year: "2025", logo: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/meta.svg" },
+{ title: "AWS Select Partner", platform: "Amazon Web Services", year: "2025", logo: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/amazonwebservices.svg" },
+{ title: "Featured Studio", platform: "Awwwards", year: "2025", logo: "https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/awwwards.svg" }];
 
 
 const certifications = [
@@ -237,7 +280,7 @@ const About = () => {
               </div>
               <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-5 tracking-tight">
                 A Word From Our{" "}
-                <span className="bg-gradient-to-r from-primary via-primary to-accent bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-primary via-primary to-primary/70 bg-clip-text text-transparent">
                   CEO
                 </span>
               </h2>
@@ -255,13 +298,13 @@ const About = () => {
               className="max-w-6xl mx-auto relative"
             >
               {/* Glow behind card */}
-              <div className="absolute -inset-1 bg-gradient-to-r from-primary/30 via-accent/20 to-primary/30 rounded-[2rem] blur-2xl opacity-60" />
+              <div className="absolute -inset-1 bg-gradient-to-r from-primary/40 via-primary/20 to-primary/40 rounded-[2rem] blur-2xl opacity-60" />
 
               <div className="relative grid lg:grid-cols-12 gap-0 bg-card/95 backdrop-blur-sm border border-border/50 rounded-[2rem] overflow-hidden shadow-2xl">
                 {/* Portrait */}
-                <div className="lg:col-span-5 relative bg-gradient-to-br from-primary/5 via-background to-accent/5 p-6 lg:p-8 flex items-center justify-center">
+                <div className="lg:col-span-5 relative bg-gradient-to-br from-primary/5 via-background to-primary/10 p-6 lg:p-8 flex items-center justify-center">
                   <div className="relative w-full">
-                    <div className="absolute -inset-3 bg-gradient-to-tr from-primary/40 to-accent/30 rounded-[1.75rem] blur-xl opacity-70" />
+                    <div className="absolute -inset-3 bg-gradient-to-tr from-primary/50 to-primary/20 rounded-[1.75rem] blur-xl opacity-70" />
                     <div className="relative aspect-[4/5] rounded-[1.5rem] overflow-hidden ring-1 ring-border/60 shadow-2xl">
                       <img
                         src={ceoPortrait.url}
@@ -272,7 +315,7 @@ const About = () => {
                       {/* Signature plate */}
                       <div className="absolute bottom-4 left-4 right-4 bg-background/95 backdrop-blur-md rounded-2xl p-4 border border-border/60 shadow-lg">
                         <div className="flex items-center gap-3">
-                          <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-accent flex items-center justify-center shrink-0">
+                          <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center shrink-0">
                             <span className="text-white font-display font-bold text-sm">SK</span>
                           </div>
                           <div className="min-w-0">
@@ -287,7 +330,7 @@ const About = () => {
                       </div>
                     </div>
                     {/* Floating quote badge */}
-                    <div className="absolute -top-3 -right-3 w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-xl rotate-6">
+                    <div className="absolute -top-3 -right-3 w-16 h-16 rounded-2xl bg-gradient-to-br from-primary to-primary/70 flex items-center justify-center shadow-xl rotate-6">
                       <Quote className="h-7 w-7 text-white" />
                     </div>
                   </div>
@@ -300,7 +343,7 @@ const About = () => {
                   <blockquote className="space-y-5">
                     <p className="font-display text-xl md:text-2xl leading-relaxed text-foreground font-medium">
                       My vision for NETREX is simple - deliver{" "}
-                      <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent font-bold">
+                      <span className="bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent font-bold">
                         world-class digital services
                       </span>{" "}
                       to every corner of the globe, guided by one principle:{" "}
@@ -333,7 +376,7 @@ const About = () => {
                       { end: 15, suffix: "+", label: "Years Leading" },
                     ].map((stat, i) => (
                       <div key={stat.label} className="group">
-                        <div className="font-display text-3xl md:text-4xl font-bold bg-gradient-to-br from-primary to-accent bg-clip-text text-transparent mb-1">
+                        <div className="font-display text-3xl md:text-4xl font-bold bg-gradient-to-br from-primary to-primary/70 bg-clip-text text-transparent mb-1">
                           <CountUpNumber end={stat.end} suffix={stat.suffix} />
                         </div>
                         <div className="text-xs md:text-sm text-muted-foreground font-medium leading-tight">
@@ -367,8 +410,7 @@ const About = () => {
         </section>
 
 
-        {/* Client Logos */}
-        <ClientLogos />
+        {/* Trusted by Industry Leaders (real logos) */}
         <BrandsWeWork />
 
         {/* Awards & Certifications */}
@@ -430,150 +472,195 @@ const About = () => {
           </div>
         </section>
 
-        {/* Our Story with Improved Timeline */}
-        <section className="section-padding bg-secondary/30">
-          <div className="container-wide">
-            <div className="grid lg:grid-cols-2 gap-12 items-stretch">
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6 }}
-                className="flex flex-col">
-                
-                <span className="inline-block text-sm font-semibold text-primary uppercase tracking-wider mb-4">
-                  Our Journey
-                </span>
-                <h2 className="font-display text-3xl md:text-4xl font-bold mb-6">
-                  Our <span className="text-primary">Story</span>
-                </h2>
-                <div className="space-y-4 text-muted-foreground flex-1">
-                  <p>
-                    NETREX was founded in 2016 with a simple mission: to help businesses thrive in the digital age. 
-                    What started as a small team in Dubai has grown into a global digital agency with offices 
-                    across six countries, serving clients from startups to Fortune 500 enterprises.
-                  </p>
-                  <p>
-                    Our journey has been marked by continuous innovation, unwavering commitment to quality, 
-                    and a passion for creating digital experiences that make a difference. We've had the 
-                    privilege of working with startups, SMEs, and Fortune 500 companies alike - delivering 
-                    over 500 successful projects across web development, mobile apps, AI, cloud, and digital marketing.
-                  </p>
-                  <p>
-                    From building cutting-edge e-commerce platforms in Dubai to launching AI-powered solutions 
-                    for clients in New York, our team combines deep technical expertise with creative thinking. 
-                    We believe that technology should empower businesses, not complicate them - and every solution 
-                    we build reflects that philosophy.
-                  </p>
-                  <p>
-                    Today, we're proud to be recognized as a top-rated agency on platforms like Clutch and Upwork, 
-                    and to be part of the Google Developers Agency Program. Our global presence across Dubai, 
-                    New York, London, Vancouver, Brisbane, and Lahore enables us to offer 24/7 support and 
-                    culturally aware solutions to clients worldwide.
-                  </p>
-                  <p>
-                    As we look to the future, we're investing heavily in AI, machine learning, and next-generation 
-                    cloud technologies - ensuring our clients are always ahead of the curve. Whether you need a 
-                    simple website or a complex enterprise platform, NETREX is your partner in digital transformation.
-                  </p>
-                </div>
-              </motion.div>
-              
-              {/* Improved Timeline */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="relative">
-                
-                {/* Vertical line */}
-                <div className="absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-accent to-primary/30" />
-                
-                <div className="space-y-6">
-                  {milestones.map((milestone, index) => {
-                    const IconComp = milestone.icon;
-                    return (
-                      <motion.div
-                        key={milestone.year}
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.4, delay: index * 0.08 }}
-                        className="flex items-start gap-4 pl-0 relative">
-                        
-                        {/* Timeline dot */}
-                        <div className="relative z-10 w-12 h-12 rounded-full bg-primary flex items-center justify-center flex-shrink-0 shadow-lg">
-                          <IconComp className="h-5 w-5 text-white" />
-                        </div>
-                        <div className="flex-1 p-4 rounded-2xl bg-card border border-border hover:border-primary/30 hover:shadow-md transition-all">
-                          <span className="text-primary font-display font-bold text-lg">{milestone.year}</span>
-                          <p className="text-foreground mt-1">{milestone.event}</p>
-                        </div>
-                      </motion.div>);
-
-                  })}
-                </div>
-              </motion.div>
-            </div>
+        {/* Our Journey - Redesigned professional alternating timeline */}
+        <section className="relative section-padding bg-secondary/30 overflow-hidden">
+          <div className="absolute inset-0 pointer-events-none">
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[60%] h-[1px] bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
+            <div className="absolute -top-40 -right-40 w-[400px] h-[400px] rounded-full bg-primary/5 blur-[100px]" />
           </div>
-        </section>
 
-        {/* How We Work */}
-        <section className="section-padding">
-          <div className="container-wide">
+          <div className="container-wide relative z-10">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="text-center mb-12">
-              
-              <span className="inline-block text-sm font-semibold text-primary uppercase tracking-wider mb-4">
-                Our Process
-              </span>
-              <h2 className="font-display text-3xl md:text-4xl font-bold mb-4">
-                How We <span className="text-primary">Work</span>
+              className="text-center max-w-3xl mx-auto mb-16"
+            >
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 mb-5">
+                <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+                <span className="text-xs font-semibold text-primary uppercase tracking-[0.2em]">
+                  Our Journey
+                </span>
+              </div>
+              <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-5 tracking-tight">
+                A Decade of{" "}
+                <span className="text-gradient">Building</span>
               </h2>
-              <p className="text-muted-foreground max-w-2xl mx-auto">
-                A proven 6-step process that ensures quality delivery every time.
+              <p className="text-muted-foreground text-lg">
+                From a single Dubai studio in 2016 to 9 offices worldwide - here are the milestones that shaped us.
               </p>
             </motion.div>
 
-            <div className="relative">
-              {/* Connection line */}
-              <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-primary via-accent to-primary -translate-y-1/2" />
-              
-              <div className="grid md:grid-cols-2 lg:grid-cols-6 gap-6">
-                {processSteps.map((step, index) =>
-                <motion.div
-                  key={step.step}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="relative text-center">
-                  
-                    <div className="p-6 rounded-3xl bg-card border border-border hover:border-primary/30 hover:shadow-xl transition-all duration-300 h-full">
-                      <div className="w-14 h-14 rounded-2xl bg-primary text-white flex items-center justify-center mx-auto mb-4 shadow-lg">
-                        <step.icon className="h-6 w-6" />
+            {/* Journey Stats */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-4xl mx-auto mb-16">
+              {[
+                { end: 2016, label: "Founded", suffix: "" },
+                { end: 9, label: "Global Offices", suffix: "" },
+                { end: 500, label: "Projects Shipped", suffix: "+" },
+                { end: 92, label: "Recurring Clients", suffix: "%" },
+              ].map((s) => (
+                <div key={s.label} className="p-5 rounded-2xl bg-card border border-border text-center hover:border-primary/30 hover:shadow-lg transition-all">
+                  <div className="font-display text-2xl md:text-3xl font-bold text-primary mb-1">
+                    <CountUpNumber end={s.end} suffix={s.suffix} />
+                  </div>
+                  <div className="text-xs md:text-sm text-muted-foreground">{s.label}</div>
+                </div>
+              ))}
+            </div>
+
+            {/* Alternating Timeline */}
+            <div className="relative max-w-5xl mx-auto">
+              {/* Center line (desktop) / left line (mobile) */}
+              <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-primary/60 to-primary/20 md:-translate-x-1/2" />
+
+              <div className="space-y-10 md:space-y-14">
+                {milestones.map((milestone, index) => {
+                  const IconComp = milestone.icon;
+                  const isLeft = index % 2 === 0;
+                  return (
+                    <motion.div
+                      key={milestone.year}
+                      initial={{ opacity: 0, y: 30 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true, margin: "-80px" }}
+                      transition={{ duration: 0.5, delay: index * 0.05 }}
+                      className="relative md:grid md:grid-cols-2 md:gap-12 items-center"
+                    >
+                      {/* Dot on the line */}
+                      <div className="absolute left-6 md:left-1/2 -translate-x-1/2 z-20 w-12 h-12 rounded-full bg-primary flex items-center justify-center shadow-xl ring-4 ring-background">
+                        <IconComp className="h-5 w-5 text-white" />
                       </div>
-                      <div className="text-xs font-bold text-primary mb-1">Step {step.step}</div>
-                      <h3 className="font-display font-bold text-lg mb-2">{step.title}</h3>
-                      <p className="text-sm text-muted-foreground">{step.description}</p>
-                    </div>
-                    {/* Arrow between steps */}
-                    {index < processSteps.length - 1 &&
-                  <div className="hidden lg:block absolute top-1/2 -right-3 transform -translate-y-1/2 z-10">
-                        <ArrowRight className="h-5 w-5 text-primary" />
+
+                      {/* Card */}
+                      <div className={`ml-20 md:ml-0 ${isLeft ? "md:col-start-1 md:pr-12 md:text-right" : "md:col-start-2 md:pl-12"}`}>
+                        <div className="inline-block group">
+                          <div className="p-5 md:p-6 rounded-3xl bg-card border border-border hover:border-primary/40 hover:shadow-xl transition-all duration-300">
+                            <div className={`flex items-center gap-2 mb-2 ${isLeft ? "md:justify-end" : ""}`}>
+                              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-primary/10 border border-primary/20">
+                                <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+                                <span className="font-display text-primary font-bold text-sm">{milestone.year}</span>
+                              </span>
+                            </div>
+                            <p className="text-foreground font-medium text-base md:text-lg leading-snug">
+                              {milestone.event}
+                            </p>
+                          </div>
+                        </div>
                       </div>
-                  }
-                  </motion.div>
-                )}
+                    </motion.div>
+                  );
+                })}
               </div>
             </div>
           </div>
         </section>
+
+        {/* Our Process - Redesigned "How We Work" */}
+        <section className="relative section-padding overflow-hidden">
+          <div className="absolute inset-0 pointer-events-none">
+            <div className="absolute -bottom-40 -left-40 w-[500px] h-[500px] rounded-full bg-primary/5 blur-[120px]" />
+          </div>
+
+          <div className="container-wide relative z-10">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-center max-w-3xl mx-auto mb-16"
+            >
+              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 mb-5">
+                <Sparkles className="h-3.5 w-3.5 text-primary" />
+                <span className="text-xs font-semibold text-primary uppercase tracking-[0.2em]">
+                  Our Process
+                </span>
+              </div>
+              <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-5 tracking-tight">
+                How We{" "}
+                <span className="text-gradient">Work</span>
+              </h2>
+              <p className="text-muted-foreground text-lg">
+                A battle-tested 6-step framework - the same process behind{" "}
+                <span className="text-primary font-semibold">
+                  <CountUpNumber end={500} suffix="+" />
+                </span>{" "}
+                successful launches.
+              </p>
+            </motion.div>
+
+            {/* Zigzag process cards */}
+            <div className="relative max-w-6xl mx-auto">
+              <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+                {processSteps.map((step, index) => (
+                  <motion.div
+                    key={step.step}
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.08 }}
+                    className="relative group"
+                  >
+                    {/* Big step number in background */}
+                    <div className="absolute -top-4 right-4 font-display text-7xl font-black text-primary/5 group-hover:text-primary/10 transition-colors leading-none select-none">
+                      0{step.step}
+                    </div>
+
+                    <div className="relative h-full p-7 rounded-3xl bg-card border border-border hover:border-primary/40 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300">
+                      <div className="flex items-center gap-3 mb-5">
+                        <div className="w-12 h-12 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center">
+                          <step.icon className="h-5 w-5 text-primary" />
+                        </div>
+                        <div className="text-[11px] font-bold text-primary uppercase tracking-widest">
+                          Step {step.step}
+                        </div>
+                      </div>
+
+                      <h3 className="font-display font-bold text-2xl mb-3 group-hover:text-primary transition-colors">
+                        {step.title}
+                      </h3>
+                      <p className="text-sm text-muted-foreground leading-relaxed">
+                        {step.description}
+                      </p>
+
+                      <div className="mt-6 pt-5 border-t border-border/60 flex items-center gap-2 text-xs text-muted-foreground">
+                        <CheckCircle2 className="h-4 w-4 text-primary" />
+                        <span>Quality checkpoint</span>
+                      </div>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+            {/* CTA */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="text-center mt-14"
+            >
+              <Link to="/contact">
+                <Button variant="hero" size="lg" className="group">
+                  Start Your Project
+                  <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+                </Button>
+              </Link>
+            </motion.div>
+          </div>
+        </section>
+
 
         {/* Values */}
         <section className="section-padding bg-secondary/30">
@@ -658,6 +745,58 @@ const About = () => {
                   <p className="text-primary text-sm">{member.role}</p>
                 </motion.div>
               )}
+            </div>
+          </div>
+        </section>
+
+        {/* Board Members */}
+        <section className="section-padding bg-secondary/30">
+          <div className="container-wide">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-12"
+            >
+              <span className="inline-block text-sm font-semibold text-primary uppercase tracking-wider mb-4">
+                Governance
+              </span>
+              <h2 className="font-display text-3xl md:text-4xl font-bold mb-4">
+                Our <span className="text-primary">Board Members</span>
+              </h2>
+              <p className="text-muted-foreground max-w-2xl mx-auto">
+                A globally experienced board steering NETREX's strategy, governance, and long-term vision.
+              </p>
+            </motion.div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {boardMembers.map((member, index) => (
+                <motion.div
+                  key={member.name}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.08 }}
+                  className="group flex items-center gap-4 p-5 rounded-3xl bg-card border border-border hover:border-primary/40 hover:shadow-xl transition-all"
+                >
+                  <div className="relative w-20 h-20 rounded-2xl overflow-hidden flex-shrink-0 ring-1 ring-border">
+                    <img
+                      src={member.image}
+                      alt={member.name}
+                      loading="lazy"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+                  <div className="min-w-0">
+                    <h3 className="font-display font-bold text-base leading-tight">{member.name}</h3>
+                    <p className="text-primary text-xs font-semibold uppercase tracking-wider mt-0.5">
+                      {member.role}
+                    </p>
+                    <p className="text-muted-foreground text-sm mt-2 leading-snug">{member.bio}</p>
+                  </div>
+                </motion.div>
+              ))}
             </div>
           </div>
         </section>

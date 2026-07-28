@@ -10,23 +10,23 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-primary text-primary-foreground hover:bg-primary/90 rounded-full shadow-md hover:shadow-lg",
+          "bg-primary text-primary-foreground hover:bg-accent hover:text-accent-foreground rounded-full shadow-md hover:shadow-lg",
         destructive:
-          "bg-destructive text-destructive-foreground hover:bg-destructive/90 rounded-full",
+          "bg-destructive text-destructive-foreground hover:bg-accent hover:text-accent-foreground rounded-full",
         outline:
-          "border-2 border-primary bg-transparent text-primary hover:bg-primary hover:text-primary-foreground rounded-full",
+          "border-2 border-primary bg-transparent text-primary hover:bg-accent hover:text-accent-foreground hover:border-accent rounded-full",
         secondary:
-          "bg-secondary text-secondary-foreground hover:bg-secondary/80 rounded-full",
-        ghost: 
+          "bg-secondary text-secondary-foreground hover:bg-accent hover:text-accent-foreground rounded-full",
+        ghost:
           "hover:bg-accent hover:text-accent-foreground rounded-full",
-        link: 
-          "text-primary underline-offset-4 hover:underline",
+        link:
+          "text-primary underline-offset-4 hover:underline hover:text-accent",
         hero:
-          "relative overflow-hidden text-white rounded-full shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] before:absolute before:inset-0 before:bg-[conic-gradient(from_0deg,hsl(359,85%,53%),hsl(196,76%,44%),hsl(217,95%,18%),hsl(359,85%,53%))] before:animate-spin-slow before:-z-10 after:absolute after:inset-[2px] after:rounded-full after:bg-primary after:-z-[5]",
+          "relative overflow-hidden text-white rounded-full shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] before:absolute before:inset-0 before:bg-[conic-gradient(from_0deg,hsl(359,85%,53%),hsl(359,85%,40%),hsl(359,90%,60%),hsl(359,85%,53%))] before:animate-spin-slow before:-z-10 after:absolute after:inset-[2px] after:rounded-full after:bg-primary hover:after:bg-accent after:transition-colors after:-z-[5]",
         glass:
-          "bg-background/20 backdrop-blur-md border border-background/50 text-background hover:bg-background/30 rounded-full",
+          "bg-background/20 backdrop-blur-md border border-background/50 text-background hover:bg-accent hover:text-accent-foreground rounded-full",
         ctaWhite:
-          "bg-white text-primary border-2 border-white hover:bg-white/90 hover:text-primary rounded-full shadow-md hover:shadow-lg",
+          "bg-white text-primary border-2 border-white hover:bg-accent hover:text-accent-foreground hover:border-accent rounded-full shadow-md hover:shadow-lg",
       },
       size: {
         default: "h-11 px-6 py-2",

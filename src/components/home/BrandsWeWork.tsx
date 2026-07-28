@@ -66,13 +66,13 @@ export function BrandsWeWork() {
           className="text-center mb-12"
         >
           <span className="inline-block text-sm font-semibold text-primary uppercase tracking-wider mb-4">
-            Our Clients
+            Trusted by Industry Leaders
           </span>
           <h2 className="font-display text-3xl md:text-4xl font-bold mb-4">
             Brands We <span className="text-primary">Work With</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Trusted by leading brands across the globe - from startups to enterprise.
+            Real logos, real partners - trusted by leading brands across the globe.
           </p>
         </motion.div>
 
