@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight, Star, Play, Quote } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { CountUpNumber } from "@/components/ui/CountUpNumber";
 
 // Sample testimonials - these would be managed from admin dashboard
 const textTestimonials = [
@@ -111,10 +112,10 @@ const videoTestimonials = [
 ];
 
 const stats = [
-  { number: "500+", label: "Happy Clients" },
-  { number: "4.9", label: "Average Rating" },
-  { number: "98%", label: "Client Satisfaction" },
-  { number: "50+", label: "Countries Served" },
+  { value: 500, suffix: "+", label: "Happy Clients" },
+  { value: 4.9, suffix: "", label: "Average Rating" },
+  { value: 98, suffix: "%", label: "Client Satisfaction" },
+  { value: 50, suffix: "+", label: "Countries Served" },
 ];
 
 const Testimonials = () => {
@@ -156,10 +157,14 @@ const Testimonials = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12"
             >
-              {stats.map((stat, index) => (
+              {stats.map((stat) => (
                 <div key={stat.label} className="text-center p-6 rounded-2xl bg-card border border-border">
                   <div className="text-3xl md:text-4xl font-display font-bold text-primary mb-2">
-                    {stat.number}
+                    {Number.isInteger(stat.value) ? (
+                      <CountUpNumber end={stat.value} suffix={stat.suffix} />
+                    ) : (
+                      <span>{stat.value}{stat.suffix}</span>
+                    )}
                   </div>
                   <div className="text-sm text-muted-foreground">{stat.label}</div>
                 </div>

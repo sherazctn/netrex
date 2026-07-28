@@ -48,10 +48,10 @@
 
     --radius: 9999px;
 
-    /* Gradients */
-    --gradient-brand: linear-gradient(135deg, hsl(359 85% 53%), hsl(196 76% 44%));
-    --gradient-brand-horizontal: linear-gradient(90deg, hsl(359 85% 53%), hsl(196 76% 44%));
-    --gradient-dark: linear-gradient(135deg, hsl(0 0% 13%), hsl(217 95% 18%));
+    /* Gradients - Red-only brand gradient */
+    --gradient-brand: linear-gradient(135deg, hsl(359 90% 42%), hsl(359 85% 60%));
+    --gradient-brand-horizontal: linear-gradient(90deg, hsl(359 90% 42%), hsl(359 85% 60%));
+    --gradient-dark: linear-gradient(135deg, hsl(0 0% 13%), hsl(0 0% 20%));
     --gradient-subtle: linear-gradient(135deg, hsl(220 14% 96%), hsl(0 0% 100%));
     
     /* Shadows */
