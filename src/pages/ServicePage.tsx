@@ -594,6 +594,105 @@ const servicesData: Record<string, {
     { title: "SaaS Platform Migration", description: "Migrated legacy app to Kubernetes", result: "99.99% uptime, 40% cost reduction", image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=600&h=800&fit=crop" },
     { title: "E-commerce Infrastructure", description: "Built auto-scaling infrastructure", result: "Handled 10x Black Friday traffic", image: "https://images.unsplash.com/photo-1597733336794-12d05021d510?w=600&h=800&fit=crop" }]
 
+  },
+  "devops": {
+    title: "DevOps & Infrastructure",
+    description: "CI/CD, Kubernetes, and SRE for teams that ship fast without breaking things.",
+    hero: "Ship Faster. Break Less. Scale Confidently.",
+    longDescription: "Modern DevOps practices, automated pipelines, container orchestration, and 24/7 observability so your engineering team spends time on product, not firefighting.",
+    features: [
+    { title: "CI/CD Pipelines", description: "Automated build, test, and deploy" },
+    { title: "Kubernetes & Containers", description: "Portable workloads at any scale" },
+    { title: "Infrastructure as Code", description: "Terraform, Pulumi, Ansible" },
+    { title: "Observability", description: "Grafana, Prometheus, Datadog" },
+    { title: "SRE & On-Call", description: "SLOs, error budgets, incident response" },
+    { title: "Zero-Downtime Deploys", description: "Blue-green, canary, feature flags" }],
+    benefits: [
+    { title: "Faster Releases", description: "From weekly to hourly deploys", icon: Zap },
+    { title: "Higher Uptime", description: "SLO-driven reliability", icon: Shield },
+    { title: "Lower Cost", description: "Right-sized, autoscaled workloads", icon: TrendingUp },
+    { title: "Team Velocity", description: "Engineers focus on features", icon: Clock }],
+    process: [
+    { step: 1, title: "Audit", description: "Assess pipelines, infra, and incidents" },
+    { step: 2, title: "Roadmap", description: "Prioritize quick wins + long-term architecture" },
+    { step: 3, title: "Automate", description: "CI/CD, IaC, and policy-as-code" },
+    { step: 4, title: "Containerize", description: "Package workloads for portability" },
+    { step: 5, title: "Observe", description: "Metrics, logs, traces, alerts" },
+    { step: 6, title: "Operate", description: "24/7 SRE and continuous improvement" }],
+    whyUs: [
+    { title: "CKA & CKAD Certified", description: "Kubernetes-native engineers", icon: Award },
+    { title: "Multi-Cloud", description: "AWS, GCP, Azure fluent", icon: Cloud },
+    { title: "Compliance Ready", description: "SOC2, HIPAA, ISO 27001", icon: Shield },
+    { title: "Cost Focus", description: "Typical 30-45% infra savings", icon: Zap }],
+    caseStudies: [
+    { title: "Fintech Platform", description: "Migrated monolith to microservices on EKS", result: "Deploy time 45m -> 4m, 99.99% uptime", image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&h=800&fit=crop" },
+    { title: "SaaS Observability", description: "Rolled out full-stack observability stack", result: "MTTR reduced by 68%", image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&h=800&fit=crop" }]
+  },
+  "blockchain": {
+    title: "Blockchain & Web3",
+    description: "Smart contracts, dApps, and token infrastructure engineered for security and scale.",
+    hero: "Build Trustless Products on Web3",
+    longDescription: "From token launches to full-stack dApps, our Web3 engineers deliver audited smart contracts and production-grade decentralized applications on Ethereum, Polygon, Solana, and more.",
+    features: [
+    { title: "Smart Contract Development", description: "Solidity, Rust, Move" },
+    { title: "dApp Frontends", description: "React + wagmi + viem" },
+    { title: "Token Design", description: "ERC-20, ERC-721, ERC-1155" },
+    { title: "DeFi Protocols", description: "AMMs, lending, staking, yield" },
+    { title: "NFT Marketplaces", description: "End-to-end marketplace stacks" },
+    { title: "Security Audits", description: "Static analysis + manual review" }],
+    benefits: [
+    { title: "Audited Code", description: "Security-first from day one", icon: Shield },
+    { title: "Multi-Chain", description: "EVM + Solana coverage", icon: Globe },
+    { title: "Gas Optimized", description: "Minimal on-chain cost", icon: Zap },
+    { title: "Composable", description: "Interop with major protocols", icon: Layers }],
+    process: [
+    { step: 1, title: "Discovery", description: "Tokenomics + user journeys" },
+    { step: 2, title: "Architecture", description: "On-chain vs off-chain design" },
+    { step: 3, title: "Contracts", description: "Write, test, and simulate" },
+    { step: 4, title: "Audit", description: "Internal + external security review" },
+    { step: 5, title: "dApp", description: "Wallet-native frontend" },
+    { step: 6, title: "Launch", description: "Deploy, monitor, iterate" }],
+    whyUs: [
+    { title: "Audit-First", description: "We ship secure by default", icon: Shield },
+    { title: "Multi-Chain Team", description: "EVM, Solana, Cosmos", icon: Globe },
+    { title: "Full-Stack Web3", description: "Contracts + frontends + infra", icon: Layers },
+    { title: "On-Chain Analytics", description: "Dune + The Graph pipelines", icon: TrendingUp }],
+    caseStudies: [
+    { title: "DeFi Lending Protocol", description: "Built audited lending market", result: "$40M TVL in 90 days", image: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=600&h=800&fit=crop" },
+    { title: "NFT Marketplace", description: "Multi-chain marketplace with lazy mint", result: "120K transactions first month", image: "https://images.unsplash.com/photo-1642104704074-907c0698cbd9?w=600&h=800&fit=crop" }]
+  },
+  "data-analytics": {
+    title: "Data Analytics & BI",
+    description: "Warehousing, dashboards, and AI-powered insights that turn data into decisions.",
+    hero: "Turn Raw Data Into Revenue",
+    longDescription: "We build modern data stacks - warehousing, ELT pipelines, semantic layers, and executive dashboards - so leaders see the numbers that matter, in real time.",
+    features: [
+    { title: "Data Warehousing", description: "Snowflake, BigQuery, Databricks" },
+    { title: "ELT Pipelines", description: "Fivetran, dbt, Airbyte" },
+    { title: "BI Dashboards", description: "Looker, Power BI, Tableau, Metabase" },
+    { title: "Reverse ETL", description: "Sync insights back to tools" },
+    { title: "AI/ML Analytics", description: "Predictive models + LLM insights" },
+    { title: "Data Governance", description: "Lineage, access, quality" }],
+    benefits: [
+    { title: "Single Source of Truth", description: "One trusted number", icon: Database },
+    { title: "Faster Decisions", description: "Real-time dashboards", icon: Zap },
+    { title: "Revenue Lift", description: "Data-informed pricing + retention", icon: TrendingUp },
+    { title: "Cost Insight", description: "Know unit economics", icon: BarChart }],
+    process: [
+    { step: 1, title: "Audit", description: "Map data sources + reporting needs" },
+    { step: 2, title: "Warehouse", description: "Stand up modern warehouse" },
+    { step: 3, title: "Model", description: "dbt-based semantic layer" },
+    { step: 4, title: "Dashboards", description: "Role-based views for every team" },
+    { step: 5, title: "Enable", description: "Training + documentation" },
+    { step: 6, title: "Optimize", description: "Continuous improvement + ML" }],
+    whyUs: [
+    { title: "Modern Stack", description: "Snowflake + dbt + Looker fluent", icon: Layers },
+    { title: "Analytics Engineers", description: "Not just BI developers", icon: Award },
+    { title: "AI-Native", description: "LLM analytics baked in", icon: Bot },
+    { title: "Cost Aware", description: "Warehouse cost optimization", icon: Zap }],
+    caseStudies: [
+    { title: "E-commerce BI", description: "Full modern data stack in 8 weeks", result: "26% lift in repeat-buyer rate", image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=800&fit=crop" },
+    { title: "SaaS Analytics", description: "Product + revenue analytics unified", result: "3x faster board reporting", image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=800&fit=crop" }]
   }
 };
 
