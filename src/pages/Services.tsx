@@ -4,7 +4,7 @@ import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import { SEO } from "@/components/SEO";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ArrowRight, Globe, Smartphone, Palette, Megaphone, Package, Sparkles, Brain, Cloud } from "lucide-react";
+import { ArrowRight, Globe, Smartphone, Palette, Megaphone, Package, Sparkles, Brain, Cloud, Server, Boxes, BarChart3 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const services = [
@@ -70,6 +70,27 @@ const services = [
     description: "Enterprise cloud architecture, migration, and DevOps solutions on AWS, Google Cloud, and Azure.",
     icon: Cloud,
     color: "from-sky-500 to-blue-500",
+  },
+  {
+    slug: "devops",
+    title: "DevOps & Infrastructure",
+    description: "CI/CD pipelines, Kubernetes, and SRE that let your team ship faster with fewer incidents.",
+    icon: Server,
+    color: "from-slate-500 to-zinc-600",
+  },
+  {
+    slug: "blockchain",
+    title: "Blockchain & Web3",
+    description: "Audited smart contracts, dApps, and token infrastructure across Ethereum, Polygon, and Solana.",
+    icon: Boxes,
+    color: "from-violet-500 to-fuchsia-500",
+  },
+  {
+    slug: "data-analytics",
+    title: "Data Analytics & BI",
+    description: "Modern data warehouses, dashboards, and AI-powered insights that turn raw data into decisions.",
+    icon: BarChart3,
+    color: "from-amber-500 to-orange-600",
   },
 ];
 

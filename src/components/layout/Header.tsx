@@ -1,10 +1,9 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ChevronDown, Globe, Smartphone, Palette, Megaphone, Layers, ShoppingCart, Bot, Search, Cloud, Users, Eye, Target, MessageSquare, Scale, Factory } from "lucide-react";
+import { Menu, X, ChevronDown, Globe, Smartphone, Palette, Megaphone, Layers, ShoppingCart, Bot, Search, Cloud, Users, Eye, Target, MessageSquare, Scale, Factory, Server, Boxes, BarChart3 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { LanguageSwitcher } from "@/components/ui/LanguageSwitcher";
-import { ThemeSwitcher } from "@/components/ui/ThemeSwitcher";
+import { TopBar } from "@/components/layout/TopBar";
 import netrexLogo from "@/assets/netrex-logo.png";
 import netrexLogoLite from "@/assets/netrex-logo-lite.png";
 import { useTheme } from "next-themes";
@@ -20,6 +19,9 @@ const serviceIcons: Record<string, typeof Globe> = {
   "AI & Automation": Bot,
   "GEO": Search,
   "Cloud Solutions": Cloud,
+  "DevOps & Infrastructure": Server,
+  "Blockchain & Web3": Boxes,
+  "Data Analytics & BI": BarChart3,
 };
 
 const dropdownVariants = {
@@ -62,6 +64,9 @@ const navLinks = [
       { name: "AI & Automation", href: "/services/ai-automation", tKey: "services.ai" },
       { name: "GEO", href: "/services/geo", tKey: "services.geo" },
       { name: "Cloud Solutions", href: "/services/cloud-solutions", tKey: "services.cloud" },
+      { name: "DevOps & Infrastructure", href: "/services/devops", tKey: "services.devops" },
+      { name: "Blockchain & Web3", href: "/services/blockchain", tKey: "services.blockchain" },
+      { name: "Data Analytics & BI", href: "/services/data-analytics", tKey: "services.analytics" },
     ]
   },
   { name: "Industries", href: "/industries", tKey: "nav.industries" },
@@ -103,20 +108,23 @@ export function Header() {
   };
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? "bg-background/95 backdrop-blur-lg shadow-md py-3"
-          : "bg-transparent py-5"
-      }`}
-    >
+    <div className="fixed top-0 left-0 right-0 z-50">
+      <TopBar />
+      <header
+        className={`transition-all duration-300 ${
+          isScrolled
+            ? "bg-background/95 backdrop-blur-lg shadow-md py-2"
+            : "bg-background/70 backdrop-blur-sm py-3"
+        }`}
+      >
       <div className="container-wide">
         <nav className="flex items-center justify-between">
-          <Link to="/" className="relative z-[60]">
+          <Link to="/" className="relative z-[60] flex items-center">
             <motion.img
               src={theme === "dark" ? netrexLogoLite : netrexLogo}
               alt="NETREX"
-              className="h-10 md:h-12 w-auto"
+              className="h-9 md:h-10 w-auto max-w-[160px] object-contain"
+              style={{ aspectRatio: 'auto' }}
               whileHover={{ scale: 1.02 }}
               transition={{ type: "spring", stiffness: 400 }}
             />
@@ -133,7 +141,7 @@ export function Header() {
               >
                 <Link
                   to={link.href}
-                  className={`flex items-center gap-1 px-4 py-2 text-sm font-medium transition-colors rounded-full hover:text-primary hover:bg-secondary ${
+                  className={`flex items-center gap-1 px-3.5 py-2 text-sm font-medium transition-colors rounded-full hover:text-primary hover:bg-secondary ${
                     location.pathname === link.href || location.pathname.startsWith(link.href + "/")
                       ? "text-primary bg-secondary"
                       : "text-foreground/80"
@@ -182,10 +190,8 @@ export function Header() {
             ))}
           </div>
 
-          {/* CTA Buttons, Theme & Language */}
+          {/* CTA */}
           <div className="hidden lg:flex items-center gap-2">
-            <ThemeSwitcher />
-            <LanguageSwitcher />
             <Link to="/contact">
               <Button variant="hero" size="default">
                 {t('nav.getInTouch')}
@@ -195,8 +201,6 @@ export function Header() {
 
           {/* Mobile Menu Button */}
           <div className="lg:hidden flex items-center gap-2">
-            <ThemeSwitcher />
-            <LanguageSwitcher />
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="relative z-[60] p-2 text-foreground rounded-full hover:bg-secondary transition-colors"
@@ -308,5 +312,6 @@ export function Header() {
         )}
       </AnimatePresence>
     </header>
+    </div>
   );
 }
