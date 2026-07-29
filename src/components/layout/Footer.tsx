@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Linkedin, Instagram, Facebook, ArrowRight, MessageCircle, Globe, Smartphone, Palette, Megaphone, Bot, Cloud, Users, Briefcase, FolderOpen, MessageSquare, BookOpen, PhoneCall, Building2, Award, Shield, Sparkles, Brain, Package, ShoppingCart, Target, Eye, Calculator, Scale, Factory } from "lucide-react";
+import { Mail, Phone, MapPin, Linkedin, Instagram, Facebook, ArrowRight, MessageCircle, Globe, Smartphone, Palette, Megaphone, Bot, Cloud, Users, Briefcase, FolderOpen, MessageSquare, BookOpen, PhoneCall, Building2, Award, Shield, Sparkles, Brain, Package, ShoppingCart, Target, Eye, Calculator, Scale, Factory, Server, Boxes, BarChart3 } from "lucide-react";
 import netrexLogo from "@/assets/netrex-logo.png";
 import netrexLogoLite from "@/assets/netrex-logo-lite.png";
 import { Button } from "@/components/ui/button";
@@ -31,6 +31,9 @@ const footerLinks = {
     { name: "AI & Automation", href: "/services/ai-automation", icon: Bot },
     { name: "GEO", href: "/services/geo", icon: Sparkles },
     { name: "Cloud Solutions", href: "/services/cloud-solutions", icon: Cloud },
+    { name: "DevOps & Infrastructure", href: "/services/devops", icon: Server },
+    { name: "Blockchain & Web3", href: "/services/blockchain", icon: Boxes },
+    { name: "Data Analytics & BI", href: "/services/data-analytics", icon: BarChart3 },
   ],
   company: [
     { name: "About Us", href: "/about", icon: Building2 },
@@ -192,34 +195,34 @@ export function Footer() {
 
       {/* Main Footer */}
       <div className="container-wide py-16 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Brand Column */}
-          <div className="lg:col-span-1">
+          <div>
             <Link to="/">
-              <img src={netrexLogoLite} alt="NETREX" className="h-12 w-auto mb-6" />
+              <img src={netrexLogoLite} alt="NETREX" className="h-10 w-auto max-w-[160px] object-contain mb-6" />
             </Link>
-            <p className="text-white/60 text-sm mb-4 max-w-sm leading-relaxed">
+            <p className="text-white/70 text-sm mb-4 leading-relaxed">
               {t('footer.description')}
             </p>
-            <div className="flex items-center gap-3 mb-6">
+            <div className="flex items-center gap-2 mb-6 flex-wrap">
               <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 border border-white/10">
                 <Award className="h-3.5 w-3.5 text-primary" />
-                <span className="text-xs text-white/70">{t('footer.topRated')}</span>
+                <span className="text-xs text-white/80">{t('footer.topRated')}</span>
               </div>
               <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 border border-white/10">
                 <Shield className="h-3.5 w-3.5 text-primary" />
-                <span className="text-xs text-white/70">{t('footer.isoCertified')}</span>
+                <span className="text-xs text-white/80">{t('footer.isoCertified')}</span>
               </div>
             </div>
-            {/* Social Icons */}
-            <div className="flex flex-wrap gap-2">
+            {/* Social Icons - smaller, red-on-hover */}
+            <div className="flex flex-wrap gap-1.5">
               {socialLinks.map((social) => (
                 <motion.a
                   key={social.label}
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-white/70 transition-all duration-300 hover:bg-primary hover:text-white"
+                  className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-white/80 transition-all duration-300 hover:bg-primary hover:text-white"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
                   aria-label={social.label}
@@ -227,7 +230,7 @@ export function Footer() {
                   {'isCustom' in social && social.isCustom ? (
                     <social.icon />
                   ) : (
-                    <social.icon className="h-4 w-4" />
+                    <social.icon className="h-3.5 w-3.5" />
                   )}
                 </motion.a>
               ))}
@@ -240,8 +243,8 @@ export function Footer() {
             <ul className="space-y-2.5">
               {footerLinks.services.map((link) => (
                 <li key={link.name}>
-                  <Link to={link.href} className="flex items-center gap-2 text-white/60 hover:text-primary transition-colors group text-sm">
-                    <link.icon className="h-3.5 w-3.5 text-white/35 group-hover:text-primary transition-colors" />
+                  <Link to={link.href} className="flex items-center gap-2 text-white/70 hover:text-primary transition-colors group text-sm">
+                    <link.icon className="h-3.5 w-3.5 text-white/40 group-hover:text-primary transition-colors" />
                     {link.name}
                   </Link>
                 </li>
@@ -255,8 +258,8 @@ export function Footer() {
             <ul className="space-y-2.5">
               {footerLinks.company.map((link) => (
                 <li key={link.name}>
-                  <Link to={link.href} className="flex items-center gap-2 text-white/60 hover:text-primary transition-colors group text-sm">
-                    <link.icon className="h-3.5 w-3.5 text-white/35 group-hover:text-primary transition-colors" />
+                  <Link to={link.href} className="flex items-center gap-2 text-white/70 hover:text-primary transition-colors group text-sm">
+                    <link.icon className="h-3.5 w-3.5 text-white/40 group-hover:text-primary transition-colors" />
                     {link.name}
                   </Link>
                 </li>
@@ -270,28 +273,32 @@ export function Footer() {
             <ul className="space-y-2.5">
               {footerLinks.tools.map((link) => (
                 <li key={link.name}>
-                  <Link to={link.href} className="flex items-center gap-2 text-white/60 hover:text-primary transition-colors group text-sm">
-                    <link.icon className="h-3.5 w-3.5 text-white/35 group-hover:text-primary transition-colors" />
+                  <Link to={link.href} className="flex items-center gap-2 text-white/70 hover:text-primary transition-colors group text-sm">
+                    <link.icon className="h-3.5 w-3.5 text-white/40 group-hover:text-primary transition-colors" />
                     {link.name}
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
+        </div>
 
-          {/* Locations */}
-          <div>
-            <h3 className="font-display font-semibold text-sm uppercase tracking-wider mb-4">{t('footer.locations')}</h3>
-            <ul className="space-y-2.5">
-              {footerLinks.locations.map((link) => (
-                <li key={link.name}>
-                  <Link to={link.href} className="flex items-center gap-2 text-white/60 hover:text-primary transition-colors group text-sm">
-                    <MapPin className="h-3.5 w-3.5 text-white/35 group-hover:text-primary transition-colors" />
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
+        {/* Locations strip - above awards */}
+        <div className="mt-14 pt-8 border-t border-white/10">
+          <h3 className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-white/70 mb-5">
+            {t('footer.locations')}
+          </h3>
+          <div className="flex flex-wrap justify-center items-center gap-x-6 gap-y-2">
+            {footerLinks.locations.map((loc) => (
+              <Link
+                key={loc.name}
+                to={loc.href}
+                className="flex items-center gap-1.5 text-sm text-white/75 hover:text-primary transition-colors"
+              >
+                <MapPin className="h-3.5 w-3.5 text-primary/70" />
+                {loc.name}
+              </Link>
+            ))}
           </div>
         </div>
 
