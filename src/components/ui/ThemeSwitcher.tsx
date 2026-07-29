@@ -16,10 +16,10 @@ export function ThemeSwitcher({ variant = "light" }: ThemeSwitcherProps) {
   return (
     <button
       onClick={toggleTheme}
-      className={`relative p-2 rounded-full transition-all ${
+      className={`relative p-1.5 rounded-full transition-all ${
         variant === "dark"
-          ? "bg-background/10 text-background hover:bg-background/20"
-          : "bg-secondary text-foreground hover:bg-secondary/80"
+          ? "bg-white/10 text-white hover:bg-white/20"
+          : "bg-white/10 text-white hover:bg-white/20"
       }`}
       aria-label="Toggle theme"
     >
@@ -29,9 +29,9 @@ export function ThemeSwitcher({ variant = "light" }: ThemeSwitcherProps) {
         transition={{ duration: 0.3 }}
       >
         {theme === "dark" ? (
-          <Sun className="h-4 w-4" />
+          <Sun className="h-3.5 w-3.5" />
         ) : (
-          <Moon className="h-4 w-4" />
+          <Moon className="h-3.5 w-3.5" />
         )}
       </motion.div>
     </button>
