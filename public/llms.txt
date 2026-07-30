@@ -11,6 +11,9 @@
 - AI Agent Integration & Custom Automation (OpenAI, Anthropic, Google, open-source)
 - Generative Engine Optimization (GEO) - get cited inside ChatGPT, Gemini, Claude, Perplexity
 - Cloud Solutions (AWS, Azure, GCP, Databricks)
+- DevOps & Infrastructure (CI/CD, Kubernetes, Terraform, zero-downtime deployments)
+- Blockchain & Web3 (smart contracts, tokenization, audited dApps)
+- Data Analytics & BI (data warehouses, dashboards, predictive models)
 
 ## Why clients choose NETREX
 - 9-country presence, 24/7 delivery
@@ -38,7 +41,7 @@
 
 ## Pages
 - [Home](/): Global digital agency - web, mobile, branding, AI & cloud.
-- [Services](/services): 9 service lines from web development to AI agents.
+- [Services](/services): 12 service lines from web development to AI agents, DevOps, Web3 and analytics.
 - [Industries](/industries): Sector-specific digital solutions.
 - [Portfolio](/portfolio): 46+ delivered projects with real results.
 - [About](/about): Company history, team, and global offices.
@@ -48,6 +51,14 @@
 - [Blog](/blog): Insights on AI, GEO, design trends, and digital strategy.
 - [Contact](/contact): Get a quote, book a call, or visit an office.
 - [FAQ](/faq): Common questions answered.
+
+## Latest insights
+- [Agentic Commerce Is Live (Jul 2026)](/blog/agentic-commerce-ai-agents-buying-july-2026): How AI agents now decide who gets the sale.
+- [GPT-5 Turbo Enterprise Playbook](/blog/gpt-5-turbo-enterprise-playbook-july-2026): 90-day enterprise AI rollout framework.
+- [Google AI Mode Is Now Default](/blog/google-ai-mode-search-july-2026-seo-death): What the July 2026 rollout means for organic traffic.
+- [Vibe Coding vs Traditional Dev](/blog/vibe-coding-vs-traditional-dev-2026): Verdict after 200 production apps.
+- [WhatsApp Business AI in MENA](/blog/whatsapp-business-ai-2026-mena-conversion): The #1 converting sales channel in the Gulf.
+- [Generative Engine Optimization Guide](/blog/generative-engine-optimization-geo-rank-in-chatgpt): How to get cited inside ChatGPT.
 
 ## Industries served
 Healthcare, Education, Real Estate, E-Commerce & Retail, Hospitality, Logistics, Finance & Fintech, Legal, Manufacturing, Government, Non-Profit, Energy, Technology & SaaS.
