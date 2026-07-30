@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Header } from "@/components/layout/Header";
+import { SEO } from "@/components/SEO";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import { motion, AnimatePresence } from "framer-motion";
@@ -95,6 +96,21 @@ const SEOROICalculator = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="SEO ROI Calculator | Organic Traffic & Revenue Forecast - NETREX Inc"
+        description="Free SEO ROI calculator: see the organic traffic, leads and revenue you are missing without a proper SEO and GEO strategy."
+        canonical="https://netrex.lovable.app/tools/seo-roi"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "WebApplication",
+          name: "SEO ROI Calculator",
+          applicationCategory: "BusinessApplication",
+          operatingSystem: "Any",
+          url: "https://netrex.lovable.app/tools/seo-roi",
+          offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+          provider: { "@type": "Organization", name: "NETREX INC" },
+        }}
+      />
       <Header />
       <main>
         <section className="pt-32 pb-20 bg-secondary/30 relative overflow-hidden">

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Header } from "@/components/layout/Header";
+import { SEO } from "@/components/SEO";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import { motion, AnimatePresence } from "framer-motion";
@@ -94,6 +95,21 @@ const EcommerceROICalculator = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="E-Commerce ROI Calculator | Store Revenue Forecast - NETREX Inc"
+        description="Free e-commerce ROI calculator: project revenue uplift from conversion optimisation, faster checkout and a better online store."
+        canonical="https://netrex.lovable.app/tools/ecommerce-roi"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "WebApplication",
+          name: "E-Commerce ROI Calculator",
+          applicationCategory: "BusinessApplication",
+          operatingSystem: "Any",
+          url: "https://netrex.lovable.app/tools/ecommerce-roi",
+          offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+          provider: { "@type": "Organization", name: "NETREX INC" },
+        }}
+      />
       <Header />
       <main>
         <section className="pt-32 pb-20 bg-secondary/30 relative overflow-hidden">

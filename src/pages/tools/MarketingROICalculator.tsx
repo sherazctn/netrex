@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Header } from "@/components/layout/Header";
+import { SEO } from "@/components/SEO";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import { motion, AnimatePresence } from "framer-motion";
@@ -94,6 +95,21 @@ const MarketingROICalculator = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="Digital Marketing ROI Calculator | Ad Spend Payback - NETREX Inc"
+        description="Free digital marketing ROI calculator: forecast leads, CAC and return from SEO, paid ads and social campaigns before you spend."
+        canonical="https://netrex.lovable.app/tools/marketing-roi"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "WebApplication",
+          name: "Digital Marketing ROI Calculator",
+          applicationCategory: "BusinessApplication",
+          operatingSystem: "Any",
+          url: "https://netrex.lovable.app/tools/marketing-roi",
+          offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+          provider: { "@type": "Organization", name: "NETREX INC" },
+        }}
+      />
       <Header />
       <main>
         <section className="pt-32 pb-20 bg-secondary/30">

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Header } from "@/components/layout/Header";
+import { SEO } from "@/components/SEO";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import { motion, AnimatePresence } from "framer-motion";
@@ -91,6 +92,21 @@ const MobileAppROICalculator = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="Mobile App ROI Calculator | Is an App Worth It? - NETREX Inc"
+        description="Free mobile app ROI calculator: model development cost, retention, and revenue to see whether an iOS or Android app pays for itself."
+        canonical="https://netrex.lovable.app/tools/mobile-app-roi"
+        schema={{
+          "@context": "https://schema.org",
+          "@type": "WebApplication",
+          name: "Mobile App ROI Calculator",
+          applicationCategory: "BusinessApplication",
+          operatingSystem: "Any",
+          url: "https://netrex.lovable.app/tools/mobile-app-roi",
+          offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+          provider: { "@type": "Organization", name: "NETREX INC" },
+        }}
+      />
       <Header />
       <main>
         <section className="pt-32 pb-20 bg-secondary/30">
