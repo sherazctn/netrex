@@ -289,7 +289,6 @@ export const blogPosts: BlogPost[] = [
     date: "Jul 22, 2026",
     readTime: "10 min read",
     image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=1200&h=600&fit=crop",
-    featured: true,
     keywords: ["GPT-5 Turbo", "enterprise AI 2026", "AI copilots", "AI agents", "OpenAI July 2026"],
   },
   {
@@ -330,6 +329,22 @@ export const blogPosts: BlogPost[] = [
     readTime: "7 min read",
     image: "https://images.unsplash.com/photo-1611746872915-64382b5c76da?w=1200&h=600&fit=crop",
     keywords: ["WhatsApp Business AI", "MENA marketing 2026", "conversational commerce", "WhatsApp conversion"],
+  },
+  // ============ PINNED FEATURED ARTICLE (Jul 2026) ============
+  // The Blog page featured article is pinned to id 24. Change only on explicit request.
+  {
+    id: 24,
+    slug: "agentic-commerce-ai-agents-buying-july-2026",
+    title: "Agentic Commerce Is Live: How AI Agents Now Decide Who Gets the Sale (July 2026)",
+    excerpt: "17% of B2C transactions in July 2026 were started or completed by an autonomous AI agent. If your website is not machine-readable, you are already off the shortlist. Here is the agent-ready playbook.",
+    content: `The biggest shift of 2026 is not that people use AI to search - it is that **AI agents now buy on their behalf**. By July 2026, an estimated *17% of all online B2C transactions* in the US and UAE were initiated or completed by an autonomous agent acting for a human. Your website is no longer only selling to people. It is selling to machines that shortlist on your behalf.\n\n## What Agentic Commerce Actually Looks Like\nA customer says: *\"Book me a dental cleaning near Downtown Dubai under AED 400 this week with 4.5+ reviews.\"* The agent then reads structured data, compares availability, checks trust signals, and books. **No human ever visits your homepage.**\n\n## ***The July 2026 Numbers***\n- **17%** of B2C transactions agent-initiated (up from 3% in Jan 2026)\n- Agents complete checkout **6.4x faster** than humans\n- Brands with machine-readable data get **3.1x more agent shortlists**\n- **62%** of agent purchases go to the *first* compliant option found\n\n## Why Most Websites Are Invisible to Agents\nBeautiful hero sections mean nothing to a crawler. Agents need: **structured data**, *stable URLs*, published pricing, real availability, and machine-readable policies. If your prices live inside a JPEG or behind a \"contact us\" form, you are excluded from the shortlist before the race starts.\n\n## ***The Agent-Ready Checklist NETREX Ships***\n1. **Schema.org everywhere** - Product, Service, Offer, LocalBusiness, FAQPage\n2. *llms.txt and llms-full.txt* so AI engines can ingest your full catalogue\n3. **Public, parseable pricing** - even a range beats nothing\n4. *Real-time availability endpoints* agents can query\n5. **Trust signals in markup** - reviews, certifications, guarantees\n6. *Frictionless machine checkout* - Stripe Agent Commerce, payment links\n7. **Answer-shaped content** - one clear answer per page, no fluff\n\n## Real Results From Agent-Ready Builds\n- **Dubai clinic group** - 41% of new bookings now agent-originated\n- *London B2B SaaS* - cited in 8 of 10 ChatGPT shortlists after GEO rebuild\n- **US e-commerce brand** - +$2.4M in 90 days from agent-driven checkout\n\n## ***What To Do This Quarter***\nRun an agent-readiness audit: ask ChatGPT, Gemini, Perplexity, and Claude to solve a buying problem in your category and see whether you appear. If you do not, you have a **structured data problem**, not a marketing problem - and it is fixable in weeks, not years.\n\n## The Bottom Line\nBy 2027 agentic commerce is projected to touch a third of online revenue. The brands that win are not the ones with the prettiest site - they are the ones a machine can *read, trust, and transact with*. NETREX builds agent-ready websites and GEO systems across 9 countries. Book a 30-minute audit and we will show you exactly where the agents are losing you.`,
+    category: "AI & GEO",
+    author: "Sheraz Khan",
+    date: "Jul 28, 2026",
+    readTime: "11 min read",
+    image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=1200&h=600&fit=crop",
+    featured: true,
+    keywords: ["agentic commerce", "AI agents shopping", "GEO 2026", "machine readable website", "AI search optimization"],
   },
 ];
 
