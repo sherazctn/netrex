@@ -40,9 +40,20 @@ const BlogPost = () => {
       name: "NETREX INC",
       logo: { "@type": "ImageObject", url: "https://netrex.lovable.app/favicon.ico" },
     },
-    datePublished: post.date,
+    datePublished: new Date(post.date).toISOString(),
+    dateModified: new Date(post.date).toISOString(),
     keywords: (post.keywords ?? []).join(", "),
-    mainEntityOfPage: typeof window !== "undefined" ? window.location.href : "",
+    mainEntityOfPage: `https://netrex.lovable.app/blog/${post.slug}`,
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://netrex.lovable.app/" },
+      { "@type": "ListItem", position: 2, name: "Blog", item: "https://netrex.lovable.app/blog" },
+      { "@type": "ListItem", position: 3, name: post.title, item: `https://netrex.lovable.app/blog/${post.slug}` },
+    ],
   };
 
   return (
@@ -60,7 +71,11 @@ const BlogPost = () => {
         <meta name="twitter:title" content={post.title} />
         <meta name="twitter:description" content={post.excerpt} />
         <meta name="twitter:image" content={post.image} />
+        <meta property="article:published_time" content={new Date(post.date).toISOString()} />
+        <meta property="article:author" content={post.author} />
+        <meta property="article:section" content={post.category} />
         <script type="application/ld+json">{JSON.stringify(articleSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
       </Helmet>
       <Header />
       <main>
