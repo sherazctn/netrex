@@ -293,19 +293,21 @@ export function Footer() {
           <h3 className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-white/70 mb-5">
             {t('footer.locations')}
           </h3>
-          <div className="flex flex-wrap justify-center gap-2.5">
-            {footerLinks.locations.map((loc) => (
-              <motion.div key={loc.name} whileHover={{ y: -2 }}>
+          <div className="group relative overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_6%,black_94%,transparent)]">
+            <div className="flex w-max gap-2.5 animate-marquee-x group-hover:[animation-play-state:paused]">
+              {[...footerLinks.locations, ...footerLinks.locations].map((loc, i) => (
                 <Link
+                  key={`${loc.name}-${i}`}
                   to={loc.href}
-                  className="flex items-center gap-2 px-3.5 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-white/80 hover:text-white hover:border-primary/60 hover:bg-primary/10 transition-colors"
+                  className="flex shrink-0 items-center gap-2 px-3.5 py-2 rounded-full bg-white/5 border border-white/10 text-sm whitespace-nowrap text-white/80 hover:text-white hover:border-primary/60 hover:bg-primary/10 transition-colors"
                 >
                   <span className="text-base leading-none">{loc.flag}</span>
                   {loc.name}
                 </Link>
-              </motion.div>
-            ))}
+              ))}
+            </div>
           </div>
+
 
         </div>
 
