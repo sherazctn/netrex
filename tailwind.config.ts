@@ -147,6 +147,7 @@ export default {
         shimmer: "shimmer 2s linear infinite",
         "spin-slow": "spin-slow 3s linear infinite",
         "rotate-gradient": "rotate-gradient 3s linear infinite",
+        "marquee-x": "marquee-x 40s linear infinite",
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
