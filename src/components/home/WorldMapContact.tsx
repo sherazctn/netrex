@@ -430,7 +430,11 @@ export function WorldMapContact() {
                     </AnimatePresence>
                   </div>
 
-                  <Button type="submit" variant="hero" size="lg" className="w-full group">
+                  <Button
+                    type="submit"
+                    size="lg"
+                    className="w-full group bg-primary text-primary-foreground hover:bg-accent hover:text-accent-foreground rounded-full shadow-lg"
+                  >
                     <Send className="h-5 w-5" />
                     {t('contact.form.submit')}
                     <motion.span

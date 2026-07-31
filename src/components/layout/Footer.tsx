@@ -46,16 +46,17 @@ const footerLinks = {
     { name: "Contact", href: "/contact", icon: PhoneCall },
   ],
   locations: [
-    { name: "Dubai, UAE (HQ)", href: "/contact?location=ae" },
-    { name: "New York, USA", href: "/contact?location=us" },
-    { name: "London, UK", href: "/contact?location=uk" },
-    { name: "Berlin, DE", href: "/contact?location=de" },
-    { name: "Vancouver, CA", href: "/contact?location=ca" },
-    { name: "Melbourne, AU", href: "/contact?location=au" },
-    { name: "Singapore, SG", href: "/contact?location=sg" },
-    { name: "Riyadh, SA", href: "/contact?location=sa" },
-    { name: "Lahore, PK", href: "/contact?location=pk" },
+    { name: "Dubai, UAE (HQ)", flag: "🇦🇪", href: "/contact?location=ae" },
+    { name: "New York, USA", flag: "🇺🇸", href: "/contact?location=us" },
+    { name: "London, UK", flag: "🇬🇧", href: "/contact?location=uk" },
+    { name: "Berlin, DE", flag: "🇩🇪", href: "/contact?location=de" },
+    { name: "Vancouver, CA", flag: "🇨🇦", href: "/contact?location=ca" },
+    { name: "Melbourne, AU", flag: "🇦🇺", href: "/contact?location=au" },
+    { name: "Singapore, SG", flag: "🇸🇬", href: "/contact?location=sg" },
+    { name: "Riyadh, SA", flag: "🇸🇦", href: "/contact?location=sa" },
+    { name: "Lahore, PK", flag: "🇵🇰", href: "/contact?location=pk" },
   ],
+
   tools: [
     { name: "Website ROI Calculator", href: "/tools/website-roi", icon: Calculator },
     { name: "Mobile App ROI", href: "/tools/mobile-app-roi", icon: Smartphone },
@@ -195,15 +196,19 @@ export function Footer() {
 
       {/* Main Footer */}
       <div className="container-wide py-16 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
           {/* Brand Column */}
-          <div>
+          <div className="lg:col-span-2 lg:pr-8">
             <Link to="/">
-              <img src={netrexLogoLite} alt="NETREX" className="h-10 w-auto max-w-[160px] object-contain mb-6" />
+              <img src={netrexLogoLite} alt="NETREX" className="h-12 w-auto max-w-[200px] object-contain mb-6" />
             </Link>
-            <p className="text-white/70 text-sm mb-4 leading-relaxed">
+            <p className="text-white/70 text-sm mb-3 leading-relaxed">
               {t('footer.description')}
             </p>
+            <p className="text-white/70 text-sm mb-4 leading-relaxed">
+              {t('footer.description2')}
+            </p>
+
             <div className="flex items-center gap-2 mb-6 flex-wrap">
               <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 border border-white/10">
                 <Award className="h-3.5 w-3.5 text-primary" />
@@ -288,18 +293,20 @@ export function Footer() {
           <h3 className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-white/70 mb-5">
             {t('footer.locations')}
           </h3>
-          <div className="flex flex-wrap justify-center items-center gap-x-6 gap-y-2">
+          <div className="flex flex-wrap justify-center gap-2.5">
             {footerLinks.locations.map((loc) => (
-              <Link
-                key={loc.name}
-                to={loc.href}
-                className="flex items-center gap-1.5 text-sm text-white/75 hover:text-primary transition-colors"
-              >
-                <MapPin className="h-3.5 w-3.5 text-primary/70" />
-                {loc.name}
-              </Link>
+              <motion.div key={loc.name} whileHover={{ y: -2 }}>
+                <Link
+                  to={loc.href}
+                  className="flex items-center gap-2 px-3.5 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-white/80 hover:text-white hover:border-primary/60 hover:bg-primary/10 transition-colors"
+                >
+                  <span className="text-base leading-none">{loc.flag}</span>
+                  {loc.name}
+                </Link>
+              </motion.div>
             ))}
           </div>
+
         </div>
 
         {/* Awards & Certifications */}
