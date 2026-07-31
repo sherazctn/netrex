@@ -293,18 +293,20 @@ export function Footer() {
           <h3 className="text-center text-xs font-semibold uppercase tracking-[0.2em] text-white/70 mb-5">
             {t('footer.locations')}
           </h3>
-          <div className="flex flex-wrap justify-center items-center gap-x-6 gap-y-2">
+          <div className="flex flex-wrap justify-center gap-2.5">
             {footerLinks.locations.map((loc) => (
-              <Link
-                key={loc.name}
-                to={loc.href}
-                className="flex items-center gap-1.5 text-sm text-white/75 hover:text-primary transition-colors"
-              >
-                <MapPin className="h-3.5 w-3.5 text-primary/70" />
-                {loc.name}
-              </Link>
+              <motion.div key={loc.name} whileHover={{ y: -2 }}>
+                <Link
+                  to={loc.href}
+                  className="flex items-center gap-2 px-3.5 py-2 rounded-full bg-white/5 border border-white/10 text-sm text-white/80 hover:text-white hover:border-primary/60 hover:bg-primary/10 transition-colors"
+                >
+                  <span className="text-base leading-none">{loc.flag}</span>
+                  {loc.name}
+                </Link>
+              </motion.div>
             ))}
           </div>
+
         </div>
 
         {/* Awards & Certifications */}
