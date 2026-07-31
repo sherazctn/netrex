@@ -55,7 +55,7 @@ export function LanguageSwitcher({ variant = "light" }: LanguageSwitcherProps) {
         className={`flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-medium transition-all ${
           variant === "dark"
             ? "bg-white/10 text-white hover:bg-white/20"
-            : "bg-white/10 text-white hover:bg-white/20"
+            : "bg-muted text-muted-foreground hover:bg-primary/10 hover:text-primary"
         }`}
       >
         <Globe className="h-3.5 w-3.5" />

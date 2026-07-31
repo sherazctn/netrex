@@ -19,7 +19,7 @@ export function ThemeSwitcher({ variant = "light" }: ThemeSwitcherProps) {
       className={`relative p-1.5 rounded-full transition-all ${
         variant === "dark"
           ? "bg-white/10 text-white hover:bg-white/20"
-          : "bg-white/10 text-white hover:bg-white/20"
+          : "bg-muted text-muted-foreground hover:bg-primary/10 hover:text-primary"
       }`}
       aria-label="Toggle theme"
     >
