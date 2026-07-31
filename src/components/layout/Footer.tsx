@@ -196,15 +196,19 @@ export function Footer() {
 
       {/* Main Footer */}
       <div className="container-wide py-16 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
           {/* Brand Column */}
-          <div>
+          <div className="lg:col-span-2 lg:pr-8">
             <Link to="/">
-              <img src={netrexLogoLite} alt="NETREX" className="h-10 w-auto max-w-[160px] object-contain mb-6" />
+              <img src={netrexLogoLite} alt="NETREX" className="h-12 w-auto max-w-[200px] object-contain mb-6" />
             </Link>
-            <p className="text-white/70 text-sm mb-4 leading-relaxed">
+            <p className="text-white/70 text-sm mb-3 leading-relaxed">
               {t('footer.description')}
             </p>
+            <p className="text-white/70 text-sm mb-4 leading-relaxed">
+              {t('footer.description2')}
+            </p>
+
             <div className="flex items-center gap-2 mb-6 flex-wrap">
               <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 border border-white/10">
                 <Award className="h-3.5 w-3.5 text-primary" />
