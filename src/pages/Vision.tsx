@@ -59,8 +59,8 @@ const Vision = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="Our Vision - NETREX Inc"
-        description="Discover NETREX Inc's vision for the future: AI-first agency, 15 global offices by 2026, 1000+ enterprise clients, and carbon-neutral operations."
+        title="Our Vision | The AI-First Digital Agency - NETREX"
+        description="NETREX Inc's vision for the future: an AI-first agency with 15 global offices, 1000+ enterprise clients and carbon-neutral operations."
         canonical="https://netrex.lovable.app/vision"
       />
       <Header />

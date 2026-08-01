@@ -122,8 +122,8 @@ const Testimonials = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="Client Testimonials - NETREX Inc"
-        description="See what clients say about NETREX Inc. Read verified reviews from businesses across UAE, USA, UK, and 6 other countries."
+        title="Client Testimonials & Reviews - NETREX Inc"
+        description="Read verified NETREX Inc client reviews from businesses across the UAE, USA, UK and 6 other countries on web, mobile, AI and marketing projects."
         canonical="https://netrex.lovable.app/testimonials"
       />
       <Header />

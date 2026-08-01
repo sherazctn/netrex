@@ -170,8 +170,8 @@ const About = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="About - NETREX Inc"
-        description="Learn about NETREX Inc's story, mission, values, and global team. A digital agency delivering web, mobile, AI & marketing solutions across 9 countries since 2016."
+        title="About NETREX Inc | Global Digital Agency Since 2016"
+        description="Meet NETREX Inc: our story, mission, leadership and global team delivering web, mobile, AI and marketing solutions across 9 countries since 2016."
         canonical="https://netrex.lovable.app/about"
       />
       <Header />

@@ -4,7 +4,7 @@ import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { ChevronDown } from "lucide-react";
-import { Helmet } from "react-helmet-async";
+import { SEO } from "@/components/SEO";
 
 const faqs = [
   { q: "What services does NETREX offer?", a: "We offer web development, mobile app development, UI/UX design, digital marketing, branding, e-commerce solutions, AI & automation, and cloud solutions. Our team of 50+ experts works across all major technologies." },
@@ -35,16 +35,13 @@ const FAQ = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <Helmet>
-        <title>FAQ - NETREX Inc</title>
-        <meta name="description" content="Frequently asked questions about NETREX services, pricing, process, and technologies. Get answers about web development, mobile apps, AI automation, and more." />
-        <link rel="canonical" href="https://netrex.lovable.app/faq" />
-        <meta property="og:title" content="FAQ - NETREX Inc" />
-        <meta property="og:description" content="Answers to common questions about NETREX web development, mobile apps, AI automation, pricing, and process." />
-        <meta property="og:url" content="https://netrex.lovable.app/faq" />
-        <meta property="og:type" content="website" />
-        <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
-      </Helmet>
+      <SEO
+        title="FAQ | Pricing, Process & Timelines - NETREX Inc"
+        description="Answers to common questions about NETREX Inc pricing, project timelines, process and technologies for web development, mobile apps, AI automation and marketing."
+        canonical="https://netrex.lovable.app/faq"
+        schema={faqSchema}
+      />
+
       <Header />
       <main>
         <section className="pt-32 pb-16 bg-secondary/30">

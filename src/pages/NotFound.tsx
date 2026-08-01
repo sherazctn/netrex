@@ -13,9 +13,10 @@ const NotFound = () => {
     <div className="flex min-h-screen items-center justify-center bg-muted">
       <SEO
         title="Page Not Found - NETREX Inc"
-        description="The page you are looking for does not exist. Return to NETREX Inc homepage."
-        canonical="https://netrex.lovable.app/"
+        description="The page you are looking for does not exist. Return to the NETREX Inc homepage to explore our digital services."
+        canonical="https://netrex.lovable.app/404"
         noindex
+
       />
       <div className="text-center">
         <h1 className="mb-4 text-4xl font-bold">404</h1>

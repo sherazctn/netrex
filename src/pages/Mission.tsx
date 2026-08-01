@@ -56,8 +56,8 @@ const Mission = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="Our Mission - NETREX Inc"
-        description="NETREX Inc's mission is to empower businesses worldwide with innovative digital solutions, from web development and AI automation to branding and marketing."
+        title="Our Mission | Digital Innovation Worldwide - NETREX"
+        description="NETREX Inc's mission: empower businesses worldwide with innovative digital solutions, from web development and AI automation to branding and performance marketing."
         canonical="https://netrex.lovable.app/mission"
       />
       <Header />
