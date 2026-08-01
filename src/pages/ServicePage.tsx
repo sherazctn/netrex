@@ -740,8 +740,9 @@ const ServicePage = () => {
       <div className="min-h-screen bg-background flex items-center justify-center">
         <SEO
           title="Service Not Found - NETREX Inc"
-          description="The requested service could not be found."
+          description="This service page does not exist. Browse all NETREX Inc digital services instead."
           canonical="https://netrex.lovable.app/services"
+          noindex
           noindex
         />
         <div className="text-center">

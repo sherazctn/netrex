@@ -15,6 +15,12 @@ const BlogPost = () => {
   if (!post) {
     return (
       <div className="min-h-screen bg-background">
+        <SEO
+          title="Article Not Found - NETREX Blog"
+          description="This article does not exist or has been moved. Browse the NETREX Inc blog for the latest insights."
+          canonical="https://netrex.lovable.app/blog"
+          noindex
+        />
         <Header />
         <main className="pt-32 pb-16 text-center">
           <h1 className="text-2xl font-bold">Article not found</h1>
