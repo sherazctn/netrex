@@ -4,6 +4,7 @@ import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import { motion } from "framer-motion";
 import { useParams, Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import { SEO } from "@/components/SEO";
 import { ArrowLeft, Calendar, User, Clock, Share2, Linkedin, Twitter, Facebook } from "lucide-react";
 import { getPostByIdOrSlug, blogPosts } from "@/data/blogData";
 
@@ -14,6 +15,12 @@ const BlogPost = () => {
   if (!post) {
     return (
       <div className="min-h-screen bg-background">
+        <SEO
+          title="Article Not Found - NETREX Blog"
+          description="This article does not exist or has been moved. Browse the NETREX Inc blog for the latest insights."
+          canonical="https://netrex.lovable.app/blog"
+          noindex
+        />
         <Header />
         <main className="pt-32 pb-16 text-center">
           <h1 className="text-2xl font-bold">Article not found</h1>
@@ -27,6 +34,15 @@ const BlogPost = () => {
   const shareUrl = typeof window !== "undefined" ? window.location.href : "";
   const shareText = encodeURIComponent(post.title);
   const related = blogPosts.filter((p) => p.id !== post.id && p.category === post.category).slice(0, 3);
+
+  // Keep meta titles under ~60 characters: trim long headlines to their main clause.
+  const shortHeadline = post.title.split(/[:(]/)[0].trim();
+  const seoTitle =
+    post.title.length <= 46
+      ? `${post.title} - NETREX Blog`
+      : shortHeadline.length <= 46
+        ? `${shortHeadline} - NETREX Blog`
+        : `${shortHeadline.slice(0, 46).trim()} - NETREX`;
 
   const articleSchema = {
     "@context": "https://schema.org",
@@ -58,24 +74,18 @@ const BlogPost = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title={seoTitle}
+        description={post.excerpt}
+        canonical={`https://netrex.lovable.app/blog/${post.slug}`}
+        ogImage={post.image}
+        ogType="article"
+        schema={{ "@context": "https://schema.org", "@graph": [articleSchema, breadcrumbSchema] }}
+      />
       <Helmet>
-        <title>{post.title} - NETREX Blog</title>
-        <meta name="description" content={post.excerpt} />
-        <link rel="canonical" href={`https://netrex.lovable.app/blog/${post.slug}`} />
-        <meta property="og:title" content={post.title} />
-        <meta property="og:description" content={post.excerpt} />
-        <meta property="og:url" content={`https://netrex.lovable.app/blog/${post.slug}`} />
-        <meta property="og:type" content="article" />
-        <meta property="og:image" content={post.image} />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={post.title} />
-        <meta name="twitter:description" content={post.excerpt} />
-        <meta name="twitter:image" content={post.image} />
         <meta property="article:published_time" content={new Date(post.date).toISOString()} />
         <meta property="article:author" content={post.author} />
         <meta property="article:section" content={post.category} />
-        <script type="application/ld+json">{JSON.stringify(articleSchema)}</script>
-        <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
       </Helmet>
       <Header />
       <main>

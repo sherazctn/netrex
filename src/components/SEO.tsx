@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 
 interface SEOProps {
@@ -23,11 +24,32 @@ export function SEO({
 }: SEOProps) {
   const fullTitle = title.includes("NETREX") ? title : `${title} - NETREX Inc`;
 
+  // The static index.html ships a sitewide description/robots for non-JS crawlers.
+  // Once a route mounts, drop those unmanaged duplicates so each page has exactly one.
+  useEffect(() => {
+    const strip = () => {
+      ["description", "robots"].forEach((name) => {
+        document
+          .querySelectorAll(`head meta[name="${name}"]:not([data-rh])`)
+          .forEach((el) => el.remove());
+      });
+      document
+        .querySelectorAll('head link[rel="canonical"]:not([data-rh])')
+        .forEach((el) => el.remove());
+    };
+    strip();
+    const id = window.requestAnimationFrame(strip);
+    return () => window.cancelAnimationFrame(id);
+  }, [description, canonical, noindex]);
+
   return (
     <Helmet>
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
-      {noindex && <meta name="robots" content="noindex, nofollow" />}
+      <meta
+        name="robots"
+        content={noindex ? "noindex, nofollow" : "index, follow, max-image-preview:large, max-snippet:-1"}
+      />
       <link rel="canonical" href={canonical} />
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />

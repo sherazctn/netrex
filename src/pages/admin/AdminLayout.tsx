@@ -15,6 +15,7 @@ import {
 } from "lucide-react";
 import netrexLogo from "@/assets/netrex-logo.png";
 import { Button } from "@/components/ui/button";
+import { SEO } from "@/components/SEO";
 
 const sidebarLinks = [
   { name: "Dashboard", href: "/admin/dashboard", icon: LayoutDashboard },
@@ -46,6 +47,7 @@ const AdminLayout = () => {
 
   return (
     <div className="min-h-screen bg-secondary/30">
+      <SEO title="Admin - NETREX Inc" description="NETREX Inc internal administration area." canonical="https://netrex.lovable.app/admin/dashboard" noindex />
       {/* Sidebar */}
       <aside
         className={`fixed top-0 left-0 z-40 h-screen bg-card border-r border-border transition-all duration-300 ${

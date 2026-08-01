@@ -93,7 +93,7 @@ const MobileAppROICalculator = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="Mobile App ROI Calculator | Is an App Worth It? - NETREX Inc"
+        title="Mobile App ROI Calculator | Free App Payback - NETREX"
         description="Free mobile app ROI calculator: model development cost, retention, and revenue to see whether an iOS or Android app pays for itself."
         canonical="https://netrex.lovable.app/tools/mobile-app-roi"
         schema={{

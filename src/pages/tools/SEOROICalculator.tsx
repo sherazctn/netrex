@@ -97,7 +97,7 @@ const SEOROICalculator = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="SEO ROI Calculator | Organic Traffic & Revenue Forecast - NETREX Inc"
+        title="SEO ROI Calculator | Free Traffic & Revenue Tool - NETREX"
         description="Free SEO ROI calculator: see the organic traffic, leads and revenue you are missing without a proper SEO and GEO strategy."
         canonical="https://netrex.lovable.app/tools/seo-roi"
         schema={{

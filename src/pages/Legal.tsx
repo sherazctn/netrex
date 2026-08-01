@@ -154,8 +154,8 @@ function maskRegNumber(num: string): string {
 const Legal = () => (
   <div className="min-h-screen bg-background">
     <SEO
-      title="Legal & Regulatory Information - NETREX Inc"
-      description="NETREX Inc legal entities and registrations. View our company registration details across UAE, UK, USA, Australia, Germany, Singapore, and Saudi Arabia."
+      title="Legal & Company Registrations - NETREX Inc"
+      description="NETREX Inc legal entities and registration details across the UAE, UK, USA, Australia, Germany, Singapore and Saudi Arabia, plus GDPR and CCPA compliance."
       canonical="https://netrex.lovable.app/legal"
     />
     <Header />

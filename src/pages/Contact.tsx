@@ -3,7 +3,7 @@ import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import { WorldMapContact } from "@/components/home/WorldMapContact";
 import { motion } from "framer-motion";
-import { Helmet } from "react-helmet-async";
+import { SEO } from "@/components/SEO";
 
 const contactSchema = {
   "@context": "https://schema.org",
@@ -145,16 +145,13 @@ const contactSchema = {
 const Contact = () => {
   return (
     <div className="min-h-screen bg-background">
-      <Helmet>
-        <title>Contact - NETREX Inc | Get a Quote</title>
-        <meta name="description" content="Contact NETREX Inc for web development, mobile apps, AI automation, branding, and digital marketing. Offices in Dubai, New York, London, Berlin, Vancouver, Melbourne, Singapore, Riyadh & Lahore." />
-        <link rel="canonical" href="https://netrex.lovable.app/contact" />
-        <meta property="og:title" content="Contact - NETREX Inc | Get a Quote" />
-        <meta property="og:description" content="Get in touch with NETREX Inc. Offices in 9 countries. Free consultation for web, mobile, AI & digital marketing projects." />
-        <meta property="og:url" content="https://netrex.lovable.app/contact" />
-        <meta property="og:type" content="website" />
-        <script type="application/ld+json">{JSON.stringify(contactSchema)}</script>
-      </Helmet>
+      <SEO
+        title="Contact NETREX Inc | Free Quote in 9 Countries"
+        description="Talk to NETREX Inc about web development, mobile apps, AI automation, branding and digital marketing. Offices in Dubai, New York, London, Berlin, Vancouver, Melbourne, Singapore, Riyadh and Lahore."
+        canonical="https://netrex.lovable.app/contact"
+        schema={contactSchema}
+      />
+
       <Header />
       <main>
         {/* Hero Section */}

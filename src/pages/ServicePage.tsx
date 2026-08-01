@@ -740,7 +740,7 @@ const ServicePage = () => {
       <div className="min-h-screen bg-background flex items-center justify-center">
         <SEO
           title="Service Not Found - NETREX Inc"
-          description="The requested service could not be found."
+          description="This service page does not exist. Browse all NETREX Inc digital services instead."
           canonical="https://netrex.lovable.app/services"
           noindex
         />
@@ -758,7 +758,7 @@ const ServicePage = () => {
     <div className="min-h-screen bg-background">
       <SEO
         title={`${data.title} - NETREX Inc Services`}
-        description={data.description}
+        description={`${data.description} NETREX Inc delivers ${data.title.toLowerCase()} for clients across 9 countries, with senior teams and fixed timelines.`}
         canonical={`https://netrex.lovable.app/services/${service}`}
       />
       <Header />
