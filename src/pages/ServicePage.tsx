@@ -743,7 +743,6 @@ const ServicePage = () => {
           description="This service page does not exist. Browse all NETREX Inc digital services instead."
           canonical="https://netrex.lovable.app/services"
           noindex
-          noindex
         />
         <div className="text-center">
           <h1 className="text-4xl font-bold mb-4">Service Not Found</h1>
