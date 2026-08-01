@@ -96,7 +96,7 @@ const BrandingROICalculator = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="Branding ROI Calculator | Value of a Rebrand - NETREX Inc"
+        title="Branding ROI Calculator | Free Rebrand Value Tool - NETREX"
         description="Free branding ROI calculator: quantify how a stronger brand identity lifts conversion, pricing power and customer trust."
         canonical="https://netrex.lovable.app/tools/branding-roi"
         schema={{

@@ -14,7 +14,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="NETREX Inc - Premier Digital Marketing & Web Development Agency"
+        title="NETREX Inc | Digital Marketing & Web Development Agency"
         description="Global digital agency for web development, mobile apps, AI automation, branding, e-commerce, SEO & GEO. Serving UAE, US, UK, Canada, Australia, Germany, Saudi Arabia, Singapore & Pakistan since 2016."
         canonical="https://netrex.lovable.app/"
       />

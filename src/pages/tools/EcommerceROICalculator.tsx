@@ -96,7 +96,7 @@ const EcommerceROICalculator = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="E-Commerce ROI Calculator | Store Revenue Forecast - NETREX Inc"
+        title="E-Commerce ROI Calculator | Free Revenue Tool - NETREX"
         description="Free e-commerce ROI calculator: project revenue uplift from conversion optimisation, faster checkout and a better online store."
         canonical="https://netrex.lovable.app/tools/ecommerce-roi"
         schema={{

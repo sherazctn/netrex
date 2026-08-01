@@ -96,7 +96,7 @@ const MarketingROICalculator = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="Digital Marketing ROI Calculator | Ad Spend Payback - NETREX Inc"
+        title="Marketing ROI Calculator | Free Ad Payback Tool - NETREX"
         description="Free digital marketing ROI calculator: forecast leads, CAC and return from SEO, paid ads and social campaigns before you spend."
         canonical="https://netrex.lovable.app/tools/marketing-roi"
         schema={{
