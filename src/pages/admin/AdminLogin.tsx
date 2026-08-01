@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Eye, EyeOff, Lock, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { SEO } from "@/components/SEO";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
@@ -66,6 +67,7 @@ const AdminLogin = () => {
 
   return (
     <div className="min-h-screen bg-secondary/30 flex items-center justify-center p-4">
+      <SEO title="Admin Login - NETREX Inc" description="Restricted administrator access for NETREX Inc." canonical="https://netrex.lovable.app/admin" noindex />
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
