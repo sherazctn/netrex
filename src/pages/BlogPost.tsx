@@ -4,6 +4,7 @@ import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import { motion } from "framer-motion";
 import { useParams, Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import { SEO } from "@/components/SEO";
 import { ArrowLeft, Calendar, User, Clock, Share2, Linkedin, Twitter, Facebook } from "lucide-react";
 import { getPostByIdOrSlug, blogPosts } from "@/data/blogData";
 
@@ -58,24 +59,18 @@ const BlogPost = () => {
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title={post.title.length > 46 ? post.title : `${post.title} - NETREX Blog`}
+        description={post.excerpt}
+        canonical={`https://netrex.lovable.app/blog/${post.slug}`}
+        ogImage={post.image}
+        ogType="article"
+        schema={{ "@context": "https://schema.org", "@graph": [articleSchema, breadcrumbSchema] }}
+      />
       <Helmet>
-        <title>{post.title.length > 46 ? post.title : `${post.title} - NETREX Blog`}</title>
-        <meta name="description" content={post.excerpt} />
-        <link rel="canonical" href={`https://netrex.lovable.app/blog/${post.slug}`} />
-        <meta property="og:title" content={post.title} />
-        <meta property="og:description" content={post.excerpt} />
-        <meta property="og:url" content={`https://netrex.lovable.app/blog/${post.slug}`} />
-        <meta property="og:type" content="article" />
-        <meta property="og:image" content={post.image} />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={post.title} />
-        <meta name="twitter:description" content={post.excerpt} />
-        <meta name="twitter:image" content={post.image} />
         <meta property="article:published_time" content={new Date(post.date).toISOString()} />
         <meta property="article:author" content={post.author} />
         <meta property="article:section" content={post.category} />
-        <script type="application/ld+json">{JSON.stringify(articleSchema)}</script>
-        <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
       </Helmet>
       <Header />
       <main>
