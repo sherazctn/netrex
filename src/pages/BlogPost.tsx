@@ -35,6 +35,15 @@ const BlogPost = () => {
   const shareText = encodeURIComponent(post.title);
   const related = blogPosts.filter((p) => p.id !== post.id && p.category === post.category).slice(0, 3);
 
+  // Keep meta titles under ~60 characters: trim long headlines to their main clause.
+  const shortHeadline = post.title.split(/[:(]/)[0].trim();
+  const seoTitle =
+    post.title.length <= 46
+      ? `${post.title} - NETREX Blog`
+      : shortHeadline.length <= 46
+        ? `${shortHeadline} - NETREX Blog`
+        : `${shortHeadline.slice(0, 46).trim()} - NETREX`;
+
   const articleSchema = {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -66,7 +75,7 @@ const BlogPost = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title={post.title.length > 46 ? post.title : `${post.title} - NETREX Blog`}
+        title={seoTitle}
         description={post.excerpt}
         canonical={`https://netrex.lovable.app/blog/${post.slug}`}
         ogImage={post.image}
