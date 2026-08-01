@@ -46,7 +46,10 @@ export function SEO({
     <Helmet>
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
-      {noindex && <meta name="robots" content="noindex, nofollow" />}
+      <meta
+        name="robots"
+        content={noindex ? "noindex, nofollow" : "index, follow, max-image-preview:large, max-snippet:-1"}
+      />
       <link rel="canonical" href={canonical} />
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
