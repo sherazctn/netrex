@@ -765,42 +765,31 @@ const ServicePage = () => {
       <Header />
       <main>
         {/* Hero Section - No Image */}
-        <section className="pt-32 pb-20 bg-secondary/30 overflow-hidden">
-          <div className="container-wide">
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="max-w-4xl mx-auto text-center">
-              
-              <span className="inline-block text-sm font-semibold text-primary uppercase tracking-wider mb-4">
-                {data.title}
-              </span>
-              <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-                {data.hero}
-              </h1>
-              <p className="text-lg md:text-xl text-muted-foreground mb-4 max-w-3xl mx-auto">
-                {data.description}
-              </p>
-              <p className="text-muted-foreground mb-10 max-w-3xl mx-auto">
-                {data.longDescription}
-              </p>
-              <div className="flex flex-wrap justify-center gap-4">
-                <Link to="/contact">
-                  <Button size="lg" className="group bg-primary hover:bg-primary/90 text-white rounded-full shadow-lg hover:shadow-xl">
-                    Start Your Project
-                    <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
-                  </Button>
-                </Link>
-                <Link to="/portfolio">
-                  <Button variant="outline" size="lg" className="rounded-full">
-                    View Our Work
-                  </Button>
-                </Link>
-              </div>
-            </motion.div>
+        <PageHero
+          badge={data.title}
+          title={data.hero}
+          description={
+            <>
+              {data.description}
+              <span className="mt-4 block text-base text-muted-foreground">{data.longDescription}</span>
+            </>
+          }
+        >
+          <div className="flex flex-wrap justify-center gap-4">
+            <Link to="/contact">
+              <Button variant="hero" size="lg" className="group">
+                Start Your Project
+                <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+              </Button>
+            </Link>
+            <Link to="/portfolio">
+              <Button variant="outline" size="lg">
+                View Our Work
+              </Button>
+            </Link>
           </div>
-        </section>
+        </PageHero>
+
 
         {/* What We Offer - With Icons and Image Animation */}
         <section className="section-padding">
