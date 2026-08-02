@@ -64,44 +64,27 @@ const Mission = () => {
       <Header />
       <main>
         {/* Hero */}
-        <section className="pt-32 pb-20 bg-secondary/30 relative overflow-hidden">
-          <div className="absolute inset-0 opacity-5">
-            <div className="absolute top-20 left-10 w-72 h-72 bg-primary rounded-full blur-3xl" />
-            <div className="absolute bottom-10 right-10 w-96 h-96 bg-primary rounded-full blur-3xl" />
+        <PageHero
+          badge="Our Mission"
+          title="Empowering Businesses Through"
+          highlight="Digital Excellence"
+          description="At NETREX, our mission is to democratize world-class digital solutions, making enterprise-grade technology accessible to businesses of every size across the globe. We exist to transform ambitious ideas into powerful digital realities that drive growth, efficiency, and lasting impact."
+        >
+          <div className="flex flex-wrap justify-center gap-4">
+            <Link to="/contact">
+              <Button variant="hero" size="lg" className="group">
+                Start Your Journey
+                <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+              </Button>
+            </Link>
+            <Link to="/portfolio">
+              <Button variant="outline" size="lg">
+                See Our Impact
+              </Button>
+            </Link>
           </div>
-          <div className="container-wide relative z-10">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="text-center max-w-4xl mx-auto"
-            >
-              <span className="inline-block text-sm font-semibold text-primary uppercase tracking-wider mb-4">
-                Our Mission
-              </span>
-              <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-                Empowering Businesses Through{" "}
-                <span className="text-primary">Digital Excellence</span>
-              </h1>
-              <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-                At NETREX, our mission is to democratize world-class digital solutions, making enterprise-grade technology accessible to businesses of every size across the globe. We exist to transform ambitious ideas into powerful digital realities that drive growth, efficiency, and lasting impact.
-              </p>
-              <div className="flex flex-wrap justify-center gap-4">
-                <Link to="/contact">
-                  <Button variant="hero" size="lg" className="group">
-                    Start Your Journey
-                    <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
-                  </Button>
-                </Link>
-                <Link to="/portfolio">
-                  <Button variant="outline" size="lg">
-                    See Our Impact
-                  </Button>
-                </Link>
-              </div>
-            </motion.div>
-          </div>
-        </section>
+        </PageHero>
+
 
         {/* Stats */}
         <section className="py-16 bg-foreground text-background">
