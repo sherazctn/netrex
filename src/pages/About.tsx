@@ -178,74 +178,48 @@ const About = () => {
       <Header />
       <main>
         {/* Hero Section */}
-        <section className="pt-32 pb-16 bg-secondary/30">
+        <PageHero
+          badge="About NETREX"
+          title="Where Innovation"
+          highlight="Meets Reality"
+          description="Since 2016, NETREX has been at the forefront of digital innovation, helping businesses worldwide transform their ideas into powerful digital solutions. With offices across 6 countries, we bring global expertise to every project."
+        >
+          <div className="flex flex-wrap justify-center gap-4">
+            <Link to="/contact">
+              <Button variant="hero" size="lg" className="group">
+                Work With Us
+                <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+              </Button>
+            </Link>
+            <Link to="/portfolio">
+              <Button variant="outline" size="lg">
+                View Our Work
+              </Button>
+            </Link>
+          </div>
+        </PageHero>
+
+        {/* Key numbers */}
+        <section className="py-12">
           <div className="container-wide">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <motion.div
-                initial={{ opacity: 0, x: -40 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6 }}>
-                
-                <span className="inline-block text-sm font-semibold text-primary uppercase tracking-wider mb-4">
-                  About NETREX
-                </span>
-                <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-                  Where Innovation{" "}
-                  <span className="text-primary">Meets Reality</span>
-                </h1>
-                <p className="text-lg text-muted-foreground mb-8">
-                  Since 2016, NETREX has been at the forefront of digital innovation, 
-                  helping businesses worldwide transform their ideas into powerful digital solutions. 
-                  With offices across 6 countries, we bring global expertise to every project.
-                </p>
-                <div className="flex flex-wrap gap-4">
-                  <Link to="/contact">
-                    <Button size="lg" className="group bg-primary text-primary-foreground hover:bg-primary/90">
-                      Work With Us
-                      <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
-                    </Button>
-                  </Link>
-                  <Link to="/portfolio">
-                    <Button variant="outline" size="lg">
-                      View Our Work
-                    </Button>
-                  </Link>
-                </div>
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0, x: 40 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="grid grid-cols-2 gap-4">
-                
-                <div className="p-6 rounded-3xl bg-primary text-white text-center">
-                  <div className="text-4xl font-display font-bold mb-2">
-                    <CountUpNumber end={500} suffix="+" />
-                  </div>
-                  <div className="text-white/80">Projects</div>
-                </div>
-                <div className="p-6 rounded-3xl bg-card border border-border text-center">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+              {[
+                { end: 500, suffix: "+", label: "Projects" },
+                { end: 8, suffix: "+", label: "Years" },
+                { end: 6, suffix: "", label: "Countries" },
+                { end: 200, suffix: "+", label: "Clients" },
+              ].map((s) => (
+                <div key={s.label} className="p-6 rounded-3xl bg-card border border-border text-center">
                   <div className="text-4xl font-display font-bold text-primary mb-2">
-                    <CountUpNumber end={8} suffix="+" />
+                    <CountUpNumber end={s.end} suffix={s.suffix} />
                   </div>
-                  <div className="text-muted-foreground">Years</div>
+                  <div className="text-muted-foreground">{s.label}</div>
                 </div>
-                <div className="p-6 rounded-3xl bg-card border border-border text-center">
-                  <div className="text-4xl font-display font-bold text-primary mb-2">
-                    <CountUpNumber end={6} />
-                  </div>
-                  <div className="text-muted-foreground">Countries</div>
-                </div>
-                <div className="p-6 rounded-3xl bg-accent text-white text-center">
-                  <div className="text-4xl font-display font-bold mb-2">
-                    <CountUpNumber end={200} suffix="+" />
-                  </div>
-                  <div className="text-white/80">Clients</div>
-                </div>
-              </motion.div>
+              ))}
             </div>
           </div>
         </section>
+
 
         {/* CEO Message */}
         <section className="relative py-24 md:py-32 overflow-hidden bg-gradient-to-b from-background via-secondary/20 to-background">
