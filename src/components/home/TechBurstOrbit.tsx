@@ -54,7 +54,10 @@ export function TechBurstOrbit() {
         const outAngle = inAngle + 168 + (i % 3) * 8;
         const delay = (i * PERIOD) / techs.length;
         const start = polar(inAngle, R_EDGE);
-        const swing = polar(inAngle + 90, 84); // curved slingshot around the core
+        // Curved slingshot: skim around the red core instead of covering it
+        const approach = polar(inAngle + 42, 195);
+        const swing = polar(inAngle + 108, 145);
+        const release = polar(outAngle - 40, 205);
         const exit = polar(outAngle, R_EDGE);
         const cycle = {
           duration: TRAVEL,
@@ -69,12 +72,12 @@ export function TechBurstOrbit() {
             <motion.g
               initial={{ opacity: 0 }}
               animate={{
-                x: [start.x - CX, swing.x - CX, 0, exit.x - CX],
-                y: [start.y - CY, swing.y - CY, 0, exit.y - CY],
-                opacity: [0, 1, 1, 0],
-                scale: [0.35, 1, 1.12, 0.75],
+                x: [start.x - CX, approach.x - CX, swing.x - CX, release.x - CX, exit.x - CX],
+                y: [start.y - CY, approach.y - CY, swing.y - CY, release.y - CY, exit.y - CY],
+                opacity: [0, 1, 1, 1, 0],
+                scale: [0.35, 0.95, 1.1, 1, 0.7],
               }}
-              transition={{ ...cycle, ease: [0.4, 0, 0.5, 1], times: [0, 0.42, 0.7, 1] }}
+              transition={{ ...cycle, ease: "easeInOut", times: [0, 0.3, 0.55, 0.8, 1] }}
             >
               {/* motion trail */}
               <motion.circle
