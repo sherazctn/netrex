@@ -77,19 +77,6 @@ const techLogos = {
     logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/illustrator/illustrator-plain.svg"
   }]
 };
-const bouncePaths = [{
-  startAngle: 0,
-  direction: 1
-}, {
-  startAngle: 90,
-  direction: -1
-}, {
-  startAngle: 180,
-  direction: 1
-}, {
-  startAngle: 270,
-  direction: -1
-}];
 export function Hero() {
   const {
     t
@@ -100,7 +87,6 @@ export function Hero() {
   const y2 = useTransform(scrollY, [0, 500], [0, -100]);
   const rotate = useTransform(scrollY, [0, 500], [0, 180]);
   const scale = useTransform(scrollY, [0, 300], [1, 0.9]);
-  const categories = ['web', 'mobile', 'cloud', 'design'] as const;
   return <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-secondary/30">
       {/* Background Pattern */}
       <div className="absolute inset-0 bg-hero-pattern opacity-50"></div>
