@@ -345,40 +345,9 @@ export function Hero() {
                 }} />
                 </motion.g>
 
-                {/* Bouncing Tech Logos - 4 at a time from different angles */}
-                {categories.map((category, categoryIndex) => {
-                const logos = techLogos[category];
-                const path = bouncePaths[categoryIndex];
-                return logos.map((tech, techIndex) => {
-                  const baseAngle = path.startAngle + techIndex * 60;
-                  const delay = categoryIndex * 0.8 + techIndex * 3;
-                  return <motion.g key={`${category}-${techIndex}`} initial={{
-                    opacity: 0
-                  }} animate={{
-                    opacity: [0, 1, 1, 1, 0]
-                  }} transition={{
-                    duration: 4,
-                    repeat: Infinity,
-                    delay: delay,
-                    repeatDelay: categories.length * logos.length * 0.5,
-                    times: [0, 0.1, 0.5, 0.9, 1]
-                  }}>
-                        <motion.g animate={{
-                      x: [270 * Math.cos(baseAngle * Math.PI / 180), 0, -30 * Math.cos(baseAngle * Math.PI / 180), 0, 270 * Math.cos((baseAngle + 180) * Math.PI / 180)],
-                      y: [270 * Math.sin(baseAngle * Math.PI / 180), 0, -30 * Math.sin(baseAngle * Math.PI / 180), 0, 270 * Math.sin((baseAngle + 180) * Math.PI / 180)]
-                    }} transition={{
-                      duration: 4,
-                      repeat: Infinity,
-                      delay: delay,
-                      repeatDelay: categories.length * logos.length * 0.5,
-                      ease: "easeInOut"
-                    }}>
-                          <circle cx="300" cy="300" r="28" fill="hsl(var(--background))" stroke="hsl(359 85% 53% / 0.4)" strokeWidth="2" />
-                          <image href={tech.logo} x="280" y="280" width="40" height="40" />
-                        </motion.g>
-                      </motion.g>;
-                });
-              })}
+                {/* Tech icons streaming in, slingshotting the core, bursting on exit */}
+                <TechBurstOrbit />
+
 
                 {/* Static orbiting tech icons */}
                 {[0, 72, 144, 216, 288].map((angle, i) => {
