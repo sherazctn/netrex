@@ -67,44 +67,27 @@ const Vision = () => {
       <Header />
       <main>
         {/* Hero */}
-        <section className="pt-32 pb-20 bg-secondary/30 relative overflow-hidden">
-          <div className="absolute inset-0 opacity-5">
-            <div className="absolute top-20 right-20 w-72 h-72 bg-primary rounded-full blur-3xl" />
-            <div className="absolute bottom-10 left-10 w-96 h-96 bg-primary rounded-full blur-3xl" />
+        <PageHero
+          badge="Our Vision"
+          title="Shaping the Future of"
+          highlight="Digital Innovation"
+          description="We envision a world where every business - regardless of size, location, or industry - has access to transformative digital technology that levels the playing field. By 2030, NETREX aims to be the most trusted and impactful digital agency on the planet."
+        >
+          <div className="flex flex-wrap justify-center gap-4">
+            <Link to="/contact">
+              <Button variant="hero" size="lg" className="group">
+                Build the Future With Us
+                <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
+              </Button>
+            </Link>
+            <Link to="/mission">
+              <Button variant="outline" size="lg">
+                Read Our Mission
+              </Button>
+            </Link>
           </div>
-          <div className="container-wide relative z-10">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="text-center max-w-4xl mx-auto"
-            >
-              <span className="inline-block text-sm font-semibold text-primary uppercase tracking-wider mb-4">
-                Our Vision
-              </span>
-              <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-                Shaping the Future of{" "}
-                <span className="text-primary">Digital Innovation</span>
-              </h1>
-              <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
-                We envision a world where every business - regardless of size, location, or industry - has access to transformative digital technology that levels the playing field. By 2030, NETREX aims to be the most trusted and impactful digital agency on the planet.
-              </p>
-              <div className="flex flex-wrap justify-center gap-4">
-                <Link to="/contact">
-                  <Button variant="hero" size="lg" className="group">
-                    Build the Future With Us
-                    <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
-                  </Button>
-                </Link>
-                <Link to="/mission">
-                  <Button variant="outline" size="lg">
-                    Read Our Mission
-                  </Button>
-                </Link>
-              </div>
-            </motion.div>
-          </div>
-        </section>
+        </PageHero>
+
 
         {/* Vision Statement */}
         <section className="py-20">
