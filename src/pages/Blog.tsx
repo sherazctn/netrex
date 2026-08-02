@@ -1,4 +1,5 @@
 import { Header } from "@/components/layout/Header";
+import { PageHero } from "@/components/layout/PageHero";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import { SEO } from "@/components/SEO";
@@ -38,36 +39,23 @@ const Blog = () => {
       <Header />
       <main>
         {/* Hero Section */}
-        <section className="pt-32 pb-16 bg-secondary/30">
-          <div className="container-wide">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="text-center max-w-3xl mx-auto"
-            >
-              <span className="inline-block text-sm font-semibold text-primary uppercase tracking-wider mb-4">
-                Blog
-              </span>
-              <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-                Insights &{" "}
-                <span className="text-gradient">Resources</span>
-              </h1>
-              <p className="text-lg text-muted-foreground mb-8">
-                Stay updated with the latest trends, tips, and insights from our team of experts.
-              </p>
-              <div className="max-w-md mx-auto">
-                <Input
-                  type="search"
-                  placeholder="Search articles..."
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  className="rounded-full"
-                />
-              </div>
-            </motion.div>
+        <PageHero
+          badge="Blog"
+          title="Insights &"
+          highlight="Resources"
+          description="Stay updated with the latest trends, tips, and insights from our team of experts."
+        >
+          <div className="max-w-md mx-auto">
+            <Input
+              type="search"
+              placeholder="Search articles..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="rounded-full"
+            />
           </div>
-        </section>
+        </PageHero>
+
 
         {/* Categories */}
         <section className="py-8 border-b border-border">

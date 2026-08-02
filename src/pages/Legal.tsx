@@ -1,4 +1,5 @@
 import { Header } from "@/components/layout/Header";
+import { PageHero } from "@/components/layout/PageHero";
 import { SEO } from "@/components/SEO";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
@@ -160,22 +161,13 @@ const Legal = () => (
     />
     <Header />
     <main>
-      <section className="pt-32 pb-16 bg-secondary/30">
-        <div className="container-wide text-center max-w-3xl mx-auto">
-          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-            <span className="inline-block text-sm font-semibold text-primary uppercase tracking-wider mb-4">
-              Legal Information
-            </span>
-            <h1 className="font-display text-4xl md:text-5xl font-bold mb-6">
-              Our Legal <span className="text-primary">Standing</span>
-            </h1>
-            <p className="text-lg text-muted-foreground">
-              NETREX is a globally registered technology company with legal entities across 9 countries, 
-              ensuring compliance, transparency, and trust in every market we serve.
-            </p>
-          </motion.div>
-        </div>
-      </section>
+      <PageHero
+        badge="Legal Information"
+        title="Our Legal"
+        highlight="Standing"
+        description="NETREX is a globally registered technology company with legal entities across 9 countries, ensuring compliance, transparency, and trust in every market we serve."
+      />
+
 
       {/* Overview Cards */}
       <section className="section-padding">

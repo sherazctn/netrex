@@ -1,4 +1,5 @@
 import { Header } from "@/components/layout/Header";
+import { PageHero } from "@/components/layout/PageHero";
 import { SEO } from "@/components/SEO";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
@@ -71,28 +72,13 @@ const Industries = () => {
       <Header />
       <main>
         {/* Hero Section */}
-        <section className="pt-32 pb-16 bg-secondary/30">
-          <div className="container-wide">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="text-center max-w-3xl mx-auto"
-            >
-              <span className="inline-block text-sm font-semibold text-primary uppercase tracking-wider mb-4">
-                Industries We Serve
-              </span>
-              <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-                50+ Industries{" "}
-                <span className="text-gradient">Worldwide</span>
-              </h1>
-              <p className="text-lg text-muted-foreground">
-                From startups to Fortune 500 companies, we deliver tailored digital 
-                solutions that address unique industry challenges and opportunities.
-              </p>
-            </motion.div>
-          </div>
-        </section>
+        <PageHero
+          badge="Industries We Serve"
+          title="50+ Industries"
+          highlight="Worldwide"
+          description="From startups to Fortune 500 companies, we deliver tailored digital solutions that address unique industry challenges and opportunities."
+        />
+
 
         {/* Industries Grid */}
         <section className="section-padding">

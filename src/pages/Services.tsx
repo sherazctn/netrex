@@ -1,4 +1,5 @@
 import { Header } from "@/components/layout/Header";
+import { PageHero } from "@/components/layout/PageHero";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import { SEO } from "@/components/SEO";
@@ -105,28 +106,13 @@ const Services = () => {
       <Header />
       <main>
         {/* Hero Section */}
-        <section className="pt-32 pb-16 bg-secondary/30">
-          <div className="container-wide">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="text-center max-w-3xl mx-auto"
-            >
-              <span className="inline-block text-sm font-semibold text-primary uppercase tracking-wider mb-4">
-                Our Services
-              </span>
-              <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-                End-to-End Digital{" "}
-                <span className="text-primary">Solutions</span>
-              </h1>
-              <p className="text-lg text-muted-foreground">
-                From concept to launch, we provide comprehensive digital services that help 
-                businesses innovate, grow, and succeed in the digital age.
-              </p>
-            </motion.div>
-          </div>
-        </section>
+        <PageHero
+          badge="Our Services"
+          title="End-to-End Digital"
+          highlight="Solutions"
+          description="From concept to launch, we provide comprehensive digital services that help businesses innovate, grow, and succeed in the digital age."
+        />
+
 
         {/* Services Grid */}
         <section className="section-padding">

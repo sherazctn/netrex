@@ -1,4 +1,5 @@
 import { Header } from "@/components/layout/Header";
+import { PageHero } from "@/components/layout/PageHero";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import { SEO } from "@/components/SEO";
@@ -64,27 +65,13 @@ const Portfolio = () => {
       <Header />
       <main>
         {/* Hero Section */}
-        <section className="pt-32 pb-16 bg-secondary/30">
-          <div className="container-wide">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="text-center max-w-3xl mx-auto"
-            >
-              <span className="inline-block text-sm font-semibold text-primary uppercase tracking-wider mb-4">
-                {t('portfolio.badge')}
-              </span>
-              <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-                {t('portfolio.title')}{" "}
-                <span className="text-gradient">{t('portfolio.title.highlight')}</span>
-              </h1>
-              <p className="text-lg text-muted-foreground">
-                {t('portfolio.description')}
-              </p>
-            </motion.div>
-          </div>
-        </section>
+        <PageHero
+          badge={t('portfolio.badge')}
+          title={t('portfolio.title')}
+          highlight={t('portfolio.title.highlight')}
+          description={t('portfolio.description')}
+        />
+
 
         {/* Filters */}
         <section className="py-8 border-b border-border">

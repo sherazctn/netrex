@@ -1,4 +1,5 @@
 import { Header } from "@/components/layout/Header";
+import { PageHero } from "@/components/layout/PageHero";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import { motion } from "framer-motion";
@@ -44,17 +45,13 @@ const FAQ = () => {
 
       <Header />
       <main>
-        <section className="pt-32 pb-16 bg-secondary/30">
-          <div className="container-wide text-center max-w-3xl mx-auto">
-            <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-              <span className="inline-block text-sm font-semibold text-primary uppercase tracking-wider mb-4">FAQ</span>
-              <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-                Frequently Asked <span className="text-primary">Questions</span>
-              </h1>
-              <p className="text-lg text-muted-foreground">Everything you need to know about working with NETREX.</p>
-            </motion.div>
-          </div>
-        </section>
+        <PageHero
+          badge="FAQ"
+          title="Frequently Asked"
+          highlight="Questions"
+          description="Everything you need to know about working with NETREX."
+        />
+
 
         <section className="section-padding">
           <div className="container-wide max-w-3xl mx-auto space-y-4">

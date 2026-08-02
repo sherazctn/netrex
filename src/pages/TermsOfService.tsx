@@ -1,4 +1,5 @@
 import { Header } from "@/components/layout/Header";
+import { PageHero } from "@/components/layout/PageHero";
 import { SEO } from "@/components/SEO";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
@@ -13,14 +14,13 @@ const TermsOfService = () => (
     />
     <Header />
     <main>
-      <section className="pt-32 pb-16 bg-secondary/30">
-        <div className="container-wide text-center max-w-3xl mx-auto">
-          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-            <h1 className="font-display text-4xl md:text-5xl font-bold mb-6">Terms of Service</h1>
-            <p className="text-lg text-muted-foreground">Last updated: March 2026</p>
-          </motion.div>
-        </div>
-      </section>
+      <PageHero
+        badge="Legal"
+        title="Terms of"
+        highlight="Service"
+        description="Last updated: March 2026"
+      />
+
       <section className="section-padding">
         <div className="container-wide max-w-3xl mx-auto prose prose-lg">
           {[

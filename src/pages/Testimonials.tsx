@@ -1,4 +1,5 @@
 import { Header } from "@/components/layout/Header";
+import { PageHero } from "@/components/layout/PageHero";
 import { SEO } from "@/components/SEO";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
@@ -129,33 +130,21 @@ const Testimonials = () => {
       <Header />
       <main>
         {/* Hero Section */}
-        <section className="pt-32 pb-16 bg-secondary/30">
+        <PageHero
+          badge="Client Testimonials"
+          title="What Our Clients"
+          highlight="Say About Us"
+          description="Don't just take our word for it. Here's what businesses around the world have to say about working with NETREX."
+        />
+
+        <section className="py-12">
           <div className="container-wide">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
               transition={{ duration: 0.6 }}
-              className="text-center max-w-3xl mx-auto"
-            >
-              <span className="inline-block text-sm font-semibold text-primary uppercase tracking-wider mb-4">
-                Client Testimonials
-              </span>
-              <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-                What Our Clients{" "}
-                <span className="text-primary">Say About Us</span>
-              </h1>
-              <p className="text-lg text-muted-foreground">
-                Don't just take our word for it. Here's what businesses around the world 
-                have to say about working with NETREX.
-              </p>
-            </motion.div>
-
-            {/* Stats */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12"
+              className="grid grid-cols-2 md:grid-cols-4 gap-6"
             >
               {stats.map((stat) => (
                 <div key={stat.label} className="text-center p-6 rounded-2xl bg-card border border-border">
@@ -172,6 +161,7 @@ const Testimonials = () => {
             </motion.div>
           </div>
         </section>
+
 
         {/* Text Testimonials */}
         <section className="section-padding">
