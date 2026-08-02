@@ -26,19 +26,13 @@ const Careers = () => (
     />
     <Header />
     <main>
-      <section className="pt-32 pb-16 bg-secondary/30">
-        <div className="container-wide text-center max-w-3xl mx-auto">
-          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-            <span className="inline-block text-sm font-semibold text-primary uppercase tracking-wider mb-4">Careers</span>
-            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-              Join Our <span className="text-primary">Global Team</span>
-            </h1>
-            <p className="text-lg text-muted-foreground">
-              Be part of an innovative team shaping the future of digital experiences across 6 countries.
-            </p>
-          </motion.div>
-        </div>
-      </section>
+      <PageHero
+        badge="Careers"
+        title="Join Our"
+        highlight="Global Team"
+        description="Be part of an innovative team shaping the future of digital experiences across 6 countries."
+      />
+
 
       <section className="section-padding">
         <div className="container-wide max-w-4xl mx-auto">
