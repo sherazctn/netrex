@@ -31,8 +31,8 @@ const techs = [
 const CX = 300;
 const CY = 300;
 const R_EDGE = 300; // spawn / burst radius
-const PERIOD = 11; // full loop for one icon (s)
-const TRAVEL = 5.2; // time an icon is visible while travelling (s)
+const PERIOD = 14; // full loop for one icon (s)
+const TRAVEL = 4.2; // time an icon is visible while travelling (s)
 const BURST_AT = TRAVEL - 0.55; // burst fires as the icon crosses the ring
 const SHARDS = 9;
 
