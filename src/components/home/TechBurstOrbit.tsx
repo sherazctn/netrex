@@ -50,7 +50,7 @@ export function TechBurstOrbit() {
   return (
     <>
       {techs.map((tech, i) => {
-        const inAngle = (i * 360) / techs.length + (i % 2 ? 14 : -14);
+        const inAngle = (i * 137.508) % 360; // golden-angle spread keeps concurrent icons apart
         const outAngle = inAngle + 168 + (i % 3) * 8;
         const delay = (i * PERIOD) / techs.length;
         const start = polar(inAngle, R_EDGE);
