@@ -78,6 +78,10 @@ const App = () => (
             <Route path="/tools/branding-roi" element={<BrandingROICalculator />} />
             <Route path="/tools/ecommerce-roi" element={<EcommerceROICalculator />} />
             <Route path="/tools/seo-roi" element={<SEOROICalculator />} />
+            <Route path="/tools/ai-readiness" element={<AIReadinessScore />} />
+            <Route path="/tools/ai-automation-savings" element={<AutomationSavingsCalculator />} />
+            <Route path="/tools/ai-chatbot-roi" element={<ChatbotROICalculator />} />
+            <Route path="/tools/ai-copy-generator" element={<AICopyGenerator />} />
             
             {/* Admin Routes */}
             <Route path="/admin" element={<AdminLogin />} />
