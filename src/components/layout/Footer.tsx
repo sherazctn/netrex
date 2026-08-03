@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Linkedin, Instagram, Facebook, ArrowRight, MessageCircle, Globe, Smartphone, Palette, Megaphone, Bot, Cloud, Users, Briefcase, FolderOpen, MessageSquare, BookOpen, PhoneCall, Building2, Award, Shield, Sparkles, Brain, Package, ShoppingCart, Target, Eye, Calculator, Scale, Factory, Server, Boxes, BarChart3 } from "lucide-react";
+import { Mail, Phone, MapPin, Linkedin, Instagram, Facebook, ArrowRight, MessageCircle, Globe, Smartphone, Palette, Megaphone, Bot, Cloud, Users, Briefcase, FolderOpen, MessageSquare, BookOpen, PhoneCall, Building2, Award, Shield, Sparkles, Brain, Package, ShoppingCart, Target, Eye, Calculator, Scale, Factory, Server, Boxes, BarChart3, Wand2 } from "lucide-react";
 import netrexLogo from "@/assets/netrex-logo.png";
 import netrexLogoLite from "@/assets/netrex-logo-lite.png";
 import { Button } from "@/components/ui/button";
