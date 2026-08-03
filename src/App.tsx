@@ -36,6 +36,10 @@ import MarketingROICalculator from "./pages/tools/MarketingROICalculator";
 import BrandingROICalculator from "./pages/tools/BrandingROICalculator";
 import EcommerceROICalculator from "./pages/tools/EcommerceROICalculator";
 import SEOROICalculator from "./pages/tools/SEOROICalculator";
+import AIReadinessScore from "./pages/tools/AIReadinessScore";
+import AutomationSavingsCalculator from "./pages/tools/AutomationSavingsCalculator";
+import ChatbotROICalculator from "./pages/tools/ChatbotROICalculator";
+import AICopyGenerator from "./pages/tools/AICopyGenerator";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -74,6 +78,10 @@ const App = () => (
             <Route path="/tools/branding-roi" element={<BrandingROICalculator />} />
             <Route path="/tools/ecommerce-roi" element={<EcommerceROICalculator />} />
             <Route path="/tools/seo-roi" element={<SEOROICalculator />} />
+            <Route path="/tools/ai-readiness" element={<AIReadinessScore />} />
+            <Route path="/tools/ai-automation-savings" element={<AutomationSavingsCalculator />} />
+            <Route path="/tools/ai-chatbot-roi" element={<ChatbotROICalculator />} />
+            <Route path="/tools/ai-copy-generator" element={<AICopyGenerator />} />
             
             {/* Admin Routes */}
             <Route path="/admin" element={<AdminLogin />} />

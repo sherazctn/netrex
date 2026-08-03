@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Linkedin, Instagram, Facebook, ArrowRight, MessageCircle, Globe, Smartphone, Palette, Megaphone, Bot, Cloud, Users, Briefcase, FolderOpen, MessageSquare, BookOpen, PhoneCall, Building2, Award, Shield, Sparkles, Brain, Package, ShoppingCart, Target, Eye, Calculator, Scale, Factory, Server, Boxes, BarChart3 } from "lucide-react";
+import { Mail, Phone, MapPin, Linkedin, Instagram, Facebook, ArrowRight, MessageCircle, Globe, Smartphone, Palette, Megaphone, Bot, Cloud, Users, Briefcase, FolderOpen, MessageSquare, BookOpen, PhoneCall, Building2, Award, Shield, Sparkles, Brain, Package, ShoppingCart, Target, Eye, Calculator, Scale, Factory, Server, Boxes, BarChart3, Wand2 } from "lucide-react";
 import netrexLogo from "@/assets/netrex-logo.png";
 import netrexLogoLite from "@/assets/netrex-logo-lite.png";
 import { Button } from "@/components/ui/button";
@@ -64,6 +64,10 @@ const footerLinks = {
     { name: "Branding ROI", href: "/tools/branding-roi", icon: Package },
     { name: "E-Commerce ROI", href: "/tools/ecommerce-roi", icon: ShoppingCart },
     { name: "SEO ROI", href: "/tools/seo-roi", icon: Sparkles },
+    { name: "AI Copy Generator", href: "/tools/ai-copy-generator", icon: Wand2 },
+    { name: "AI Readiness Score", href: "/tools/ai-readiness", icon: Brain },
+    { name: "AI Automation Savings", href: "/tools/ai-automation-savings", icon: Bot },
+    { name: "AI Chatbot ROI", href: "/tools/ai-chatbot-roi", icon: MessageSquare },
   ],
 };
 
