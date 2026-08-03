@@ -36,6 +36,10 @@ import MarketingROICalculator from "./pages/tools/MarketingROICalculator";
 import BrandingROICalculator from "./pages/tools/BrandingROICalculator";
 import EcommerceROICalculator from "./pages/tools/EcommerceROICalculator";
 import SEOROICalculator from "./pages/tools/SEOROICalculator";
+import AIReadinessScore from "./pages/tools/AIReadinessScore";
+import AutomationSavingsCalculator from "./pages/tools/AutomationSavingsCalculator";
+import ChatbotROICalculator from "./pages/tools/ChatbotROICalculator";
+import AICopyGenerator from "./pages/tools/AICopyGenerator";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
