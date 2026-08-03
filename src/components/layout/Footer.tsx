@@ -64,6 +64,10 @@ const footerLinks = {
     { name: "Branding ROI", href: "/tools/branding-roi", icon: Package },
     { name: "E-Commerce ROI", href: "/tools/ecommerce-roi", icon: ShoppingCart },
     { name: "SEO ROI", href: "/tools/seo-roi", icon: Sparkles },
+    { name: "AI Copy Generator", href: "/tools/ai-copy-generator", icon: Wand2 },
+    { name: "AI Readiness Score", href: "/tools/ai-readiness", icon: Brain },
+    { name: "AI Automation Savings", href: "/tools/ai-automation-savings", icon: Bot },
+    { name: "AI Chatbot ROI", href: "/tools/ai-chatbot-roi", icon: MessageSquare },
   ],
 };
 
