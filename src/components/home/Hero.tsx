@@ -271,10 +271,13 @@ export function Hero() {
                 {/* Cursor-following magnetic glow */}
                 <motion.circle
                   r="70"
+                  cx={glowX}
+                  cy={glowY}
                   fill="hsl(359 85% 53% / 0.18)"
-                  style={{ cx: glowX, cy: glowY, opacity: glowOpacity }}
+                  style={{ opacity: glowOpacity }}
                   className="pointer-events-none"
                 />
+
 
                 {/* Outer rotating RED ring */}
                 <motion.g style={{
