@@ -87,6 +87,34 @@ export function Hero() {
   const y2 = useTransform(scrollY, [0, 500], [0, -100]);
   const rotate = useTransform(scrollY, [0, 500], [0, 180]);
   const scale = useTransform(scrollY, [0, 300], [1, 0.9]);
+
+  // ---- Interactive orb: pointer-driven tilt + magnetic glow ----
+  const spring = { stiffness: 140, damping: 20, mass: 0.5 };
+  const tiltX = useSpring(useMotionValue(0), spring);
+  const tiltY = useSpring(useMotionValue(0), spring);
+  const glowX = useSpring(useMotionValue(300), spring);
+  const glowY = useSpring(useMotionValue(300), spring);
+  const glowOpacity = useSpring(useMotionValue(0), { stiffness: 120, damping: 24 });
+
+  const handleOrbPointer = (event: React.PointerEvent<HTMLDivElement>) => {
+    const rect = event.currentTarget.getBoundingClientRect();
+    const px = (event.clientX - rect.left) / rect.width;
+    const py = (event.clientY - rect.top) / rect.height;
+    tiltY.set((px - 0.5) * 18);
+    tiltX.set((0.5 - py) * 18);
+    glowX.set(px * 600);
+    glowY.set(py * 600);
+    glowOpacity.set(1);
+  };
+
+  const resetOrbPointer = () => {
+    tiltX.set(0);
+    tiltY.set(0);
+    glowX.set(300);
+    glowY.set(300);
+    glowOpacity.set(0);
+  };
+
   return <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-secondary/30">
       {/* Background Pattern */}
       <div className="absolute inset-0 bg-hero-pattern opacity-50"></div>
