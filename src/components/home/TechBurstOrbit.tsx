@@ -1,4 +1,6 @@
 import { motion } from "framer-motion";
+import { useState } from "react";
+
 
 /** Tech icons that fly through the hero core. */
 const techs = [
