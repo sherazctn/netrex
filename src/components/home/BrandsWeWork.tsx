@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import type { SyntheticEvent } from "react";
+import { getBrandLogo, getBrandLogoFallback, handleBrandLogoError } from "@/lib/logos";
+
 
 type Brand = {
   name: string;
