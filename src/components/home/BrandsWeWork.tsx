@@ -40,20 +40,10 @@ const brands: Brand[] = [
   { name: "Zendesk", domain: "zendesk.com" },
 ];
 
-const getPrimaryLogo = (domain: string) => `https://logo.clearbit.com/${domain}`;
-const getFallbackLogo = (domain: string) => `https://www.google.com/s2/favicons?sz=256&domain=${domain}`;
+const getPrimaryLogo = (domain: string) => getBrandLogo(domain);
+const getFallbackLogo = (domain: string) => getBrandLogoFallback(domain);
+const handleLogoError = handleBrandLogoError;
 
-const handleLogoError = (event: SyntheticEvent<HTMLImageElement>) => {
-  const image = event.currentTarget;
-  const fallbackLogo = image.dataset.fallback;
-
-  if (fallbackLogo && image.src !== fallbackLogo) {
-    image.src = fallbackLogo;
-    return;
-  }
-
-  image.src = "/placeholder.svg";
-};
 
 export function BrandsWeWork() {
   return (
