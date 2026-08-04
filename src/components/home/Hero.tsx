@@ -1,4 +1,4 @@
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, useSpring, useMotionValue } from "framer-motion";
 import { TechBurstOrbit } from "@/components/home/TechBurstOrbit";
 import { ArrowRight, Play, Crown, Globe } from "lucide-react";
 import { Link } from "react-router-dom";
