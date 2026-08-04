@@ -61,4 +61,16 @@
   <url><loc>https://netrex.lovable.app/services/devops</loc><priority>0.8</priority></url>
   <url><loc>https://netrex.lovable.app/services/blockchain</loc><priority>0.8</priority></url>
   <url><loc>https://netrex.lovable.app/services/data-analytics</loc><priority>0.8</priority></url>
+  <url>
+    <loc>https://netrexinc.com/blog/ai-search-visibility-audit-august-2026</loc>
+    <lastmod>2026-08-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://netrexinc.com/blog/website-that-sells-2026-conversion-playbook</loc>
+    <lastmod>2026-08-18</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>

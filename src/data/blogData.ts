@@ -343,10 +343,39 @@ export const blogPosts: BlogPost[] = [
     date: "Jul 28, 2026",
     readTime: "11 min read",
     image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=1200&h=600&fit=crop",
-    featured: true,
     keywords: ["agentic commerce", "AI agents shopping", "GEO 2026", "machine readable website", "AI search optimization"],
   },
+  {
+    id: 25,
+    slug: "ai-search-visibility-audit-august-2026",
+    title: "The 7-Day AI Visibility Audit: Get Your Brand Cited by ChatGPT, Gemini and Perplexity",
+    excerpt: "A practical, day-by-day audit you can run this week to find out why AI engines skip your brand - and the exact fixes that get you cited.",
+    content: `Most brands still measure rankings. Buyers, meanwhile, ask an assistant and take the first credible answer. This is a **7-day audit** you can run without new tooling, and it exposes the real reason AI engines skip you.\n\n## Day 1 - Ask the Machines About You\nRun the same ten buying questions your customers ask in ChatGPT, Gemini, Perplexity and Claude. Record *who gets cited*, not just whether you appear. **If a competitor is cited three times and you are cited zero, that is your baseline.**\n\n## Day 2 - Audit Machine Readability\nOpen your top ten pages and check: is the *answer* in text, or trapped in an image, a slider, or a PDF? Assistants only quote what they can parse. **Plain, structured text wins.**\n\n## Day 3 - Fix Structured Data\nAdd or repair *Organization*, **LocalBusiness**, *Service*, **FAQPage** and *BreadcrumbList* markup. Validate every page. Schema is how a model verifies that a claim belongs to you.\n\n## Day 4 - Publish llms.txt\nA single */llms.txt* file listing your key pages, services and locations gives AI crawlers a clean map of your business. **Add llms-full.txt** with your full service and pricing narrative.\n\n## Day 5 - Rewrite for Answer Shape\nOne question per heading. One clear answer in the first two sentences. Then evidence. Assistants extract *self-contained* passages - long build-ups get skipped.\n\n## Day 6 - Strengthen Entity Trust\nMatch your name, address, phone and description across your site, Google Business Profile, LinkedIn, Clutch and directories. **Inconsistent entities are treated as unverified.**\n\n## Day 7 - Re-Test and Log\nRe-run Day 1 prompts and log citations weekly. AI visibility is a *tracked metric*, not a one-off project.\n\n## What Improvement Looks Like\nAcross recent NETREX GEO engagements we typically see first citations inside **3 to 6 weeks**, with assistant-referred traffic converting *higher than paid search* because the assistant has already pre-qualified the buyer.\n\n## The Bottom Line\nAI engines are not ignoring you because you are small. They ignore you because your answers are not machine-readable. Fix the structure and the citations follow. NETREX runs this audit for clients across 9 countries - book a session and we will send you the citation gap report.`,
+    category: "AI & GEO",
+    author: "Sheraz Khan",
+    date: "Aug 4, 2026",
+    readTime: "9 min read",
+    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1200&h=600&fit=crop",
+    keywords: ["AI visibility audit", "GEO audit", "ChatGPT citations", "Perplexity SEO", "llms.txt"],
+  },
+  // ============ PINNED FEATURED ARTICLE (Aug 2026) ============
+  // The Blog page featured article is pinned to id 26. Change only on explicit request.
+  {
+    id: 26,
+    slug: "website-that-sells-2026-conversion-playbook",
+    title: "The 2026 Website That Sells: 12 Conversion Moves That Beat a Redesign",
+    excerpt: "Redesigns are expensive and rarely move revenue. These 12 evidence-backed conversion moves lifted qualified leads 40-180% for NETREX clients in 2026 - most ship in under two weeks.",
+    content: `Every quarter a founder tells us their site "looks dated" and asks for a redesign. Then we look at the data and find the real problem: **the site is not dated, it is unpersuasive**. Here are the twelve moves that actually move revenue in 2026.\n\n## 1. One Promise Above the Fold\nA visitor decides in *under three seconds*. **One outcome, one audience, one action.** Remove every competing message from the hero.\n\n## 2. Proof Before Persuasion\nLogos, review counts and named results belong *immediately* after the promise - not buried in a testimonials page. **Specific numbers outperform adjectives every time.**\n\n## 3. Kill the Generic Contact Form\nReplace "Name, Email, Message" with a *two-step qualifier*: what do you need, and how soon. Qualified lead volume typically rises **30-60%** while junk drops.\n\n## 4. Price Signals, Even Without Prices\n"Projects typically start at X" removes the biggest silent objection. Hidden pricing does not protect margin - it *filters out serious buyers*.\n\n## 5. Speed Is a Conversion Feature\nEvery **100ms** of delay measurably costs conversions on mobile. Compress, lazy-load, and serve modern formats before touching visual design.\n\n## 6. Mobile-First Means Thumb-First\nPrimary CTAs within thumb reach, tap targets at least *44px*, and **no full-screen popups on entry**.\n\n## 7. Answer the Objection on the Page\nList the five reasons buyers hesitate and answer each in plain language. *An FAQ block is a sales asset*, not filler.\n\n## 8. Make Trust Visible\nReal faces, real locations, real certifications. **Stock photography of people who do not work for you reads as a warning sign.**\n\n## 9. One CTA Style, Everywhere\nSame colour, same wording family, same behaviour. *Consistency compounds*; variety confuses.\n\n## 10. Write for Assistants Too\nAI assistants now pre-shortlist vendors. **Structured data, clear service pages and llms.txt** put you in the shortlist before a human ever lands.\n\n## 11. Instrument Everything\nIf you cannot see where the drop-off happens, you are redesigning blind. *Event tracking beats opinion* in every stakeholder meeting.\n\n## 12. Ship Weekly, Not Yearly\nSmall, measured changes beat a twelve-week rebuild. **Test, keep the winners, discard the rest.**\n\n## ***What This Produced in 2026***\n- **Dubai services brand** - qualified leads +**118%** in 9 weeks, no redesign\n- *US e-commerce store* - checkout completion +**37%** from speed and trust fixes alone\n- **UK B2B consultancy** - +**180%** demo requests after the two-step qualifier\n\n## The Bottom Line\nA redesign changes how your site looks. These twelve moves change *what it earns*. Start with the hero promise, the qualifier form, and speed - then measure. NETREX runs conversion sprints across 9 countries; book a free teardown and we will show you your three biggest leaks.`,
+    category: "Business",
+    author: "Sheraz Khan",
+    date: "Aug 18, 2026",
+    readTime: "12 min read",
+    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&h=600&fit=crop",
+    featured: true,
+    keywords: ["website conversion 2026", "CRO playbook", "high converting website", "lead generation website", "conversion rate optimization"],
+  },
 ];
+
 
 export const getPostByIdOrSlug = (idOrSlug: string | number): BlogPost | undefined => {
   const numId = Number(idOrSlug);

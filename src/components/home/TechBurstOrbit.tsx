@@ -1,4 +1,6 @@
 import { motion } from "framer-motion";
+import { useState } from "react";
+
 
 /** Tech icons that fly through the hero core. */
 const techs = [
@@ -47,7 +49,9 @@ const polar = (angle: number, radius: number) => ({
  * Rendered as SVG content - must be placed inside the hero <svg>.
  */
 export function TechBurstOrbit() {
+  const [hovered, setHovered] = useState<string | null>(null);
   return (
+
     <>
       {techs.map((tech, i) => {
         const inAngle = (i * 137.508) % 360; // golden-angle spread keeps concurrent icons apart
@@ -79,25 +83,48 @@ export function TechBurstOrbit() {
               }}
               transition={{ ...cycle, ease: "easeInOut", times: [0, 0.3, 0.55, 0.8, 1] }}
             >
-              {/* motion trail */}
-              <motion.circle
-                cx={CX}
-                cy={CY}
-                r="34"
-                fill="hsl(359 85% 53% / 0.12)"
-                animate={{ scale: [0.7, 1.25, 0.7] }}
-                transition={{ duration: 1.6, repeat: Infinity, delay }}
-              />
-              <circle
-                cx={CX}
-                cy={CY}
-                r="26"
-                fill="hsl(var(--background))"
-                stroke="hsl(359 85% 53% / 0.55)"
-                strokeWidth="2"
-              />
-              <image href={tech.logo} x={CX - 17} y={CY - 17} width="34" height="34" />
+              {/* Hover-reactive capsule (scales + glows under cursor/touch) */}
+              <motion.g
+                whileHover={{ scale: 1.45 }}
+                whileTap={{ scale: 1.6 }}
+                onHoverStart={() => setHovered(tech.name)}
+                onHoverEnd={() => setHovered(null)}
+                transition={{ type: "spring", stiffness: 260, damping: 16 }}
+                style={{ originX: `${CX}px`, originY: `${CY}px`, cursor: "pointer" }}
+              >
+                {/* motion trail */}
+                <motion.circle
+                  cx={CX}
+                  cy={CY}
+                  r="34"
+                  fill="hsl(359 85% 53% / 0.12)"
+                  animate={{ scale: [0.7, 1.25, 0.7] }}
+                  transition={{ duration: 1.6, repeat: Infinity, delay }}
+                />
+                <circle
+                  cx={CX}
+                  cy={CY}
+                  r="26"
+                  fill="hsl(var(--background))"
+                  stroke={hovered === tech.name ? "hsl(359 85% 53%)" : "hsl(359 85% 53% / 0.55)"}
+                  strokeWidth={hovered === tech.name ? 3 : 2}
+                />
+                <image href={tech.logo} x={CX - 17} y={CY - 17} width="34" height="34" />
+                {hovered === tech.name && (
+                  <text
+                    x={CX}
+                    y={CY + 44}
+                    textAnchor="middle"
+                    fontSize="13"
+                    fontWeight="600"
+                    fill="hsl(var(--foreground))"
+                  >
+                    {tech.name}
+                  </text>
+                )}
+              </motion.g>
             </motion.g>
+
 
             {/* Balloon burst at the exit point */}
             <g>

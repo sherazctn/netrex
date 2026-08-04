@@ -1,4 +1,4 @@
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, useSpring, useMotionValue } from "framer-motion";
 import { TechBurstOrbit } from "@/components/home/TechBurstOrbit";
 import { ArrowRight, Play, Crown, Globe } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -87,6 +87,34 @@ export function Hero() {
   const y2 = useTransform(scrollY, [0, 500], [0, -100]);
   const rotate = useTransform(scrollY, [0, 500], [0, 180]);
   const scale = useTransform(scrollY, [0, 300], [1, 0.9]);
+
+  // ---- Interactive orb: pointer-driven tilt + magnetic glow ----
+  const spring = { stiffness: 140, damping: 20, mass: 0.5 };
+  const tiltX = useSpring(useMotionValue(0), spring);
+  const tiltY = useSpring(useMotionValue(0), spring);
+  const glowX = useSpring(useMotionValue(300), spring);
+  const glowY = useSpring(useMotionValue(300), spring);
+  const glowOpacity = useSpring(useMotionValue(0), { stiffness: 120, damping: 24 });
+
+  const handleOrbPointer = (event: React.PointerEvent<HTMLDivElement>) => {
+    const rect = event.currentTarget.getBoundingClientRect();
+    const px = (event.clientX - rect.left) / rect.width;
+    const py = (event.clientY - rect.top) / rect.height;
+    tiltY.set((px - 0.5) * 18);
+    tiltX.set((0.5 - py) * 18);
+    glowX.set(px * 600);
+    glowY.set(py * 600);
+    glowOpacity.set(1);
+  };
+
+  const resetOrbPointer = () => {
+    tiltX.set(0);
+    tiltY.set(0);
+    glowX.set(300);
+    glowY.set(300);
+    glowOpacity.set(0);
+  };
+
   return <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-secondary/30">
       {/* Background Pattern */}
       <div className="absolute inset-0 bg-hero-pattern opacity-50"></div>
@@ -259,8 +287,26 @@ export function Hero() {
         }} className="relative hidden lg:block" style={{
           scale
         }}>
-            <div className="relative w-full max-w-[550px] aspect-square mx-auto">
+            <motion.div
+              className="relative w-full max-w-[550px] aspect-square mx-auto cursor-crosshair touch-none"
+              onPointerMove={handleOrbPointer}
+              onPointerLeave={resetOrbPointer}
+              style={{ rotateX: tiltX, rotateY: tiltY, transformPerspective: 1200 }}
+              whileHover={{ scale: 1.02 }}
+              transition={{ type: "spring", stiffness: 150, damping: 18 }}
+            >
               <svg viewBox="0 0 600 600" className="w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg">
+                {/* Cursor-following magnetic glow */}
+                <motion.circle
+                  r="70"
+                  cx={glowX}
+                  cy={glowY}
+                  fill="hsl(359 85% 53% / 0.18)"
+                  style={{ opacity: glowOpacity }}
+                  className="pointer-events-none"
+                />
+
+
                 {/* Outer rotating RED ring */}
                 <motion.g style={{
                 rotate,
@@ -404,7 +450,8 @@ export function Hero() {
                   </radialGradient>
                 </defs>
               </svg>
-            </div>
+            </motion.div>
+
 
             {/* Floating Badge - Crown + Logos */}
             <motion.div initial={{

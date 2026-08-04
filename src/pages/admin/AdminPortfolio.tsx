@@ -56,7 +56,7 @@ const mockPortfolio: PortfolioItem[] = [
     category: "Web",
     technology: "React",
     industry: "Healthcare",
-    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?w=300&h=200&fit=crop",
+    image: "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=300&h=200&fit=crop",
     result: "50% reduction in wait times"
   },
   {
