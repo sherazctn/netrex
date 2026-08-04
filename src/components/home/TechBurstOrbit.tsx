@@ -47,7 +47,9 @@ const polar = (angle: number, radius: number) => ({
  * Rendered as SVG content - must be placed inside the hero <svg>.
  */
 export function TechBurstOrbit() {
+  const [hovered, setHovered] = useState<string | null>(null);
   return (
+
     <>
       {techs.map((tech, i) => {
         const inAngle = (i * 137.508) % 360; // golden-angle spread keeps concurrent icons apart
