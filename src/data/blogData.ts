@@ -343,7 +343,6 @@ export const blogPosts: BlogPost[] = [
     date: "Jul 28, 2026",
     readTime: "11 min read",
     image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=1200&h=600&fit=crop",
-    featured: true,
     keywords: ["agentic commerce", "AI agents shopping", "GEO 2026", "machine readable website", "AI search optimization"],
   },
   {
