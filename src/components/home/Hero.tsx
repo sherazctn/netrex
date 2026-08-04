@@ -259,8 +259,23 @@ export function Hero() {
         }} className="relative hidden lg:block" style={{
           scale
         }}>
-            <div className="relative w-full max-w-[550px] aspect-square mx-auto">
+            <motion.div
+              className="relative w-full max-w-[550px] aspect-square mx-auto cursor-crosshair touch-none"
+              onPointerMove={handleOrbPointer}
+              onPointerLeave={resetOrbPointer}
+              style={{ rotateX: tiltX, rotateY: tiltY, transformPerspective: 1200 }}
+              whileHover={{ scale: 1.02 }}
+              transition={{ type: "spring", stiffness: 150, damping: 18 }}
+            >
               <svg viewBox="0 0 600 600" className="w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg">
+                {/* Cursor-following magnetic glow */}
+                <motion.circle
+                  r="70"
+                  fill="hsl(359 85% 53% / 0.18)"
+                  style={{ cx: glowX, cy: glowY, opacity: glowOpacity }}
+                  className="pointer-events-none"
+                />
+
                 {/* Outer rotating RED ring */}
                 <motion.g style={{
                 rotate,
