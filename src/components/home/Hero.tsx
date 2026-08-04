@@ -419,7 +419,8 @@ export function Hero() {
                   </radialGradient>
                 </defs>
               </svg>
-            </div>
+            </motion.div>
+
 
             {/* Floating Badge - Crown + Logos */}
             <motion.div initial={{
