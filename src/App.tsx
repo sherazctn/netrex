@@ -22,6 +22,12 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import TermsOfService from "./pages/TermsOfService";
 import Legal from "./pages/Legal";
 import FAQ from "./pages/FAQ";
+import CompanyProfile from "./pages/company/CompanyProfile";
+import Leadership from "./pages/company/Leadership";
+import TrustCenter from "./pages/company/TrustCenter";
+import Newsroom from "./pages/company/Newsroom";
+import Partners from "./pages/company/Partners";
+import CSR from "./pages/company/CSR";
 import AdminLogin from "./pages/admin/AdminLogin";
 import AdminLayout from "./pages/admin/AdminLayout";
 import AdminDashboard from "./pages/admin/AdminDashboard";
@@ -70,6 +76,12 @@ const App = () => (
             <Route path="/terms" element={<TermsOfService />} />
             <Route path="/legal" element={<Legal />} />
             <Route path="/faq" element={<FAQ />} />
+            <Route path="/company-profile" element={<CompanyProfile />} />
+            <Route path="/leadership" element={<Leadership />} />
+            <Route path="/trust-center" element={<TrustCenter />} />
+            <Route path="/newsroom" element={<Newsroom />} />
+            <Route path="/partners" element={<Partners />} />
+            <Route path="/csr" element={<CSR />} />
             
             {/* Tools */}
             <Route path="/tools/website-roi" element={<WebsiteROICalculator />} />

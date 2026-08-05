@@ -5,47 +5,101 @@ import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ArrowRight, Target, Lightbulb, Users, Globe2, Zap, Shield, Heart, TrendingUp, Award, CheckCircle2 } from "lucide-react";
+import {
+  ArrowRight,
+  Lightbulb,
+  Users,
+  Globe2,
+  Shield,
+  Heart,
+  TrendingUp,
+  CheckCircle2,
+  Compass,
+  Workflow,
+  Target,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { CountUpNumber } from "@/components/ui/CountUpNumber";
 
-const missionPillars = [
+const fadeUp = {
+  initial: { opacity: 0, y: 24 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, margin: "-80px" },
+};
+
+const stats = [
+  { value: 500, suffix: "+", label: "Projects Delivered" },
+  { value: 300, suffix: "+", label: "Global Clients" },
+  { value: 9, suffix: "", label: "Countries" },
+  { value: 98, suffix: "%", label: "Client Satisfaction" },
+];
+
+const operatingPrinciples = [
   {
     icon: Lightbulb,
     title: "Innovation-Driven Solutions",
-    description: "We leverage cutting-edge technologies - from AI and machine learning to cloud-native architectures - to build solutions that don't just solve today's problems but anticipate tomorrow's challenges. Every project we undertake pushes the boundaries of what's possible in digital transformation.",
+    description:
+      "We leverage cutting-edge technologies, from AI and machine learning to cloud-native architectures, to build solutions that anticipate tomorrow's challenges, not just solve today's problems.",
   },
   {
     icon: Users,
     title: "Client-Centric Partnership",
-    description: "We don't just build products; we build lasting partnerships. Our collaborative approach ensures that every solution is deeply aligned with our clients' unique business goals, culture, and growth trajectory. Your success metrics become our KPIs.",
+    description:
+      "We build lasting partnerships, not one-off products. Our collaborative approach keeps every solution aligned with your business goals, culture, and growth trajectory.",
   },
   {
     icon: Globe2,
     title: "Global Impact, Local Expertise",
-    description: "With offices across 9 countries and teams fluent in local markets, we combine global best practices with regional insights. Whether you're a startup in Dubai or an enterprise in New York, you get world-class solutions tailored to your market.",
+    description:
+      "With offices across 9 countries and teams fluent in local markets, we combine global best practices with regional insight for every engagement.",
   },
   {
     icon: Shield,
     title: "Integrity & Transparency",
-    description: "Trust is the foundation of everything we do. We maintain complete transparency in our processes, pricing, and communication. Our clients always know where their project stands, what challenges exist, and how we're solving them.",
+    description:
+      "Trust is the foundation of everything we do. We maintain full transparency in our processes, pricing, and communication so clients always know where a project stands.",
   },
   {
     icon: TrendingUp,
     title: "Measurable Results",
-    description: "We believe in data-driven excellence. Every solution we deliver is designed with clear, measurable outcomes - whether it's a 300% increase in lead generation, 50% reduction in operational costs, or 10x improvement in user engagement.",
+    description:
+      "We believe in data-driven delivery. Every solution is scoped with clear, measurable outcomes tied directly to your key business metrics.",
   },
   {
     icon: Heart,
     title: "Empowering Communities",
-    description: "Beyond business, we're committed to nurturing the next generation of tech talent through mentorship programs, open-source contributions, and community workshops across all our office locations worldwide.",
+    description:
+      "Beyond client work, we nurture the next generation of tech talent through mentorship, open-source contributions, and community workshops across our office locations.",
+  },
+];
+
+const deliveryFramework = [
+  {
+    step: "01",
+    title: "Discover",
+    description: "We map your business goals, users, and constraints before writing a single line of strategy.",
+  },
+  {
+    step: "02",
+    title: "Design & Architect",
+    description: "Solutions are architected for scale, security, and performance from day one, not retrofitted later.",
+  },
+  {
+    step: "03",
+    title: "Build & Iterate",
+    description: "Agile delivery cycles with transparent reporting keep you informed and in control at every stage.",
+  },
+  {
+    step: "04",
+    title: "Launch & Support",
+    description: "We stay accountable post-launch with dedicated support, monitoring, and continuous optimization.",
   },
 ];
 
 const commitments = [
   "Deliver solutions that exceed expectations, not just meet them",
   "Maintain the highest standards of code quality and security",
-  "Provide 24/7 dedicated support for all enterprise clients",
+  "Provide dedicated support channels for all enterprise clients",
   "Continuously invest in R&D and emerging technologies",
   "Foster diversity and inclusion across all our global teams",
   "Reduce environmental impact through sustainable tech practices",
@@ -63,7 +117,6 @@ const Mission = () => {
       />
       <Header />
       <main>
-        {/* Hero */}
         <PageHero
           badge="Our Mission"
           title="Empowering Businesses Through"
@@ -85,69 +138,106 @@ const Mission = () => {
           </div>
         </PageHero>
 
-
-        {/* Stats */}
-        <section className="py-16 bg-foreground text-background">
+        {/* Stat rail */}
+        <section className="border-y border-border bg-foreground text-background">
           <div className="container-wide">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-              {[
-                { value: 500, suffix: "+", label: "Projects Delivered" },
-                { value: 300, suffix: "+", label: "Global Clients" },
-                { value: 9, suffix: "", label: "Countries" },
-                { value: 98, suffix: "%", label: "Client Satisfaction" },
-              ].map((stat, i) => (
+            <div className="grid grid-cols-2 divide-y divide-background/10 md:grid-cols-4 md:divide-x md:divide-y-0">
+              {stats.map((stat, i) => (
                 <motion.div
                   key={stat.label}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1 }}
+                  {...fadeUp}
+                  transition={{ delay: i * 0.08 }}
+                  className="px-6 py-10 text-center"
                 >
-                  <div className="text-4xl md:text-5xl font-display font-bold text-primary mb-2">
+                  <div className="mb-2 font-display text-4xl font-bold text-primary md:text-5xl">
                     <CountUpNumber end={stat.value} suffix={stat.suffix} duration={2000} />
                   </div>
-                  <div className="text-background/70 text-sm">{stat.label}</div>
+                  <div className="text-sm text-background/70">{stat.label}</div>
                 </motion.div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Mission Pillars */}
-        <section className="py-20">
+        {/* Mission statement */}
+        <section className="py-20 md:py-28">
           <div className="container-wide">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-center max-w-3xl mx-auto mb-16"
-            >
-              <span className="inline-block text-sm font-semibold text-primary uppercase tracking-wider mb-4">
-                What Drives Us
+            <motion.div {...fadeUp} className="mx-auto max-w-4xl text-center">
+              <div className="relative overflow-hidden rounded-3xl border border-border bg-card p-8 md:p-14">
+                <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-primary via-primary/50 to-primary" />
+                <Target className="mx-auto mb-6 h-12 w-12 text-primary" />
+                <blockquote className="font-display text-2xl font-bold leading-relaxed md:text-3xl">
+                  "To democratize enterprise-grade digital technology, so ambition, not budget, determines what a
+                  business can build."
+                </blockquote>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Operating principles */}
+        <section className="py-20 md:py-24 bg-secondary/30">
+          <div className="container-wide">
+            <motion.div {...fadeUp} className="mx-auto mb-16 max-w-3xl text-center">
+              <span className="mb-4 inline-block text-sm font-semibold uppercase tracking-wider text-primary">
+                Operating Principles
               </span>
-              <h2 className="font-display text-3xl md:text-4xl font-bold mb-4">
+              <h2 className="font-display text-3xl font-bold md:text-4xl">
                 The Pillars of Our <span className="text-primary">Mission</span>
               </h2>
-              <p className="text-muted-foreground text-lg">
+              <p className="mt-4 text-lg text-muted-foreground">
                 Six foundational principles that guide every decision we make and every solution we build.
               </p>
             </motion.div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {missionPillars.map((pillar, i) => (
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {operatingPrinciples.map((pillar, i) => (
                 <motion.div
                   key={pillar.title}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1 }}
-                  className="group p-8 rounded-3xl bg-card border border-border hover:border-primary/30 hover:shadow-xl transition-all duration-500"
+                  {...fadeUp}
+                  transition={{ delay: i * 0.08 }}
+                  className="group rounded-3xl border border-border bg-card p-8 transition-all duration-500 hover:-translate-y-1 hover:border-primary/30 hover:shadow-xl"
                 >
-                  <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary group-hover:scale-110 transition-all">
-                    <pillar.icon className="h-7 w-7 text-primary group-hover:text-white transition-colors" />
+                  <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 transition-all group-hover:scale-110 group-hover:bg-primary">
+                    <pillar.icon className="h-7 w-7 text-primary transition-colors group-hover:text-primary-foreground" />
                   </div>
-                  <h3 className="font-display text-xl font-bold mb-3">{pillar.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed">{pillar.description}</p>
+                  <h3 className="mb-3 font-display text-xl font-bold">{pillar.title}</h3>
+                  <p className="leading-relaxed text-muted-foreground">{pillar.description}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* How we deliver */}
+        <section className="py-20 md:py-24">
+          <div className="container-wide">
+            <motion.div {...fadeUp} className="mx-auto mb-16 max-w-3xl text-center">
+              <span className="mb-4 inline-flex items-center justify-center gap-2 text-sm font-semibold uppercase tracking-wider text-primary">
+                <Workflow className="h-4 w-4" /> How We Deliver
+              </span>
+              <h2 className="font-display text-3xl font-bold md:text-4xl">
+                A Repeatable Path to <span className="text-primary">Consistent Results</span>
+              </h2>
+              <p className="mt-4 text-lg text-muted-foreground">
+                Every engagement, regardless of size or industry, follows the same disciplined framework.
+              </p>
+            </motion.div>
+
+            <div className="relative grid gap-8 md:grid-cols-4">
+              <div className="absolute left-0 right-0 top-8 hidden h-px bg-border md:block" aria-hidden="true" />
+              {deliveryFramework.map((step, i) => (
+                <motion.div
+                  key={step.step}
+                  {...fadeUp}
+                  transition={{ delay: i * 0.1 }}
+                  className="relative"
+                >
+                  <div className="relative z-10 mb-5 flex h-16 w-16 items-center justify-center rounded-2xl border border-primary/20 bg-card font-display text-xl font-bold text-primary shadow-sm">
+                    {step.step}
+                  </div>
+                  <h3 className="mb-2 font-display text-lg font-bold">{step.title}</h3>
+                  <p className="text-sm leading-relaxed text-muted-foreground">{step.description}</p>
                 </motion.div>
               ))}
             </div>
@@ -155,22 +245,19 @@ const Mission = () => {
         </section>
 
         {/* Commitments */}
-        <section className="py-20 bg-secondary/30">
+        <section className="py-20 md:py-24 bg-secondary/30">
           <div className="container-wide">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <motion.div
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-              >
-                <span className="inline-block text-sm font-semibold text-primary uppercase tracking-wider mb-4">
-                  Our Commitments
+            <div className="grid items-center gap-12 lg:grid-cols-2">
+              <motion.div initial={{ opacity: 0, x: -24 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
+                <span className="mb-4 inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-primary">
+                  <Compass className="h-4 w-4" /> Measurable Commitments
                 </span>
-                <h2 className="font-display text-3xl md:text-4xl font-bold mb-6">
+                <h2 className="mb-6 font-display text-3xl font-bold md:text-4xl">
                   Promises We Keep, <span className="text-primary">Every Day</span>
                 </h2>
-                <p className="text-muted-foreground text-lg mb-8">
-                  These aren't just words on a page - they're the standards we hold ourselves accountable to in every project, every interaction, and every line of code.
+                <p className="mb-8 text-lg text-muted-foreground">
+                  These are the standards we hold ourselves accountable to in every project, every interaction,
+                  and every line of code.
                 </p>
                 <Link to="/contact">
                   <Button variant="hero" size="lg" className="group">
@@ -179,18 +266,18 @@ const Mission = () => {
                   </Button>
                 </Link>
               </motion.div>
-              <div className="space-y-4">
+              <div className="space-y-3">
                 {commitments.map((item, i) => (
                   <motion.div
                     key={i}
                     initial={{ opacity: 0, x: 20 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
-                    transition={{ delay: i * 0.08 }}
-                    className="flex items-start gap-4 p-4 rounded-2xl bg-card border border-border hover:border-primary/20 transition-colors"
+                    transition={{ delay: i * 0.06 }}
+                    className="flex items-start gap-4 rounded-2xl border border-border bg-card p-4 transition-colors hover:border-primary/20"
                   >
-                    <CheckCircle2 className="h-6 w-6 text-primary flex-shrink-0 mt-0.5" />
-                    <span className="text-foreground/80">{item}</span>
+                    <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-primary" />
+                    <span className="text-sm text-foreground/80 md:text-base">{item}</span>
                   </motion.div>
                 ))}
               </div>
@@ -201,17 +288,13 @@ const Mission = () => {
         {/* CTA */}
         <section className="py-20 bg-foreground text-background">
           <div className="container-wide text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="max-w-3xl mx-auto"
-            >
-              <h2 className="font-display text-3xl md:text-4xl font-bold mb-6">
+            <motion.div {...fadeUp} className="mx-auto max-w-3xl">
+              <h2 className="mb-6 font-display text-3xl font-bold md:text-4xl">
                 Ready to Be Part of Our <span className="text-primary">Mission</span>?
               </h2>
-              <p className="text-background/70 text-lg mb-8">
-                Whether you're looking to transform your business or join our global team, we'd love to hear from you.
+              <p className="mb-8 text-lg text-background/70">
+                Whether you're looking to transform your business or join our global team, we'd love to hear from
+                you.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <Link to="/contact">

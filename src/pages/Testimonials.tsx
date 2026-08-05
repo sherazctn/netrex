@@ -1,13 +1,16 @@
+import { useMemo, useState } from "react";
 import { Header } from "@/components/layout/Header";
 import { PageHero } from "@/components/layout/PageHero";
 import { SEO } from "@/components/SEO";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight, Star, Play, Quote } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { CountUpNumber } from "@/components/ui/CountUpNumber";
+
+const categories = ["All", "Web Development", "Mobile Apps", "AI & Automation", "Branding & Marketing"] as const;
 
 // Sample testimonials - these would be managed from admin dashboard
 const textTestimonials = [
@@ -18,6 +21,7 @@ const textTestimonials = [
     companyLogo: "GP",
     country: "🇦🇪",
     countryName: "UAE",
+    category: "Web Development",
     rating: 5,
     text: "NETREX transformed our real estate platform completely. The new website has increased our lead generation by 300%. Their team understood our vision perfectly and delivered beyond expectations.",
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop",
@@ -29,6 +33,7 @@ const textTestimonials = [
     companyLogo: "TS",
     country: "🇺🇸",
     countryName: "USA",
+    category: "Web Development",
     rating: 5,
     text: "Working with NETREX was a game-changer for our startup. They built our MVP in record time and helped us secure our Series A funding. Highly recommended for any tech company.",
     image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop",
@@ -40,6 +45,7 @@ const textTestimonials = [
     companyLogo: "PF",
     country: "🇦🇺",
     countryName: "Australia",
+    category: "Mobile Apps",
     rating: 5,
     text: "The food delivery app NETREX built for us has been downloaded over 500K times. Their expertise in mobile development is unmatched. Great communication throughout the project.",
     image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop",
@@ -51,6 +57,7 @@ const textTestimonials = [
     companyLogo: "LF",
     country: "🇬🇧",
     countryName: "UK",
+    category: "Web Development",
     rating: 5,
     text: "Security was our top priority, and NETREX delivered a banking portal that exceeded all compliance requirements. Their attention to detail is remarkable.",
     image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop",
@@ -62,6 +69,7 @@ const textTestimonials = [
     companyLogo: "BT",
     country: "🇩🇪",
     countryName: "Germany",
+    category: "AI & Automation",
     rating: 5,
     text: "NETREX's AI integration has automated 70% of our customer support. The chatbot they built handles thousands of queries daily with remarkable accuracy.",
     image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop",
@@ -73,6 +81,7 @@ const textTestimonials = [
     companyLogo: "GH",
     country: "🇸🇦",
     countryName: "Saudi Arabia",
+    category: "AI & Automation",
     rating: 5,
     text: "Our patient management system is now completely digital thanks to NETREX. They handled the complexity of healthcare data with expertise and care.",
     image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop",
@@ -119,7 +128,28 @@ const stats = [
   { value: 50, suffix: "+", label: "Countries Served" },
 ];
 
+const ratingBreakdown = [
+  { stars: 5, pct: 92 },
+  { stars: 4, pct: 6 },
+  { stars: 3, pct: 1 },
+  { stars: 2, pct: 1 },
+  { stars: 1, pct: 0 },
+];
+
+const fadeUp = {
+  initial: { opacity: 0, y: 24 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, margin: "-80px" },
+};
+
 const Testimonials = () => {
+  const [activeCategory, setActiveCategory] = useState<(typeof categories)[number]>("All");
+
+  const filteredTestimonials = useMemo(() => {
+    if (activeCategory === "All") return textTestimonials;
+    return textTestimonials.filter((t) => t.category === activeCategory);
+  }, [activeCategory]);
+
   return (
     <div className="min-h-screen bg-background">
       <SEO
@@ -129,7 +159,6 @@ const Testimonials = () => {
       />
       <Header />
       <main>
-        {/* Hero Section */}
         <PageHero
           badge="Client Testimonials"
           title="What Our Clients"
@@ -137,18 +166,52 @@ const Testimonials = () => {
           description="Don't just take our word for it. Here's what businesses around the world have to say about working with NETREX."
         />
 
-        <section className="py-12">
+        {/* Rating summary */}
+        <section className="py-14 md:py-16">
           <div className="container-wide">
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              {...fadeUp}
               transition={{ duration: 0.6 }}
-              className="grid grid-cols-2 md:grid-cols-4 gap-6"
+              className="grid gap-8 rounded-3xl border border-border bg-card p-8 md:grid-cols-[auto_1fr] md:p-10"
+            >
+              <div className="flex flex-col items-center justify-center border-b border-border pb-6 text-center md:border-b-0 md:border-r md:pb-0 md:pr-10">
+                <div className="font-display text-5xl font-bold text-primary">4.9</div>
+                <div className="mb-1 mt-2 flex gap-1">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} className="h-4 w-4 fill-primary text-primary" />
+                  ))}
+                </div>
+                <div className="text-sm text-muted-foreground">Based on 500+ client reviews</div>
+              </div>
+              <div className="flex flex-col justify-center gap-2">
+                {ratingBreakdown.map((row) => (
+                  <div key={row.stars} className="flex items-center gap-3">
+                    <span className="w-10 text-sm text-muted-foreground">{row.stars} star</span>
+                    <div className="h-2 flex-1 overflow-hidden rounded-full bg-secondary">
+                      <div
+                        className="h-full rounded-full bg-primary"
+                        style={{ width: `${row.pct}%` }}
+                      />
+                    </div>
+                    <span className="w-10 text-right text-sm text-muted-foreground">{row.pct}%</span>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Quick stats */}
+        <section className="pb-4">
+          <div className="container-wide">
+            <motion.div
+              {...fadeUp}
+              transition={{ duration: 0.6 }}
+              className="grid grid-cols-2 gap-6 md:grid-cols-4"
             >
               {stats.map((stat) => (
-                <div key={stat.label} className="text-center p-6 rounded-2xl bg-card border border-border">
-                  <div className="text-3xl md:text-4xl font-display font-bold text-primary mb-2">
+                <div key={stat.label} className="rounded-2xl border border-border bg-card p-6 text-center">
+                  <div className="mb-2 font-display text-3xl font-bold text-primary md:text-4xl">
                     {Number.isInteger(stat.value) ? (
                       <CountUpNumber end={stat.value} suffix={stat.suffix} />
                     ) : (
@@ -162,80 +225,99 @@ const Testimonials = () => {
           </div>
         </section>
 
-
         {/* Text Testimonials */}
         <section className="section-padding">
           <div className="container-wide">
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              {...fadeUp}
               transition={{ duration: 0.6 }}
-              className="text-center mb-12"
+              className="mb-10 text-center"
             >
-              <h2 className="font-display text-3xl md:text-4xl font-bold mb-4">
+              <h2 className="font-display text-3xl font-bold md:text-4xl">
                 Client <span className="text-primary">Reviews</span>
               </h2>
-              <p className="text-muted-foreground max-w-2xl mx-auto">
+              <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
                 Real feedback from real clients around the world.
               </p>
             </motion.div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {textTestimonials.map((testimonial, index) => (
-                <motion.div
-                  key={testimonial.id}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="p-6 rounded-3xl bg-card border border-border hover:shadow-lg transition-shadow"
+            {/* Category filters */}
+            <div className="mb-10 flex flex-wrap justify-center gap-2">
+              {categories.map((cat) => (
+                <button
+                  key={cat}
+                  onClick={() => setActiveCategory(cat)}
+                  className={`rounded-full border px-4 py-2 text-sm font-medium transition-colors ${
+                    activeCategory === cat
+                      ? "border-primary bg-primary text-primary-foreground"
+                      : "border-border bg-card text-foreground/70 hover:border-primary/40 hover:text-foreground"
+                  }`}
                 >
-                  {/* Header */}
-                  <div className="flex items-start justify-between mb-4">
-                    <div className="flex items-center gap-3">
-                      <img
-                        src={testimonial.image}
-                        alt={testimonial.clientName}
-                        className="w-12 h-12 rounded-full object-cover"
-                      />
-                      <div>
-                        <div className="font-semibold">{testimonial.clientName}</div>
-                        <div className="text-sm text-muted-foreground flex items-center gap-2">
-                          <span className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center text-xs">
-                            {testimonial.companyLogo}
-                          </span>
-                          {testimonial.companyName}
-                        </div>
-                      </div>
-                    </div>
-                    <span className="text-2xl">{testimonial.country}</span>
-                  </div>
-
-                  {/* Rating */}
-                  <div className="flex gap-1 mb-4">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="h-4 w-4 fill-primary text-primary" />
-                    ))}
-                  </div>
-
-                  {/* Quote */}
-                  <div className="relative">
-                    <Quote className="absolute -top-2 -left-2 h-8 w-8 text-primary/10" />
-                    <p className="text-muted-foreground relative z-10">
-                      "{testimonial.text}"
-                    </p>
-                  </div>
-
-                  {/* Country tag */}
-                  <div className="mt-4 pt-4 border-t border-border">
-                    <span className="text-xs text-muted-foreground">
-                      Project from {testimonial.countryName}
-                    </span>
-                  </div>
-                </motion.div>
+                  {cat}
+                </button>
               ))}
             </div>
+
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeCategory}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.3 }}
+                className="grid gap-6 md:grid-cols-2 lg:grid-cols-3"
+              >
+                {filteredTestimonials.map((testimonial, index) => (
+                  <motion.div
+                    key={testimonial.id}
+                    initial={{ opacity: 0, y: 24 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4, delay: index * 0.06 }}
+                    className="rounded-3xl border border-border bg-card p-6 transition-shadow hover:shadow-lg"
+                  >
+                    <div className="mb-4 flex items-start justify-between">
+                      <div className="flex items-center gap-3">
+                        <img
+                          src={testimonial.image}
+                          alt={testimonial.clientName}
+                          className="h-12 w-12 rounded-full object-cover"
+                        />
+                        <div>
+                          <div className="font-semibold">{testimonial.clientName}</div>
+                          <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                            <span className="flex h-6 w-6 items-center justify-center rounded-full bg-primary/10 text-xs">
+                              {testimonial.companyLogo}
+                            </span>
+                            {testimonial.companyName}
+                          </div>
+                        </div>
+                      </div>
+                      <span className="text-2xl">{testimonial.country}</span>
+                    </div>
+
+                    <div className="mb-4 flex gap-1">
+                      {[...Array(testimonial.rating)].map((_, i) => (
+                        <Star key={i} className="h-4 w-4 fill-primary text-primary" />
+                      ))}
+                    </div>
+
+                    <div className="relative">
+                      <Quote className="absolute -left-2 -top-2 h-8 w-8 text-primary/10" />
+                      <p className="relative z-10 text-muted-foreground">"{testimonial.text}"</p>
+                    </div>
+
+                    <div className="mt-4 flex items-center justify-between border-t border-border pt-4">
+                      <span className="text-xs text-muted-foreground">
+                        Project from {testimonial.countryName}
+                      </span>
+                      <span className="rounded-full bg-secondary px-2.5 py-1 text-xs font-medium text-foreground/70">
+                        {testimonial.category}
+                      </span>
+                    </div>
+                  </motion.div>
+                ))}
+              </motion.div>
+            </AnimatePresence>
           </div>
         </section>
 
@@ -243,42 +325,38 @@ const Testimonials = () => {
         <section className="section-padding bg-secondary/30">
           <div className="container-wide">
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              {...fadeUp}
               transition={{ duration: 0.6 }}
-              className="text-center mb-12"
+              className="mb-12 text-center"
             >
-              <h2 className="font-display text-3xl md:text-4xl font-bold mb-4">
+              <h2 className="font-display text-3xl font-bold md:text-4xl">
                 Video <span className="text-primary">Testimonials</span>
               </h2>
-              <p className="text-muted-foreground max-w-2xl mx-auto">
+              <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
                 Hear directly from our clients about their experience.
               </p>
             </motion.div>
 
-            <div className="grid md:grid-cols-3 gap-6">
+            <div className="grid gap-6 md:grid-cols-3">
               {videoTestimonials.map((video, index) => (
                 <motion.div
                   key={video.id}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
+                  {...fadeUp}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="group rounded-3xl overflow-hidden bg-card border border-border hover:shadow-lg transition-shadow cursor-pointer"
+                  className="group cursor-pointer overflow-hidden rounded-3xl border border-border bg-card transition-shadow hover:shadow-lg"
                 >
                   <div className="relative aspect-video">
                     <img
                       src={video.thumbnail}
                       alt={video.clientName}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-foreground/40 flex items-center justify-center group-hover:bg-foreground/50 transition-colors">
-                      <div className="w-16 h-16 rounded-full bg-primary flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
-                        <Play className="h-6 w-6 text-white ml-1" />
+                    <div className="absolute inset-0 flex items-center justify-center bg-foreground/40 transition-colors group-hover:bg-foreground/50">
+                      <div className="flex h-16 w-16 items-center justify-center rounded-full bg-primary shadow-lg transition-transform group-hover:scale-110">
+                        <Play className="ml-1 h-6 w-6 text-primary-foreground" />
                       </div>
                     </div>
-                    <div className="absolute bottom-3 right-3 px-2 py-1 rounded-full bg-foreground/80 text-white text-xs">
+                    <div className="absolute bottom-3 right-3 rounded-full bg-foreground/80 px-2 py-1 text-xs text-background">
                       {video.duration}
                     </div>
                   </div>
@@ -300,16 +378,11 @@ const Testimonials = () => {
         {/* CTA Section */}
         <section className="section-padding bg-primary">
           <div className="container-wide text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <h2 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
+            <motion.div {...fadeUp} transition={{ duration: 0.6 }}>
+              <h2 className="mb-6 font-display text-3xl font-bold text-primary-foreground md:text-4xl lg:text-5xl">
                 Ready to Join Our Success Stories?
               </h2>
-              <p className="text-white/90 text-lg md:text-xl max-w-2xl mx-auto mb-8">
+              <p className="mx-auto mb-8 max-w-2xl text-lg text-primary-foreground/90 md:text-xl">
                 Let's discuss your project and create something amazing together.
               </p>
               <Link to="/contact">

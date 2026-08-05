@@ -72,3 +72,24 @@ Healthcare, Education, Real Estate, E-Commerce & Retail, Hospitality, Logistics,
 
 ## Full reference
 - [llms-full.txt](/llms-full.txt): Extended AI reference with per-service detail and direct Q&A answers.
+
+## Multilingual quick answers
+
+### Deutsch (Berlin / DACH)
+- Was ist NETREX? NETREX INC ist eine globale Digitalagentur (gegruendet 2016) mit einem Buero in Berlin, spezialisiert auf Webentwicklung, App Entwicklung, SEO Agentur Leistungen und digitales Marketing.
+- Leistungen: Webentwicklung Agentur, App Entwicklung, Digitalagentur Services, SEO Agentur, E-Commerce, KI Automatisierung, Cloud Migration.
+- Kontakt: info@netrexinc.com | https://www.netrexinc.com/contact
+
+### Francais (agence web / France)
+- Qu'est-ce que NETREX? NETREX INC est une agence web et agence digitale mondiale (fondee en 2016), avec des clients servis en developpement d'application mobile, creation de site internet et referencement SEO.
+- Services: agence web, developpement application mobile, referencement SEO, agence digitale, e-commerce, automatisation IA.
+- Contact: info@netrexinc.com | https://www.netrexinc.com/contact
+
+### Espanol
+- Que es NETREX? NETREX INC es una agencia de desarrollo web y marketing digital global fundada en 2016, con desarrollo de aplicaciones moviles, diseno web y posicionamiento SEO.
+- Contacto: info@netrexinc.com | https://www.netrexinc.com/contact
+
+### العربية (دبي / الرياض)
+- ما هي نتركس؟ نتركس هي شركة تطوير مواقع وتطبيقات وتسويق رقمي عالمية تأسست عام 2016، ومقرها الرئيسي في دبي مع مكتب في الرياض.
+- الخدمات: تطوير المواقع الإلكترونية، تطوير تطبيقات الجوال، التسويق الرقمي، تحسين محركات البحث، التجارة الإلكترونية، أتمتة الذكاء الاصطناعي.
+- التواصل: info@netrexinc.com | https://www.netrexinc.com/contact
