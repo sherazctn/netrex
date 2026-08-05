@@ -73,4 +73,10 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+  <url><loc>https://netrex.lovable.app/company-profile</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://netrex.lovable.app/leadership</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://netrex.lovable.app/trust-center</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://netrex.lovable.app/newsroom</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://netrex.lovable.app/partners</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://netrex.lovable.app/csr</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
 </urlset>
