@@ -18,7 +18,7 @@ const BlogPost = () => {
         <SEO
           title="Article Not Found - NETREX Blog"
           description="This article does not exist or has been moved. Browse the NETREX Inc blog for the latest insights."
-          canonical="https://netrex.lovable.app/blog"
+          canonical="https://www.netrexinc.com/blog"
           noindex
         />
         <Header />
@@ -54,21 +54,21 @@ const BlogPost = () => {
     publisher: {
       "@type": "Organization",
       name: "NETREX INC",
-      logo: { "@type": "ImageObject", url: "https://netrex.lovable.app/favicon.ico" },
+      logo: { "@type": "ImageObject", url: "https://www.netrexinc.com/favicon.ico" },
     },
     datePublished: new Date(post.date).toISOString(),
     dateModified: new Date(post.date).toISOString(),
     keywords: (post.keywords ?? []).join(", "),
-    mainEntityOfPage: `https://netrex.lovable.app/blog/${post.slug}`,
+    mainEntityOfPage: `https://www.netrexinc.com/blog/${post.slug}`,
   };
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://netrex.lovable.app/" },
-      { "@type": "ListItem", position: 2, name: "Blog", item: "https://netrex.lovable.app/blog" },
-      { "@type": "ListItem", position: 3, name: post.title, item: `https://netrex.lovable.app/blog/${post.slug}` },
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.netrexinc.com/" },
+      { "@type": "ListItem", position: 2, name: "Blog", item: "https://www.netrexinc.com/blog" },
+      { "@type": "ListItem", position: 3, name: post.title, item: `https://www.netrexinc.com/blog/${post.slug}` },
     ],
   };
 
@@ -77,7 +77,7 @@ const BlogPost = () => {
       <SEO
         title={seoTitle}
         description={post.excerpt}
-        canonical={`https://netrex.lovable.app/blog/${post.slug}`}
+        canonical={`https://www.netrexinc.com/blog/${post.slug}`}
         ogImage={post.image}
         ogType="article"
         schema={{ "@context": "https://schema.org", "@graph": [articleSchema, breadcrumbSchema] }}

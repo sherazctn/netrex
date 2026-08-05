@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Linkedin, Instagram, Facebook, ArrowRight, MessageCircle, Globe, Smartphone, Palette, Megaphone, Bot, Cloud, Users, Briefcase, FolderOpen, MessageSquare, BookOpen, PhoneCall, Building2, Award, Shield, Sparkles, Brain, Package, ShoppingCart, Target, Eye, Calculator, Scale, Factory, Server, Boxes, BarChart3, Wand2 } from "lucide-react";
+import { Mail, Phone, MapPin, Linkedin, Instagram, Facebook, ArrowRight, MessageCircle, Globe, Smartphone, Palette, Megaphone, Bot, Cloud, Users, Briefcase, FolderOpen, MessageSquare, BookOpen, PhoneCall, Building2, Award, Shield, Sparkles, Brain, Package, ShoppingCart, Target, Eye, Calculator, Scale, Factory, Server, Boxes, BarChart3, Wand2, FileText, ShieldCheck, Newspaper, Handshake, Heart } from "lucide-react";
 import netrexLogo from "@/assets/netrex-logo.png";
 import netrexLogoLite from "@/assets/netrex-logo-lite.png";
 import { Button } from "@/components/ui/button";
@@ -44,6 +44,14 @@ const footerLinks = {
     { name: "Blog", href: "/blog", icon: BookOpen },
     { name: "Careers", href: "/careers", icon: Briefcase },
     { name: "Contact", href: "/contact", icon: PhoneCall },
+  ],
+  companyInfo: [
+    { name: "Company Profile", href: "/company-profile", icon: FileText },
+    { name: "Leadership", href: "/leadership", icon: Users },
+    { name: "Trust Center", href: "/trust-center", icon: ShieldCheck },
+    { name: "Newsroom", href: "/newsroom", icon: Newspaper },
+    { name: "Partners", href: "/partners", icon: Handshake },
+    { name: "CSR & Sustainability", href: "/csr", icon: Heart },
   ],
   locations: [
     { name: "Dubai, UAE (HQ)", flag: "🇦🇪", href: "/contact?location=ae" },
@@ -200,7 +208,7 @@ export function Footer() {
 
       {/* Main Footer */}
       <div className="container-wide py-16 relative z-10">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-10">
           {/* Brand Column */}
           <div className="lg:col-span-2 lg:pr-8">
             <Link to="/">
@@ -266,6 +274,21 @@ export function Footer() {
             <h3 className="font-display font-semibold text-sm uppercase tracking-wider mb-4">{t('footer.company')}</h3>
             <ul className="space-y-2.5">
               {footerLinks.company.map((link) => (
+                <li key={link.name}>
+                  <Link to={link.href} className="flex items-center gap-2 text-white/70 hover:text-primary transition-colors group text-sm">
+                    <link.icon className="h-3.5 w-3.5 text-white/40 group-hover:text-primary transition-colors" />
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Company Info Links */}
+          <div>
+            <h3 className="font-display font-semibold text-sm uppercase tracking-wider mb-4">Company Info</h3>
+            <ul className="space-y-2.5">
+              {footerLinks.companyInfo.map((link) => (
                 <li key={link.name}>
                   <Link to={link.href} className="flex items-center gap-2 text-white/70 hover:text-primary transition-colors group text-sm">
                     <link.icon className="h-3.5 w-3.5 text-white/40 group-hover:text-primary transition-colors" />

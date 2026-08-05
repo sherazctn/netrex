@@ -90,7 +90,7 @@ const ChatbotROICalculator = () => (
   <QuizTool
     seoTitle="AI Chatbot ROI Calculator | Free Tool - NETREX"
     seoDescription="Free AI chatbot ROI calculator: estimate extra leads, faster response times and yearly revenue gain from adding an AI chatbot to your website."
-    canonical="https://netrex.lovable.app/tools/ai-chatbot-roi"
+    canonical="https://www.netrexinc.com/tools/ai-chatbot-roi"
     badge="Free AI Tool"
     icon={MessageSquare}
     heading="AI Chatbot"

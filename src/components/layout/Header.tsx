@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ChevronDown, Globe, Smartphone, Palette, Megaphone, Layers, ShoppingCart, Bot, Search, Cloud, Users, Eye, Target, MessageSquare, Scale, Factory, Server, Boxes, BarChart3 } from "lucide-react";
+import { Menu, X, ChevronDown, Globe, Smartphone, Palette, Megaphone, Layers, ShoppingCart, Bot, Search, Cloud, Users, Eye, Target, MessageSquare, Scale, Factory, Server, Boxes, BarChart3, FileText, ShieldCheck, Newspaper, Handshake, Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { TopBar } from "@/components/layout/TopBar";
 import netrexLogo from "@/assets/netrex-logo.png";
@@ -48,6 +48,12 @@ const navLinks = [
       { name: "Our Vision", href: "/vision", icon: Eye, tKey: "nav.vision" },
       { name: "Testimonials", href: "/testimonials", icon: MessageSquare, tKey: "nav.testimonials" },
       { name: "Legal", href: "/legal", icon: Scale, tKey: "footer.legal" },
+      { name: "Company Profile", href: "/company-profile", icon: FileText },
+      { name: "Leadership", href: "/leadership", icon: Users },
+      { name: "Trust Center", href: "/trust-center", icon: ShieldCheck },
+      { name: "Newsroom", href: "/newsroom", icon: Newspaper },
+      { name: "Partners", href: "/partners", icon: Handshake },
+      { name: "CSR & Sustainability", href: "/csr", icon: Heart },
     ],
   },
   { 
@@ -160,7 +166,7 @@ export function Header() {
                       initial="hidden"
                       animate="visible"
                       exit="exit"
-                      className="absolute top-full left-0 mt-2 w-64 bg-card rounded-2xl shadow-xl border border-border overflow-hidden z-[60]"
+                      className="absolute top-full left-0 mt-2 w-64 bg-card rounded-2xl shadow-xl border border-border overflow-hidden z-[60] max-h-[26rem] overflow-y-auto"
                     >
                       {link.dropdown.map((item, i) => {
                         const IconComp = getDropdownIcon(item);

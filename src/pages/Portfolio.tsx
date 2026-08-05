@@ -60,7 +60,7 @@ const Portfolio = () => {
       <SEO
         title="Portfolio - NETREX Inc | 46+ Projects Delivered"
         description="Browse 46+ delivered projects by NETREX Inc - web development, mobile apps, branding, e-commerce, and AI automation across 9 countries."
-        canonical="https://netrex.lovable.app/portfolio"
+        canonical="https://www.netrexinc.com/portfolio"
       />
       <Header />
       <main>

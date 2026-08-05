@@ -67,7 +67,7 @@ const AdminLogin = () => {
 
   return (
     <div className="min-h-screen bg-secondary/30 flex items-center justify-center p-4">
-      <SEO title="Admin Login - NETREX Inc" description="Restricted administrator access for NETREX Inc." canonical="https://netrex.lovable.app/admin" noindex />
+      <SEO title="Admin Login - NETREX Inc" description="Restricted administrator access for NETREX Inc." canonical="https://www.netrexinc.com/admin" noindex />
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}

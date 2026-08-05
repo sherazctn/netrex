@@ -1,5 +1,7 @@
-import { motion, useScroll, useTransform, useSpring, useMotionValue } from "framer-motion";
+import { motion, useScroll, useTransform, useSpring, useMotionValue, animate } from "framer-motion";
 import { TechBurstOrbit } from "@/components/home/TechBurstOrbit";
+import { ParallaxField } from "@/components/home/hero/ParallaxField";
+import { useHeroMotionProfile } from "@/components/home/hero/heroShared";
 import { ArrowRight, Play, Crown, Globe } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -100,19 +102,43 @@ export function Hero() {
     const rect = event.currentTarget.getBoundingClientRect();
     const px = (event.clientX - rect.left) / rect.width;
     const py = (event.clientY - rect.top) / rect.height;
+    pointerX.set(px - 0.5);
+    pointerY.set(py - 0.5);
+    if (reducedMotion) return;
     tiltY.set((px - 0.5) * 18);
     tiltX.set((0.5 - py) * 18);
     glowX.set(px * 600);
     glowY.set(py * 600);
     glowOpacity.set(1);
+    // proximity to core gives the reactive pulse a hover-driven boost
+    const distFromCenter = Math.hypot(px - 0.5, py - 0.5);
+    if (distFromCenter < 0.22) triggerCorePulse(0.5);
   };
 
   const resetOrbPointer = () => {
+    pointerX.set(0);
+    pointerY.set(0);
     tiltX.set(0);
     tiltY.set(0);
     glowX.set(300);
     glowY.set(300);
     glowOpacity.set(0);
+  };
+
+  // ---- Depth / performance profile (reduced motion + viewport size) ----
+  const { reducedMotion, density } = useHeroMotionProfile();
+
+  // ---- Normalized pointer position for parallax layers (-0.5..0.5) ----
+  const pointerX = useSpring(useMotionValue(0), { stiffness: 60, damping: 18 });
+  const pointerY = useSpring(useMotionValue(0), { stiffness: 60, damping: 18 });
+
+  // ---- Reactive core pulse: fired on hover and whenever a tech icon flies by ----
+  const corePulseScale = useMotionValue(1);
+  const coreGlowOpacity = useMotionValue(0.15);
+  const triggerCorePulse = (intensity = 1) => {
+    if (reducedMotion) return;
+    animate(corePulseScale, [1, 1 + 0.09 * intensity, 1], { duration: 0.7, ease: "easeOut" });
+    animate(coreGlowOpacity, [0.15, 0.15 + 0.28 * intensity, 0.15], { duration: 0.7, ease: "easeOut" });
   };
 
   return <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-secondary/30">
@@ -291,8 +317,8 @@ export function Hero() {
               className="relative w-full max-w-[550px] aspect-square mx-auto cursor-crosshair touch-none"
               onPointerMove={handleOrbPointer}
               onPointerLeave={resetOrbPointer}
-              style={{ rotateX: tiltX, rotateY: tiltY, transformPerspective: 1200 }}
-              whileHover={{ scale: 1.02 }}
+              style={reducedMotion ? undefined : { rotateX: tiltX, rotateY: tiltY, transformPerspective: 1200 }}
+              whileHover={reducedMotion ? undefined : { scale: 1.02 }}
               transition={{ type: "spring", stiffness: 150, damping: 18 }}
             >
               <svg viewBox="0 0 600 600" className="w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -305,6 +331,9 @@ export function Hero() {
                   style={{ opacity: glowOpacity }}
                   className="pointer-events-none"
                 />
+
+                {/* Layered parallax depth field, reacts to pointer */}
+                <ParallaxField px={pointerX} py={pointerY} density={density} reducedMotion={reducedMotion} />
 
 
                 {/* Outer rotating RED ring */}
@@ -356,14 +385,16 @@ export function Hero() {
                   <circle cx="300" cy="300" r="180" stroke="hsl(359 85% 53%)" strokeWidth="2" strokeDasharray="20 10" fill="none" opacity="0.5" />
                 </motion.g>
 
-                {/* Center core - RED circle with N icon from logo */}
-                <motion.g animate={{
-                scale: [1, 1.05, 1]
-              }} transition={{
-                duration: 4,
-                repeat: Infinity
-              }}>
-                  {/* Glow */}
+                {/* Center core - RED circle with N icon from logo, pulses reactively */}
+                <motion.g
+                  animate={reducedMotion ? undefined : { scale: [1, 1.05, 1] }}
+                  transition={{ duration: 4, repeat: Infinity }}
+                  style={{ scale: corePulseScale, originX: "300px", originY: "300px" }}
+                  whileHover={reducedMotion ? undefined : { scale: 1.06 }}
+                  onHoverStart={() => triggerCorePulse(0.8)}
+                >
+                  {/* Reactive outer glow, brightens on pulse */}
+                  <motion.circle cx="300" cy="300" r="110" fill="hsl(359 85% 53%)" filter="url(#heroCoreGlow)" style={{ opacity: coreGlowOpacity }} />
                   <circle cx="300" cy="300" r="100" fill="hsl(359 85% 53% / 0.15)" />
                   {/* Red outer ring */}
                   <circle cx="300" cy="300" r="90" stroke="hsl(359 85% 53%)" strokeWidth="3" fill="none" opacity="0.6" />
@@ -379,7 +410,7 @@ export function Hero() {
                 </motion.g>
 
                 {/* Tech icons streaming in, slingshotting the core, bursting on exit */}
-                <TechBurstOrbit />
+                <TechBurstOrbit density={density} reducedMotion={reducedMotion} onIconFlyby={() => triggerCorePulse(1)} />
 
 
                 {/* Static orbiting tech icons */}
@@ -448,6 +479,22 @@ export function Hero() {
                     <stop offset="0%" stopColor="hsl(359 85% 53%)" />
                     <stop offset="100%" stopColor="hsl(359 85% 40%)" />
                   </radialGradient>
+                  {/* Soft glow used by the reactive core pulse */}
+                  <filter id="heroCoreGlow" x="-60%" y="-60%" width="220%" height="220%">
+                    <feGaussianBlur stdDeviation="14" result="blur" />
+                    <feMerge>
+                      <feMergeNode in="blur" />
+                      <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                  </filter>
+                  {/* Tight glow used by tech-icon energy trails and bursts */}
+                  <filter id="heroTrailGlow" x="-150%" y="-150%" width="400%" height="400%">
+                    <feGaussianBlur stdDeviation="4" result="blur" />
+                    <feMerge>
+                      <feMergeNode in="blur" />
+                      <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                  </filter>
                 </defs>
               </svg>
             </motion.div>

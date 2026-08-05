@@ -34,7 +34,7 @@ const Blog = () => {
       <SEO
         title="Blog - NETREX Inc | AI, GEO, Design & Digital Strategy"
         description="Read NETREX Inc's blog for insights on AI, Generative Engine Optimization (GEO), web design trends, mobile apps, and digital marketing strategy."
-        canonical="https://netrex.lovable.app/blog"
+        canonical="https://www.netrexinc.com/blog"
       />
       <Header />
       <main>

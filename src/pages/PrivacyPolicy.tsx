@@ -10,7 +10,7 @@ const PrivacyPolicy = () => (
     <SEO
       title="Privacy Policy - NETREX Inc"
       description="NETREX Inc Privacy Policy. Learn how we collect, use, and protect your personal information across our global operations."
-      canonical="https://netrex.lovable.app/privacy"
+      canonical="https://www.netrexinc.com/privacy"
     />
     <Header />
     <main>

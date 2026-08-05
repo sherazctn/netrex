@@ -98,14 +98,14 @@ const WebsiteROICalculator = () => {
       <SEO
         title="Website ROI Calculator | Free Redesign Payback - NETREX"
         description="Free website ROI calculator: estimate the traffic, leads and revenue a modern, fast website can generate for your business. Instant results, no signup."
-        canonical="https://netrex.lovable.app/tools/website-roi"
+        canonical="https://www.netrexinc.com/tools/website-roi"
         schema={{
           "@context": "https://schema.org",
           "@type": "WebApplication",
           name: "Website ROI Calculator",
           applicationCategory: "BusinessApplication",
           operatingSystem: "Any",
-          url: "https://netrex.lovable.app/tools/website-roi",
+          url: "https://www.netrexinc.com/tools/website-roi",
           offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
           provider: { "@type": "Organization", name: "NETREX INC" },
         }}

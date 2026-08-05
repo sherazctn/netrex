@@ -59,6 +59,12 @@ Allow: /
 User-agent: DuckAssistBot
 Allow: /
 
+User-agent: Bingbot
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
 User-agent: YouBot
 Allow: /
 
@@ -76,5 +82,5 @@ User-agent: *
 Disallow: /admin
 Disallow: /admin/
 
-Sitemap: https://netrex.lovable.app/sitemap.xml
-Host: https://netrex.lovable.app
+Sitemap: https://www.netrexinc.com/sitemap.xml
+Host: https://www.netrexinc.com

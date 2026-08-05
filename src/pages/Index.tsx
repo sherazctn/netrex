@@ -16,7 +16,7 @@ const Index = () => {
       <SEO
         title="NETREX Inc | Digital Marketing & Web Development Agency"
         description="Global digital agency for web development, mobile apps, AI automation, branding, e-commerce, SEO & GEO. Serving UAE, US, UK, Canada, Australia, Germany, Saudi Arabia, Singapore & Pakistan since 2016."
-        canonical="https://netrex.lovable.app/"
+        canonical="https://www.netrexinc.com/"
       />
       <Header />
       <main>

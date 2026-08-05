@@ -95,14 +95,14 @@ const MobileAppROICalculator = () => {
       <SEO
         title="Mobile App ROI Calculator | Free App Payback - NETREX"
         description="Free mobile app ROI calculator: model development cost, retention, and revenue to see whether an iOS or Android app pays for itself."
-        canonical="https://netrex.lovable.app/tools/mobile-app-roi"
+        canonical="https://www.netrexinc.com/tools/mobile-app-roi"
         schema={{
           "@context": "https://schema.org",
           "@type": "WebApplication",
           name: "Mobile App ROI Calculator",
           applicationCategory: "BusinessApplication",
           operatingSystem: "Any",
-          url: "https://netrex.lovable.app/tools/mobile-app-roi",
+          url: "https://www.netrexinc.com/tools/mobile-app-roi",
           offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
           provider: { "@type": "Organization", name: "NETREX INC" },
         }}

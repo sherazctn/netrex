@@ -81,14 +81,14 @@ const AICopyGenerator = () => {
       <SEO
         title="Free AI Website Copy & SEO Generator - NETREX"
         description="Generate SEO titles, meta descriptions, hero headlines and keywords for your business in seconds with this free AI copy generator by NETREX."
-        canonical="https://netrex.lovable.app/tools/ai-copy-generator"
+        canonical="https://www.netrexinc.com/tools/ai-copy-generator"
         schema={{
           "@context": "https://schema.org",
           "@type": "WebApplication",
           name: "AI Website Copy & SEO Generator",
           applicationCategory: "BusinessApplication",
           operatingSystem: "Any",
-          url: "https://netrex.lovable.app/tools/ai-copy-generator",
+          url: "https://www.netrexinc.com/tools/ai-copy-generator",
           offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
           provider: { "@type": "Organization", name: "NETREX INC" },
         }}

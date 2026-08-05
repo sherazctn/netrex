@@ -101,7 +101,7 @@ const Services = () => {
       <SEO
         title="Digital Services | Web, Mobile, AI & Marketing - NETREX"
         description="Explore NETREX Inc services: web development, mobile apps, UI/UX design, digital marketing, branding, e-commerce, AI automation, GEO, DevOps and cloud solutions."
-        canonical="https://netrex.lovable.app/services"
+        canonical="https://www.netrexinc.com/services"
       />
       <Header />
       <main>

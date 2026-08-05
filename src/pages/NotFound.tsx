@@ -14,7 +14,7 @@ const NotFound = () => {
       <SEO
         title="Page Not Found - NETREX Inc"
         description="The page you are looking for does not exist. Return to the NETREX Inc homepage to explore our digital services."
-        canonical="https://netrex.lovable.app/404"
+        canonical="https://www.netrexinc.com/404"
         noindex
 
       />

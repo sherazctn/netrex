@@ -98,14 +98,14 @@ const BrandingROICalculator = () => {
       <SEO
         title="Branding ROI Calculator | Free Rebrand Value Tool - NETREX"
         description="Free branding ROI calculator: quantify how a stronger brand identity lifts conversion, pricing power and customer trust."
-        canonical="https://netrex.lovable.app/tools/branding-roi"
+        canonical="https://www.netrexinc.com/tools/branding-roi"
         schema={{
           "@context": "https://schema.org",
           "@type": "WebApplication",
           name: "Branding ROI Calculator",
           applicationCategory: "BusinessApplication",
           operatingSystem: "Any",
-          url: "https://netrex.lovable.app/tools/branding-roi",
+          url: "https://www.netrexinc.com/tools/branding-roi",
           offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
           provider: { "@type": "Organization", name: "NETREX INC" },
         }}

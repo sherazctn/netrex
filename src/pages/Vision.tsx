@@ -5,55 +5,111 @@ import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ArrowRight, Eye, Rocket, Cpu, Globe2, Leaf, Sparkles, Users, Zap, TrendingUp } from "lucide-react";
+import {
+  ArrowRight,
+  Eye,
+  Rocket,
+  Cpu,
+  Globe2,
+  Leaf,
+  Sparkles,
+  Users,
+  Zap,
+  Cloud,
+  Search,
+  BrainCircuit,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const visionGoals = [
+const fadeUp = {
+  initial: { opacity: 0, y: 24 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: true, margin: "-80px" },
+};
+
+const strategicPillars = [
   {
-    year: "2025",
-    title: "AI-First Agency",
-    description: "Integrate AI capabilities into 100% of our service offerings, from AI-powered design systems to intelligent marketing automation, making every client solution smarter and more adaptive.",
+    icon: BrainCircuit,
+    title: "AI-Native Delivery",
+    period: "2026 - 2027",
+    description:
+      "Embed AI across the full delivery lifecycle, from generative design and code assistance to intelligent automation, so every client solution ships smarter and faster.",
+  },
+  {
+    icon: Search,
+    title: "Generative Engine Optimization",
+    period: "2026 - 2028",
+    description:
+      "Pioneer GEO practices that position client brands inside AI-generated answers and assistants, not just traditional search results, as discovery shifts to conversational engines.",
+  },
+  {
+    icon: Cloud,
+    title: "Cloud-Native Everything",
+    period: "2027 - 2029",
+    description:
+      "Standardize on cloud-native, serverless, and edge architectures by default, giving every client platform built-in scalability, resilience, and lower operating cost.",
+  },
+  {
+    icon: Globe2,
+    title: "Global Market Expansion",
+    period: "2026 - 2030",
+    description:
+      "Extend our footprint into new high-growth regions, pairing global engineering standards with the local market expertise clients need to launch with confidence.",
+  },
+];
+
+const roadmap = [
+  {
+    year: "2026",
+    title: "AI-First Service Lines",
+    description:
+      "Integrate AI capabilities across our core service offerings, from AI-assisted design systems to intelligent marketing automation, making every solution smarter and more adaptive.",
     icon: Cpu,
   },
   {
-    year: "2026",
-    title: "15 Global Offices",
-    description: "Expand our physical presence to 15 countries including Japan, South Korea, Brazil, and Nigeria - bringing world-class digital solutions closer to emerging markets and high-growth economies.",
+    year: "2027",
+    title: "Expanded Global Presence",
+    description:
+      "Grow our footprint into additional high-growth markets, bringing world-class digital solutions closer to emerging economies alongside our existing 9-country base.",
     icon: Globe2,
   },
   {
-    year: "2027",
-    title: "1000+ Enterprise Clients",
-    description: "Scale our enterprise portfolio to serve over 1,000 organizations, with dedicated teams for Fortune 500 companies while maintaining the agility and personalized service our clients love.",
+    year: "2028",
+    title: "Deeper Enterprise Partnerships",
+    description:
+      "Scale our enterprise portfolio with dedicated teams for larger organizations while maintaining the agility and personalized service our clients value most.",
     icon: Users,
   },
   {
-    year: "2028",
-    title: "Carbon-Neutral Operations",
-    description: "Achieve full carbon neutrality across all operations through green hosting, remote-first policies, and renewable energy-powered offices - proving that growth and sustainability coexist.",
+    year: "2029",
+    title: "Sustainable Operations",
+    description:
+      "Advance toward greener operations through efficient hosting choices, remote-first policies, and energy-conscious infrastructure decisions across all offices.",
     icon: Leaf,
   },
   {
-    year: "2029",
-    title: "NETREX Academy Launch",
-    description: "Launch a full-scale tech education platform offering free and subsidized courses in web development, AI, and digital marketing - training 100,000+ professionals worldwide.",
+    year: "2030",
+    title: "Knowledge & Talent Investment",
+    description:
+      "Expand mentorship, training, and knowledge-sharing programs in web development, AI, and digital marketing across our global teams and communities.",
     icon: Sparkles,
   },
   {
-    year: "2030",
-    title: "Industry Standard Setter",
-    description: "Become the benchmark for digital agency excellence - publishing open standards for web performance, accessibility, and ethical AI that the entire industry adopts.",
+    year: "2030+",
+    title: "Industry-Leading Standards",
+    description:
+      "Contribute to open standards for web performance, accessibility, and ethical AI, and champion practices that raise the bar for digital agency excellence.",
     icon: Rocket,
   },
 ];
 
-const futureTech = [
-  { name: "Artificial Intelligence", desc: "Deep learning, NLP, computer vision, and generative AI for business automation" },
-  { name: "Web 3.0 & Blockchain", desc: "Decentralized applications, smart contracts, and tokenized digital experiences" },
-  { name: "Extended Reality (XR)", desc: "AR/VR solutions for immersive e-commerce, training, and real estate visualization" },
-  { name: "Edge Computing", desc: "Ultra-low latency applications with edge-native architectures for IoT and real-time data" },
-  { name: "Quantum-Ready Solutions", desc: "Future-proofing cryptography and optimization for the quantum computing era" },
-  { name: "Sustainable Tech", desc: "Green coding practices, carbon-aware computing, and energy-efficient architectures" },
+const innovationFocus = [
+  { icon: BrainCircuit, name: "Artificial Intelligence", desc: "Machine learning, NLP, computer vision, and generative AI applied to real business automation." },
+  { icon: Search, name: "Generative Engine Optimization", desc: "Optimizing brand visibility for AI assistants and generative search alongside traditional SEO." },
+  { icon: Cloud, name: "Cloud-Native Architecture", desc: "Serverless, containerized, and edge-ready infrastructure built for scale from day one." },
+  { icon: Zap, name: "Automation & Integration", desc: "Workflow automation and API-first integrations that remove manual overhead from operations." },
+  { icon: Leaf, name: "Sustainable Engineering", desc: "Efficient coding practices and infrastructure choices that reduce environmental footprint." },
+  { icon: Sparkles, name: "Immersive Experiences", desc: "AR/VR and interactive interfaces for e-commerce, training, and product visualization." },
 ];
 
 const Vision = () => {
@@ -61,17 +117,16 @@ const Vision = () => {
     <div className="min-h-screen bg-background">
       <SEO
         title="Our Vision | The AI-First Digital Agency - NETREX"
-        description="NETREX Inc's vision for the future: an AI-first agency with 15 global offices, 1000+ enterprise clients and carbon-neutral operations."
-        canonical="https://netrex.lovable.app/vision"
+        description="NETREX Inc's vision for 2026-2030: an AI-first, cloud-native agency pioneering generative engine optimization and global expansion."
+        canonical="https://www.netrexinc.com/vision"
       />
       <Header />
       <main>
-        {/* Hero */}
         <PageHero
           badge="Our Vision"
           title="Shaping the Future of"
           highlight="Digital Innovation"
-          description="We envision a world where every business - regardless of size, location, or industry - has access to transformative digital technology that levels the playing field. By 2030, NETREX aims to be the most trusted and impactful digital agency on the planet."
+          description="We envision a world where every business, regardless of size, location, or industry, has access to transformative digital technology that levels the playing field. Between 2026 and 2030, NETREX is building toward being the most trusted AI-first digital partner for growing businesses worldwide."
         >
           <div className="flex flex-wrap justify-center gap-4">
             <Link to="/contact">
@@ -88,107 +143,133 @@ const Vision = () => {
           </div>
         </PageHero>
 
-
-        {/* Vision Statement */}
-        <section className="py-20">
+        {/* Vision statement */}
+        <section className="py-20 md:py-24">
           <div className="container-wide">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="max-w-4xl mx-auto text-center"
-            >
-              <div className="p-12 rounded-3xl bg-card border border-border relative overflow-hidden">
-                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-primary/50 to-primary" />
-                <Eye className="h-12 w-12 text-primary mx-auto mb-6" />
-                <blockquote className="font-display text-2xl md:text-3xl font-bold mb-6 leading-relaxed">
-                  "To become the world's most impactful digital agency - where technology meets humanity, innovation meets integrity, and every project creates lasting value for businesses and communities alike."
+            <motion.div {...fadeUp} className="mx-auto max-w-4xl text-center">
+              <div className="relative overflow-hidden rounded-3xl border border-border bg-card p-8 md:p-14">
+                <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-primary via-primary/50 to-primary" />
+                <Eye className="mx-auto mb-6 h-12 w-12 text-primary" />
+                <blockquote className="font-display text-2xl font-bold leading-relaxed md:text-3xl">
+                  "To become the world's most impactful digital agency, where technology meets humanity, innovation
+                  meets integrity, and every project creates lasting value for businesses and communities alike."
                 </blockquote>
-                <p className="text-muted-foreground text-lg">
-                  - Sheraz Khan, Founder & CEO, NETREX INC.
+                <p className="mt-6 text-lg text-muted-foreground">
+                  Sheraz Khan, Founder & CEO, NETREX INC.
                 </p>
               </div>
             </motion.div>
           </div>
         </section>
 
-        {/* Roadmap */}
-        <section className="py-20 bg-secondary/30">
+        {/* Strategic pillars 2026-2030 */}
+        <section className="py-20 md:py-24 bg-secondary/30">
           <div className="container-wide">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-center max-w-3xl mx-auto mb-16"
-            >
-              <span className="inline-block text-sm font-semibold text-primary uppercase tracking-wider mb-4">
-                Our Roadmap
+            <motion.div {...fadeUp} className="mx-auto mb-16 max-w-3xl text-center">
+              <span className="mb-4 inline-block text-sm font-semibold uppercase tracking-wider text-primary">
+                Strategic Pillars
               </span>
-              <h2 className="font-display text-3xl md:text-4xl font-bold mb-4">
-                Strategic Goals <span className="text-primary">2025 - 2030</span>
+              <h2 className="font-display text-3xl font-bold md:text-4xl">
+                Our Focus for <span className="text-primary">2026 - 2030</span>
               </h2>
-              <p className="text-muted-foreground text-lg">
-                A clear, ambitious roadmap that charts our course from where we are today to where we're determined to be.
+              <p className="mt-4 text-lg text-muted-foreground">
+                Four strategic pillars anchor how we invest, hire, and build over the next five years.
               </p>
             </motion.div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {visionGoals.map((goal, i) => (
+            <div className="grid gap-6 md:grid-cols-2">
+              {strategicPillars.map((pillar, i) => (
                 <motion.div
-                  key={goal.year}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
+                  key={pillar.title}
+                  {...fadeUp}
                   transition={{ delay: i * 0.1 }}
-                  className="group p-8 rounded-3xl bg-card border border-border hover:border-primary/30 hover:shadow-xl transition-all duration-500 relative overflow-hidden"
+                  className="group rounded-3xl border border-border bg-card p-8 transition-all duration-500 hover:-translate-y-1 hover:border-primary/30 hover:shadow-xl"
                 >
-                  <div className="absolute top-4 right-4 text-6xl font-display font-bold text-primary/10 group-hover:text-primary/20 transition-colors">
-                    {goal.year}
+                  <div className="mb-5 flex items-center justify-between">
+                    <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 transition-all group-hover:scale-110 group-hover:bg-primary">
+                      <pillar.icon className="h-7 w-7 text-primary transition-colors group-hover:text-primary-foreground" />
+                    </div>
+                    <span className="rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
+                      {pillar.period}
+                    </span>
                   </div>
-                  <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary group-hover:scale-110 transition-all">
-                    <goal.icon className="h-7 w-7 text-primary group-hover:text-white transition-colors" />
-                  </div>
-                  <div className="text-sm font-semibold text-primary mb-2">{goal.year}</div>
-                  <h3 className="font-display text-xl font-bold mb-3">{goal.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed">{goal.description}</p>
+                  <h3 className="mb-3 font-display text-xl font-bold">{pillar.title}</h3>
+                  <p className="leading-relaxed text-muted-foreground">{pillar.description}</p>
                 </motion.div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* Future Technologies */}
-        <section className="py-20">
+        {/* Roadmap timeline */}
+        <section className="py-20 md:py-24">
           <div className="container-wide">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="text-center max-w-3xl mx-auto mb-16"
-            >
-              <span className="inline-block text-sm font-semibold text-primary uppercase tracking-wider mb-4">
-                Future Technologies
+            <motion.div {...fadeUp} className="mx-auto mb-16 max-w-3xl text-center">
+              <span className="mb-4 inline-block text-sm font-semibold uppercase tracking-wider text-primary">
+                Our Roadmap
               </span>
-              <h2 className="font-display text-3xl md:text-4xl font-bold mb-4">
-                Technologies We're <span className="text-primary">Investing In</span>
+              <h2 className="font-display text-3xl font-bold md:text-4xl">
+                A Clear Path <span className="text-primary">Year by Year</span>
               </h2>
-              <p className="text-muted-foreground text-lg">
-                We continuously invest in emerging technologies to ensure our clients stay ahead of the curve.
+              <p className="mt-4 text-lg text-muted-foreground">
+                An ambitious roadmap that charts our course from where we are today to where we're determined to be.
               </p>
             </motion.div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {futureTech.map((tech, i) => (
+            <div className="relative mx-auto max-w-3xl">
+              <div className="absolute left-6 top-2 bottom-2 w-px bg-border md:left-1/2" aria-hidden="true" />
+              <div className="space-y-10">
+                {roadmap.map((goal, i) => (
+                  <motion.div
+                    key={goal.year}
+                    initial={{ opacity: 0, x: i % 2 === 0 ? -24 : 24 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.06 }}
+                    className={`relative flex gap-6 md:w-1/2 ${
+                      i % 2 === 0 ? "md:ml-auto md:pl-10" : "md:mr-auto md:flex-row-reverse md:pr-10 md:text-right"
+                    } pl-16 md:pl-0`}
+                  >
+                    <div className="absolute left-0 top-0 flex h-12 w-12 items-center justify-center rounded-2xl border border-primary/20 bg-card text-primary shadow-sm md:static md:flex-shrink-0">
+                      <goal.icon className="h-6 w-6" />
+                    </div>
+                    <div>
+                      <div className="mb-1 text-sm font-semibold text-primary">{goal.year}</div>
+                      <h3 className="mb-2 font-display text-lg font-bold">{goal.title}</h3>
+                      <p className="text-sm leading-relaxed text-muted-foreground">{goal.description}</p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Innovation focus */}
+        <section className="py-20 md:py-24 bg-secondary/30">
+          <div className="container-wide">
+            <motion.div {...fadeUp} className="mx-auto mb-16 max-w-3xl text-center">
+              <span className="mb-4 inline-block text-sm font-semibold uppercase tracking-wider text-primary">
+                Innovation Focus
+              </span>
+              <h2 className="font-display text-3xl font-bold md:text-4xl">
+                Where We're <span className="text-primary">Investing</span>
+              </h2>
+              <p className="mt-4 text-lg text-muted-foreground">
+                AI, generative engine optimization, and cloud-native engineering sit at the center of our roadmap.
+              </p>
+            </motion.div>
+
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {innovationFocus.map((tech, i) => (
                 <motion.div
                   key={tech.name}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.08 }}
-                  className="p-6 rounded-2xl bg-card border border-border hover:border-primary/20 hover:shadow-lg transition-all group"
+                  {...fadeUp}
+                  transition={{ delay: i * 0.06 }}
+                  className="group rounded-2xl border border-border bg-card p-6 transition-all hover:border-primary/20 hover:shadow-lg"
                 >
-                  <Zap className="h-6 w-6 text-primary mb-3 group-hover:scale-110 transition-transform" />
-                  <h3 className="font-display font-bold mb-2">{tech.name}</h3>
+                  <tech.icon className="mb-3 h-6 w-6 text-primary transition-transform group-hover:scale-110" />
+                  <h3 className="mb-2 font-display font-bold">{tech.name}</h3>
                   <p className="text-sm text-muted-foreground">{tech.desc}</p>
                 </motion.div>
               ))}
@@ -199,17 +280,13 @@ const Vision = () => {
         {/* CTA */}
         <section className="py-20 bg-foreground text-background">
           <div className="container-wide text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="max-w-3xl mx-auto"
-            >
-              <h2 className="font-display text-3xl md:text-4xl font-bold mb-6">
+            <motion.div {...fadeUp} className="mx-auto max-w-3xl">
+              <h2 className="mb-6 font-display text-3xl font-bold md:text-4xl">
                 Be Part of Our <span className="text-primary">Vision</span>
               </h2>
-              <p className="text-background/70 text-lg mb-8">
-                The future of digital is being built today. Whether you want to transform your business or shape the industry alongside us, let's connect.
+              <p className="mb-8 text-lg text-background/70">
+                The future of digital is being built today. Whether you want to transform your business or shape
+                the industry alongside us, let's connect.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <Link to="/contact">
