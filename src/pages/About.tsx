@@ -9,9 +9,9 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Award, Globe2, Users, Lightbulb, Target, Heart, Trophy, Star, GraduationCap, Briefcase, Shield, Zap, Quote, Rocket, CheckCircle2, Sparkles, TrendingUp, Layers, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { CountUpNumber } from "@/components/ui/CountUpNumber";
-import ceoPortrait from "@/assets/sheraz-khan-ceo.png.asset.json";
-import gurpreetPortrait from "@/assets/gurpreet-singh.png.asset.json";
-import sajjadPortrait from "@/assets/sajjad-khan.jpg.asset.json";
+import ceoPortrait from "@/assets/sheraz-khan-ceo.jpg";
+import gurpreetPortrait from "@/assets/gurpreet-singh.jpg";
+import sajjadPortrait from "@/assets/sajjad-khan.jpg";
 
 const values = [
 {
@@ -40,19 +40,19 @@ const team = [
 {
   name: "Sheraz Khan",
   role: "Founder & CEO",
-  image: ceoPortrait.url,
+  image: ceoPortrait,
   bio: "Visionary leader with 15+ years in digital transformation"
 },
 {
   name: "Gurpreet Singh",
   role: "CMO",
-  image: gurpreetPortrait.url,
+  image: gurpreetPortrait,
   bio: "Growth strategist with expertise in global marketing campaigns"
 },
 {
   name: "Sajjad Khan",
   role: "COO",
-  image: sajjadPortrait.url,
+  image: sajjadPortrait,
   bio: "Operations expert ensuring seamless project delivery worldwide"
 },
 {
@@ -252,7 +252,7 @@ const About = () => {
                   <div className="absolute -bottom-4 -left-4 h-full w-full rounded-[1.75rem] border-2 border-primary" />
                   <div className="relative aspect-[4/5] overflow-hidden rounded-[1.75rem] bg-background/10 ring-1 ring-background/15">
                     <img
-                      src={ceoPortrait.url}
+                      src={ceoPortrait}
                       alt="Sheraz Khan, Founder and CEO of NETREX Inc"
                       className="h-full w-full object-cover"
                       loading="lazy"
