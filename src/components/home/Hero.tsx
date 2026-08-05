@@ -317,8 +317,8 @@ export function Hero() {
               className="relative w-full max-w-[550px] aspect-square mx-auto cursor-crosshair touch-none"
               onPointerMove={handleOrbPointer}
               onPointerLeave={resetOrbPointer}
-              style={{ rotateX: tiltX, rotateY: tiltY, transformPerspective: 1200 }}
-              whileHover={{ scale: 1.02 }}
+              style={reducedMotion ? undefined : { rotateX: tiltX, rotateY: tiltY, transformPerspective: 1200 }}
+              whileHover={reducedMotion ? undefined : { scale: 1.02 }}
               transition={{ type: "spring", stiffness: 150, damping: 18 }}
             >
               <svg viewBox="0 0 600 600" className="w-full h-full" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -479,6 +479,22 @@ export function Hero() {
                     <stop offset="0%" stopColor="hsl(359 85% 53%)" />
                     <stop offset="100%" stopColor="hsl(359 85% 40%)" />
                   </radialGradient>
+                  {/* Soft glow used by the reactive core pulse */}
+                  <filter id="heroCoreGlow" x="-60%" y="-60%" width="220%" height="220%">
+                    <feGaussianBlur stdDeviation="14" result="blur" />
+                    <feMerge>
+                      <feMergeNode in="blur" />
+                      <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                  </filter>
+                  {/* Tight glow used by tech-icon energy trails and bursts */}
+                  <filter id="heroTrailGlow" x="-150%" y="-150%" width="400%" height="400%">
+                    <feGaussianBlur stdDeviation="4" result="blur" />
+                    <feMerge>
+                      <feMergeNode in="blur" />
+                      <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                  </filter>
                 </defs>
               </svg>
             </motion.div>
