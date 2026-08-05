@@ -28,7 +28,7 @@ const schema = {
   "@context": "https://schema.org",
   "@type": "WebPage",
   name: "Partners & Alliances | NETREX INC",
-  url: "https://netrex.lovable.app/partners",
+  url: "https://www.netrexinc.com/partners",
 };
 
 const Partners = () => {
@@ -37,7 +37,7 @@ const Partners = () => {
       <SEO
         title="Partners & Alliances | NETREX INC"
         description="NETREX INC partner ecosystem: AWS Partner and Databricks Consulting Partner status, technology stack alliances, partnership tiers and how to become a partner."
-        canonical="https://netrex.lovable.app/partners"
+        canonical="https://www.netrexinc.com/partners"
         schema={schema}
       />
       <Header />

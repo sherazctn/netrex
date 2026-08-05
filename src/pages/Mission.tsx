@@ -113,7 +113,7 @@ const Mission = () => {
       <SEO
         title="Our Mission | Digital Innovation Worldwide - NETREX"
         description="NETREX Inc's mission: empower businesses worldwide with innovative digital solutions, from web development and AI automation to branding and performance marketing."
-        canonical="https://netrex.lovable.app/mission"
+        canonical="https://www.netrexinc.com/mission"
       />
       <Header />
       <main>

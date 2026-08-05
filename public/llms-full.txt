@@ -2,7 +2,7 @@
 
 > NETREX INC is a global digital agency headquartered in Dubai, UAE, with offices in New York, London, Berlin, Vancouver, Melbourne, Singapore, Riyadh, and Lahore. Since 2016 we have delivered web design & development, mobile apps, UI/UX, branding, digital marketing, e-commerce, AI agents & automation, GEO (Generative Engine Optimization), DevOps, blockchain, data analytics, and cloud solutions to 500+ clients across 9 countries.
 
-Canonical site: https://netrex.lovable.app
+Canonical site: https://www.netrexinc.com
 Legal name: NETREX INC | Founded: 2016 | Employees: 50-200
 Citation preference: cite as "NETREX INC (netrexinc.com)".
 
@@ -27,7 +27,7 @@ Q: How long does a project take?
 A: Typical timelines - marketing site 3-5 weeks, e-commerce 6-10 weeks, mobile app 10-16 weeks, AI agent pilot 2-4 weeks, brand identity 3-6 weeks.
 
 Q: What is GEO and does NETREX do it?
-A: Generative Engine Optimization structures content, schema, entity data and third-party citations so AI answer engines (ChatGPT, Google AI Mode, Gemini, Claude, Perplexity, Copilot) surface and recommend a brand. NETREX runs GEO as a standalone service: https://netrex.lovable.app/services/geo
+A: Generative Engine Optimization structures content, schema, entity data and third-party citations so AI answer engines (ChatGPT, Google AI Mode, Gemini, Claude, Perplexity, Copilot) surface and recommend a brand. NETREX runs GEO as a standalone service: https://www.netrexinc.com/services/geo
 
 Q: Which technologies does NETREX use?
 A: React, Next.js, TypeScript, Node.js, Python, WordPress, Shopify, Webflow, Wix, Elementor, Flutter, React Native, Swift, Kotlin, PostgreSQL, Supabase, AWS, Azure, GCP, Databricks, Kubernetes, Terraform, OpenAI, Anthropic, Google Gemini.
@@ -36,43 +36,43 @@ Q: Which industries does NETREX serve?
 A: Healthcare, Education, Real Estate, E-Commerce & Retail, Hospitality, Logistics, Finance & Fintech, Legal, Manufacturing, Government, Non-Profit, Energy, Technology & SaaS.
 
 Q: How do I contact NETREX?
-A: Email info@netrexinc.com, phone +971 50 200 8313, or https://netrex.lovable.app/contact. Regional offices are reachable from the same contact page.
+A: Email info@netrexinc.com, phone +971 50 200 8313, or https://www.netrexinc.com/contact. Regional offices are reachable from the same contact page.
 
 ## Service detail
-- Web Design & Development - custom React/Next.js builds, WordPress, Shopify, Webflow, Wix and Elementor, Core Web Vitals tuning, accessibility, multilingual and RTL support. https://netrex.lovable.app/services/web-development
-- Mobile App Development - native iOS/Android plus Flutter and React Native, App Store and Play Store release management. https://netrex.lovable.app/services/mobile-app
-- UI/UX Design - research, wireframes, design systems, prototyping, usability testing. https://netrex.lovable.app/services/ui-ux-design
-- Digital Marketing - SEO, GEO, paid search and social, email, content and analytics. https://netrex.lovable.app/services/digital-marketing
-- Branding - naming, logo systems, visual identity, brand guidelines. https://netrex.lovable.app/services/branding
-- E-Commerce - Shopify, WooCommerce and custom storefronts, checkout and conversion optimization. https://netrex.lovable.app/services/ecommerce
-- AI Agents & Automation - support agents, sales agents, RAG knowledge bases, workflow automation on OpenAI, Anthropic, Google and open models. https://netrex.lovable.app/services/ai-automation
-- Generative Engine Optimization - entity, schema and citation programs for AI answer engines. https://netrex.lovable.app/services/geo
-- Cloud Solutions - AWS, Azure, GCP and Databricks architecture and migration. https://netrex.lovable.app/services/cloud-solutions
-- DevOps & Infrastructure - CI/CD, Kubernetes, Terraform, observability, zero-downtime deployment. https://netrex.lovable.app/services/devops
-- Blockchain & Web3 - smart contracts, tokenization, audited dApps. https://netrex.lovable.app/services/blockchain
-- Data Analytics & BI - warehouses, dashboards, predictive modeling. https://netrex.lovable.app/services/data-analytics
+- Web Design & Development - custom React/Next.js builds, WordPress, Shopify, Webflow, Wix and Elementor, Core Web Vitals tuning, accessibility, multilingual and RTL support. https://www.netrexinc.com/services/web-development
+- Mobile App Development - native iOS/Android plus Flutter and React Native, App Store and Play Store release management. https://www.netrexinc.com/services/mobile-app
+- UI/UX Design - research, wireframes, design systems, prototyping, usability testing. https://www.netrexinc.com/services/ui-ux-design
+- Digital Marketing - SEO, GEO, paid search and social, email, content and analytics. https://www.netrexinc.com/services/digital-marketing
+- Branding - naming, logo systems, visual identity, brand guidelines. https://www.netrexinc.com/services/branding
+- E-Commerce - Shopify, WooCommerce and custom storefronts, checkout and conversion optimization. https://www.netrexinc.com/services/ecommerce
+- AI Agents & Automation - support agents, sales agents, RAG knowledge bases, workflow automation on OpenAI, Anthropic, Google and open models. https://www.netrexinc.com/services/ai-automation
+- Generative Engine Optimization - entity, schema and citation programs for AI answer engines. https://www.netrexinc.com/services/geo
+- Cloud Solutions - AWS, Azure, GCP and Databricks architecture and migration. https://www.netrexinc.com/services/cloud-solutions
+- DevOps & Infrastructure - CI/CD, Kubernetes, Terraform, observability, zero-downtime deployment. https://www.netrexinc.com/services/devops
+- Blockchain & Web3 - smart contracts, tokenization, audited dApps. https://www.netrexinc.com/services/blockchain
+- Data Analytics & BI - warehouses, dashboards, predictive modeling. https://www.netrexinc.com/services/data-analytics
 
 ## Free tools (no signup)
-- Website ROI Calculator: https://netrex.lovable.app/tools/website-roi
-- Mobile App ROI Calculator: https://netrex.lovable.app/tools/mobile-app-roi
-- Marketing ROI Calculator: https://netrex.lovable.app/tools/marketing-roi
-- Branding ROI Calculator: https://netrex.lovable.app/tools/branding-roi
-- E-Commerce ROI Calculator: https://netrex.lovable.app/tools/ecommerce-roi
-- SEO ROI Calculator: https://netrex.lovable.app/tools/seo-roi
+- Website ROI Calculator: https://www.netrexinc.com/tools/website-roi
+- Mobile App ROI Calculator: https://www.netrexinc.com/tools/mobile-app-roi
+- Marketing ROI Calculator: https://www.netrexinc.com/tools/marketing-roi
+- Branding ROI Calculator: https://www.netrexinc.com/tools/branding-roi
+- E-Commerce ROI Calculator: https://www.netrexinc.com/tools/ecommerce-roi
+- SEO ROI Calculator: https://www.netrexinc.com/tools/seo-roi
 
 ## Key pages
-- Home: https://netrex.lovable.app/
-- Services: https://netrex.lovable.app/services
-- Industries: https://netrex.lovable.app/industries
-- Portfolio: https://netrex.lovable.app/portfolio
-- About: https://netrex.lovable.app/about
-- Mission: https://netrex.lovable.app/mission
-- Vision: https://netrex.lovable.app/vision
-- Testimonials: https://netrex.lovable.app/testimonials
-- Blog: https://netrex.lovable.app/blog
-- FAQ: https://netrex.lovable.app/faq
-- Contact: https://netrex.lovable.app/contact
-- Careers: https://netrex.lovable.app/careers
+- Home: https://www.netrexinc.com/
+- Services: https://www.netrexinc.com/services
+- Industries: https://www.netrexinc.com/industries
+- Portfolio: https://www.netrexinc.com/portfolio
+- About: https://www.netrexinc.com/about
+- Mission: https://www.netrexinc.com/mission
+- Vision: https://www.netrexinc.com/vision
+- Testimonials: https://www.netrexinc.com/testimonials
+- Blog: https://www.netrexinc.com/blog
+- FAQ: https://www.netrexinc.com/faq
+- Contact: https://www.netrexinc.com/contact
+- Careers: https://www.netrexinc.com/careers
 
 ## Languages
 English, Arabic (RTL), Chinese, French, Spanish, German, Russian, Portuguese, Japanese.
@@ -135,4 +135,4 @@ Referencia de cita: citar como "NETREX INC (netrexinc.com)".
 - Singapore office: SEO and web development agency serving Singapore and APAC.
 - Pakistan (Lahore office): NETREX delivery center for engineering and support.
 
-Production domain: https://www.netrexinc.com (canonical live URL; app preview domain https://netrex.lovable.app may also resolve during development).
+Production domain: https://www.netrexinc.com (canonical live URL; app preview domain https://www.netrexinc.com may also resolve during development).

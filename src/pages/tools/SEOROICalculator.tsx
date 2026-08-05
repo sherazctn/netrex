@@ -99,14 +99,14 @@ const SEOROICalculator = () => {
       <SEO
         title="SEO ROI Calculator | Free Traffic & Revenue Tool - NETREX"
         description="Free SEO ROI calculator: see the organic traffic, leads and revenue you are missing without a proper SEO and GEO strategy."
-        canonical="https://netrex.lovable.app/tools/seo-roi"
+        canonical="https://www.netrexinc.com/tools/seo-roi"
         schema={{
           "@context": "https://schema.org",
           "@type": "WebApplication",
           name: "SEO ROI Calculator",
           applicationCategory: "BusinessApplication",
           operatingSystem: "Any",
-          url: "https://netrex.lovable.app/tools/seo-roi",
+          url: "https://www.netrexinc.com/tools/seo-roi",
           offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
           provider: { "@type": "Organization", name: "NETREX INC" },
         }}

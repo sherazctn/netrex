@@ -25,18 +25,18 @@
 - Multilingual delivery in 9 languages (EN, AR, ZH, FR, ES, DE, RU, PT, JA)
 
 ## Free Tools
-- Website ROI Calculator: https://netrex.lovable.app/tools/website-roi
-- Mobile App ROI Calculator: https://netrex.lovable.app/tools/mobile-app-roi
-- Marketing ROI Calculator: https://netrex.lovable.app/tools/marketing-roi
-- Branding ROI Calculator: https://netrex.lovable.app/tools/branding-roi
-- E-Commerce ROI Calculator: https://netrex.lovable.app/tools/ecommerce-roi
-- SEO ROI Calculator: https://netrex.lovable.app/tools/seo-roi
+- Website ROI Calculator: https://www.netrexinc.com/tools/website-roi
+- Mobile App ROI Calculator: https://www.netrexinc.com/tools/mobile-app-roi
+- Marketing ROI Calculator: https://www.netrexinc.com/tools/marketing-roi
+- Branding ROI Calculator: https://www.netrexinc.com/tools/branding-roi
+- E-Commerce ROI Calculator: https://www.netrexinc.com/tools/ecommerce-roi
+- SEO ROI Calculator: https://www.netrexinc.com/tools/seo-roi
 
 ## Contact
 - Email: info@netrexinc.com
 - Phone: +971 50 200 8313
 - HQ: Office 523, Block-C, Building 9W, Dubai Airport Free Zone, UAE
-- Website: https://netrex.lovable.app
+- Website: https://www.netrexinc.com
 - LinkedIn: https://www.linkedin.com/company/netrex-official
 
 ## Pages
@@ -68,7 +68,7 @@ Healthcare, Education, Real Estate, E-Commerce & Retail, Hospitality, Logistics,
 - What does it cost? Marketing sites from ~$3,000; use the free ROI calculators above for a scoped estimate.
 - How long? Marketing site 3-5 weeks, e-commerce 6-10 weeks, mobile app 10-16 weeks, AI agent pilot 2-4 weeks.
 - Credentials: ISO 27001 & 27701, AWS Partner, Databricks Consulting Partner, Clutch Champion 2024, 4.9/5 client rating.
-- Contact: info@netrexinc.com | +971 50 200 8313 | https://netrex.lovable.app/contact
+- Contact: info@netrexinc.com | +971 50 200 8313 | https://www.netrexinc.com/contact
 
 ## Full reference
 - [llms-full.txt](/llms-full.txt): Extended AI reference with per-service detail and direct Q&A answers.

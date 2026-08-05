@@ -87,7 +87,7 @@ const AIReadinessScore = () => (
   <QuizTool
     seoTitle="AI Readiness Score | Free AI Assessment Tool - NETREX"
     seoDescription="Free AI readiness assessment: score your business on data, team and automation maturity and see the efficiency gain AI can unlock in 90 days."
-    canonical="https://netrex.lovable.app/tools/ai-readiness"
+    canonical="https://www.netrexinc.com/tools/ai-readiness"
     badge="Free AI Tool"
     icon={Brain}
     heading="AI Readiness"

@@ -10,8 +10,8 @@ const contactSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "NETREX INC",
-  "url": "https://netrex.lovable.app",
-  "logo": "https://netrex.lovable.app/favicon.ico",
+  "url": "https://www.netrexinc.com",
+  "logo": "https://www.netrexinc.com/favicon.ico",
   "email": "info@netrexinc.com",
   "telephone": "+971-50-200-8313",
   "address": {
@@ -149,7 +149,7 @@ const Contact = () => {
       <SEO
         title="Contact NETREX Inc | Free Quote in 9 Countries"
         description="Talk to NETREX Inc about web development, mobile apps, AI automation, branding and digital marketing. Offices in Dubai, New York, London, Berlin, Vancouver, Melbourne, Singapore, Riyadh and Lahore."
-        canonical="https://netrex.lovable.app/contact"
+        canonical="https://www.netrexinc.com/contact"
         schema={contactSchema}
       />
 

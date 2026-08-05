@@ -55,7 +55,7 @@ const schema = {
   "@context": "https://schema.org",
   "@type": "WebPage",
   name: "Trust, Security & Compliance | NETREX INC",
-  url: "https://netrex.lovable.app/trust-center",
+  url: "https://www.netrexinc.com/trust-center",
   publisher: { "@type": "Organization", name: "NETREX INC" },
 };
 
@@ -65,7 +65,7 @@ const TrustCenter = () => {
       <SEO
         title="Trust Center | Security & Compliance | NETREX INC"
         description="NETREX INC Trust Center: ISO 27001 and ISO 27701 posture, data protection practices, secure development lifecycle, access control and incident response overview."
-        canonical="https://netrex.lovable.app/trust-center"
+        canonical="https://www.netrexinc.com/trust-center"
         schema={schema}
       />
       <Header />

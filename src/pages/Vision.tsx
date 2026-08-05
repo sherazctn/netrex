@@ -118,7 +118,7 @@ const Vision = () => {
       <SEO
         title="Our Vision | The AI-First Digital Agency - NETREX"
         description="NETREX Inc's vision for 2026-2030: an AI-first, cloud-native agency pioneering generative engine optimization and global expansion."
-        canonical="https://netrex.lovable.app/vision"
+        canonical="https://www.netrexinc.com/vision"
       />
       <Header />
       <main>

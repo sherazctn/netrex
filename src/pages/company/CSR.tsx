@@ -34,7 +34,7 @@ const schema = {
   "@context": "https://schema.org",
   "@type": "WebPage",
   name: "Corporate Social Responsibility | NETREX INC",
-  url: "https://netrex.lovable.app/csr",
+  url: "https://www.netrexinc.com/csr",
 };
 
 const CSR = () => {
@@ -43,7 +43,7 @@ const CSR = () => {
       <SEO
         title="Corporate Social Responsibility | NETREX INC"
         description="NETREX INC corporate social responsibility commitments: diversity and inclusion, community skills programs, environmental policy and ethical business practice."
-        canonical="https://netrex.lovable.app/csr"
+        canonical="https://www.netrexinc.com/csr"
         schema={schema}
       />
       <Header />

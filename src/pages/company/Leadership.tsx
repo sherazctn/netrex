@@ -55,7 +55,7 @@ const schema = {
   "@context": "https://schema.org",
   "@type": "Organization",
   name: "NETREX INC",
-  url: "https://netrex.lovable.app",
+  url: "https://www.netrexinc.com",
   employee: executiveTeam.map((p) => ({ "@type": "Person", name: p.name, jobTitle: p.role })),
 };
 
@@ -65,7 +65,7 @@ const Leadership = () => {
       <SEO
         title="Leadership & Governance | NETREX INC"
         description="Meet the NETREX INC executive team and board of directors, and learn how governance and advisory oversight guide our global operations across nine offices."
-        canonical="https://netrex.lovable.app/leadership"
+        canonical="https://www.netrexinc.com/leadership"
         schema={schema}
       />
       <Header />

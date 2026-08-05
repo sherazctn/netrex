@@ -28,7 +28,7 @@ const schema = {
   "@context": "https://schema.org",
   "@type": "WebPage",
   name: "Newsroom | NETREX INC",
-  url: "https://netrex.lovable.app/newsroom",
+  url: "https://www.netrexinc.com/newsroom",
 };
 
 const Newsroom = () => {
@@ -37,7 +37,7 @@ const Newsroom = () => {
       <SEO
         title="Newsroom & Press | NETREX INC"
         description="NETREX INC newsroom: press kit facts, brand assets, media contact and our award timeline including Clutch Champion and Best of Clutch recognitions."
-        canonical="https://netrex.lovable.app/newsroom"
+        canonical="https://www.netrexinc.com/newsroom"
         schema={schema}
       />
       <Header />

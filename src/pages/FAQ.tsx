@@ -39,7 +39,7 @@ const FAQ = () => {
       <SEO
         title="FAQ | Pricing, Process & Timelines - NETREX Inc"
         description="Answers to common questions about NETREX Inc pricing, project timelines, process and technologies for web development, mobile apps, AI automation and marketing."
-        canonical="https://netrex.lovable.app/faq"
+        canonical="https://www.netrexinc.com/faq"
         schema={faqSchema}
       />
 

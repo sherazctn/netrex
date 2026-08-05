@@ -98,14 +98,14 @@ const MarketingROICalculator = () => {
       <SEO
         title="Marketing ROI Calculator | Free Ad Payback Tool - NETREX"
         description="Free digital marketing ROI calculator: forecast leads, CAC and return from SEO, paid ads and social campaigns before you spend."
-        canonical="https://netrex.lovable.app/tools/marketing-roi"
+        canonical="https://www.netrexinc.com/tools/marketing-roi"
         schema={{
           "@context": "https://schema.org",
           "@type": "WebApplication",
           name: "Digital Marketing ROI Calculator",
           applicationCategory: "BusinessApplication",
           operatingSystem: "Any",
-          url: "https://netrex.lovable.app/tools/marketing-roi",
+          url: "https://www.netrexinc.com/tools/marketing-roi",
           offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
           provider: { "@type": "Organization", name: "NETREX INC" },
         }}

@@ -173,7 +173,7 @@ const About = () => {
       <SEO
         title="About NETREX Inc | Global Digital Agency Since 2016"
         description="Meet NETREX Inc: our story, mission, leadership and global team delivering web, mobile, AI and marketing solutions across 9 countries since 2016."
-        canonical="https://netrex.lovable.app/about"
+        canonical="https://www.netrexinc.com/about"
       />
       <Header />
       <main>

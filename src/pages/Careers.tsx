@@ -22,7 +22,7 @@ const Careers = () => (
     <SEO
       title="Careers - NETREX Inc | Join Our Global Team"
       description="Join NETREX Inc's global team. Explore open positions in engineering, design, marketing, and operations across Dubai, Lahore, and remote locations."
-      canonical="https://netrex.lovable.app/careers"
+      canonical="https://www.netrexinc.com/careers"
     />
     <Header />
     <main>

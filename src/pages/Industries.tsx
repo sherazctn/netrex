@@ -67,7 +67,7 @@ const Industries = () => {
       <SEO
         title="Industries We Serve | 20+ Sectors - NETREX Inc"
         description="NETREX Inc builds custom digital solutions for 20+ industries including real estate, healthcare, finance, e-commerce, education, travel and logistics."
-        canonical="https://netrex.lovable.app/industries"
+        canonical="https://www.netrexinc.com/industries"
       />
       <Header />
       <main>

@@ -98,14 +98,14 @@ const EcommerceROICalculator = () => {
       <SEO
         title="E-Commerce ROI Calculator | Free Revenue Tool - NETREX"
         description="Free e-commerce ROI calculator: project revenue uplift from conversion optimisation, faster checkout and a better online store."
-        canonical="https://netrex.lovable.app/tools/ecommerce-roi"
+        canonical="https://www.netrexinc.com/tools/ecommerce-roi"
         schema={{
           "@context": "https://schema.org",
           "@type": "WebApplication",
           name: "E-Commerce ROI Calculator",
           applicationCategory: "BusinessApplication",
           operatingSystem: "Any",
-          url: "https://netrex.lovable.app/tools/ecommerce-roi",
+          url: "https://www.netrexinc.com/tools/ecommerce-roi",
           offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
           provider: { "@type": "Organization", name: "NETREX INC" },
         }}

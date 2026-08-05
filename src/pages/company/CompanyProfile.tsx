@@ -47,7 +47,7 @@ const schema = {
   "@context": "https://schema.org",
   "@type": "Corporation",
   name: "NETREX INC",
-  url: "https://netrex.lovable.app",
+  url: "https://www.netrexinc.com",
   foundingDate: "2016",
   numberOfEmployees: "50-200",
   address: {
@@ -66,7 +66,7 @@ const CompanyProfile = () => {
       <SEO
         title="Company Profile | NETREX INC Fact Sheet"
         description="NETREX INC company profile: legal name, founding year, headquarters, entity structure, global offices, service lines and key metrics for procurement and due diligence review."
-        canonical="https://netrex.lovable.app/company-profile"
+        canonical="https://www.netrexinc.com/company-profile"
         schema={schema}
       />
       <Header />

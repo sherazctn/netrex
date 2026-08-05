@@ -155,7 +155,7 @@ const Testimonials = () => {
       <SEO
         title="Client Testimonials & Reviews - NETREX Inc"
         description="Read verified NETREX Inc client reviews from businesses across the UAE, USA, UK and 6 other countries on web, mobile, AI and marketing projects."
-        canonical="https://netrex.lovable.app/testimonials"
+        canonical="https://www.netrexinc.com/testimonials"
       />
       <Header />
       <main>

@@ -200,7 +200,7 @@ const Legal = () => (
     <SEO
       title="Legal & Company Registrations - NETREX Inc"
       description="NETREX Inc legal entities and registration details across the UAE, UK, USA, Australia, Germany, Singapore and Saudi Arabia, plus GDPR and CCPA compliance."
-      canonical="https://netrex.lovable.app/legal"
+      canonical="https://www.netrexinc.com/legal"
     />
     <Header />
     <main>

@@ -90,7 +90,7 @@ const AutomationSavingsCalculator = () => (
   <QuizTool
     seoTitle="AI Automation Savings Calculator | Free Tool - NETREX"
     seoDescription="Free AI automation savings calculator: estimate the hours and yearly cost your business can save by automating repetitive work with AI."
-    canonical="https://netrex.lovable.app/tools/ai-automation-savings"
+    canonical="https://www.netrexinc.com/tools/ai-automation-savings"
     badge="Free AI Tool"
     icon={Bot}
     heading="AI Automation"
