@@ -2,52 +2,133 @@ import { motion } from "framer-motion";
 import { useEffect, useMemo, useState } from "react";
 import { CX, CY, R_EDGE, polar } from "./hero/heroShared";
 
-/** Tech icons that fly through the hero core. */
-const techs = [
-  { name: "React", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
-  { name: "Next.js", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" },
-  { name: "Vue", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg" },
-  { name: "TypeScript", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" },
-  { name: "Node.js", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
-  { name: "Python", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
-  { name: "Laravel", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg" },
-  { name: "WordPress", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/wordpress/wordpress-original.svg" },
-  { name: "Flutter", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg" },
-  { name: "Swift", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/swift/swift-original.svg" },
-  { name: "Kotlin", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kotlin/kotlin-original.svg" },
-  { name: "Android", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-original.svg" },
-  { name: "AWS", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg" },
-  { name: "Docker", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
-  { name: "Kubernetes", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg" },
-  { name: "PostgreSQL", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" },
-  { name: "MongoDB", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
-  { name: "GraphQL", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain.svg" },
-  { name: "Tailwind CSS", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" },
-  { name: "Firebase", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg" },
-  { name: "TensorFlow", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" },
-  { name: "Figma", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg" },
-  { name: "Solidity", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/solidity/solidity-original.svg" },
-  { name: "Google Cloud", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg" },
-  { name: "Vite", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vitejs/vitejs-original.svg" },
-  { name: "Supabase", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/supabase/supabase-original.svg" },
-  { name: "Redis", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg" },
-  { name: "Nginx", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nginx/nginx-original.svg" },
-  { name: "Terraform", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/terraform/terraform-original.svg" },
-  { name: "Azure", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg" },
+const dev = (path: string) => `https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${path}.svg`;
+
+/**
+ * Full technology stack behind every NETREX service line: web, mobile, design,
+ * cloud/DevOps, data/AI, e-commerce, blockchain and business platforms.
+ */
+export const techs = [
+  // Web / frontend
+  { name: "React", logo: dev("react/react-original") },
+  { name: "Next.js", logo: dev("nextjs/nextjs-original") },
+  { name: "Vue", logo: dev("vuejs/vuejs-original") },
+  { name: "Angular", logo: dev("angularjs/angularjs-original") },
+  { name: "Svelte", logo: dev("svelte/svelte-original") },
+  { name: "Nuxt", logo: dev("nuxtjs/nuxtjs-original") },
+  { name: "TypeScript", logo: dev("typescript/typescript-original") },
+  { name: "JavaScript", logo: dev("javascript/javascript-original") },
+  { name: "Tailwind CSS", logo: dev("tailwindcss/tailwindcss-original") },
+  { name: "Sass", logo: dev("sass/sass-original") },
+  { name: "Bootstrap", logo: dev("bootstrap/bootstrap-original") },
+  { name: "Vite", logo: dev("vitejs/vitejs-original") },
+  { name: "Webpack", logo: dev("webpack/webpack-original") },
+  { name: "Three.js", logo: dev("threejs/threejs-original") },
+
+  // Backend
+  { name: "Node.js", logo: dev("nodejs/nodejs-original") },
+  { name: "Express", logo: dev("express/express-original") },
+  { name: "NestJS", logo: dev("nestjs/nestjs-original") },
+  { name: "Python", logo: dev("python/python-original") },
+  { name: "Django", logo: dev("django/django-plain") },
+  { name: "FastAPI", logo: dev("fastapi/fastapi-original") },
+  { name: "PHP", logo: dev("php/php-original") },
+  { name: "Laravel", logo: dev("laravel/laravel-original") },
+  { name: "Java", logo: dev("java/java-original") },
+  { name: "Spring", logo: dev("spring/spring-original") },
+  { name: "Go", logo: dev("go/go-original-wordmark") },
+  { name: "Rust", logo: dev("rust/rust-original") },
+  { name: ".NET", logo: dev("dotnetcore/dotnetcore-original") },
+  { name: "C#", logo: dev("csharp/csharp-original") },
+  { name: "Ruby on Rails", logo: dev("rails/rails-plain") },
+
+  // CMS & e-commerce
+  { name: "WordPress", logo: dev("wordpress/wordpress-original") },
+  { name: "WooCommerce", logo: dev("woocommerce/woocommerce-original") },
+  { name: "Magento", logo: dev("magento/magento-original") },
+  { name: "Drupal", logo: dev("drupal/drupal-original") },
+
+  // Mobile
+  { name: "Flutter", logo: dev("flutter/flutter-original") },
+  { name: "Swift", logo: dev("swift/swift-original") },
+  { name: "Kotlin", logo: dev("kotlin/kotlin-original") },
+  { name: "Android", logo: dev("android/android-original") },
+  { name: "iOS", logo: dev("apple/apple-original") },
+  { name: "Ionic", logo: dev("ionic/ionic-original") },
+  { name: "Electron", logo: dev("electron/electron-original") },
+
+  // Design
+  { name: "Figma", logo: dev("figma/figma-original") },
+  { name: "Sketch", logo: dev("sketch/sketch-original") },
+  { name: "Adobe XD", logo: dev("xd/xd-plain") },
+  { name: "Illustrator", logo: dev("illustrator/illustrator-plain") },
+  { name: "Photoshop", logo: dev("photoshop/photoshop-plain") },
+  { name: "After Effects", logo: dev("aftereffects/aftereffects-plain") },
+  { name: "Blender", logo: dev("blender/blender-original") },
+  { name: "Unity", logo: dev("unity/unity-original") },
+  { name: "Canva", logo: dev("canva/canva-original") },
+
+  // Cloud & DevOps
+  { name: "AWS", logo: dev("amazonwebservices/amazonwebservices-plain-wordmark") },
+  { name: "Google Cloud", logo: dev("googlecloud/googlecloud-original") },
+  { name: "Azure", logo: dev("azure/azure-original") },
+  { name: "Docker", logo: dev("docker/docker-original") },
+  { name: "Kubernetes", logo: dev("kubernetes/kubernetes-plain") },
+  { name: "Terraform", logo: dev("terraform/terraform-original") },
+  { name: "Ansible", logo: dev("ansible/ansible-original") },
+  { name: "Jenkins", logo: dev("jenkins/jenkins-original") },
+  { name: "GitHub Actions", logo: dev("githubactions/githubactions-original") },
+  { name: "GitLab", logo: dev("gitlab/gitlab-original") },
+  { name: "Git", logo: dev("git/git-original") },
+  { name: "Nginx", logo: dev("nginx/nginx-original") },
+  { name: "Linux", logo: dev("linux/linux-original") },
+  { name: "Grafana", logo: dev("grafana/grafana-original") },
+  { name: "Prometheus", logo: dev("prometheus/prometheus-original") },
+
+  // Data & platforms
+  { name: "PostgreSQL", logo: dev("postgresql/postgresql-original") },
+  { name: "MySQL", logo: dev("mysql/mysql-original") },
+  { name: "MongoDB", logo: dev("mongodb/mongodb-original") },
+  { name: "Redis", logo: dev("redis/redis-original") },
+  { name: "SQL Server", logo: dev("microsoftsqlserver/microsoftsqlserver-plain") },
+  { name: "Oracle", logo: dev("oracle/oracle-original") },
+  { name: "Elasticsearch", logo: dev("elasticsearch/elasticsearch-original") },
+  { name: "Apache Kafka", logo: dev("apachekafka/apachekafka-original") },
+  { name: "RabbitMQ", logo: dev("rabbitmq/rabbitmq-original") },
+  { name: "GraphQL", logo: dev("graphql/graphql-plain") },
+  { name: "Firebase", logo: dev("firebase/firebase-plain") },
+  { name: "Supabase", logo: dev("supabase/supabase-original") },
+  { name: "Socket.IO", logo: dev("socketio/socketio-original") },
+
+  // AI / ML & analytics
+  { name: "TensorFlow", logo: dev("tensorflow/tensorflow-original") },
+  { name: "PyTorch", logo: dev("pytorch/pytorch-original") },
+  { name: "OpenCV", logo: dev("opencv/opencv-original") },
+  { name: "Pandas", logo: dev("pandas/pandas-original") },
+  { name: "NumPy", logo: dev("numpy/numpy-original") },
+  { name: "Jupyter", logo: dev("jupyter/jupyter-original") },
+
+  // Web3 & business
+  { name: "Solidity", logo: dev("solidity/solidity-original") },
+  { name: "Salesforce", logo: dev("salesforce/salesforce-original") },
+  { name: "Jira", logo: dev("jira/jira-original") },
+  { name: "Slack", logo: dev("slack/slack-original") },
 ];
 
 const PERIOD = 14; // full loop for one icon (s)
 const TRAVEL = 4.2; // time an icon is visible while travelling (s)
-const SWING_AT = TRAVEL * 0.55; // moment it skims closest to the core -> triggers pulse
+const SWING_AT = TRAVEL * 0.55; // moment it skims closest to the core -> triggers radar pulse
 const BURST_AT = TRAVEL - 0.55; // burst fires as the icon crosses the ring
 const SHARDS = 9;
 const TRAIL_GHOSTS = 3;
+/** Max icons in flight at once (keeps 90+ logo library performant). */
+const MAX_FLYERS = 24;
 
 interface TechBurstOrbitProps {
   /** Density multiplier (0 disables motion entirely -> static ring of icons). */
   density?: number;
   reducedMotion?: boolean;
-  /** Called each time a travelling icon skims past the core, for the core's reactive pulse. */
+  /** Called each time a travelling icon skims past the core, for the core's radar pulse. */
   onIconFlyby?: () => void;
 }
 
@@ -59,18 +140,21 @@ interface TechBurstOrbitProps {
 export function TechBurstOrbit({ density = 1, reducedMotion = false, onIconFlyby }: TechBurstOrbitProps) {
   const [hovered, setHovered] = useState<string | null>(null);
 
-  // Fewer concurrent flyers on smaller/lower-power viewports.
+  // Even sampling across the whole library so every service area is represented,
+  // while keeping concurrent flyers (and DOM nodes) bounded.
   const activeTechs = useMemo(() => {
-    const count = Math.max(8, Math.round(techs.length * (reducedMotion ? 0 : density)));
-    return techs.slice(0, count);
+    if (reducedMotion) return techs.filter((_, i) => i % 4 === 0).slice(0, 20);
+    const count = Math.max(8, Math.round(MAX_FLYERS * density));
+    const step = techs.length / count;
+    return Array.from({ length: count }, (_, i) => techs[Math.floor(i * step)]);
   }, [density, reducedMotion]);
 
-  // Fire a core pulse each time an icon skims by, synced to each icon's loop.
+  // Fire the core radar pulse each time an icon skims by, synced to each icon's loop.
   useEffect(() => {
     if (reducedMotion || !onIconFlyby) return;
     const timers: number[] = [];
     activeTechs.forEach((_, i) => {
-      const delay = (i * PERIOD) / techs.length;
+      const delay = (i * PERIOD) / activeTechs.length;
       const firstFire = (delay + SWING_AT) * 1000;
       const t = window.setTimeout(() => {
         onIconFlyby();
@@ -105,7 +189,7 @@ export function TechBurstOrbit({ density = 1, reducedMotion = false, onIconFlyby
       {activeTechs.map((tech, i) => {
         const inAngle = (i * 137.508) % 360; // golden-angle spread keeps concurrent icons apart
         const outAngle = inAngle + 168 + (i % 3) * 8;
-        const delay = (i * PERIOD) / techs.length;
+        const delay = (i * PERIOD) / activeTechs.length;
         const start = polar(inAngle, R_EDGE);
         // Curved slingshot: skim around the red core instead of covering it
         const approach = polar(inAngle + 42, 195);
@@ -185,9 +269,9 @@ export function TechBurstOrbit({ density = 1, reducedMotion = false, onIconFlyby
                 {hovered === tech.name && (
                   <g>
                     <rect
-                      x={CX - 46}
+                      x={CX - 52}
                       y={CY + 30}
-                      width="92"
+                      width="104"
                       height="22"
                       rx="11"
                       fill="hsl(var(--background))"
