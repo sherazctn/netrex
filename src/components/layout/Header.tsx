@@ -166,25 +166,29 @@ export function Header() {
                       initial="hidden"
                       animate="visible"
                       exit="exit"
-                      className="absolute top-full left-0 mt-2 w-64 bg-card rounded-2xl shadow-xl border border-border overflow-hidden z-[60] max-h-[26rem] overflow-y-auto"
+                      className={`absolute top-full mt-2 bg-card rounded-2xl shadow-2xl border border-border z-[60] p-3 ${
+                        link.dropdown.length > 6
+                          ? "left-1/2 -translate-x-1/2 w-[min(90vw,860px)] grid grid-cols-3 gap-1"
+                          : "left-0 w-64"
+                      }`}
                     >
                       {link.dropdown.map((item, i) => {
                         const IconComp = getDropdownIcon(item);
                         return (
                           <motion.div
                             key={item.name}
-                            initial={{ opacity: 0, x: -10 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ delay: i * 0.03 }}
+                            initial={{ opacity: 0, y: -6 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: i * 0.02 }}
                           >
                             <Link
                               to={item.href}
-                              className="flex items-center gap-3 px-4 py-3 text-sm text-foreground/80 hover:bg-secondary hover:text-primary transition-colors group"
+                              className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-foreground/80 hover:bg-secondary hover:text-primary transition-colors group"
                             >
-                              <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary group-hover:scale-110 transition-all">
-                                <IconComp className="h-4 w-4 text-primary group-hover:text-white transition-colors" />
+                              <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary group-hover:scale-110 transition-all">
+                                <IconComp className="h-4 w-4 text-primary group-hover:text-primary-foreground transition-colors" />
                               </div>
-                              {getLabel(item)}
+                              <span className="truncate">{getLabel(item)}</span>
                             </Link>
                           </motion.div>
                         );
