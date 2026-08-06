@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ChevronDown, Globe, Smartphone, Palette, Megaphone, Layers, ShoppingCart, Bot, Search, Cloud, Users, Eye, Target, MessageSquare, Scale, Factory, Server, Boxes, BarChart3, FileText, ShieldCheck, Newspaper, Handshake, Heart } from "lucide-react";
+import { Menu, X, ChevronDown, Globe, Smartphone, Palette, Megaphone, Layers, ShoppingCart, Bot, Search, Cloud, Users, Eye, Target, MessageSquare, Scale, Factory, Server, Boxes, BarChart3, FileText, ShieldCheck, Newspaper, Handshake, Heart, Briefcase } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { TopBar } from "@/components/layout/TopBar";
 import netrexLogo from "@/assets/netrex-logo.png";
