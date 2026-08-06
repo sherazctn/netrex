@@ -54,6 +54,8 @@ const navLinks = [
       { name: "Newsroom", href: "/newsroom", icon: Newspaper },
       { name: "Partners", href: "/partners", icon: Handshake },
       { name: "CSR & Sustainability", href: "/csr", icon: Heart },
+      { name: "Careers", href: "/careers", icon: Briefcase },
+      { name: "Policies & Compliance", href: "/policies", icon: Scale },
     ],
   },
   { 
