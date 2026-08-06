@@ -10,7 +10,6 @@ import { Briefcase, MapPin, Clock, ArrowRight, Search, CalendarDays, CheckCircle
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import {
-  allJobs,
   archive,
   departments,
   jobLocations,
