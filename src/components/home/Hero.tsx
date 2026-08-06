@@ -1,4 +1,5 @@
-import { motion, useScroll, useTransform, useSpring, useMotionValue, animate } from "framer-motion";
+import { useCallback, useRef, useState } from "react";
+import { motion, AnimatePresence, useScroll, useTransform, useSpring, useMotionValue, animate } from "framer-motion";
 import { TechBurstOrbit } from "@/components/home/TechBurstOrbit";
 import { ParallaxField } from "@/components/home/hero/ParallaxField";
 import { useHeroMotionProfile } from "@/components/home/hero/heroShared";
@@ -132,14 +133,18 @@ export function Hero() {
   const pointerX = useSpring(useMotionValue(0), { stiffness: 60, damping: 18 });
   const pointerY = useSpring(useMotionValue(0), { stiffness: 60, damping: 18 });
 
-  // ---- Reactive core pulse: fired on hover and whenever a tech icon flies by ----
-  const corePulseScale = useMotionValue(1);
+  // ---- Radar core: the core itself never moves. Each time a tech logo enters the
+  // ring it emits an expanding radar ping + a brightness pulse (no translation/scale).
   const coreGlowOpacity = useMotionValue(0.15);
-  const triggerCorePulse = (intensity = 1) => {
+  const [pings, setPings] = useState<number[]>([]);
+  const pingId = useRef(0);
+  const triggerCorePulse = useCallback((intensity = 1) => {
     if (reducedMotion) return;
-    animate(corePulseScale, [1, 1 + 0.09 * intensity, 1], { duration: 0.7, ease: "easeOut" });
-    animate(coreGlowOpacity, [0.15, 0.15 + 0.28 * intensity, 0.15], { duration: 0.7, ease: "easeOut" });
-  };
+    animate(coreGlowOpacity, [0.15, 0.15 + 0.3 * intensity, 0.15], { duration: 0.9, ease: "easeOut" });
+    const id = ++pingId.current;
+    setPings((prev) => [...prev, id].slice(-4));
+    window.setTimeout(() => setPings((prev) => prev.filter((p) => p !== id)), 1600);
+  }, [coreGlowOpacity, reducedMotion]);
 
   return <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-secondary/30">
       {/* Background Pattern */}
