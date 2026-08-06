@@ -46,6 +46,7 @@ import AIReadinessScore from "./pages/tools/AIReadinessScore";
 import AutomationSavingsCalculator from "./pages/tools/AutomationSavingsCalculator";
 import ChatbotROICalculator from "./pages/tools/ChatbotROICalculator";
 import AICopyGenerator from "./pages/tools/AICopyGenerator";
+import PolicyPage, { PoliciesIndex } from "./pages/PolicyPage";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -82,6 +83,8 @@ const App = () => (
             <Route path="/newsroom" element={<Newsroom />} />
             <Route path="/partners" element={<Partners />} />
             <Route path="/csr" element={<CSR />} />
+            <Route path="/policies" element={<PoliciesIndex />} />
+            <Route path="/policies/:slug" element={<PolicyPage />} />
             
             {/* Tools */}
             <Route path="/tools/website-roi" element={<WebsiteROICalculator />} />

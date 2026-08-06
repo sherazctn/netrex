@@ -371,7 +371,6 @@ export function WorldMapContact() {
                       onChange={handlePhoneChange}
                       selectedCountryCode={activeLocation.countryCode}
                       darkMode
-                      className="bg-white/5 border-white/10 text-white placeholder:text-white/75"
                     />
                     <Input
                       placeholder={t('contact.form.company')}

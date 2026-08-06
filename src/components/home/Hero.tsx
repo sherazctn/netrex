@@ -1,4 +1,5 @@
-import { motion, useScroll, useTransform, useSpring, useMotionValue, animate } from "framer-motion";
+import { useCallback, useRef, useState } from "react";
+import { motion, AnimatePresence, useScroll, useTransform, useSpring, useMotionValue, animate } from "framer-motion";
 import { TechBurstOrbit } from "@/components/home/TechBurstOrbit";
 import { ParallaxField } from "@/components/home/hero/ParallaxField";
 import { useHeroMotionProfile } from "@/components/home/hero/heroShared";
@@ -132,14 +133,18 @@ export function Hero() {
   const pointerX = useSpring(useMotionValue(0), { stiffness: 60, damping: 18 });
   const pointerY = useSpring(useMotionValue(0), { stiffness: 60, damping: 18 });
 
-  // ---- Reactive core pulse: fired on hover and whenever a tech icon flies by ----
-  const corePulseScale = useMotionValue(1);
+  // ---- Radar core: the core itself never moves. Each time a tech logo enters the
+  // ring it emits an expanding radar ping + a brightness pulse (no translation/scale).
   const coreGlowOpacity = useMotionValue(0.15);
-  const triggerCorePulse = (intensity = 1) => {
+  const [pings, setPings] = useState<number[]>([]);
+  const pingId = useRef(0);
+  const triggerCorePulse = useCallback((intensity = 1) => {
     if (reducedMotion) return;
-    animate(corePulseScale, [1, 1 + 0.09 * intensity, 1], { duration: 0.7, ease: "easeOut" });
-    animate(coreGlowOpacity, [0.15, 0.15 + 0.28 * intensity, 0.15], { duration: 0.7, ease: "easeOut" });
-  };
+    animate(coreGlowOpacity, [0.15, 0.15 + 0.3 * intensity, 0.15], { duration: 0.9, ease: "easeOut" });
+    const id = ++pingId.current;
+    setPings((prev) => [...prev, id].slice(-4));
+    window.setTimeout(() => setPings((prev) => prev.filter((p) => p !== id)), 1600);
+  }, [coreGlowOpacity, reducedMotion]);
 
   return <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-secondary/30">
       {/* Background Pattern */}
@@ -385,15 +390,29 @@ export function Hero() {
                   <circle cx="300" cy="300" r="180" stroke="hsl(359 85% 53%)" strokeWidth="2" strokeDasharray="20 10" fill="none" opacity="0.5" />
                 </motion.g>
 
-                {/* Center core - RED circle with N icon from logo, pulses reactively */}
-                <motion.g
-                  animate={reducedMotion ? undefined : { scale: [1, 1.05, 1] }}
-                  transition={{ duration: 4, repeat: Infinity }}
-                  style={{ scale: corePulseScale, originX: "300px", originY: "300px" }}
-                  whileHover={reducedMotion ? undefined : { scale: 1.06 }}
-                  onHoverStart={() => triggerCorePulse(0.8)}
-                >
-                  {/* Reactive outer glow, brightens on pulse */}
+                {/* Center core - fixed in place. Radar pings emit outward whenever a
+                    technology logo enters the ring; the core itself never moves. */}
+                <g onMouseEnter={() => triggerCorePulse(0.8)}>
+                  {/* Radar ping rings */}
+                  <AnimatePresence>
+                    {pings.map((id) => (
+                      <motion.circle
+                        key={id}
+                        cx="300"
+                        cy="300"
+                        r="95"
+                        fill="none"
+                        stroke="hsl(359 85% 53%)"
+                        strokeWidth="2"
+                        initial={{ opacity: 0.7, scale: 1 }}
+                        animate={{ opacity: 0, scale: 2.5 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 1.5, ease: "easeOut" }}
+                        style={{ originX: "300px", originY: "300px" }}
+                      />
+                    ))}
+                  </AnimatePresence>
+                  {/* Reactive outer glow, brightens on each ping */}
                   <motion.circle cx="300" cy="300" r="110" fill="hsl(359 85% 53%)" filter="url(#heroCoreGlow)" style={{ opacity: coreGlowOpacity }} />
                   <circle cx="300" cy="300" r="100" fill="hsl(359 85% 53% / 0.15)" />
                   {/* Red outer ring */}
@@ -402,12 +421,12 @@ export function Hero() {
                   <circle cx="300" cy="300" r="85" fill="hsl(var(--background))" />
                   {/* Red gradient fill */}
                   <circle cx="300" cy="300" r="75" fill="url(#heroGradientRed)" />
-                  
+
                   {/* Netrex N Logo in center */}
                   <image href={netrexLogo} x="265" y="265" width="70" height="70" style={{
                   filter: 'brightness(0) invert(1)'
                 }} />
-                </motion.g>
+                </g>
 
                 {/* Tech icons streaming in, slingshotting the core, bursting on exit */}
                 <TechBurstOrbit density={density} reducedMotion={reducedMotion} onIconFlyby={() => triggerCorePulse(1)} />
