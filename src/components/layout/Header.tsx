@@ -25,10 +25,32 @@ const serviceIcons: Record<string, typeof Globe> = {
 };
 
 const dropdownVariants = {
-  hidden: { opacity: 0, y: 8, scale: 0.96 },
-  visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.2, ease: "easeOut" as const } },
-  exit: { opacity: 0, y: 8, scale: 0.96, transition: { duration: 0.15, ease: "easeIn" as const } },
+  hidden: { opacity: 0, y: 10, scale: 0.98 },
+  visible: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.25, ease: [0.22, 1, 0.36, 1] as const, staggerChildren: 0.025, delayChildren: 0.04 } },
+  exit: { opacity: 0, y: 8, scale: 0.98, transition: { duration: 0.15, ease: "easeIn" as const } },
 };
+
+const megaItemVariants = {
+  hidden: { opacity: 0, y: -8 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.25, ease: "easeOut" as const } },
+  exit: { opacity: 0, y: -4, transition: { duration: 0.1 } },
+};
+
+const megaActions: Record<string, { name: string; href: string; icon: typeof Globe }[]> = {
+  About: [
+    { name: "Careers", href: "/careers", icon: Briefcase },
+    { name: "Contact Us", href: "/contact", icon: Phone },
+    { name: "Testimonials", href: "/testimonials", icon: MessageSquare },
+    { name: "Company Profile", href: "/company-profile", icon: FileText },
+  ],
+  Services: [
+    { name: "All Services", href: "/services", icon: Layers },
+    { name: "Free Tools", href: "/tools/website-roi-calculator", icon: Wrench },
+    { name: "Portfolio", href: "/portfolio", icon: Rocket },
+    { name: "Get a Quote", href: "/contact", icon: Sparkles },
+  ],
+};
+
 
 const mobileSubMenuVariants = {
   hidden: { height: 0, opacity: 0 },
