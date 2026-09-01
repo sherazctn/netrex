@@ -79,4 +79,19 @@
   <url><loc>https://www.netrexinc.com/newsroom</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://www.netrexinc.com/partners</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://www.netrexinc.com/csr</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://www.netrexinc.com/policies</loc><priority>0.4</priority></url>
+  <url><loc>https://www.netrexinc.com/policies/information-security</loc><priority>0.3</priority></url>
+  <url><loc>https://www.netrexinc.com/policies/accessibility-statement</loc><priority>0.3</priority></url>
+  <url><loc>https://www.netrexinc.com/policies/cookie-policy</loc><priority>0.3</priority></url>
+  <url><loc>https://www.netrexinc.com/policies/gdpr-data-processing</loc><priority>0.3</priority></url>
+  <url><loc>https://www.netrexinc.com/policies/sub-processors</loc><priority>0.3</priority></url>
+  <url><loc>https://www.netrexinc.com/policies/service-level-agreement</loc><priority>0.3</priority></url>
+  <url><loc>https://www.netrexinc.com/policies/acceptable-use</loc><priority>0.3</priority></url>
+  <url><loc>https://www.netrexinc.com/policies/anti-bribery</loc><priority>0.3</priority></url>
+  <url><loc>https://www.netrexinc.com/policies/modern-slavery</loc><priority>0.3</priority></url>
+  <url><loc>https://www.netrexinc.com/policies/code-of-conduct</loc><priority>0.3</priority></url>
+  <url><loc>https://www.netrexinc.com/policies/quality-policy</loc><priority>0.3</priority></url>
+  <url><loc>https://www.netrexinc.com/policies/environmental-policy</loc><priority>0.3</priority></url>
+  <url><loc>https://www.netrexinc.com/policies/whistleblower-policy</loc><priority>0.3</priority></url>
+  <url><loc>https://www.netrexinc.com/policies/refund-policy</loc><priority>0.3</priority></url>
 </urlset>
