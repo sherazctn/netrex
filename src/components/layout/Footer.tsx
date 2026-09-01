@@ -356,11 +356,27 @@ export function Footer() {
           </div>
         </div>
 
+        {/* Governance & compliance */}
+        <div className="mt-8 pt-6 border-t border-white/10">
+          <h4 className="text-xs font-semibold uppercase tracking-wider text-white/60 mb-3">
+            Governance &amp; Compliance
+          </h4>
+          <div className="flex flex-wrap gap-x-5 gap-y-2 text-sm text-white/70">
+            <Link to="/policies" className="hover:text-white transition-colors">All Policies</Link>
+            {policyPages.map((p) => (
+              <Link key={p.slug} to={`/policies/${p.slug}`} className="hover:text-white transition-colors">
+                {p.shortTitle ?? p.title}
+              </Link>
+            ))}
+          </div>
+        </div>
+
         {/* Copyright */}
         <div className="mt-8 pt-6 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-white/80 text-sm">
-            © 2016–{new Date().getFullYear()} NETREX INC. {t('footer.rights')}
+            © 2016-{new Date().getFullYear()} NETREX INC. {t('footer.rights')}
           </p>
+
           <div className="flex gap-6 text-sm text-white/80">
             <Link to="/privacy" className="hover:text-white transition-colors">
               {t('footer.privacy')}
