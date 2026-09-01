@@ -160,78 +160,121 @@ export function Header() {
             />
           </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-1">
-            {navLinks.map((link) => (
-              <div
-                key={link.name}
-                className="relative"
-                onMouseEnter={() => link.dropdown && setActiveDropdown(link.name)}
-                onMouseLeave={() => setActiveDropdown(null)}
-              >
-                <Link
-                  to={link.href}
-                  className={`flex items-center gap-1 px-3.5 py-2 text-sm font-medium transition-colors rounded-full hover:text-primary hover:bg-secondary ${
-                    location.pathname === link.href || location.pathname.startsWith(link.href + "/")
-                      ? "text-primary bg-secondary"
-                      : "text-foreground/80"
-                  }`}
+          {/* Desktop Navigation + CTA (mega menu spans exactly this area) */}
+          <div
+            className="hidden lg:flex items-center gap-2 relative"
+            onMouseLeave={() => setActiveDropdown(null)}
+          >
+            <div className="flex items-center gap-1">
+              {navLinks.map((link) => (
+                <div
+                  key={link.name}
+                  onMouseEnter={() => setActiveDropdown(link.dropdown ? link.name : null)}
                 >
-                  {getLabel(link)}
-                  {link.dropdown && (
-                    <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${activeDropdown === link.name ? 'rotate-180' : ''}`} />
-                  )}
-                </Link>
+                  <Link
+                    to={link.href}
+                    className={`relative flex items-center gap-1 px-3.5 py-2 text-sm font-medium transition-colors rounded-full hover:text-primary hover:bg-secondary ${
+                      location.pathname === link.href || location.pathname.startsWith(link.href + "/")
+                        ? "text-primary bg-secondary"
+                        : "text-foreground/80"
+                    }`}
+                  >
+                    {getLabel(link)}
+                    {link.dropdown && (
+                      <ChevronDown className={`h-4 w-4 transition-transform duration-300 ${activeDropdown === link.name ? 'rotate-180 text-primary' : ''}`} />
+                    )}
+                    {activeDropdown === link.name && (
+                      <motion.span
+                        layoutId="nav-underline"
+                        className="absolute left-3 right-3 -bottom-0.5 h-0.5 rounded-full bg-primary"
+                        transition={{ type: "spring", stiffness: 500, damping: 35 }}
+                      />
+                    )}
+                  </Link>
+                </div>
+              ))}
+            </div>
 
-                <AnimatePresence>
-                  {link.dropdown && activeDropdown === link.name && (
-                    <motion.div
-                      variants={dropdownVariants}
-                      initial="hidden"
-                      animate="visible"
-                      exit="exit"
-                      className={`absolute top-full mt-2 bg-card rounded-2xl shadow-2xl border border-border z-[60] p-3 ${
-                        link.dropdown.length > 6
-                          ? "left-1/2 -translate-x-1/2 w-[min(90vw,860px)] grid grid-cols-3 gap-1"
-                          : "left-0 w-64"
-                      }`}
-                    >
-                      {link.dropdown.map((item, i) => {
-                        const IconComp = getDropdownIcon(item);
-                        return (
-                          <motion.div
-                            key={item.name}
-                            initial={{ opacity: 0, y: -6 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: i * 0.02 }}
-                          >
-                            <Link
-                              to={item.href}
-                              className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-foreground/80 hover:bg-secondary hover:text-primary transition-colors group"
-                            >
-                              <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary group-hover:scale-110 transition-all">
-                                <IconComp className="h-4 w-4 text-primary group-hover:text-primary-foreground transition-colors" />
-                              </div>
-                              <span className="truncate">{getLabel(item)}</span>
-                            </Link>
-                          </motion.div>
-                        );
-                      })}
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </div>
-            ))}
-          </div>
-
-          {/* CTA */}
-          <div className="hidden lg:flex items-center gap-2">
-            <Link to="/contact">
+            {/* CTA */}
+            <Link to="/contact" onMouseEnter={() => setActiveDropdown(null)}>
               <Button variant="hero" size="default">
                 {t('nav.getInTouch')}
               </Button>
             </Link>
+
+            {/* Mega menu panel: constrained to nav width */}
+            <AnimatePresence>
+              {navLinks.map((link) =>
+                link.dropdown && activeDropdown === link.name ? (
+                  <motion.div
+                    key={link.name}
+                    variants={dropdownVariants}
+                    initial="hidden"
+                    animate="visible"
+                    exit="exit"
+                    className="absolute left-0 right-0 top-full mt-3 bg-card/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-border z-[60] p-4 overflow-hidden"
+                  >
+                    <motion.div
+                      aria-hidden
+                      initial={{ scaleX: 0 }}
+                      animate={{ scaleX: 1 }}
+                      transition={{ duration: 0.45, ease: "easeOut" }}
+                      className="absolute top-0 left-0 right-0 h-[3px] origin-left bg-gradient-to-r from-primary via-primary/40 to-accent"
+                    />
+                    <div className={`grid gap-1 ${link.dropdown.length > 6 ? "grid-cols-3" : "grid-cols-2"}`}>
+                      {link.dropdown.map((item) => {
+                        const IconComp = getDropdownIcon(item);
+                        return (
+                          <motion.div key={item.name} variants={megaItemVariants}>
+                            <motion.div whileHover={{ x: 4 }} transition={{ type: "spring", stiffness: 400, damping: 24 }}>
+                              <Link
+                                to={item.href}
+                                className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-foreground/80 hover:bg-secondary hover:text-primary transition-colors group"
+                              >
+                                <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary group-hover:rotate-6 group-hover:scale-110 transition-all duration-300">
+                                  <IconComp className="h-4 w-4 text-primary group-hover:text-primary-foreground transition-colors" />
+                                </div>
+                                <span className="truncate">{getLabel(item)}</span>
+                                <ArrowRight className="h-3.5 w-3.5 ml-auto opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
+                              </Link>
+                            </motion.div>
+                          </motion.div>
+                        );
+                      })}
+                    </div>
+
+                    {/* Quick action buttons */}
+                    {megaActions[link.name] && (
+                      <motion.div
+                        variants={megaItemVariants}
+                        className="mt-4 pt-3 border-t border-border flex flex-wrap items-center gap-2"
+                      >
+                        {megaActions[link.name].map((action) => (
+                          <motion.div key={action.name} whileHover={{ y: -2 }} whileTap={{ scale: 0.97 }}>
+                            <Link
+                              to={action.href}
+                              className="flex items-center gap-2 px-3.5 py-2 rounded-full text-xs font-semibold bg-secondary text-foreground/80 hover:bg-primary hover:text-primary-foreground transition-colors"
+                            >
+                              <action.icon className="h-3.5 w-3.5" />
+                              {action.name}
+                            </Link>
+                          </motion.div>
+                        ))}
+                        <Link
+                          to="/contact"
+                          className="ml-auto flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold bg-primary text-primary-foreground hover:bg-accent transition-colors"
+                        >
+                          {t('nav.getInTouch')}
+                          <ArrowRight className="h-3.5 w-3.5" />
+                        </Link>
+                      </motion.div>
+                    )}
+                  </motion.div>
+                ) : null,
+              )}
+            </AnimatePresence>
           </div>
+
 
           {/* Mobile Menu Button */}
           <div className="lg:hidden flex items-center gap-2">
