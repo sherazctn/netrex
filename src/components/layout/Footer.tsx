@@ -6,6 +6,7 @@ import netrexLogoLite from "@/assets/netrex-logo-lite.png";
 import { Button } from "@/components/ui/button";
 import { FooterSkyline } from "@/components/layout/FooterSkyline";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { policyPages } from "@/data/policyPages";
 
 const PinterestIcon = () => (
   <svg viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4"><path d="M12 0C5.373 0 0 5.373 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.024 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.993 3.995-.282 1.193.599 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.099.12.112.225.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.174.271-.401.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.354-.629-2.758-1.379l-.749 2.848c-.269 1.045-1.004 2.352-1.498 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
@@ -356,11 +357,27 @@ export function Footer() {
           </div>
         </div>
 
+        {/* Governance & compliance */}
+        <div className="mt-8 pt-6 border-t border-white/10">
+          <h4 className="text-xs font-semibold uppercase tracking-wider text-white/60 mb-3">
+            Governance &amp; Compliance
+          </h4>
+          <div className="flex flex-wrap gap-x-5 gap-y-2 text-sm text-white/70">
+            <Link to="/policies" className="hover:text-white transition-colors">All Policies</Link>
+            {policyPages.map((p) => (
+              <Link key={p.slug} to={`/policies/${p.slug}`} className="hover:text-white transition-colors">
+                {p.title}
+              </Link>
+            ))}
+          </div>
+        </div>
+
         {/* Copyright */}
         <div className="mt-8 pt-6 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-white/80 text-sm">
-            © 2016–{new Date().getFullYear()} NETREX INC. {t('footer.rights')}
+            © 2016-{new Date().getFullYear()} NETREX INC. {t('footer.rights')}
           </p>
+
           <div className="flex gap-6 text-sm text-white/80">
             <Link to="/privacy" className="hover:text-white transition-colors">
               {t('footer.privacy')}
