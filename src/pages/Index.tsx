@@ -27,6 +27,7 @@ const Index = () => {
         <Portfolio />
         
         <WhyNetrex />
+        <InstagramFeed />
         <WorldMapContact />
       </main>
       <Footer />
