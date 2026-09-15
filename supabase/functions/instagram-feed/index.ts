@@ -1,7 +1,4 @@
-const corsHeaders = {
-  "Access-Control-Allow-Origin": "*",
-  "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
-};
+import { corsHeaders } from 'npm:@supabase/supabase-js@2/cors'
 
 // Simple in-memory cache (per isolate) to stay well inside Instagram rate limits.
 let cache: { at: number; payload: unknown } | null = null;
