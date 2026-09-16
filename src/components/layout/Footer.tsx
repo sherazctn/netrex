@@ -49,6 +49,7 @@ const footerLinks = {
   companyInfo: [
     { name: "Company Profile", href: "/company-profile", icon: FileText },
     { name: "Leadership", href: "/leadership", icon: Users },
+    { name: "Founder & CEO", href: "/ceo", icon: Award },
     { name: "Trust Center", href: "/trust-center", icon: ShieldCheck },
     { name: "Newsroom", href: "/newsroom", icon: Newspaper },
     { name: "Partners", href: "/partners", icon: Handshake },

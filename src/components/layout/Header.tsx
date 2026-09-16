@@ -72,6 +72,7 @@ const navLinks = [
       { name: "Legal", href: "/legal", icon: Scale, tKey: "footer.legal" },
       { name: "Company Profile", href: "/company-profile", icon: FileText },
       { name: "Leadership", href: "/leadership", icon: Users },
+      { name: "Founder & CEO", href: "/ceo", icon: Rocket },
       { name: "Trust Center", href: "/trust-center", icon: ShieldCheck },
       { name: "Newsroom", href: "/newsroom", icon: Newspaper },
       { name: "Partners", href: "/partners", icon: Handshake },
@@ -212,7 +213,7 @@ export function Header() {
                     initial="hidden"
                     animate="visible"
                     exit="exit"
-                    className="absolute left-0 right-0 top-full mt-3 bg-card/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-border z-[60] p-4 overflow-hidden"
+                    className="absolute left-0 right-0 top-full bg-card/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-border z-[60] p-4 overflow-hidden"
                   >
                     <motion.div
                       aria-hidden
