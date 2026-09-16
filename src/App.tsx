@@ -28,6 +28,7 @@ import TrustCenter from "./pages/company/TrustCenter";
 import Newsroom from "./pages/company/Newsroom";
 import Partners from "./pages/company/Partners";
 import CSR from "./pages/company/CSR";
+import CEO from "./pages/company/CEO";
 import AdminLogin from "./pages/admin/AdminLogin";
 import AdminLayout from "./pages/admin/AdminLayout";
 import AdminDashboard from "./pages/admin/AdminDashboard";
@@ -79,6 +80,7 @@ const App = () => (
             <Route path="/faq" element={<FAQ />} />
             <Route path="/company-profile" element={<CompanyProfile />} />
             <Route path="/leadership" element={<Leadership />} />
+            <Route path="/ceo" element={<CEO />} />
             <Route path="/trust-center" element={<TrustCenter />} />
             <Route path="/newsroom" element={<Newsroom />} />
             <Route path="/partners" element={<Partners />} />

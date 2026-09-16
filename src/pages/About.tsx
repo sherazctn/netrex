@@ -337,9 +337,9 @@ const About = () => {
                       Founder &amp; CEO - NETREX Inc
                     </div>
                   </div>
-                  <Link to="/contact">
+                  <Link to="/ceo">
                     <Button variant="hero" size="lg" className="group">
-                      Connect With Sheraz
+                      Read Full CEO Profile
                       <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                     </Button>
                   </Link>
