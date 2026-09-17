@@ -142,7 +142,7 @@ export function Hero() {
     if (reducedMotion) return;
     animate(coreGlowOpacity, [0.15, 0.15 + 0.3 * intensity, 0.15], { duration: 0.9, ease: "easeOut" });
     const id = ++pingId.current;
-    setPings((prev) => [...prev, id].slice(-2));
+    setPings((prev) => [...prev, id].slice(-4));
     window.setTimeout(() => setPings((prev) => prev.filter((p) => p !== id)), 1600);
   }, [coreGlowOpacity, reducedMotion]);
 
@@ -347,12 +347,12 @@ export function Hero() {
                 originX: "300px",
                 originY: "300px"
               }}>
-                  <circle cx="300" cy="300" r="270" stroke="hsl(359 85% 53%)" strokeWidth="1.5" strokeDasharray="3 14" fill="none" opacity="0.34" />
+                  <circle cx="300" cy="300" r="270" stroke="hsl(359 85% 53%)" strokeWidth="2" strokeDasharray="10 15" fill="none" opacity="0.6" />
                   {/* Data nodes on outer ring */}
                   {[0, 45, 90, 135, 180, 225, 270, 315].map((angle, i) => {
                   const x = 300 + 270 * Math.cos(angle * Math.PI / 180);
                   const y = 300 + 270 * Math.sin(angle * Math.PI / 180);
-                  return <motion.circle key={`outer-${i}`} cx={x} cy={y} r="3" fill="hsl(var(--primary))" animate={{
+                  return <motion.circle key={`outer-${i}`} cx={x} cy={y} r="6" fill="hsl(var(--primary))" animate={{
                     opacity: [0.4, 1, 0.4],
                     scale: [1, 1.5, 1]
                   }} transition={{
@@ -361,6 +361,19 @@ export function Hero() {
                     delay: i * 0.25
                   }} />;
                 })}
+                </motion.g>
+
+                {/* Middle hexagon - RED stroke */}
+                <motion.g style={{
+                y: y2
+              }}>
+                  <motion.polygon points="300,100 460,200 460,400 300,500 140,400 140,200" stroke="hsl(359 85% 53% / 0.3)" strokeWidth="2" fill="none" animate={{
+                  scale: [1, 1.02, 1],
+                  opacity: [0.4, 0.8, 0.4]
+                }} transition={{
+                  duration: 3,
+                  repeat: Infinity
+                }} />
                 </motion.g>
 
                 {/* Inner rotating RED ring */}
@@ -374,7 +387,7 @@ export function Hero() {
                 originX: "300px",
                 originY: "300px"
               }}>
-                  <circle cx="300" cy="300" r="180" stroke="hsl(359 85% 53%)" strokeWidth="1" strokeDasharray="2 18" fill="none" opacity="0.24" />
+                  <circle cx="300" cy="300" r="180" stroke="hsl(359 85% 53%)" strokeWidth="2" strokeDasharray="20 10" fill="none" opacity="0.5" />
                 </motion.g>
 
                 {/* Center core - fixed in place. Radar pings emit outward whenever a
@@ -387,12 +400,12 @@ export function Hero() {
                         key={id}
                         cx="300"
                         cy="300"
-                        r="92"
+                        r="95"
                         fill="none"
                         stroke="hsl(359 85% 53%)"
                         strokeWidth="2"
                         initial={{ opacity: 0.7, scale: 1 }}
-                        animate={{ opacity: 0, scale: 1.85 }}
+                        animate={{ opacity: 0, scale: 2.5 }}
                         exit={{ opacity: 0 }}
                         transition={{ duration: 1.5, ease: "easeOut" }}
                         style={{ originX: "300px", originY: "300px" }}
@@ -416,14 +429,68 @@ export function Hero() {
                 </g>
 
                 {/* Tech icons streaming in, slingshotting the core, bursting on exit */}
-                <TechBurstOrbit
-                  density={density}
-                  reducedMotion={reducedMotion}
-                  pointerX={pointerX}
-                  pointerY={pointerY}
-                  onIconFlyby={() => triggerCorePulse(0.72)}
-                />
+                <TechBurstOrbit density={density} reducedMotion={reducedMotion} onIconFlyby={() => triggerCorePulse(1)} />
 
+
+                {/* Static orbiting tech icons */}
+                {[0, 72, 144, 216, 288].map((angle, i) => {
+                const x = 300 + 180 * Math.cos(angle * Math.PI / 180);
+                const y = 300 + 180 * Math.sin(angle * Math.PI / 180);
+                const allTech = [...techLogos.web, ...techLogos.mobile, ...techLogos.cloud];
+                const tech = allTech[i % allTech.length];
+                return <motion.g key={`orbit-${i}`} animate={{
+                  rotate: 360
+                }} transition={{
+                  duration: 30 + i * 5,
+                  repeat: Infinity,
+                  ease: "linear"
+                }} style={{
+                  originX: "300px",
+                  originY: "300px"
+                }}>
+                      <motion.g animate={{
+                    scale: [1, 1.2, 1],
+                    opacity: [0.7, 1, 0.7]
+                  }} transition={{
+                    duration: 2,
+                    repeat: Infinity,
+                    delay: i * 0.4
+                  }}>
+                        <circle cx={x} cy={y} r="24" fill="hsl(var(--background))" stroke="hsl(359 85% 53% / 0.3)" strokeWidth="2" />
+                        <image href={tech.logo} x={x - 14} y={y - 14} width="28" height="28" />
+                      </motion.g>
+                    </motion.g>;
+              })}
+
+                {/* Connection beams */}
+                {[30, 150, 270].map((angle, i) => {
+                const x1 = 300 + 90 * Math.cos(angle * Math.PI / 180);
+                const y1 = 300 + 90 * Math.sin(angle * Math.PI / 180);
+                const x2 = 300 + 230 * Math.cos(angle * Math.PI / 180);
+                const y2 = 300 + 230 * Math.sin(angle * Math.PI / 180);
+                return <motion.line key={`beam-${i}`} x1={x1} y1={y1} x2={x2} y2={y2} stroke="hsl(359 85% 53% / 0.3)" strokeWidth="2" strokeDasharray="6 6" animate={{
+                  opacity: [0.2, 0.8, 0.2],
+                  strokeDashoffset: [0, 24]
+                }} transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  delay: i * 0.5
+                }} />;
+              })}
+
+                {/* Floating particles */}
+                {[...Array(16)].map((_, i) => {
+                const angle = i * 22.5 * Math.PI / 180;
+                const radius = 130 + i % 3 * 45;
+                return <motion.circle key={`particle-${i}`} cx={300 + radius * Math.cos(angle)} cy={300 + radius * Math.sin(angle)} r={2 + i % 3} fill={i % 2 === 0 ? "hsl(var(--primary))" : "hsl(var(--accent))"} animate={{
+                  opacity: [0, 1, 0],
+                  y: [0, -15, 0]
+                }} transition={{
+                  duration: 2.5 + i % 2,
+                  repeat: Infinity,
+                  delay: i * 0.2
+                }} />;
+              })}
 
                 {/* Gradient definitions */}
                 <defs>
