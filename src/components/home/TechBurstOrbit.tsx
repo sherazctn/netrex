@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion, motionValue, useTransform } from "framer-motion";
 import { useEffect, useMemo, useState } from "react";
 import { CX, CY, R_EDGE, polar } from "./hero/heroShared";
 
@@ -115,67 +115,170 @@ export const techs = [
   { name: "Slack", logo: dev("slack/slack-original") },
 ];
 
-const PERIOD = 14; // full loop for one icon (s)
-const TRAVEL = 4.2; // time an icon is visible while travelling (s)
-const SWING_AT = TRAVEL * 0.55; // moment it skims closest to the core -> triggers radar pulse
-const BURST_AT = TRAVEL - 0.55; // burst fires as the icon crosses the ring
-const SHARDS = 9;
-const TRAIL_GHOSTS = 3;
-/** Max icons in flight at once (keeps 90+ logo library performant). */
-const MAX_FLYERS = 24;
+const PERIOD = 17;
+const TRAVEL = 6.4;
+const SWING_AT = TRAVEL * 0.52;
+const BURST_AT = TRAVEL - 0.42;
+const MAX_FLYERS = 14;
+
+type AxisMotion = import("framer-motion").MotionValue<number>;
 
 interface TechBurstOrbitProps {
-  /** Density multiplier (0 disables motion entirely -> static ring of icons). */
   density?: number;
   reducedMotion?: boolean;
-  /** Called each time a travelling icon skims past the core, for the core's radar pulse. */
   onIconFlyby?: () => void;
+  pointerX?: AxisMotion;
+  pointerY?: AxisMotion;
 }
 
-/**
- * Tech icons stream in from outside the ring, slingshot around the red core
- * trailing a glowing energy tail, then exit on the far side where they burst
- * into gravity-affected shards. Rendered as SVG content inside the hero <svg>.
- */
-export function TechBurstOrbit({ density = 1, reducedMotion = false, onIconFlyby }: TechBurstOrbitProps) {
-  const [hovered, setHovered] = useState<string | null>(null);
+interface FlyerProps {
+  tech: (typeof techs)[number];
+  index: number;
+  total: number;
+  hovered: string | null;
+  setHovered: (name: string | null) => void;
+  pointerX?: AxisMotion;
+  pointerY?: AxisMotion;
+}
 
-  // Even sampling across the whole library so every service area is represented,
-  // while keeping concurrent flyers (and DOM nodes) bounded.
+function TechFlyer({ tech, index, total, hovered, setHovered, pointerX, pointerY }: FlyerProps) {
+  const lane = index % 4;
+  const clockwise = index % 2 === 0 ? 1 : -1;
+  const entryAngle = (index * 137.508 + lane * 19) % 360;
+  const exitAngle = entryAngle + clockwise * (142 + lane * 13);
+  const start = polar(entryAngle, R_EDGE + 22);
+  const approach = polar(entryAngle + clockwise * (30 + lane * 5), 225 - lane * 8);
+  const swing = polar(entryAngle + clockwise * (82 + lane * 7), 148 + lane * 13);
+  const release = polar(exitAngle - clockwise * 24, 220 + lane * 6);
+  const exit = polar(exitAngle, R_EDGE + 30);
+  const path = [start, approach, swing, release, exit];
+  const delay = (index * PERIOD) / total;
+  const duration = TRAVEL + lane * 0.45;
+  const cycle = { duration, repeat: Infinity, repeatDelay: PERIOD - duration, delay };
+
+  const pushX = useTransform(pointerX ?? ZERO_MOTION, [-0.5, 0.5], [clockwise * -8, clockwise * 8]);
+  const pushY = useTransform(pointerY ?? ZERO_MOTION, [-0.5, 0.5], [clockwise * -6, clockwise * 6]);
+
+  return (
+    <g>
+      <motion.path
+        d={`M ${start.x} ${start.y} Q ${swing.x} ${swing.y} ${exit.x} ${exit.y}`}
+        fill="none"
+        stroke="hsl(var(--primary) / 0.16)"
+        strokeWidth="1.5"
+        strokeDasharray="2 12"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: [0, 0.45, 0.18, 0] }}
+        transition={{ ...cycle, ease: "easeInOut", times: [0, 0.28, 0.72, 1] }}
+      />
+
+      <motion.g
+        initial={{ opacity: 0 }}
+        animate={{
+          x: path.map((point) => point.x - CX),
+          y: path.map((point) => point.y - CY),
+          opacity: [0, 1, 1, 1, 0],
+          scale: [0.65, 0.9, 1.06, 0.96, 0.72],
+        }}
+        transition={{ ...cycle, ease: [0.45, 0, 0.25, 1], times: [0, 0.25, 0.52, 0.78, 1] }}
+      >
+        <motion.g style={{ x: pushX, y: pushY }}>
+          <motion.g
+            whileHover={{ scale: 1.22 }}
+            whileTap={{ scale: 1.16 }}
+            onHoverStart={() => setHovered(tech.name)}
+            onHoverEnd={() => setHovered(null)}
+            transition={{ type: "spring", stiffness: 300, damping: 22 }}
+            style={{ cursor: "pointer" }}
+          >
+            <circle
+              cx={CX}
+              cy={CY}
+              r="25"
+              fill="hsl(var(--background))"
+              stroke={hovered === tech.name ? "hsl(var(--accent))" : "hsl(var(--primary) / 0.48)"}
+              strokeWidth={hovered === tech.name ? 3 : 1.5}
+            />
+            <image href={tech.logo} x={CX - 16} y={CY - 16} width="32" height="32" />
+            {hovered === tech.name && (
+              <g className="pointer-events-none">
+                <rect x={CX - 54} y={CY + 32} width="108" height="24" rx="6" fill="hsl(var(--foreground))" />
+                <text x={CX} y={CY + 48} textAnchor="middle" fontSize="11" fontWeight="600" fill="hsl(var(--background))">
+                  {tech.name}
+                </text>
+              </g>
+            )}
+          </motion.g>
+        </motion.g>
+      </motion.g>
+
+      <motion.path
+        d={`M ${exit.x - 9} ${exit.y} Q ${exit.x} ${exit.y - 10} ${exit.x + 9} ${exit.y}`}
+        fill="none"
+        stroke="hsl(var(--primary))"
+        strokeWidth="2.5"
+        strokeLinecap="round"
+        initial={{ opacity: 0, pathLength: 0 }}
+        animate={{ opacity: [0, 0.8, 0], pathLength: [0, 1, 1] }}
+        transition={{ duration: 0.55, repeat: Infinity, repeatDelay: PERIOD - 0.55, delay: delay + BURST_AT, ease: "easeOut" }}
+      />
+      {[0, 1, 2, 3].map((shard) => {
+        const angle = exitAngle - 36 + shard * 24;
+        const distance = 18 + (shard % 2) * 8;
+        return (
+          <motion.circle
+            key={shard}
+            cx={exit.x}
+            cy={exit.y}
+            r={1.8 + (shard % 2) * 0.7}
+            fill={shard === 2 ? "hsl(var(--accent))" : "hsl(var(--primary))"}
+            initial={{ opacity: 0 }}
+            animate={{
+              x: [0, distance * Math.cos((angle * Math.PI) / 180)],
+              y: [0, distance * Math.sin((angle * Math.PI) / 180) + 8],
+              opacity: [0, 0.9, 0],
+            }}
+            transition={{ duration: 0.65, repeat: Infinity, repeatDelay: PERIOD - 0.65, delay: delay + BURST_AT + shard * 0.025, ease: "easeOut" }}
+          />
+        );
+      })}
+    </g>
+  );
+}
+
+const ZERO_MOTION = motionValue(0);
+
+/** Varied, bidirectional technology paths with restrained pointer response. */
+export function TechBurstOrbit({ density = 1, reducedMotion = false, onIconFlyby, pointerX, pointerY }: TechBurstOrbitProps) {
+  const [hovered, setHovered] = useState<string | null>(null);
   const activeTechs = useMemo(() => {
-    if (reducedMotion) return techs.filter((_, i) => i % 4 === 0).slice(0, 20);
-    const count = Math.max(8, Math.round(MAX_FLYERS * density));
+    const count = reducedMotion ? 10 : Math.max(8, Math.round(MAX_FLYERS * density));
     const step = techs.length / count;
-    return Array.from({ length: count }, (_, i) => techs[Math.floor(i * step)]);
+    return Array.from({ length: count }, (_, index) => techs[Math.floor(index * step)]);
   }, [density, reducedMotion]);
 
-  // Fire the core radar pulse each time an icon skims by, synced to each icon's loop.
   useEffect(() => {
     if (reducedMotion || !onIconFlyby) return;
     const timers: number[] = [];
-    activeTechs.forEach((_, i) => {
-      const delay = (i * PERIOD) / activeTechs.length;
-      const firstFire = (delay + SWING_AT) * 1000;
-      const t = window.setTimeout(() => {
+    activeTechs.forEach((_, index) => {
+      const delay = (index * PERIOD) / activeTechs.length;
+      const timeout = window.setTimeout(() => {
         onIconFlyby();
-        const interval = window.setInterval(onIconFlyby, PERIOD * 1000);
-        timers.push(interval);
-      }, firstFire);
-      timers.push(t);
+        timers.push(window.setInterval(onIconFlyby, PERIOD * 1000));
+      }, (delay + SWING_AT) * 1000);
+      timers.push(timeout);
     });
-    return () => timers.forEach((t) => window.clearTimeout(t));
+    return () => timers.forEach((timer) => window.clearTimeout(timer));
   }, [activeTechs, reducedMotion, onIconFlyby]);
 
   if (reducedMotion) {
-    // Static, calm composition: icons parked evenly around a single ring.
     return (
       <>
-        {activeTechs.map((tech, i) => {
-          const angle = (i / activeTechs.length) * 360;
-          const { x, y } = polar(angle, 235);
+        {activeTechs.map((tech, index) => {
+          const { x, y } = polar((index / activeTechs.length) * 360, 215 + (index % 2) * 26);
           return (
             <g key={tech.name}>
-              <circle cx={x} cy={y} r="22" fill="hsl(var(--background))" stroke="hsl(359 85% 53% / 0.4)" strokeWidth="2" />
+              <circle cx={x} cy={y} r="21" fill="hsl(var(--background))" stroke="hsl(var(--primary) / 0.35)" strokeWidth="1.5" />
               <image href={tech.logo} x={x - 13} y={y - 13} width="26" height="26" />
             </g>
           );
@@ -186,171 +289,18 @@ export function TechBurstOrbit({ density = 1, reducedMotion = false, onIconFlyby
 
   return (
     <>
-      {activeTechs.map((tech, i) => {
-        const inAngle = (i * 137.508) % 360; // golden-angle spread keeps concurrent icons apart
-        const outAngle = inAngle + 168 + (i % 3) * 8;
-        const delay = (i * PERIOD) / activeTechs.length;
-        const start = polar(inAngle, R_EDGE);
-        // Curved slingshot: skim around the red core instead of covering it
-        const approach = polar(inAngle + 42, 195);
-        const swing = polar(inAngle + 108, 145);
-        const release = polar(outAngle - 40, 205);
-        const exit = polar(outAngle, R_EDGE);
-        const cycle = {
-          duration: TRAVEL,
-          repeat: Infinity,
-          repeatDelay: PERIOD - TRAVEL,
-          delay,
-        };
-        const path = [start, approach, swing, release, exit];
-
-        return (
-          <g key={tech.name}>
-            {/* Glowing energy trail: fading ghost copies chasing the icon */}
-            {[...Array(TRAIL_GHOSTS)].map((_, g) => {
-              const lag = (g + 1) * 0.07;
-              return (
-                <motion.circle
-                  key={`trail-${g}`}
-                  r={7 - g * 1.6}
-                  fill="hsl(359 85% 53%)"
-                  filter="url(#heroTrailGlow)"
-                  initial={{ opacity: 0 }}
-                  animate={{
-                    x: path.map((p) => p.x - CX),
-                    y: path.map((p) => p.y - CY),
-                    opacity: [0, 0.5 - g * 0.12, 0.55 - g * 0.12, 0.4 - g * 0.1, 0],
-                  }}
-                  transition={{ ...cycle, delay: delay + lag, ease: "easeInOut", times: [0, 0.3, 0.55, 0.8, 1] }}
-                  style={{ translateX: CX, translateY: CY }}
-                />
-              );
-            })}
-
-            {/* Travelling icon capsule */}
-            <motion.g
-              initial={{ opacity: 0 }}
-              animate={{
-                x: path.map((p) => p.x - CX),
-                y: path.map((p) => p.y - CY),
-                opacity: [0, 1, 1, 1, 0],
-                scale: [0.35, 0.95, 1.1, 1, 0.7],
-              }}
-              transition={{ ...cycle, ease: [0.22, 1, 0.36, 1], times: [0, 0.3, 0.55, 0.8, 1] }}
-            >
-              {/* Hover-reactive capsule (scales + glows under cursor/touch) */}
-              <motion.g
-                whileHover={{ scale: 1.45 }}
-                whileTap={{ scale: 1.6 }}
-                onHoverStart={() => setHovered(tech.name)}
-                onHoverEnd={() => setHovered(null)}
-                transition={{ type: "spring", stiffness: 260, damping: 16 }}
-                style={{ originX: `${CX}px`, originY: `${CY}px`, cursor: "pointer" }}
-              >
-                {/* soft pulsing halo */}
-                <motion.circle
-                  cx={CX}
-                  cy={CY}
-                  r="34"
-                  fill="hsl(359 85% 53% / 0.12)"
-                  filter="url(#heroTrailGlow)"
-                  animate={{ scale: [0.7, 1.25, 0.7] }}
-                  transition={{ duration: 1.6, repeat: Infinity, delay }}
-                />
-                <circle
-                  cx={CX}
-                  cy={CY}
-                  r="26"
-                  fill="hsl(var(--background))"
-                  stroke={hovered === tech.name ? "hsl(359 85% 53%)" : "hsl(359 85% 53% / 0.55)"}
-                  strokeWidth={hovered === tech.name ? 3 : 2}
-                />
-                <image href={tech.logo} x={CX - 17} y={CY - 17} width="34" height="34" />
-                {hovered === tech.name && (
-                  <g>
-                    <rect
-                      x={CX - 52}
-                      y={CY + 30}
-                      width="104"
-                      height="22"
-                      rx="11"
-                      fill="hsl(var(--background))"
-                      stroke="hsl(359 85% 53% / 0.4)"
-                    />
-                    <text
-                      x={CX}
-                      y={CY + 45}
-                      textAnchor="middle"
-                      fontSize="12"
-                      fontWeight="600"
-                      fill="hsl(var(--foreground))"
-                    >
-                      {tech.name}
-                    </text>
-                  </g>
-                )}
-              </motion.g>
-            </motion.g>
-
-            {/* Balloon burst at the exit point, with gravity pulling shards down */}
-            <g>
-              {/* splash ring */}
-              <motion.circle
-                cx={exit.x}
-                cy={exit.y}
-                r="12"
-                fill="none"
-                stroke="hsl(359 85% 53%)"
-                strokeWidth="2"
-                filter="url(#heroTrailGlow)"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: [0, 0.9, 0], scale: [0.3, 2.6, 3.2] }}
-                transition={{
-                  duration: 0.8,
-                  repeat: Infinity,
-                  repeatDelay: PERIOD - 0.8,
-                  delay: delay + BURST_AT,
-                  ease: "easeOut",
-                }}
-                style={{ originX: `${exit.x}px`, originY: `${exit.y}px` }}
-              />
-              {/* droplet shards with gravity arc + varied size + motion-blur fade */}
-              {[...Array(SHARDS)].map((_, s) => {
-                const shardAngle = outAngle - 70 + (s * 140) / (SHARDS - 1);
-                const dist = 30 + (s % 4) * 20;
-                const dx = dist * Math.cos((shardAngle * Math.PI) / 180);
-                const dyOut = dist * Math.sin((shardAngle * Math.PI) / 180);
-                const gravity = 26 + (s % 3) * 14; // extra downward pull over time
-                const size = 1.5 + (s % 4) * 1.1;
-                return (
-                  <motion.circle
-                    key={s}
-                    cx={exit.x}
-                    cy={exit.y}
-                    r={size}
-                    fill={s % 3 === 0 ? "hsl(var(--accent))" : "hsl(359 85% 53%)"}
-                    initial={{ opacity: 0 }}
-                    animate={{
-                      x: [0, dx, dx * 1.2],
-                      y: [0, dyOut, dyOut * 1.15 + gravity],
-                      opacity: [0, 1, 0],
-                      scale: [0.3, 1, 0.15],
-                      filter: ["blur(0px)", "blur(0px)", "blur(2px)"],
-                    }}
-                    transition={{
-                      duration: 1.05,
-                      repeat: Infinity,
-                      repeatDelay: PERIOD - 1.05,
-                      delay: delay + BURST_AT + (s % 3) * 0.04,
-                      ease: "easeOut",
-                    }}
-                  />
-                );
-              })}
-            </g>
-          </g>
-        );
-      })}
+      {activeTechs.map((tech, index) => (
+        <TechFlyer
+          key={tech.name}
+          tech={tech}
+          index={index}
+          total={activeTechs.length}
+          hovered={hovered}
+          setHovered={setHovered}
+          pointerX={pointerX}
+          pointerY={pointerY}
+        />
+      ))}
     </>
   );
 }
