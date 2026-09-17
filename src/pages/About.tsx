@@ -54,75 +54,6 @@ const team = [
   role: "COO",
   image: sajjadPortrait,
   bio: "Operations expert ensuring seamless project delivery worldwide"
-},
-{
-  name: "Ahmed Hassan",
-  role: "CTO",
-  image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=400&fit=crop",
-  bio: "Tech expert specializing in scalable cloud architectures"
-},
-{
-  name: "Sarah Mitchell",
-  role: "Creative Director",
-  image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop",
-  bio: "Award-winning designer passionate about user experiences"
-},
-{
-  name: "Fatima Ali",
-  role: "HR Director",
-  image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop",
-  bio: "People-first leader building high-performing global teams"
-},
-{
-  name: "David Park",
-  role: "Lead Developer",
-  image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop",
-  bio: "Full-stack engineer with 10+ years building enterprise solutions"
-},
-{
-  name: "Ayesha Malik",
-  role: "Project Manager",
-  image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop",
-  bio: "PMP-certified PM ensuring on-time, on-budget delivery"
-}];
-
-
-const boardMembers = [
-{
-  name: "Dr. Rashid Khan",
-  role: "Chairman of the Board",
-  image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&fit=crop",
-  bio: "Serial entrepreneur & investor with 25+ years scaling MENA tech firms"
-},
-{
-  name: "Amelia Roberts",
-  role: "Independent Director",
-  image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop",
-  bio: "Former VP at a global consultancy; expert in enterprise digital strategy"
-},
-{
-  name: "Yusuf Al-Mansouri",
-  role: "Board Advisor - Finance",
-  image: "https://images.unsplash.com/photo-1566492031773-4f4e44671857?w=400&h=400&fit=crop",
-  bio: "CFO-level advisor guiding financial strategy across 9 offices"
-},
-{
-  name: "Elena Petrova",
-  role: "Board Advisor - Product",
-  image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=400&fit=crop",
-  bio: "Ex-FAANG PM shaping our AI product roadmap for 2027 and beyond"
-},
-{
-  name: "Rajesh Menon",
-  role: "Board Advisor - Technology",
-  image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop",
-  bio: "Cloud architect steering our global infrastructure & AI investments"
-},
-{
-  name: "Aisha Al-Suwaidi",
-  role: "Board Advisor - Governance",
-  image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=400&h=400&fit=crop",
-  bio: "Governance & ESG leader ensuring compliance across 9 jurisdictions"
 }];
 
 
@@ -620,7 +551,7 @@ const About = () => {
                 The principles that guide everything we do at NETREX.
               </p>
             </motion.div>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid md:grid-cols-3 gap-6">
               {values.map((value, index) =>
               <motion.div
                 key={value.title}
@@ -686,58 +617,6 @@ const About = () => {
                   <p className="text-primary text-sm">{member.role}</p>
                 </motion.div>
               )}
-            </div>
-          </div>
-        </section>
-
-        {/* Board Members */}
-        <section className="section-padding bg-secondary/30">
-          <div className="container-wide">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="text-center mb-12"
-            >
-              <span className="inline-block text-sm font-semibold text-primary uppercase tracking-wider mb-4">
-                Governance
-              </span>
-              <h2 className="font-display text-3xl md:text-4xl font-bold mb-4">
-                Our <span className="text-primary">Board Members</span>
-              </h2>
-              <p className="text-muted-foreground max-w-2xl mx-auto">
-                A globally experienced board steering NETREX's strategy, governance, and long-term vision.
-              </p>
-            </motion.div>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {boardMembers.map((member, index) => (
-                <motion.div
-                  key={member.name}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.08 }}
-                  className="group flex items-center gap-4 p-5 rounded-3xl bg-card border border-border hover:border-primary/40 hover:shadow-xl transition-all"
-                >
-                  <div className="relative w-20 h-20 rounded-2xl overflow-hidden flex-shrink-0 ring-1 ring-border">
-                    <img
-                      src={member.image}
-                      alt={member.name}
-                      loading="lazy"
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                  </div>
-                  <div className="min-w-0">
-                    <h3 className="font-display font-bold text-base leading-tight">{member.name}</h3>
-                    <p className="text-primary text-xs font-semibold uppercase tracking-wider mt-0.5">
-                      {member.role}
-                    </p>
-                    <p className="text-muted-foreground text-sm mt-2 leading-snug">{member.bio}</p>
-                  </div>
-                </motion.div>
-              ))}
             </div>
           </div>
         </section>

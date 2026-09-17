@@ -16,15 +16,6 @@ const executiveTeam = [
   { name: "Sajjad Khan", role: "COO", image: sajjadPortrait, bio: "Operations expert ensuring seamless project delivery worldwide" },
 ];
 
-const boardMembers = [
-  { name: "Dr. Rashid Khan", role: "Chairman of the Board", image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=400&fit=crop", bio: "Serial entrepreneur & investor with 25+ years scaling MENA tech firms" },
-  { name: "Amelia Roberts", role: "Independent Director", image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=400&h=400&fit=crop", bio: "Former VP at a global consultancy; expert in enterprise digital strategy" },
-  { name: "Yusuf Al-Mansouri", role: "Board Advisor - Finance", image: "https://images.unsplash.com/photo-1566492031773-4f4e44671857?w=400&h=400&fit=crop", bio: "CFO-level advisor guiding financial strategy across 9 offices" },
-  { name: "Elena Petrova", role: "Board Advisor - Product", image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=400&fit=crop", bio: "Ex-FAANG PM shaping our AI product roadmap for 2027 and beyond" },
-  { name: "Rajesh Menon", role: "Board Advisor - Technology", image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop", bio: "Cloud architect steering our global infrastructure & AI investments" },
-  { name: "Aisha Al-Suwaidi", role: "Board Advisor - Governance", image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=400&h=400&fit=crop", bio: "Governance & ESG leader ensuring compliance across 9 jurisdictions" },
-];
-
 const governancePillars = [
   { icon: Scale, title: "Board Oversight", description: "The Chairman and independent directors provide strategic oversight and review major operational decisions with executive management." },
   { icon: ShieldCheck, title: "Risk & Compliance", description: "A governance advisor tracks regulatory obligations across the jurisdictions our nine offices operate in." },
@@ -64,7 +55,7 @@ const Leadership = () => {
     <div className="min-h-screen bg-background">
       <SEO
         title="Leadership & Governance | NETREX INC"
-        description="Meet the NETREX INC executive team and board of directors, and learn how governance and advisory oversight guide our global operations across nine offices."
+        description="Meet the verified NETREX INC executive leadership team and learn how accountable governance guides our global operations across nine offices."
         canonical="https://www.netrexinc.com/leadership"
         schema={schema}
       />
@@ -74,7 +65,7 @@ const Leadership = () => {
           badge="Leadership & Governance"
           title="The People Behind"
           highlight="NETREX"
-          description="Our executive team runs day-to-day delivery worldwide, while a board of directors and domain advisors provide oversight and long-term strategic guidance."
+          description="Meet the verified executive leaders responsible for NETREX's strategy, growth and worldwide delivery."
         >
           <div className="flex flex-wrap justify-center gap-4">
             <Link to="/company-profile">
@@ -110,31 +101,6 @@ const Leadership = () => {
             </motion.div>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
               {executiveTeam.map((p, i) => (
-                <PersonCard key={p.name} person={p} index={i} />
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Board of directors */}
-        <section className="section-padding pt-0">
-          <div className="container-wide">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="text-center mb-12"
-            >
-              <span className="inline-block text-sm font-semibold text-primary uppercase tracking-wider mb-4">
-                Board & Advisors
-              </span>
-              <h2 className="font-display text-3xl md:text-4xl font-bold mb-4">
-                Governance & <span className="text-primary">Oversight</span>
-              </h2>
-            </motion.div>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-              {boardMembers.map((p, i) => (
                 <PersonCard key={p.name} person={p} index={i} />
               ))}
             </div>
