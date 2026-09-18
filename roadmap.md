@@ -8,3 +8,4 @@
 - [x] Replace stock people imagery across public leadership sections with verified real team imagery
 - [ ] Connect real live Instagram feed for @netrex.official - blocked: secure token setup was declined
 - [x] Fix desktop dropdown hover gap so menu items remain clickable
+- [x] Rebuild CEO page as a formal NETREX-only leadership and credibility profile
