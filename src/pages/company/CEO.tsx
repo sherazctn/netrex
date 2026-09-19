@@ -20,12 +20,17 @@ import {
   Instagram,
   Layers3,
   Linkedin,
+  Megaphone,
   Mail,
   MapPin,
   Mountain,
+  Presentation,
+  Search,
   Server,
   ShieldCheck,
   ShoppingBag,
+  Target,
+  Users,
   Workflow,
   Youtube,
 } from "lucide-react";
@@ -45,16 +50,64 @@ const professionalFocus = [
   { title: "Client partnerships", copy: "Building long-term working relationships through clear communication, documented scope and accountable delivery.", icon: Building2 },
 ];
 
-const capabilities = [
-  { name: "React JS", icon: Braces },
-  { name: "Node.js", icon: Server },
-  { name: "PHP", icon: Code2 },
-  { name: "Java & C++", icon: Code2 },
-  { name: "WordPress", icon: Layers3 },
-  { name: "Shopify", icon: ShoppingBag },
-  { name: "Wix Studio", icon: Workflow },
-  { name: "Webflow", icon: Workflow },
+const capabilityGroups = [
+  {
+    title: "Technical capabilities",
+    copy: "Practical understanding of modern web engineering, commerce and platform delivery.",
+    icon: Code2,
+    items: [
+      { name: "React JS", icon: Braces },
+      { name: "Node.js", icon: Server },
+      { name: "PHP", icon: Code2 },
+      { name: "Java & C++", icon: Code2 },
+      { name: "WordPress", icon: Layers3 },
+      { name: "Shopify", icon: ShoppingBag },
+      { name: "Wix Studio", icon: Workflow },
+      { name: "Webflow", icon: Workflow },
+    ],
+  },
+  {
+    title: "Leadership capabilities",
+    copy: "Executive direction focused on accountability, communication and responsible growth.",
+    icon: Users,
+    items: [
+      { name: "Technology leadership", icon: Server },
+      { name: "Team direction", icon: Users },
+      { name: "Client partnerships", icon: Building2 },
+      { name: "Decision-making", icon: Target },
+      { name: "Delivery standards", icon: ShieldCheck },
+      { name: "Mentoring", icon: GraduationCap },
+    ],
+  },
+  {
+    title: "Marketing and sales",
+    copy: "Commercial capabilities that connect digital delivery with audience and revenue goals.",
+    icon: Megaphone,
+    items: [
+      { name: "Digital strategy", icon: Megaphone },
+      { name: "Search marketing", icon: Search },
+      { name: "Brand positioning", icon: Presentation },
+      { name: "Business development", icon: BriefcaseBusiness },
+      { name: "Solution consulting", icon: BadgeCheck },
+      { name: "Client communication", icon: Mail },
+    ],
+  },
+  {
+    title: "Management capabilities",
+    copy: "Structured oversight from early planning through delivery, review and long-term support.",
+    icon: BriefcaseBusiness,
+    items: [
+      { name: "Business planning", icon: Building2 },
+      { name: "Project governance", icon: ShieldCheck },
+      { name: "Scope management", icon: Layers3 },
+      { name: "Operational oversight", icon: Workflow },
+      { name: "Risk awareness", icon: BadgeCheck },
+      { name: "Quality assurance", icon: CheckCircle2 },
+    ],
+  },
 ];
+
+const capabilityNames = capabilityGroups.flatMap((group) => group.items.map((item) => item.name));
 
 const journey = [
   { period: "2015-2018", title: "Technical foundation", copy: "Built an early foundation in front-end development, WordPress, search, analytics and digital marketing through hands-on practice and professional courses." },
@@ -102,7 +155,7 @@ const schema = {
     "@type": "CollegeOrUniversity",
     name: "University of South Asia",
   },
-  knowsAbout: capabilities.map((item) => item.name),
+  knowsAbout: capabilityNames,
   sameAs: socialProfiles.map((profile) => profile.href),
 };
 
@@ -135,23 +188,23 @@ const CEO = () => {
       <Header />
 
       <main>
-        <section className="relative overflow-hidden border-b border-border bg-background pb-14 pt-36 md:pb-20 md:pt-44">
+        <section className="relative overflow-hidden border-b border-border bg-background pb-14 pt-32 sm:pt-36 md:pb-20 md:pt-44">
           <div className="pointer-events-none absolute inset-0" aria-hidden="true">
             <div className="absolute inset-y-0 right-0 w-1/2 bg-secondary/50" />
             <div className="absolute left-0 top-28 h-px w-full bg-border/70" />
           </div>
 
-          <div className="container-wide relative grid items-center gap-12 lg:grid-cols-[1.08fr_0.92fr] lg:gap-20">
+          <div className="container-wide relative grid min-w-0 items-center gap-10 lg:grid-cols-[minmax(0,1.08fr)_minmax(320px,0.92fr)] lg:gap-14 xl:gap-20">
             <motion.div
               initial={reduceMotion ? false : { opacity: 0, x: -24 }}
               animate={reduceMotion ? undefined : { opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
             >
-              <div className="mb-6 flex items-center gap-3 text-xs font-bold uppercase text-primary">
-                <span className="h-px w-9 bg-primary" />
-                Founder &amp; Chief Executive Officer
+              <div className="mb-6 flex max-w-full items-center gap-3 text-xs font-bold uppercase leading-5 text-primary">
+                <span className="h-px w-7 shrink-0 bg-primary sm:w-9" />
+                <span>Founder &amp; Chief Executive Officer</span>
               </div>
-              <h1 className="max-w-3xl font-display text-5xl font-bold leading-[1.05] sm:text-6xl md:text-7xl">
+              <h1 className="max-w-3xl break-words font-display text-4xl font-bold leading-tight sm:text-6xl md:text-7xl">
                 Sheraz Khan
               </h1>
               <p className="mt-6 max-w-2xl text-lg font-medium leading-8 text-foreground md:text-xl">
@@ -161,23 +214,23 @@ const CEO = () => {
                 Based in Dubai, UAE, with professional and educational roots in Lahore, Pakistan. Sheraz oversees NETREX strategy, technical direction and client outcomes.
               </p>
 
-              <div className="mt-8 flex flex-wrap gap-3">
-                <Button asChild size="lg" className="bg-primary text-primary-foreground hover:bg-foreground hover:text-background">
+              <div className="mt-8 grid gap-3 sm:flex sm:flex-wrap">
+                <Button asChild size="lg" className="w-full bg-primary text-primary-foreground hover:bg-accent hover:text-accent-foreground sm:w-auto">
                   <a href="#contact">Contact Sheraz <ArrowRight /></a>
                 </Button>
-                <Button asChild variant="outline" size="lg" className="border-border bg-background text-foreground hover:border-primary hover:bg-secondary hover:text-foreground">
+                <Button asChild variant="outline" size="lg" className="w-full border-border bg-background text-foreground hover:border-primary hover:bg-secondary hover:text-foreground sm:w-auto">
                   <a href="#profile">View professional profile <ArrowDown /></a>
                 </Button>
               </div>
 
-              <div className="mt-9 flex flex-wrap gap-2" aria-label="Personal social profiles">
+              <div className="mt-9 grid grid-cols-2 gap-2 sm:flex sm:flex-wrap" aria-label="Personal social profiles">
                 {socialProfiles.map((profile) => (
                   <a
                     key={profile.label}
                     href={profile.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex min-h-11 items-center gap-2 rounded-full border border-border bg-card px-4 text-sm font-semibold text-foreground transition-colors hover:border-primary hover:text-primary"
+                    className="inline-flex min-h-11 min-w-0 items-center gap-2 rounded-md border border-border bg-card px-3 text-sm font-semibold text-foreground transition-colors hover:border-primary hover:text-primary sm:px-4"
                   >
                     <profile.icon className="h-4 w-4" />
                     {profile.label}
@@ -191,14 +244,14 @@ const CEO = () => {
               initial={reduceMotion ? false : { opacity: 0, scale: 0.97 }}
               animate={reduceMotion ? undefined : { opacity: 1, scale: 1 }}
               transition={{ duration: 0.65 }}
-              className="relative mx-auto w-full max-w-md lg:max-w-none"
+              className="relative mx-auto w-full min-w-0 max-w-md lg:max-w-none"
             >
-              <div className="relative overflow-hidden rounded-lg border border-border bg-card shadow-xl">
-                <div className="aspect-[4/5] overflow-hidden">
+              <div className="relative overflow-hidden rounded-md border border-border bg-card shadow-xl">
+                <div className="aspect-[4/5] min-h-[360px] overflow-hidden sm:min-h-[460px] lg:min-h-0">
                   <img
                     src={ceoPortrait}
                     alt="Sheraz Khan, Founder and CEO of NETREX"
-                    className="h-full w-full object-cover object-top"
+                    className="h-full w-full object-cover object-[center_16%]"
                     fetchPriority="high"
                   />
                 </div>
@@ -220,7 +273,7 @@ const CEO = () => {
         </section>
 
         <section className="border-b border-border bg-secondary/40 py-8">
-          <div className="container-wide grid gap-px overflow-hidden rounded-lg border border-border bg-border sm:grid-cols-3">
+          <div className="container-wide grid gap-px overflow-hidden rounded-md border border-border bg-border sm:grid-cols-3">
             {[
               { label: "Current role", value: "Founder & CEO, NETREX", icon: Building2 },
               { label: "Education", value: "Computer Science", icon: GraduationCap },
@@ -264,12 +317,14 @@ const CEO = () => {
               <h2 className="mt-3 font-display text-3xl font-bold md:text-5xl">Professional focus</h2>
               <p className="mt-5 text-lg leading-8 text-background/70">The CEO role is centered on the quality, clarity and commercial relevance of every NETREX engagement.</p>
             </Reveal>
-            <div className="mt-12 grid gap-px overflow-hidden rounded-lg border border-background/15 bg-background/15 md:grid-cols-2">
+            <div className="mt-12 grid gap-4 md:grid-cols-2">
               {professionalFocus.map((item) => (
-                <Reveal key={item.title} className="bg-foreground p-7 md:p-9">
-                  <item.icon className="h-7 w-7 text-primary" />
-                  <h3 className="mt-6 text-xl font-bold text-background">{item.title}</h3>
-                  <p className="mt-3 leading-7 text-background/70">{item.copy}</p>
+                <Reveal key={item.title} className="min-w-0 rounded-md border border-background/15 bg-background/5 p-6 md:p-8">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-md border border-primary/30 bg-primary/10">
+                    <item.icon className="h-6 w-6 text-primary" />
+                  </div>
+                  <h3 className="mt-5 break-words text-xl font-bold text-background">{item.title}</h3>
+                  <p className="mt-3 break-words leading-7 text-background/70">{item.copy}</p>
                 </Reveal>
               ))}
             </div>
@@ -286,7 +341,7 @@ const CEO = () => {
             <div className="border-l border-border">
               {journey.map((item) => (
                 <Reveal key={`${item.period}-${item.title}`} className="relative pb-10 pl-8 last:pb-0">
-                  <span className="absolute -left-2 top-1.5 h-4 w-4 rounded-full border-4 border-background bg-primary" />
+                  <span className="absolute -left-1.5 top-1.5 h-3 w-3 rounded-sm border-2 border-background bg-primary" />
                   <div className="text-sm font-bold text-primary">{item.period}</div>
                   <h3 className="mt-1 text-xl font-bold">{item.title}</h3>
                   <p className="mt-3 leading-7 text-muted-foreground">{item.copy}</p>
@@ -299,15 +354,30 @@ const CEO = () => {
         <section className="border-y border-border bg-secondary/40 py-20 md:py-28">
           <div className="container-wide">
             <Reveal className="mx-auto max-w-3xl text-center">
-              <div className="text-sm font-bold uppercase text-primary">Technical and platform capabilities</div>
-              <h2 className="mt-3 font-display text-3xl font-bold md:text-4xl">A leadership foundation grounded in delivery</h2>
-              <p className="mt-5 leading-7 text-muted-foreground">Technologies and platforms represented in Sheraz's public professional background and NETREX service delivery.</p>
+              <div className="text-sm font-bold uppercase text-primary">Professional capabilities</div>
+              <h2 className="mt-3 font-display text-3xl font-bold md:text-4xl">A multidisciplinary leadership profile</h2>
+              <p className="mt-5 leading-7 text-muted-foreground">Technical experience supported by leadership, commercial understanding and structured business management.</p>
             </Reveal>
-            <div className="mt-12 grid grid-cols-2 gap-3 sm:grid-cols-4 lg:grid-cols-8">
-              {capabilities.map((item) => (
-                <Reveal key={item.name} className="flex min-h-28 flex-col items-center justify-center rounded-lg border border-border bg-card p-4 text-center">
-                  <item.icon className="h-6 w-6 text-primary" />
-                  <span className="mt-3 text-sm font-semibold">{item.name}</span>
+            <div className="mt-12 grid gap-5 lg:grid-cols-2">
+              {capabilityGroups.map((group) => (
+                <Reveal key={group.title} className="min-w-0 rounded-md border border-border bg-card p-6 md:p-8">
+                  <div className="flex items-start gap-4">
+                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-md bg-primary/10 text-primary">
+                      <group.icon className="h-6 w-6" />
+                    </div>
+                    <div className="min-w-0">
+                      <h3 className="break-words text-xl font-bold">{group.title}</h3>
+                      <p className="mt-2 leading-7 text-muted-foreground">{group.copy}</p>
+                    </div>
+                  </div>
+                  <div className="mt-6 grid gap-2 sm:grid-cols-2">
+                    {group.items.map((item) => (
+                      <div key={item.name} className="flex min-h-12 min-w-0 items-center gap-3 rounded-md border border-border bg-secondary/40 px-3 py-2.5">
+                        <item.icon className="h-4 w-4 shrink-0 text-primary" />
+                        <span className="break-words text-sm font-semibold leading-5">{item.name}</span>
+                      </div>
+                    ))}
+                  </div>
                 </Reveal>
               ))}
             </div>
@@ -316,7 +386,7 @@ const CEO = () => {
 
         <section className="py-20 md:py-28">
           <div className="container-wide grid gap-10 lg:grid-cols-2 lg:gap-16">
-            <Reveal className="rounded-lg border border-border bg-card p-7 md:p-10">
+            <Reveal className="rounded-md border border-border bg-card p-7 md:p-10">
               <ShieldCheck className="h-8 w-8 text-primary" />
               <div className="mt-7 text-sm font-bold uppercase text-primary">Leadership principles</div>
               <h2 className="mt-2 font-display text-3xl font-bold">How Sheraz leads NETREX</h2>
@@ -330,7 +400,7 @@ const CEO = () => {
               </ul>
             </Reveal>
 
-            <Reveal className="rounded-lg border border-border bg-card p-7 md:p-10">
+            <Reveal className="rounded-md border border-border bg-card p-7 md:p-10">
               <GraduationCap className="h-8 w-8 text-primary" />
               <div className="mt-7 text-sm font-bold uppercase text-primary">Education and learning</div>
               <h2 className="mt-2 font-display text-3xl font-bold">Publicly listed credentials</h2>
@@ -358,7 +428,7 @@ const CEO = () => {
             </Reveal>
             <div className="mt-12 grid gap-5 md:grid-cols-3">
               {interests.map((interest) => (
-                <Reveal key={interest.title} className="rounded-lg border border-border bg-card p-7">
+                <Reveal key={interest.title} className="rounded-md border border-border bg-card p-7">
                   <interest.icon className="h-7 w-7 text-primary" />
                   <h3 className="mt-5 text-xl font-bold">{interest.title}</h3>
                   <p className="mt-3 leading-7 text-muted-foreground">{interest.copy}</p>
@@ -370,7 +440,7 @@ const CEO = () => {
 
         <section id="contact" className="scroll-mt-28 py-20 md:py-28">
           <div className="container-tight">
-            <Reveal className="rounded-lg border border-border bg-card p-7 md:p-12">
+            <Reveal className="rounded-md border border-border bg-card p-7 md:p-12">
               <div className="grid items-end gap-10 lg:grid-cols-[1fr_auto]">
                 <div>
                   <div className="text-sm font-bold uppercase text-primary">Official contact</div>
@@ -391,7 +461,7 @@ const CEO = () => {
                 <div className="mb-4 text-xs font-bold uppercase text-muted-foreground">Personal public profiles</div>
                 <div className="flex flex-wrap gap-3">
                   {socialProfiles.map((profile) => (
-                    <a key={profile.label} href={profile.href} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center gap-2 rounded-full border border-border px-4 text-sm font-semibold hover:border-primary hover:text-primary">
+                    <a key={profile.label} href={profile.href} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center gap-2 rounded-md border border-border px-4 text-sm font-semibold hover:border-primary hover:text-primary">
                       <profile.icon className="h-4 w-4" /> {profile.label} <ExternalLink className="h-3.5 w-3.5" />
                     </a>
                   ))}
