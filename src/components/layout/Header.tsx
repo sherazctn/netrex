@@ -203,7 +203,7 @@ export function Header() {
               </Button>
             </Link>
 
-            {/* Mega menu panel: constrained to nav width */}
+            {/* Mega menu panel: wide enough for full translated labels while staying in viewport */}
             <AnimatePresence>
               {navLinks.map((link) =>
                 link.dropdown && activeDropdown === link.name ? (
@@ -213,7 +213,7 @@ export function Header() {
                     initial="hidden"
                     animate="visible"
                     exit="exit"
-                    className="absolute left-0 right-0 top-full bg-card/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-border z-[60] p-4 overflow-hidden"
+                    className="absolute right-0 top-full z-[60] w-[min(920px,calc(100vw-2rem))] overflow-hidden rounded-2xl border border-border bg-card/95 p-5 shadow-2xl backdrop-blur-xl"
                   >
                     <motion.div
                       aria-hidden
@@ -222,7 +222,7 @@ export function Header() {
                       transition={{ duration: 0.45, ease: "easeOut" }}
                       className="absolute top-0 left-0 right-0 h-[3px] origin-left bg-gradient-to-r from-primary via-primary/40 to-accent"
                     />
-                    <div className={`grid gap-1 ${link.dropdown.length > 6 ? "grid-cols-3" : "grid-cols-2"}`}>
+                    <div className={`grid gap-2 ${link.dropdown.length > 6 ? "grid-cols-3" : "grid-cols-2"}`}>
                       {link.dropdown.map((item) => {
                         const IconComp = getDropdownIcon(item);
                         return (
@@ -230,13 +230,13 @@ export function Header() {
                             <motion.div whileHover={{ x: 4 }} transition={{ type: "spring", stiffness: 400, damping: 24 }}>
                               <Link
                                 to={item.href}
-                                className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm text-foreground/80 hover:bg-secondary hover:text-primary transition-colors group"
+                                className="group flex min-h-14 items-center gap-3 rounded-xl px-3 py-2.5 text-sm text-foreground/80 transition-colors hover:bg-secondary hover:text-primary"
                               >
                                 <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 group-hover:bg-primary group-hover:rotate-6 group-hover:scale-110 transition-all duration-300">
                                   <IconComp className="h-4 w-4 text-primary group-hover:text-primary-foreground transition-colors" />
                                 </div>
-                                <span className="truncate">{getLabel(item)}</span>
-                                <ArrowRight className="h-3.5 w-3.5 ml-auto opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
+                                <span className="min-w-0 break-words font-medium leading-5">{getLabel(item)}</span>
+                                <ArrowRight className="ml-auto h-3.5 w-3.5 shrink-0 -translate-x-1 opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100" />
                               </Link>
                             </motion.div>
                           </motion.div>
