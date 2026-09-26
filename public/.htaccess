@@ -11,6 +11,9 @@ RewriteBase /
 RewriteCond %{HTTP_HOST} ^netrexinc\.com$ [NC]
 RewriteRule ^(.*)$ https://www.netrexinc.com/$1 [L,R=301]
 
+# The homepage is served by DirectoryIndex (pre-rendered index.html)
+RewriteRule ^$ - [L]
+
 # 2. Remove trailing slashes so each page has a single URL (/about/ -> /about)
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^(.+)/$ /$1 [L,R=301]
