@@ -4,8 +4,8 @@ import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import { SEO } from "@/components/SEO";
 import { motion, AnimatePresence } from "framer-motion";
-import { Link } from "react-router-dom";
-import { useState, useRef, useMemo } from "react";
+import { Link, useSearchParams } from "react-router-dom";
+import { useState, useRef, useMemo, useEffect } from "react";
 import { ArrowUpRight, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { PortfolioLightbox } from "@/components/portfolio/PortfolioLightbox";
@@ -18,6 +18,15 @@ const Portfolio = () => {
   const [selectedTech, setSelectedTech] = useState("All");
   const [lightbox, setLightbox] = useState<{ image: string; title: string; description: string } | null>(null);
   const imageRefs = useRef<(HTMLImageElement | null)[]>([]);
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  // Open a specific project when linked as /portfolio?project=<id> (e.g. from service pages).
+  useEffect(() => {
+    const id = Number(searchParams.get("project"));
+    if (!id) return;
+    const item = portfolioItems.find((p) => p.id === id);
+    if (item) setLightbox({ image: item.image, title: item.title, description: item.description });
+  }, [searchParams]);
 
   // Shuffle items on mount for randomness
   const shuffledItems = useMemo(() => {
@@ -214,7 +223,10 @@ const Portfolio = () => {
 
       <PortfolioLightbox
         isOpen={!!lightbox}
-        onClose={() => setLightbox(null)}
+        onClose={() => {
+          setLightbox(null);
+          if (searchParams.has("project")) setSearchParams({}, { replace: true });
+        }}
         image={lightbox?.image || ""}
         title={lightbox?.title || ""}
         description={lightbox?.description || ""}

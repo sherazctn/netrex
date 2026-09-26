@@ -26,7 +26,13 @@ RewriteRule ^ - [L]
 RewriteCond %{DOCUMENT_ROOT}/$1.html -f
 RewriteRule ^(.+)$ /$1.html [L]
 
-# 5. Every other route loads the app shell (spa.html after pre-rendering, index.html before)
+# 5. The admin area is app-only (never indexed)
 RewriteCond %{DOCUMENT_ROOT}/spa.html -f
-RewriteRule ^ /spa.html [L]
+RewriteRule ^admin(/.*)?$ /spa.html [L]
+
+# 6. Before the first pre-rendered deploy (no spa.html yet) every route loads the app
+RewriteCond %{DOCUMENT_ROOT}/spa.html !-f
 RewriteRule ^ /index.html [L]
+
+# 7. Anything else is a real 404, shown with the site's own "Page not found" screen
+ErrorDocument 404 /spa.html

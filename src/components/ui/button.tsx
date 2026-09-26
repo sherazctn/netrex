@@ -22,7 +22,7 @@ const buttonVariants = cva(
         link:
           "text-primary underline-offset-4 hover:underline hover:text-accent",
         hero:
-          "relative overflow-hidden text-white rounded-full shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] before:absolute before:inset-0 before:bg-[conic-gradient(from_0deg,hsl(359,85%,53%),hsl(359,85%,40%),hsl(359,90%,60%),hsl(359,85%,53%))] before:animate-spin-slow before:-z-10 after:absolute after:inset-[2px] after:rounded-full after:bg-primary hover:after:bg-accent after:transition-colors after:-z-[5]",
+          "relative isolate overflow-hidden text-white rounded-full shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-[0.98] before:absolute before:-inset-[150%] before:bg-[conic-gradient(from_0deg,hsl(359,85%,53%),hsl(359,85%,40%),hsl(359,90%,60%),hsl(359,85%,53%))] before:animate-spin-slow before:-z-10 after:absolute after:inset-[2px] after:rounded-full after:bg-primary hover:after:bg-accent after:transition-colors after:-z-[5]",
         glass:
           "bg-background/20 backdrop-blur-md border border-background/50 text-background hover:bg-accent hover:text-accent-foreground rounded-full",
         ctaWhite:

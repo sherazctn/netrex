@@ -1156,7 +1156,7 @@ const ServicePage = () => {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="flex-shrink-0 w-72 snap-start">
                 
-                  <Link to={`/portfolio/${item.id}`} className="group block">
+                  <Link to={`/portfolio?project=${item.id}`} className="group block">
                     <div className="rounded-2xl overflow-hidden bg-card border border-border hover:border-primary/30 hover:shadow-xl transition-all duration-300">
                       <div className="aspect-[3/4] overflow-hidden">
                         <img

@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronDown, Globe, Smartphone, Palette, Megaphone, Layers, ShoppingCart, Bot, Search, Cloud, Users, Eye, Target, MessageSquare, Scale, Factory, Server, Boxes, BarChart3, FileText, ShieldCheck, Newspaper, Handshake, Heart, Briefcase, ArrowRight, Phone, Wrench, Sparkles, Rocket } from "lucide-react";
@@ -110,6 +111,15 @@ export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
   const [mobileDropdown, setMobileDropdown] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!isMobileMenuOpen) return;
+    const previous = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = previous;
+    };
+  }, [isMobileMenuOpen]);
   const location = useLocation();
   const { t } = useLanguage();
   const { theme } = useTheme();
@@ -294,17 +304,21 @@ export function Header() {
         </nav>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu: rendered on <body> so it covers the full screen. Inside the header it was
+          clipped to the header's height, because the header's backdrop blur makes it the
+          containing block for fixed elements. It sits under the header bar (z-50) so the close
+          button stays visible. */}
+      {typeof document !== "undefined" && createPortal(
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-            className="lg:hidden fixed inset-0 top-0 bg-background z-[55] pt-20"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25 }}
+            className="lg:hidden fixed inset-0 bg-background z-[45] pt-20 md:pt-28"
           >
-            <div className="container-wide py-8 overflow-y-auto max-h-[calc(100vh-5rem)]">
+            <div className="container-wide py-8 overflow-y-auto max-h-[calc(100dvh-5rem)] md:max-h-[calc(100dvh-7rem)]">
               <div className="flex flex-col gap-2">
                 {navLinks.map((link, index) => (
                   <motion.div
@@ -388,7 +402,8 @@ export function Header() {
             </div>
           </motion.div>
         )}
-      </AnimatePresence>
+      </AnimatePresence>,
+      document.body)}
     </header>
     </div>
   );

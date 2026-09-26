@@ -190,7 +190,7 @@ const CEO = () => {
       <main>
         <section className="relative overflow-hidden border-b border-border bg-background pb-14 pt-32 sm:pt-36 md:pb-20 md:pt-44">
           <div className="pointer-events-none absolute inset-0" aria-hidden="true">
-            <div className="absolute inset-y-0 right-0 w-1/2 bg-secondary/50" />
+            <div className="absolute inset-y-0 right-0 hidden w-1/2 bg-secondary/50 lg:block" />
             <div className="absolute left-0 top-28 h-px w-full bg-border/70" />
           </div>
 
@@ -230,7 +230,7 @@ const CEO = () => {
                     href={profile.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex min-h-11 min-w-0 items-center gap-2 rounded-md border border-border bg-card px-3 text-sm font-semibold text-foreground transition-colors hover:border-primary hover:text-primary sm:px-4"
+                    className="inline-flex min-h-11 min-w-0 items-center gap-2 rounded-full border border-border bg-card px-3 text-sm font-semibold text-foreground transition-colors hover:border-primary hover:text-primary sm:px-4"
                   >
                     <profile.icon className="h-4 w-4" />
                     {profile.label}
@@ -246,7 +246,7 @@ const CEO = () => {
               transition={{ duration: 0.65 }}
               className="relative mx-auto w-full min-w-0 max-w-md lg:max-w-none"
             >
-              <div className="relative overflow-hidden rounded-md border border-border bg-card shadow-xl">
+              <div className="relative overflow-hidden rounded-3xl border border-border bg-card shadow-xl">
                 <div className="aspect-[4/5] min-h-[360px] overflow-hidden sm:min-h-[460px] lg:min-h-0">
                   <img
                     src={ceoPortrait}
@@ -273,7 +273,8 @@ const CEO = () => {
         </section>
 
         <section className="border-b border-border bg-secondary/40 py-8">
-          <div className="container-wide grid gap-px overflow-hidden rounded-md border border-border bg-border sm:grid-cols-3">
+          <div className="container-wide">
+          <div className="grid gap-px overflow-hidden rounded-2xl border border-border bg-border sm:grid-cols-3">
             {[
               { label: "Current role", value: "Founder & CEO, NETREX", icon: Building2 },
               { label: "Education", value: "Computer Science", icon: GraduationCap },
@@ -287,6 +288,7 @@ const CEO = () => {
                 </div>
               </div>
             ))}
+          </div>
           </div>
         </section>
 
@@ -319,8 +321,8 @@ const CEO = () => {
             </Reveal>
             <div className="mt-12 grid gap-4 md:grid-cols-2">
               {professionalFocus.map((item) => (
-                <Reveal key={item.title} className="min-w-0 rounded-md border border-background/15 bg-background/5 p-6 md:p-8">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-md border border-primary/30 bg-primary/10">
+                <Reveal key={item.title} className="min-w-0 rounded-3xl border border-background/15 bg-background/5 p-6 md:p-8">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-primary/30 bg-primary/10">
                     <item.icon className="h-6 w-6 text-primary" />
                   </div>
                   <h3 className="mt-5 break-words text-xl font-bold text-background">{item.title}</h3>
@@ -341,7 +343,7 @@ const CEO = () => {
             <div className="border-l border-border">
               {journey.map((item) => (
                 <Reveal key={`${item.period}-${item.title}`} className="relative pb-10 pl-8 last:pb-0">
-                  <span className="absolute -left-1.5 top-1.5 h-3 w-3 rounded-sm border-2 border-background bg-primary" />
+                  <span className="absolute -left-1.5 top-1.5 h-3 w-3 rounded-full border-2 border-background bg-primary" />
                   <div className="text-sm font-bold text-primary">{item.period}</div>
                   <h3 className="mt-1 text-xl font-bold">{item.title}</h3>
                   <p className="mt-3 leading-7 text-muted-foreground">{item.copy}</p>
@@ -360,9 +362,9 @@ const CEO = () => {
             </Reveal>
             <div className="mt-12 grid gap-5 lg:grid-cols-2">
               {capabilityGroups.map((group) => (
-                <Reveal key={group.title} className="min-w-0 rounded-md border border-border bg-card p-6 md:p-8">
+                <Reveal key={group.title} className="min-w-0 rounded-3xl border border-border bg-card p-6 md:p-8">
                   <div className="flex items-start gap-4">
-                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-md bg-primary/10 text-primary">
+                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-primary">
                       <group.icon className="h-6 w-6" />
                     </div>
                     <div className="min-w-0">
@@ -372,7 +374,7 @@ const CEO = () => {
                   </div>
                   <div className="mt-6 grid gap-2 sm:grid-cols-2">
                     {group.items.map((item) => (
-                      <div key={item.name} className="flex min-h-12 min-w-0 items-center gap-3 rounded-md border border-border bg-secondary/40 px-3 py-2.5">
+                      <div key={item.name} className="flex min-h-12 min-w-0 items-center gap-3 rounded-xl border border-border bg-secondary/40 px-3 py-2.5">
                         <item.icon className="h-4 w-4 shrink-0 text-primary" />
                         <span className="break-words text-sm font-semibold leading-5">{item.name}</span>
                       </div>
@@ -386,7 +388,7 @@ const CEO = () => {
 
         <section className="py-20 md:py-28">
           <div className="container-wide grid gap-10 lg:grid-cols-2 lg:gap-16">
-            <Reveal className="rounded-md border border-border bg-card p-7 md:p-10">
+            <Reveal className="rounded-3xl border border-border bg-card p-7 md:p-10">
               <ShieldCheck className="h-8 w-8 text-primary" />
               <div className="mt-7 text-sm font-bold uppercase text-primary">Leadership principles</div>
               <h2 className="mt-2 font-display text-3xl font-bold">How Sheraz leads NETREX</h2>
@@ -400,7 +402,7 @@ const CEO = () => {
               </ul>
             </Reveal>
 
-            <Reveal className="rounded-md border border-border bg-card p-7 md:p-10">
+            <Reveal className="rounded-3xl border border-border bg-card p-7 md:p-10">
               <GraduationCap className="h-8 w-8 text-primary" />
               <div className="mt-7 text-sm font-bold uppercase text-primary">Education and learning</div>
               <h2 className="mt-2 font-display text-3xl font-bold">Publicly listed credentials</h2>
@@ -428,7 +430,7 @@ const CEO = () => {
             </Reveal>
             <div className="mt-12 grid gap-5 md:grid-cols-3">
               {interests.map((interest) => (
-                <Reveal key={interest.title} className="rounded-md border border-border bg-card p-7">
+                <Reveal key={interest.title} className="rounded-3xl border border-border bg-card p-7">
                   <interest.icon className="h-7 w-7 text-primary" />
                   <h3 className="mt-5 text-xl font-bold">{interest.title}</h3>
                   <p className="mt-3 leading-7 text-muted-foreground">{interest.copy}</p>
@@ -440,7 +442,7 @@ const CEO = () => {
 
         <section id="contact" className="scroll-mt-28 py-20 md:py-28">
           <div className="container-tight">
-            <Reveal className="rounded-md border border-border bg-card p-7 md:p-12">
+            <Reveal className="rounded-3xl border border-border bg-card p-7 md:p-12">
               <div className="grid items-end gap-10 lg:grid-cols-[1fr_auto]">
                 <div>
                   <div className="text-sm font-bold uppercase text-primary">Official contact</div>
@@ -461,7 +463,7 @@ const CEO = () => {
                 <div className="mb-4 text-xs font-bold uppercase text-muted-foreground">Personal public profiles</div>
                 <div className="flex flex-wrap gap-3">
                   {socialProfiles.map((profile) => (
-                    <a key={profile.label} href={profile.href} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center gap-2 rounded-md border border-border px-4 text-sm font-semibold hover:border-primary hover:text-primary">
+                    <a key={profile.label} href={profile.href} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center gap-2 rounded-full border border-border px-4 text-sm font-semibold hover:border-primary hover:text-primary">
                       <profile.icon className="h-4 w-4" /> {profile.label} <ExternalLink className="h-3.5 w-3.5" />
                     </a>
                   ))}
