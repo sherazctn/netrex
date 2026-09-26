@@ -1,0 +1,29 @@
+# NETREX Inc - Apache/LiteSpeed rules for the React site on Hostinger.
+# Deployed automatically with the site (public/ is copied into dist/).
+
+Options -MultiViews -Indexes
+DirectorySlash Off
+DirectoryIndex index.html
+RewriteEngine On
+RewriteBase /
+
+# 1. One version of every URL: https://www.netrexinc.com
+RewriteCond %{HTTP_HOST} ^netrexinc\.com$ [NC]
+RewriteRule ^(.*)$ https://www.netrexinc.com/$1 [L,R=301]
+
+# 2. Remove trailing slashes so each page has a single URL (/about/ -> /about)
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(.+)/$ /$1 [L,R=301]
+
+# 3. Real files are served as they are (robots.txt, sitemap.xml, llms.txt, /assets, images)
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule ^ - [L]
+
+# 4. Pre-rendered pages: /services/geo -> /services/geo.html (full HTML for search and AI crawlers)
+RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+RewriteRule ^(.+)$ /$1.html [L]
+
+# 5. Every other route loads the app shell (spa.html after pre-rendering, index.html before)
+RewriteCond %{DOCUMENT_ROOT}/spa.html -f
+RewriteRule ^ /spa.html [L]
+RewriteRule ^ /index.html [L]

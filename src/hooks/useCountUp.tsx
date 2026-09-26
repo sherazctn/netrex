@@ -17,7 +17,13 @@ export function useCountUp({
   prefix = '',
   suffix = ''
 }: UseCountUpOptions) {
-  const [count, setCount] = useState(start);
+  // Show the final number straight away for automated renderers (pre-rendering, crawlers) and for
+  // visitors who prefer reduced motion, so the HTML never says "0+ projects".
+  const skipAnimation =
+    typeof window !== 'undefined' &&
+    (navigator.webdriver === true ||
+      (typeof window.matchMedia === 'function' && window.matchMedia('(prefers-reduced-motion: reduce)').matches));
+  const [count, setCount] = useState(skipAnimation ? end : start);
   const [isInView, setIsInView] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
   const hasAnimated = useRef(false);
@@ -41,6 +47,10 @@ export function useCountUp({
   }, []);
 
   useEffect(() => {
+    if (skipAnimation) {
+      setCount(end);
+      return;
+    }
     if (!isInView) return;
 
     const timeout = setTimeout(() => {
@@ -64,7 +74,7 @@ export function useCountUp({
     }, delay);
 
     return () => clearTimeout(timeout);
-  }, [isInView, start, end, duration, delay]);
+  }, [isInView, start, end, duration, delay, skipAnimation]);
 
   return { count, ref, displayValue: `${prefix}${count.toLocaleString()}${suffix}` };
 }

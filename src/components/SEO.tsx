@@ -1,7 +1,8 @@
 import { useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { HREFLANG_CODES, getLocaleSEO } from "@/lib/seo/keywords";
+import { getLocaleSEO } from "@/lib/seo/keywords";
+import { getPageMeta } from "@/lib/seo/pageMeta";
 
 interface SEOProps {
   title: string;
@@ -21,24 +22,6 @@ interface SEOProps {
 
 const BASE_OG_IMAGE = "https://storage.googleapis.com/gpt-engineer-file-uploads/Vqfx8FUdYFXXlOeozfpTxyqtN652/social-images/social-1770045593276-343577505_926536685332507_7368618473633021357_n (3).jpg";
 
-const SITE_ORIGIN = "https://www.netrexinc.com";
-
-// Build the absolute alternate URL for a given canonical path and hreflang code.
-// Localized alternates use ?lang= so a single route serves every language via LanguageContext,
-// which matches how this SPA actually switches languages (no per-language route tree).
-function buildAlternateHref(canonical: string, code: string) {
-  try {
-    const url = new URL(canonical, SITE_ORIGIN);
-    if (code === "x-default" || code === "en") {
-      url.searchParams.delete("lang");
-      return url.toString();
-    }
-    url.searchParams.set("lang", code);
-    return url.toString();
-  } catch {
-    return canonical;
-  }
-}
 
 export function SEO({
   title,
@@ -55,8 +38,10 @@ export function SEO({
   const { language } = useLanguage();
   const locale = getLocaleSEO(language);
 
-  const localizedTitle = titleByLang?.[language] ?? title;
-  const localizedDescription = descriptionByLang?.[language] ?? description;
+  // Curated English title/description per path (see src/lib/seo/pageMeta.ts); noindex pages keep their own.
+  const pageMeta = noindex ? undefined : getPageMeta(canonical);
+  const localizedTitle = titleByLang?.[language] ?? pageMeta?.title ?? title;
+  const localizedDescription = descriptionByLang?.[language] ?? pageMeta?.description ?? description;
   const localizedKeywords = keywordsByLang?.[language] ?? locale.keywords;
 
   const fullTitle = localizedTitle.includes("NETREX") ? localizedTitle : `${localizedTitle} - NETREX Inc`;
@@ -75,6 +60,10 @@ export function SEO({
         .forEach((el) => el.remove());
       document
         .querySelectorAll('head link[rel="alternate"][hreflang]:not([data-rh])')
+        .forEach((el) => el.remove());
+      // index.html ships homepage social tags; drop them so each page has only its own og:/twitter: tags.
+      document
+        .querySelectorAll('head meta[property^="og:"]:not([data-rh]), head meta[name^="twitter:"]:not([data-rh]):not([name="twitter:site"])')
         .forEach((el) => el.remove());
     };
     strip();
@@ -102,9 +91,6 @@ export function SEO({
         content={noindex ? "noindex, nofollow" : "index, follow, max-image-preview:large, max-snippet:-1"}
       />
       <link rel="canonical" href={canonical} />
-      {HREFLANG_CODES.map(({ code }) => (
-        <link key={code} rel="alternate" hrefLang={code} href={buildAlternateHref(canonical, code)} />
-      ))}
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={localizedDescription} />
       <meta property="og:url" content={canonical} />

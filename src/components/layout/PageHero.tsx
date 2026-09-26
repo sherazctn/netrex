@@ -12,13 +12,21 @@ interface PageHeroProps {
   description?: ReactNode;
   /** Optional CTA buttons / extra content below the description. */
   children?: ReactNode;
+  /**
+   * When true the badge text becomes the page H1 (for a keyword heading such as
+   * "Web Development Services") and the large title is rendered as a styled paragraph.
+   * The visual design is unchanged.
+   */
+  badgeIsHeading?: boolean;
 }
 
 /**
  * Uniform hero band used at the top of every inner page.
  * Minimal, centered, subtle red glow + grid texture.
  */
-export function PageHero({ badge, title, highlight, description, children }: PageHeroProps) {
+export function PageHero({ badge, title, highlight, description, children, badgeIsHeading = false }: PageHeroProps) {
+  const BadgeTag = badgeIsHeading ? "h1" : "span";
+  const TitleTag = badgeIsHeading ? "p" : "h1";
   return (
     <section className="relative overflow-hidden bg-secondary/30 pt-32 pb-16 md:pb-20">
       {/* Texture + glow */}
@@ -45,13 +53,13 @@ export function PageHero({ badge, title, highlight, description, children }: Pag
           {badge && (
             <div className="mb-5 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-1.5">
               <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-primary" />
-              <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-primary">
+              <BadgeTag className="text-[11px] font-semibold uppercase tracking-[0.2em] text-primary">
                 {badge}
-              </span>
+              </BadgeTag>
             </div>
           )}
 
-          <h1 className="font-display text-4xl font-bold tracking-tight md:text-5xl lg:text-[3.5rem] lg:leading-[1.08]">
+          <TitleTag className="font-display text-4xl font-bold tracking-tight md:text-5xl lg:text-[3.5rem] lg:leading-[1.08]">
             {title}
             {highlight && (
               <>
@@ -59,7 +67,7 @@ export function PageHero({ badge, title, highlight, description, children }: Pag
                 <span className="text-primary">{highlight}</span>
               </>
             )}
-          </h1>
+          </TitleTag>
 
           {description && (
             <p className="mx-auto mt-6 max-w-2xl text-base text-muted-foreground md:text-lg">

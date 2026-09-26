@@ -27,6 +27,22 @@ function shuffleArray<T>(array: T[]): T[] {
 }
 
 // Service-specific technology stacks
+// Keyword-led H1 for each service page (the slogan stays as the large visual heading).
+const SERVICE_H1: Record<string, string> = {
+  "web-development": "Web Development Services",
+  "mobile-app": "Mobile App Development Services",
+  "ui-ux-design": "UI/UX Design Services",
+  "digital-marketing": "Digital Marketing Services",
+  branding: "Branding & Brand Identity Design",
+  ecommerce: "E-commerce Website Development",
+  "ai-automation": "AI Agents & Business Automation",
+  geo: "Generative Engine Optimization (GEO) Services",
+  "cloud-solutions": "Cloud Solutions on AWS, Azure & GCP",
+  devops: "DevOps & Infrastructure Services",
+  blockchain: "Blockchain & Web3 Development",
+  "data-analytics": "Data Analytics & Business Intelligence",
+};
+
 const serviceTechStacks: Record<string, {name: string;logo: string;size: string;}[]> = {
   "web-development": [
   { name: "React", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg", size: "lg" },
@@ -761,12 +777,36 @@ const ServicePage = () => {
         title={`${data.title} - NETREX Inc Services`}
         description={`${data.description} NETREX Inc delivers ${data.title.toLowerCase()} for clients across 9 countries, with senior teams and fixed timelines.`}
         canonical={`https://www.netrexinc.com/services/${service}`}
+        schema={{
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "Service",
+              "@id": `https://www.netrexinc.com/services/${service}#service`,
+              name: SERVICE_H1[service ?? ""] ?? data.title,
+              serviceType: data.title,
+              description: data.description,
+              url: `https://www.netrexinc.com/services/${service}`,
+              provider: { "@id": "https://www.netrexinc.com/#agency" },
+              areaServed: { "@type": "Place", name: "Worldwide" },
+            },
+            {
+              "@type": "BreadcrumbList",
+              itemListElement: [
+                { "@type": "ListItem", position: 1, name: "Home", item: "https://www.netrexinc.com/" },
+                { "@type": "ListItem", position: 2, name: "Services", item: "https://www.netrexinc.com/services" },
+                { "@type": "ListItem", position: 3, name: data.title, item: `https://www.netrexinc.com/services/${service}` },
+              ],
+            },
+          ],
+        }}
       />
       <Header />
       <main>
         {/* Hero Section - No Image */}
         <PageHero
-          badge={data.title}
+          badge={SERVICE_H1[service ?? ""] ?? data.title}
+          badgeIsHeading
           title={data.hero}
           description={
             <>
