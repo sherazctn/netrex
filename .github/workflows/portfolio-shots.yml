@@ -1,0 +1,41 @@
+name: Capture portfolio screenshots
+
+# Re-captures sharp screenshots of live client websites listed in scripts/portfolio-shots.json
+# and commits them to the "portfolio-shots" branch for review (never straight to main).
+on:
+  push:
+    branches: [main]
+    paths:
+      - scripts/portfolio-shots.json
+      - scripts/capture-portfolio.mjs
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Playwright and sharp
+        run: |
+          npm install --no-save playwright@1.56.0 sharp@0.33.5
+          npx playwright install --with-deps chromium
+
+      - name: Capture screenshots
+        run: node scripts/capture-portfolio.mjs
+
+      - name: Commit to portfolio-shots branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout -B portfolio-shots
+          git add public/portfolio/hd
+          git commit -m "Portfolio screenshots captured from live sites" || echo "No changes"
+          git push -f origin portfolio-shots
