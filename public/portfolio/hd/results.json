@@ -1,0 +1,199 @@
+[
+  {
+    "id": 3,
+    "title": "NEO Experts International",
+    "url": "https://www.neo-experts.com/international-switzerland/home",
+    "slug": "neo-experts",
+    "ok": true,
+    "width": 1440,
+    "height": 6756
+  },
+  {
+    "id": 6,
+    "title": "Quality Process Automation",
+    "url": "https://www.qualityprocessautomation.com/",
+    "slug": "quality-process",
+    "ok": true,
+    "width": 1440,
+    "height": 4542
+  },
+  {
+    "id": 10,
+    "title": "Ava Harwood",
+    "url": "https://www.avaharwood.com.au/",
+    "slug": "ava-harwood",
+    "ok": true,
+    "width": 1440,
+    "height": 6779
+  },
+  {
+    "id": 11,
+    "title": "Wonder Kids Playland",
+    "url": "https://www.wonderkidsplayland.com/",
+    "slug": "wonder-kids",
+    "ok": true,
+    "width": 1440,
+    "height": 4540
+  },
+  {
+    "id": 13,
+    "title": "FarmerMind AI",
+    "url": "https://www.farmermind.ai/",
+    "slug": "farmermind-ai",
+    "ok": true,
+    "width": 1440,
+    "height": 4806
+  },
+  {
+    "id": 14,
+    "title": "West Lothian Keys",
+    "url": "https://www.westlothiankeys.co.uk/",
+    "slug": "west-lothian-keys",
+    "ok": true,
+    "width": 1440,
+    "height": 5361
+  },
+  {
+    "id": 16,
+    "title": "Bee Defined Consulting",
+    "url": "https://www.beedefinedconsulting.com/",
+    "slug": "bee-defined",
+    "ok": true,
+    "width": 1440,
+    "height": 7125
+  },
+  {
+    "id": 17,
+    "title": "Iron Wolf Academy",
+    "url": "https://www.ironwolfacademy.org/",
+    "slug": "iron-wolf",
+    "ok": true,
+    "width": 1440,
+    "height": 5090
+  },
+  {
+    "id": 18,
+    "title": "WrenchAI",
+    "url": "https://www.usewrenchai.com/",
+    "slug": "wrench-ai",
+    "ok": true,
+    "width": 1440,
+    "height": 5571
+  },
+  {
+    "id": 21,
+    "title": "Pet Glam Shops",
+    "url": "https://www.petglamshops.com/",
+    "slug": "pet-glam-shops",
+    "ok": true,
+    "width": 1440,
+    "height": 5382
+  },
+  {
+    "id": 22,
+    "title": "INSIRAS GmbH",
+    "url": "https://www.insiras.com/",
+    "slug": "insiras-gmbh",
+    "ok": true,
+    "width": 1440,
+    "height": 6764
+  },
+  {
+    "id": 28,
+    "title": "Lakeview 3D Studios",
+    "url": "https://www.lakeview3dstudios.com/",
+    "slug": "lakeview-3d",
+    "ok": true,
+    "width": 1440,
+    "height": 3173
+  },
+  {
+    "id": 60,
+    "title": "757 Bin Masters",
+    "url": "https://www.757binmasters.co/",
+    "slug": "bin-masters-757",
+    "ok": true,
+    "width": 1440,
+    "height": 6017
+  },
+  {
+    "id": 68,
+    "title": "Chicago Pro Auto Centers",
+    "url": "https://www.chicagoproauto.com/",
+    "slug": "chicago-pro",
+    "ok": true,
+    "width": 1440,
+    "height": 7290
+  },
+  {
+    "id": 69,
+    "title": "Tiler by Trade",
+    "url": "https://www.tilerbytrade.com.au/",
+    "slug": "tiler-by-trade",
+    "ok": true,
+    "width": 1440,
+    "height": 7333
+  },
+  {
+    "id": 71,
+    "title": "A Dad That Cleans",
+    "url": "https://www.adadthatcleans.com/",
+    "slug": "a-dad-that-cleans",
+    "ok": true,
+    "width": 1440,
+    "height": 9000
+  },
+  {
+    "id": 72,
+    "title": "Unlocking Therapy",
+    "url": "https://www.unlockingtherapy.com/",
+    "slug": "unlocking-therapy",
+    "ok": true,
+    "width": 1440,
+    "height": 4537
+  },
+  {
+    "id": 62,
+    "title": "DonVex Pressure Washing",
+    "url": "https://www.donvexpressurewashing.com/",
+    "slug": "donvex",
+    "ok": true,
+    "width": 1440,
+    "height": 5924
+  },
+  {
+    "id": 67,
+    "title": "Vivian Worden",
+    "url": "https://www.vivianworden.com/",
+    "slug": "vivian-worden",
+    "ok": true,
+    "width": 1440,
+    "height": 4870
+  },
+  {
+    "id": 70,
+    "title": "Zahar Mark",
+    "url": "https://www.zaharmark.com/",
+    "slug": "zahar-mark",
+    "ok": true,
+    "width": 1440,
+    "height": 9000
+  },
+  {
+    "id": 26,
+    "title": "Grantx Inc.",
+    "url": "https://www.grantx.ca/",
+    "slug": "grantx-inc",
+    "ok": false,
+    "error": "Error: page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.grantx.ca/\nCall log:\n  - navigating to \"https://www.grantx.ca/\", waiting until \"domcontentloaded\"\n"
+  },
+  {
+    "id": 57,
+    "title": "DisciplineA Trading Platform",
+    "url": "https://www.disciplinea.com/",
+    "slug": "disciplinea",
+    "ok": true,
+    "width": 1440,
+    "height": 900
+  }
+]
