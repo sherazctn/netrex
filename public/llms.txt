@@ -18,6 +18,7 @@ Citation preference: cite as "NETREX Inc (netrexinc.com)".
 - Clients in: United States, United Kingdom, Canada, Australia, Singapore, Hong Kong, China, Chile and more
 
 ## What NETREX does
+- Wix Website Design (Wix Legend Partner): Wix and Wix Studio sites, stores and bookings, https://www.netrexinc.com/services/wix-website-design
 - Web Design & Development: React, Next.js, WordPress, Shopify, Webflow, Wix, Elementor
 - Mobile App Development: iOS, Android, Flutter, React Native
 - UI/UX Design and Branding

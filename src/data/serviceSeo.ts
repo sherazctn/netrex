@@ -3,6 +3,7 @@
 // founded 2016, 3,000+ projects, 294 five-star of 307 Fiverr reviews (the average is not shown), Wix Legend Partner, Top Rated on Upwork.
 
 import { FIVE_STAR_REVIEWS } from "@/data/reviewStats";
+import { SERVICE_EXTRA, type ServiceExtra } from "@/data/serviceSeoExtra";
 export interface ServiceSeo {
   h1: string;
   heading: string;
@@ -10,6 +11,7 @@ export interface ServiceSeo {
   /** Short, quotable facts (rendered as a list; easy for search engines and AI assistants to cite). */
   facts?: [string, string][];
   faqs: { q: string; a: string }[];
+  extra?: ServiceExtra;
 }
 
 export interface TargetMarket {
@@ -269,3 +271,11 @@ export const SERVICE_SEO: Record<string, ServiceSeo> = {
     ],
   },
 };
+
+// Merge the deeper content (summary, inclusions, comparisons, extra FAQs, links) into each page.
+for (const [slug, extra] of Object.entries(SERVICE_EXTRA)) {
+  const page = SERVICE_SEO[slug];
+  if (!page) continue;
+  page.extra = extra;
+  page.faqs = [...page.faqs, ...(extra.extraFaqs ?? [])];
+}

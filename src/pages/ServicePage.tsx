@@ -18,17 +18,8 @@ import { portfolioItems, servicePortfolioMap } from "@/data/portfolioData";
 import { SEO } from "@/components/SEO";
 import { FIVE_STAR_REVIEWS } from "@/data/reviewStats";
 import { SERVICE_SEO, AREA_SERVED } from "@/data/serviceSeo";
-import { ServiceOverview, ServiceFaq } from "@/components/services/ServiceSeoContent";
+import { ServiceOverview, ServiceFaq, ServiceDeepDive } from "@/components/services/ServiceSeoContent";
 import { ServiceVisual, hasServiceVisual } from "@/components/services/ServiceVisual";
-
-function shuffleArray<T>(array: T[]): T[] {
-  const shuffled = [...array];
-  for (let i = shuffled.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-  }
-  return shuffled;
-}
 
 // Service-specific technology stacks
 // Keyword-led H1 for each service page (the slogan stays as the large visual heading).
@@ -776,19 +767,27 @@ const ServicePage = () => {
   const [carouselIndex, setCarouselIndex] = useState(0);
   const carouselRef = useRef<HTMLDivElement>(null);
 
-  // Filter and shuffle relevant portfolio items for this service
+  // Relevant portfolio items for this service, in a stable order (sharpest screenshots first),
+  // so the pre-rendered page and the live app show the same projects.
   const relevantPortfolio = useMemo(() => {
-    if (service === "wix-website-design") {
-      return shuffleArray(portfolioItems.filter((item) => item.technology === "Wix")).slice(0, 10);
+    const byIds = (ids: number[]) => portfolioItems.filter((item) => ids.includes(item.id));
+    let items: typeof portfolioItems;
+    if (service === "wix-website-design") items = portfolioItems.filter((item) => item.technology === "Wix");
+    else if (service === "devops") items = portfolioItems.filter((item) => ["React", "Laravel"].includes(item.technology));
+    else if (service === "blockchain") items = byIds([57, 2]);
+    else if (service === "data-analytics") items = byIds([57, 13, 18, 36, 2]);
+    else {
+      const mapping = service ? servicePortfolioMap[service] : null;
+      items = mapping
+        ? portfolioItems.filter((item) => mapping.categories.includes(item.category) || mapping.industries.includes(item.industry))
+        : [];
     }
-    const mapping = service ? servicePortfolioMap[service] : null;
-    if (!mapping) return shuffleArray(portfolioItems).slice(0, 8);
-    const filtered = portfolioItems.filter(item =>
-      mapping.categories.includes(item.category) ||
-      mapping.industries.includes(item.industry)
-    );
-    return shuffleArray(filtered.length > 0 ? filtered : portfolioItems).slice(0, 10);
-  }, [service]);
+    const sharp = (img: string) => (/\/(hd|sr)\//.test(img) ? 0 : 1);
+    return [...items]
+      .filter((item) => item.id !== showcase?.id)
+      .sort((a, b) => sharp(a.image) - sharp(b.image) || b.id - a.id)
+      .slice(0, 10);
+  }, [service, showcase?.id]);
 
   const scrollCarousel = (direction: 'left' | 'right') => {
     if (carouselRef.current) {
@@ -1178,6 +1177,7 @@ const ServicePage = () => {
         </section>
 
         {/* Portfolio Carousel */}
+        {relevantPortfolio.length > 0 &&
         <section className="section-padding">
           <div className="container-wide">
             <motion.div
@@ -1263,7 +1263,7 @@ const ServicePage = () => {
               )}
             </div>
           </div>
-        </section>
+        </section>}
 
         {/* CTA Section */}
         
@@ -1289,6 +1289,8 @@ const ServicePage = () => {
 
 
         
+
+        {seoCopy && <ServiceDeepDive seo={seoCopy} />}
 
         {seoCopy && <ServiceFaq seo={seoCopy} />}
 

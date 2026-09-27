@@ -53,18 +53,71 @@ A: Email info@netrexinc.com, phone / WhatsApp +971 50 200 8313, or https://www.n
 All reviews: https://www.netrexinc.com/testimonials
 
 ## Service detail
-- Web Design & Development - custom React/Next.js builds, WordPress, Shopify, Webflow, Wix and Elementor, Core Web Vitals tuning, accessibility, multilingual and RTL support. https://www.netrexinc.com/services/web-development
-- Mobile App Development - native iOS/Android plus Flutter and React Native, App Store and Play Store release management. https://www.netrexinc.com/services/mobile-app
-- UI/UX Design - research, wireframes, design systems, prototyping, usability testing. https://www.netrexinc.com/services/ui-ux-design
-- Digital Marketing - SEO, GEO, paid search and social, email, content and analytics. https://www.netrexinc.com/services/digital-marketing
-- Branding - naming, logo systems, visual identity, brand guidelines. https://www.netrexinc.com/services/branding
-- E-Commerce - Shopify, WooCommerce and custom storefronts, checkout and conversion optimization. https://www.netrexinc.com/services/ecommerce
-- AI Agents & Automation - support agents, sales agents, RAG knowledge bases, workflow automation on OpenAI, Anthropic, Google and open models. https://www.netrexinc.com/services/ai-automation
-- Generative Engine Optimization - entity, schema and citation programs for AI answer engines. https://www.netrexinc.com/services/geo
-- Cloud Solutions - AWS, Azure and Google Cloud architecture and migration. https://www.netrexinc.com/services/cloud-solutions
-- DevOps & Infrastructure - CI/CD, Kubernetes, Terraform, observability, zero-downtime deployment. https://www.netrexinc.com/services/devops
-- Blockchain & Web3 - smart contracts, tokenization, dApps. https://www.netrexinc.com/services/blockchain
-- Data Analytics & BI - warehouses, dashboards, predictive modeling. https://www.netrexinc.com/services/data-analytics
+
+### Web Design & Development
+https://www.netrexinc.com/services/web-development
+NETREX Inc is a web design and development company (founded 2016, 3,000+ projects) that designs and builds fast, SEO-ready business websites and web applications in React, Next.js, WordPress, Wix and Webflow for companies in the USA, UAE, UK, Canada, Australia and Europe.
+Included: Discovery workshop, sitemap and content plan; Custom UI design in Figma for desktop and mobile; Development on the platform that fits your team; On-page SEO: titles, descriptions, headings, schema, redirects; Core Web Vitals and image optimisation; Accessibility checks (WCAG 2.2 AA targets); Analytics, Search Console and conversion tracking; Contact forms, CRM and email integrations; Launch, domain and hosting setup, training and handover.
+
+### Wix Website Design
+https://www.netrexinc.com/services/wix-website-design
+NETREX Inc is a Wix Legend Partner that designs custom Wix and Wix Studio websites, online stores and booking sites, usually live in 2 to 4 weeks, for small and mid-sized businesses in the USA, UK, Canada, Australia, Europe and the Middle East.
+Included: Custom design (no reused templates) for desktop, tablet and mobile; Wix Studio or Wix Editor build, your choice; Wix Stores, Bookings, Pricing Plans, Members and Blog setup; Velo custom code, CMS collections and dynamic pages; Wix SEO setup: metadata, structured data, redirects, sitemap; Speed optimisation and image compression; Forms, automations and email marketing connected; Domain connection, launch and a recorded training session.
+
+### Ecommerce Development
+https://www.netrexinc.com/services/ecommerce
+NETREX Inc builds ecommerce websites on Shopify, Wix Stores, WooCommerce and headless stacks, with payments, shipping, taxes and multi-currency set up for selling in the USA, UK, EU, UAE and GCC, Canada and Australia.
+Included: Store design focused on product pages and checkout; Product, variant and collection setup or import; Payment gateways, including Stripe, PayPal, Apple Pay and regional options; Shipping zones, tax rules and multi-currency pricing; Apps for reviews, subscriptions, bundles and upsells; Product SEO, structured data and Google Merchant Center feed; Meta and Google tracking for ads; Migration from WooCommerce, Magento, Wix or Squarespace.
+
+### Mobile App Development
+https://www.netrexinc.com/services/mobile-app
+NETREX Inc is a mobile app development company that designs and builds iOS and Android apps in Flutter, React Native, Swift and Kotlin, from MVP to App Store and Google Play launch, with ongoing support after release.
+Included: Product workshop, feature list and release plan; UX flows and UI design in Figma; iOS and Android development; Backend, APIs, admin panel and push notifications; Payments, maps, chat and third-party integrations; Testing on real devices; App Store and Google Play submission; Maintenance, OS updates and new features.
+
+### UI/UX Design
+https://www.netrexinc.com/services/ui-ux-design
+NETREX Inc is a UI/UX design agency that researches, wireframes and designs websites, SaaS products and mobile apps in Figma, delivering clickable prototypes and developer-ready design systems.
+Included: Stakeholder and user research; Information architecture and user flows; Wireframes and clickable prototypes; Visual UI design and design system; Usability testing and iteration; Developer handoff with specs and assets.
+
+### Branding
+https://www.netrexinc.com/services/branding
+NETREX Inc is a branding agency that creates logos, visual identities and brand guidelines for startups and growing companies, and applies them across websites, social media and marketing.
+Included: Brand discovery and positioning; Logo concepts, refinements and final files; Colour palette and typography; Brand guidelines document; Social media, stationery and presentation templates.
+
+### Digital Marketing
+https://www.netrexinc.com/services/digital-marketing
+NETREX Inc runs digital marketing for businesses that want more leads and sales: Google Ads, SEO, Meta and LinkedIn ads, social media and email, managed by one team with one monthly report.
+Included: Audit of your website, tracking and current campaigns; Keyword and audience research for each target country; Google Ads and Meta Ads setup and management; SEO: technical fixes, content and local listings; Landing pages and conversion tracking; Monthly reporting on leads, cost per lead and revenue.
+
+### AI Agents & Automation
+https://www.netrexinc.com/services/ai-automation
+NETREX Inc builds custom AI agents, chatbots and workflow automations on OpenAI, Anthropic and Google models, connected to WhatsApp, websites, CRMs and business tools, starting with a 2 to 4 week pilot.
+Included: Process review to find the best automation opportunities; AI chatbot or agent trained on your documents and data; WhatsApp, website chat, email and Slack channels; CRM, calendar, spreadsheet and API integrations; Human handoff and approval steps; Monitoring, testing and ongoing improvement.
+
+### Generative Engine Optimization (GEO)
+https://www.netrexinc.com/services/geo
+NETREX Inc offers Generative Engine Optimization: making your brand easy for ChatGPT, Google AI Mode, Gemini, Claude and Perplexity to understand, cite and recommend, alongside traditional SEO.
+Included: AI visibility audit for your key buyer questions; Crawler access, llms.txt and server-rendered pages; Organisation, service and FAQ structured data; Answer-first content for your services; Listings and third-party mentions AI tools rely on; Monthly tracking of mentions and citations.
+
+### Cloud Solutions
+https://www.netrexinc.com/services/cloud-solutions
+NETREX Inc designs, migrates and runs cloud infrastructure on AWS, Microsoft Azure and Google Cloud for websites, apps and data platforms.
+Included: Architecture design; Migration planning and execution; Security and access control; Backups and disaster recovery; Cost reviews; Monitoring and support.
+
+### DevOps & Infrastructure
+https://www.netrexinc.com/services/devops
+NETREX Inc sets up CI/CD pipelines, containers, Kubernetes, infrastructure as code and monitoring so teams release faster with fewer outages.
+Included: CI/CD pipelines; Docker and Kubernetes; Terraform infrastructure as code; Monitoring and alerting; Zero-downtime deployments; Runbooks and documentation.
+
+### Blockchain & Web3
+https://www.netrexinc.com/services/blockchain
+NETREX Inc develops smart contracts, tokens and decentralised applications on Ethereum, EVM chains and Solana, with testing and third-party audit preparation.
+Included: Smart contract development; Token and NFT contracts; dApp front ends and wallets; Automated tests; Audit preparation; Deployment and monitoring.
+
+### Data Analytics & BI
+https://www.netrexinc.com/services/data-analytics
+NETREX Inc builds data pipelines, warehouses and BI dashboards that bring sales, marketing and operations data into one reliable view.
+Included: Data audit and KPI definition; Pipelines from CRM, ads, store and ERP; Warehouse setup; Dashboards in Looker Studio, Power BI or Tableau; Forecasting models; Training for your team.
 
 ## Free tools (no signup)
 - Website ROI Calculator: https://www.netrexinc.com/tools/website-roi
