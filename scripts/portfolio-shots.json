@@ -100,5 +100,35 @@
     "title": "Unlocking Therapy",
     "url": "https://www.unlockingtherapy.com/",
     "slug": "unlocking-therapy"
+  },
+  {
+    "id": 62,
+    "title": "DonVex Pressure Washing",
+    "url": "https://www.donvexpressurewashing.com/",
+    "slug": "donvex"
+  },
+  {
+    "id": 67,
+    "title": "Vivian Worden",
+    "url": "https://www.vivianworden.com/",
+    "slug": "vivian-worden"
+  },
+  {
+    "id": 70,
+    "title": "Zahar Mark",
+    "url": "https://www.zaharmark.com/",
+    "slug": "zahar-mark"
+  },
+  {
+    "id": 26,
+    "title": "Grantx Inc.",
+    "url": "https://www.grantx.ca/",
+    "slug": "grantx-inc"
+  },
+  {
+    "id": 57,
+    "title": "DisciplineA Trading Platform",
+    "url": "https://www.disciplinea.com/",
+    "slug": "disciplinea"
   }
 ]
