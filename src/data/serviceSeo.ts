@@ -7,6 +7,8 @@ export interface ServiceSeo {
   h1: string;
   heading: string;
   intro: string[];
+  /** Short, quotable facts (rendered as a list; easy for search engines and AI assistants to cite). */
+  facts?: [string, string][];
   faqs: { q: string; a: string }[];
 }
 
@@ -62,6 +64,12 @@ export const SERVICE_SEO: Record<string, ServiceSeo> = {
       "Every build starts with your goals: more enquiries, more bookings or more sales. We plan the pages and content, design the interface, develop it with clean code, and launch with fast load times, on-page SEO, analytics and accessibility in place. Website redesign projects follow the same process and keep your existing search rankings through proper redirects.",
       `With 3,000+ projects delivered and ${FIVE_STAR_REVIEWS} five-star reviews from verified clients, we work with startups, professional firms and established brands in the USA, UAE, UK, Canada, Australia and Europe.`,
     ],
+    facts: [
+      ["Typical timeline", "3 to 5 weeks for a business website"],
+      ["Platforms", "React, Next.js, WordPress, Wix, Webflow, Shopify"],
+      ["Included", "Design, development, on-page SEO, analytics, accessibility, launch"],
+      ["Clients in", "USA, UAE, UK, Canada, Australia, Europe"],
+    ],
     faqs: [
       { q: "How long does it take to build a website?", a: "A typical business website takes 3 to 5 weeks from kickoff to launch. Larger web applications and multilingual sites take longer; we give you a fixed timeline in the proposal before work starts." },
       { q: "How much does a custom website cost?", a: "Cost depends on the number of pages, features, integrations and languages. We scope each project and send a fixed quote. Our free Website ROI Calculator gives you an estimate before you contact us." },
@@ -78,6 +86,12 @@ export const SERVICE_SEO: Record<string, ServiceSeo> = {
       "We handle everything: custom design (no generic templates), responsive layouts for mobile and desktop, Wix Stores, Wix Bookings, member areas, multilingual sites, Velo custom code and third-party integrations. Every site launches with on-page SEO, fast loading and a short training session so your team can edit pages with confidence.",
       "Already on Wix? We redesign and speed up existing Wix sites, migrate from Wix Editor to Wix Studio, and move sites from WordPress or Squarespace to Wix.",
     ],
+    facts: [
+      ["Partner status", "Wix Legend Partner"],
+      ["Typical timeline", "2 to 4 weeks; stores and bookings 4 to 6 weeks"],
+      ["Builds", "Wix, Wix Studio, Wix Stores, Wix Bookings, Velo"],
+      ["Clients in", "USA, UK, Canada, Australia, Europe, Middle East"],
+    ],
     faqs: [
       { q: "What is a Wix Legend Partner?", a: "Legend is one of the highest tiers in the Wix Partner Program, awarded to agencies based on the volume and quality of the Wix sites they deliver. NETREX is a Wix Legend Partner, and our founder has been Top Rated on Upwork since 2016." },
       { q: "How long does a Wix website take?", a: "Most Wix business websites take 2 to 4 weeks. Online stores, booking systems and multilingual Wix sites usually take 4 to 6 weeks." },
@@ -93,6 +107,12 @@ export const SERVICE_SEO: Record<string, ServiceSeo> = {
       "NETREX Inc builds ecommerce websites that turn visitors into customers. We design and develop Shopify stores, Wix Stores, WooCommerce shops and custom headless storefronts for brands selling in the USA, UAE, UK, Canada, Australia and Europe.",
       "Our ecommerce development covers store design, product and collection setup, payment gateways, shipping and tax rules for each country, multi-currency and multi-language selling, app integrations, and conversion work on product pages and checkout. We also migrate stores to Shopify from WooCommerce, Magento, Wix and other platforms without losing products, customers or order history.",
     ],
+    facts: [
+      ["Typical timeline", "6 to 10 weeks for a new store"],
+      ["Platforms", "Shopify, Wix Stores, WooCommerce, headless"],
+      ["Included", "Payments, shipping, taxes, multi-currency, SEO, migration"],
+      ["Sells in", "USA, UK, EU, UAE and GCC, Canada, Australia"],
+    ],
     faqs: [
       { q: "How long does it take to build an online store?", a: "A new ecommerce website typically takes 6 to 10 weeks, depending on the number of products, custom features and integrations." },
       { q: "Shopify or WooCommerce: which is better for my store?", a: "Shopify suits most brands that want reliable hosting, easy management and a large app ecosystem. WooCommerce suits businesses already on WordPress that need full control. We recommend one after reviewing your products, markets and team." },
@@ -106,6 +126,12 @@ export const SERVICE_SEO: Record<string, ServiceSeo> = {
     intro: [
       "NETREX Inc is a mobile app development company building iOS and Android apps for startups and established businesses. We develop cross-platform apps in Flutter and React Native, and native apps in Swift and Kotlin when performance or device features call for it.",
       "We take your app from idea to launch: product workshops, UX and UI design, app development, backend and API, testing on real devices, and App Store and Google Play submission. After launch we provide maintenance, updates and new features. Clients in the USA, UAE, UK, Canada, Australia and Europe use our apps for bookings, delivery, fitness, learning, property and internal operations.",
+    ],
+    facts: [
+      ["Typical timeline", "10 to 16 weeks for a first release"],
+      ["Technologies", "Flutter, React Native, Swift, Kotlin"],
+      ["Included", "UX/UI, development, backend, testing, store submission"],
+      ["Ownership", "You own the source code and store accounts"],
     ],
     faqs: [
       { q: "How long does it take to develop a mobile app?", a: "A first release (MVP) usually takes 10 to 16 weeks, including design, development, testing and store submission. Complex apps with many integrations take longer." },
@@ -121,6 +147,12 @@ export const SERVICE_SEO: Record<string, ServiceSeo> = {
       "NETREX Inc is a UI/UX design agency designing websites, web apps and mobile apps. We combine user research, information architecture, wireframes and high-fidelity UI design in Figma to create interfaces people understand at first glance.",
       "Our designers work alongside our developers, so every screen is designed to be built. Deliverables include user flows, clickable prototypes, design systems and developer-ready handoff. We also run UX audits on existing products to find the friction that costs you sign-ups and sales.",
     ],
+    facts: [
+      ["Typical timeline", "2 to 4 weeks for a website; 4 to 8 weeks for apps"],
+      ["Design tool", "Figma, with developer-ready handoff"],
+      ["Deliverables", "User flows, wireframes, UI, prototype, design system"],
+      ["Works with", "Our own developers or your in-house team"],
+    ],
     faqs: [
       { q: "What is included in a UI/UX design project?", a: "Research and goals, user flows, wireframes, visual UI design, a clickable prototype, a component library or design system, and developer handoff in Figma." },
       { q: "How long does UI/UX design take?", a: "A website design usually takes 2 to 4 weeks. App and SaaS product design takes 4 to 8 weeks depending on the number of screens and user roles." },
@@ -133,6 +165,11 @@ export const SERVICE_SEO: Record<string, ServiceSeo> = {
     intro: [
       "NETREX Inc is a branding agency creating logos and complete brand identities. We help new and established businesses define how they look and sound, then turn that into a logo, colour palette, typography, brand guidelines and ready-to-use templates.",
       "Brand work connects directly to your website, social media and marketing, which we can deliver too, so your identity stays consistent everywhere your customers see it.",
+    ],
+    facts: [
+      ["Typical timeline", "3 to 6 weeks"],
+      ["Deliverables", "Logo suite, colours, typography, guidelines, templates"],
+      ["Best for", "New businesses and brands ready for a refresh"],
     ],
     faqs: [
       { q: "What is included in a brand identity package?", a: "Brand discovery, logo design with variations, colour palette, typography, brand guidelines and templates for social media, stationery and presentations." },
@@ -147,6 +184,11 @@ export const SERVICE_SEO: Record<string, ServiceSeo> = {
       "NETREX Inc runs digital marketing for businesses that want measurable growth. Our team plans and manages search engine optimization, Google Ads, Meta and LinkedIn advertising, social media, email marketing and content, with one monthly report that ties activity to leads and revenue.",
       "Because we also build websites, we fix the landing pages, tracking and site speed issues that hold campaigns back, instead of only sending more traffic to a page that does not convert.",
     ],
+    facts: [
+      ["Channels", "SEO, Google Ads, Meta, LinkedIn, email, content"],
+      ["Reporting", "Monthly, tied to leads and revenue"],
+      ["Markets", "USA, UAE and GCC, UK, Canada, Australia, Europe"],
+    ],
     faqs: [
       { q: "Which digital marketing services do you offer?", a: "SEO, Google Ads, Meta and LinkedIn ads, social media management, email marketing, content marketing, conversion rate optimisation and analytics setup." },
       { q: "How soon will I see results?", a: "Paid campaigns can bring leads within the first weeks. SEO usually shows meaningful movement after 3 to 6 months, depending on competition and your site's starting point." },
@@ -159,6 +201,11 @@ export const SERVICE_SEO: Record<string, ServiceSeo> = {
     intro: [
       "NETREX Inc builds AI agents and business automation that save your team hours every week. We develop customer support chatbots, sales and lead qualification agents, internal knowledge assistants trained on your documents, and automated workflows that connect your CRM, email, spreadsheets and other tools.",
       "We work with models from OpenAI, Anthropic and Google as well as open-source models, and connect them to WhatsApp, your website, Slack and business systems. Projects start with a short pilot on one process so you see results before scaling.",
+    ],
+    facts: [
+      ["Pilot timeline", "2 to 4 weeks on one process"],
+      ["Models", "OpenAI, Anthropic, Google, open-source"],
+      ["Connects to", "Website, WhatsApp, Slack, CRM, email, spreadsheets"],
     ],
     faqs: [
       { q: "What can an AI agent do for my business?", a: "Answer customer questions around the clock, qualify leads, book appointments, draft replies and documents, search your internal knowledge, and move data between your systems." },

@@ -12,6 +12,9 @@ interface PortfolioLightboxProps {
 
 export function PortfolioLightbox({ isOpen, onClose, image, title, description }: PortfolioLightboxProps) {
   const [scale, setScale] = useState(1);
+  // Never stretch a small screenshot far beyond its real size: that is what makes previews blurry.
+  const [natural, setNatural] = useState(0);
+  const baseWidth = natural ? Math.min(900, Math.max(natural, 480)) : 900;
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   const resetZoom = useCallback(() => {
@@ -24,6 +27,7 @@ export function PortfolioLightbox({ isOpen, onClose, image, title, description }
   useEffect(() => {
     if (!isOpen) {
       setScale(1);
+      setNatural(0);
     } else {
       // Scroll to top when opening
       setTimeout(() => {
@@ -95,12 +99,13 @@ export function PortfolioLightbox({ isOpen, onClose, image, title, description }
                 alt={title}
                 className="block select-none"
                 style={{
-                  width: `${Math.min(900 * scale, window.innerWidth)}px`,
+                  width: `${Math.min(baseWidth * scale, window.innerWidth)}px`,
                   height: "auto",
                   imageRendering: "auto",
                   transition: "width 0.3s ease-out",
                 }}
                 draggable={false}
+                onLoad={(e) => setNatural(e.currentTarget.naturalWidth)}
               />
             </div>
           </div>

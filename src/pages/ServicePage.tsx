@@ -31,6 +31,17 @@ function shuffleArray<T>(array: T[]): T[] {
 
 // Service-specific technology stacks
 // Keyword-led H1 for each service page (the slogan stays as the large visual heading).
+// Real portfolio project shown as the main image on each service page (ids from portfolioData).
+const SERVICE_SHOWCASE: Record<string, number> = {
+  "web-development": 68,
+  "wix-website-design": 69,
+  ecommerce: 21,
+  "mobile-app": 39,
+  "ui-ux-design": 64,
+  branding: 63,
+  "ai-automation": 18,
+};
+
 const SERVICE_H1: Record<string, string> = Object.fromEntries(
   Object.entries(SERVICE_SEO).map(([slug, v]) => [slug, v.h1]),
 );
@@ -278,7 +289,7 @@ const servicesData: Record<string, {
     { title: "E-commerce Solutions", description: "Complete online stores with payment integration" },
     { title: "Progressive Web Apps (PWA)", description: "App-like experiences that work offline" },
     { title: "API Development & Integration", description: "RESTful and GraphQL API development" },
-    { title: "Website Maintenance & Support", description: "24/7 support and regular updates" }],
+    { title: "Website Maintenance & Support", description: "Ongoing support, backups and regular updates" }],
 
     benefits: [
     { title: "Lightning Fast", description: "Optimized for Core Web Vitals and performance", icon: Zap },
@@ -758,6 +769,9 @@ const ServicePage = () => {
   const data = service ? servicesData[service] : null;
   const techStack = service ? serviceTechStacks[service] || [] : [];
   const seoCopy = service ? SERVICE_SEO[service] : undefined;
+  const showcase = service && SERVICE_SHOWCASE[service]
+    ? portfolioItems.find((item) => item.id === SERVICE_SHOWCASE[service])
+    : undefined;
   const [carouselIndex, setCarouselIndex] = useState(0);
   const carouselRef = useRef<HTMLDivElement>(null);
 
@@ -777,7 +791,8 @@ const ServicePage = () => {
 
   const scrollCarousel = (direction: 'left' | 'right') => {
     if (carouselRef.current) {
-      const scrollAmount = 320;
+      const first = carouselRef.current.firstElementChild as HTMLElement | null;
+      const scrollAmount = (first?.offsetWidth ?? 288) + 24;
       const newIndex = direction === 'left' ?
       Math.max(0, carouselIndex - 1) :
       Math.min(relevantPortfolio.length - 4, carouselIndex + 1);
@@ -924,39 +939,47 @@ const ServicePage = () => {
                 </div>
               </motion.div>
               
-              {/* Animated Image */}
+              {/* Showcase image: a real NETREX project for this service where one exists */}
               <motion.div
                 initial={{ opacity: 0, x: 40 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6 }}
                 className="relative">
-                
-                <div className="relative aspect-[4/5] rounded-3xl overflow-hidden">
-                  <motion.img
-                    src={data.caseStudies[0]?.image}
-                    alt={data.title}
-                    className="w-full h-full object-cover"
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ duration: 0.5 }} />
-                  
-                  <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 to-transparent" />
-                  <motion.div
-                    className="absolute bottom-6 left-6 right-6"
-                    initial={{ y: 20, opacity: 0 }}
-                    whileInView={{ y: 0, opacity: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.3 }}>
-                    
-                    <div className="p-6 rounded-2xl bg-background/90 backdrop-blur-sm">
-                      <div className="text-3xl font-display font-bold text-primary mb-2">
-                        {data.caseStudies[0]?.result}
-                      </div>
-                      <div className="text-sm text-muted-foreground">
-                        {data.caseStudies[0]?.title}
-                      </div>
+
+                <div
+                  className="group relative aspect-[4/5] overflow-hidden rounded-3xl border border-border"
+                  style={showcase && showcase.category !== "Web" && showcase.category !== "E-Commerce"
+                    ? { backgroundColor: showcase.category === "Branding" ? "#ffffff" : "hsl(var(--primary) / 0.08)" }
+                    : undefined}>
+                  <img
+                    src={showcase ? showcase.image : data.caseStudies[0]?.image}
+                    alt={showcase ? `${showcase.title}: ${showcase.technology} project by NETREX` : SERVICE_H1[service ?? ""] ?? data.title}
+                    loading="lazy"
+                    decoding="async"
+                    className={showcase && showcase.category !== "Web" && showcase.category !== "E-Commerce"
+                      ? "h-full w-full object-contain p-8"
+                      : "h-full w-full object-cover object-top transition-transform duration-700 group-hover:scale-105"} />
+
+                  <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 via-transparent to-transparent" />
+                  <div className="absolute bottom-6 left-6 right-6">
+                    <div className="rounded-2xl bg-background/90 p-5 backdrop-blur-sm">
+                      {showcase ? (
+                        <Link to={`/portfolio?project=${showcase.id}`} className="block">
+                          <div className="text-xs font-semibold uppercase tracking-wider text-primary">
+                            Featured project · {showcase.technology}
+                          </div>
+                          <div className="mt-1 font-display text-xl font-bold">{showcase.title}</div>
+                          <div className="mt-1 line-clamp-2 text-sm text-muted-foreground">{showcase.description}</div>
+                        </Link>
+                      ) : (
+                        <>
+                          <div className="text-xs font-semibold uppercase tracking-wider text-primary">NETREX Inc</div>
+                          <div className="mt-1 font-display text-xl font-bold">{SERVICE_H1[service ?? ""] ?? data.title}</div>
+                        </>
+                      )}
                     </div>
-                  </motion.div>
+                  </div>
                 </div>
               </motion.div>
             </div>
@@ -1206,16 +1229,21 @@ const ServicePage = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="flex-shrink-0 w-72 snap-start">
+                className="flex-shrink-0 w-72 snap-start sm:w-80">
                 
                   <Link to={`/portfolio?project=${item.id}`} className="group block">
                     <div className="rounded-2xl overflow-hidden bg-card border border-border hover:border-primary/30 hover:shadow-xl transition-all duration-300">
-                      <div className="aspect-[3/4] overflow-hidden">
+                      <div
+                        className="aspect-[4/3] overflow-hidden bg-muted"
+                        style={item.category === "Branding" ? { backgroundColor: "#ffffff" } : item.category === "Mobile App" ? { backgroundColor: "hsl(var(--primary) / 0.08)" } : undefined}>
                         <img
                         src={item.image}
-                        alt={item.title}
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
-                      
+                        alt={`${item.title} - ${item.technology} project by NETREX`}
+                        loading="lazy"
+                        decoding="async"
+                        className={item.category === "Branding" || item.category === "Mobile App"
+                          ? "h-full w-full object-contain p-4 transition-transform duration-500 group-hover:scale-105"
+                          : "h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"} />
                       </div>
                       <div className="p-4">
                         <div className="text-xs font-medium text-primary mb-1">{item.technology}</div>

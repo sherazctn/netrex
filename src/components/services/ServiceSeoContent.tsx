@@ -27,6 +27,16 @@ export function ServiceOverview({ seo }: { seo: ServiceSeo }) {
                 <p key={p.slice(0, 24)}>{p}</p>
               ))}
             </div>
+            {seo.facts && seo.facts.length > 0 && (
+              <dl className="mt-8 grid gap-3 sm:grid-cols-2">
+                {seo.facts.map(([label, value]) => (
+                  <div key={label} className="rounded-2xl border border-border bg-card p-4">
+                    <dt className="text-xs font-semibold uppercase tracking-wider text-primary">{label}</dt>
+                    <dd className="mt-1 text-sm font-medium text-foreground">{value}</dd>
+                  </div>
+                ))}
+              </dl>
+            )}
             <Link
               to="/contact"
               className="mt-8 inline-flex items-center gap-2 font-semibold text-primary hover:underline"
