@@ -4,6 +4,10 @@ on:
   push:
     branches:
       - main # Change this to 'master' if your default branch is master
+  # Refresh the homepage Instagram posts every day (09:17 Dubai time) and allow manual runs.
+  schedule:
+    - cron: "17 5 * * *"
+  workflow_dispatch:
 
 jobs:
   build-and-deploy:
@@ -23,6 +27,14 @@ jobs:
 
     - name: Build Project
       run: npm run build
+
+    # Latest 10 Instagram posts for the homepage. The token comes from the repository secret
+    # INSTAGRAM_ACCESS_TOKEN and is never written to the site or the logs.
+    - name: Fetch Instagram posts
+      continue-on-error: true
+      env:
+        INSTAGRAM_ACCESS_TOKEN: ${{ secrets.INSTAGRAM_ACCESS_TOKEN }}
+      run: node scripts/fetch-instagram.mjs
 
     # Pre-render every sitemap page to static HTML so search engines and AI crawlers
     # get full content without running JavaScript. Never blocks the deploy.

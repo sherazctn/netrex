@@ -213,6 +213,21 @@ export function InstagramFeed() {
   useEffect(() => {
     let active = true;
     (async () => {
+      // 1. Posts baked into the site at deploy time (scripts/fetch-instagram.mjs, refreshed daily).
+      try {
+        const res = await fetch("/instagram/feed.json", { cache: "no-cache" });
+        if (res.ok) {
+          const data = await res.json();
+          if (active && Array.isArray(data?.items) && data.items.length) {
+            setItems(data.items.slice(0, POST_COUNT));
+            setConnected(true);
+            return;
+          }
+        }
+      } catch {
+        /* try the live function next */
+      }
+      // 2. Live server function (used if its INSTAGRAM_ACCESS_TOKEN secret is set in Lovable Cloud).
       try {
         const { data, error } = await supabase.functions.invoke("instagram-feed");
         if (error || !active) return;

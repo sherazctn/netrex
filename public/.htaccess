@@ -36,3 +36,10 @@ RewriteRule ^ /index.html [L]
 
 # 7. Anything else is a real 404, shown with the site's own "Page not found" screen
 ErrorDocument 404 /spa.html
+
+# The Instagram feed file is refreshed daily; let browsers and the CDN re-check it often.
+<IfModule mod_headers.c>
+  <FilesMatch "^feed\.json$">
+    Header set Cache-Control "public, max-age=300"
+  </FilesMatch>
+</IfModule>
