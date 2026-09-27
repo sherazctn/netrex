@@ -19,6 +19,7 @@ import { SEO } from "@/components/SEO";
 import { FIVE_STAR_REVIEWS } from "@/data/reviewStats";
 import { SERVICE_SEO, AREA_SERVED } from "@/data/serviceSeo";
 import { ServiceOverview, ServiceFaq } from "@/components/services/ServiceSeoContent";
+import { ServiceVisual, hasServiceVisual } from "@/components/services/ServiceVisual";
 
 function shuffleArray<T>(array: T[]): T[] {
   const shuffled = [...array];
@@ -952,8 +953,12 @@ const ServicePage = () => {
                   style={showcase && showcase.category !== "Web" && showcase.category !== "E-Commerce"
                     ? { backgroundColor: showcase.category === "Branding" ? "#ffffff" : "hsl(var(--primary) / 0.08)" }
                     : undefined}>
+                  {!showcase && hasServiceVisual(service) ? (
+                    <ServiceVisual slug={service!} />
+                  ) : (
+                  <>
                   <img
-                    src={showcase ? showcase.image : data.caseStudies[0]?.image}
+                    src={showcase ? showcase.imageFull ?? showcase.image : data.caseStudies[0]?.image}
                     alt={showcase ? `${showcase.title}: ${showcase.technology} project by NETREX` : SERVICE_H1[service ?? ""] ?? data.title}
                     loading="lazy"
                     decoding="async"
@@ -980,6 +985,8 @@ const ServicePage = () => {
                       )}
                     </div>
                   </div>
+                  </>
+                  )}
                 </div>
               </motion.div>
             </div>
