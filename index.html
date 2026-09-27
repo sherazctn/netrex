@@ -27,10 +27,18 @@
     {
       "@context": "https://schema.org",
       "@type": "Organization",
+      "@id": "https://www.netrexinc.com/#organization",
       "name": "NETREX INC",
-      "alternateName": "NETREX",
+      "alternateName": ["NETREX", "NETREX Inc", "Netrex Inc", "نيتريكس"],
       "url": "https://www.netrexinc.com",
-      "logo": "https://www.netrexinc.com/favicon.ico",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://www.netrexinc.com/logo-square.png",
+        "width": 512,
+        "height": 512
+      },
+      "image": "https://www.netrexinc.com/logo.png",
+      "founder": { "@id": "https://www.netrexinc.com/ceo#person" },
       "description": "Global digital agency delivering web design, mobile apps, AI automation, branding, e-commerce, SEO, and Generative Engine Optimization (GEO) across 9 countries since 2016.",
       "foundingDate": "2016",
       "email": "info@netrexinc.com",
@@ -48,7 +56,9 @@
         "https://x.com/netrex_official",
         "https://www.youtube.com/@netrex.official",
         "https://www.tiktok.com/@netrex.official",
-        "https://www.pinterest.com/netrex_official"
+        "https://www.pinterest.com/netrex_official",
+        "https://clutch.co/profile/netrex",
+        "https://www.fiverr.com/netrex_inc"
       ],
       "areaServed": ["AE","US","GB","DE","CA","AU","SG","SA","PK"],
       "knowsAbout": ["Web Development","Mobile App Development","UI/UX Design","Digital Marketing","Branding","E-Commerce","AI Agents","Generative Engine Optimization","Cloud Solutions","SEO"]
@@ -58,18 +68,21 @@
     {
       "@context": "https://schema.org",
       "@type": "WebSite",
+      "@id": "https://www.netrexinc.com/#website",
       "url": "https://www.netrexinc.com",
-      "name": "NETREX INC"
+      "name": "NETREX Inc",
+      "alternateName": ["NETREX", "netrexinc.com"],
+      "publisher": { "@id": "https://www.netrexinc.com/#organization" }
     }
     </script>
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "ProfessionalService",
-      "@id": "https://www.netrexinc.com/#agency",
+      "@id": "https://www.netrexinc.com/#organization",
       "name": "NETREX INC",
       "url": "https://www.netrexinc.com",
-      "image": "https://www.netrexinc.com/favicon.ico",
+      "image": "https://www.netrexinc.com/logo.png",
       "priceRange": "$$",
       "currenciesAccepted": "USD, AED, EUR, GBP",
       "paymentAccepted": "Credit Card, Bank Transfer, Wire",

@@ -787,7 +787,7 @@ const ServicePage = () => {
               serviceType: data.title,
               description: data.description,
               url: `https://www.netrexinc.com/services/${service}`,
-              provider: { "@id": "https://www.netrexinc.com/#agency" },
+              provider: { "@id": "https://www.netrexinc.com/#organization" },
               areaServed: { "@type": "Place", name: "Worldwide" },
             },
             {

@@ -56,3 +56,8 @@ jobs:
         password: ${{ secrets.FTP_PASSWORD }}
         local-dir: ./dist/
         server-dir: ./
+
+    # Notify Bing / IndexNow engines about updated pages (feeds ChatGPT search and Copilot).
+    - name: Notify search engines (IndexNow)
+      continue-on-error: true
+      run: node scripts/indexnow.mjs

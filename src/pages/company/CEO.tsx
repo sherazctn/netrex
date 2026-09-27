@@ -140,17 +140,14 @@ const interests = [
 const schema = {
   "@context": "https://schema.org",
   "@type": "Person",
+  "@id": "https://www.netrexinc.com/ceo#person",
   name: "Sheraz Khan",
   alternateName: "Muhammad Sheraz",
   jobTitle: "Founder and Chief Executive Officer",
   url: "https://www.netrexinc.com/ceo",
-  image: "https://www.netrexinc.com/assets/sheraz-khan-ceo.jpg",
+  image: `https://www.netrexinc.com${ceoPortrait}`,
   description: "Sheraz Khan is the Founder and CEO of NETREX, leading digital engineering, technology strategy and client delivery.",
-  worksFor: {
-    "@type": "Organization",
-    name: "NETREX INC",
-    url: "https://www.netrexinc.com",
-  },
+  worksFor: { "@id": "https://www.netrexinc.com/#organization" },
   alumniOf: {
     "@type": "CollegeOrUniversity",
     name: "University of South Asia",
