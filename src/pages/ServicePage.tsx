@@ -16,6 +16,9 @@ import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { portfolioItems, servicePortfolioMap } from "@/data/portfolioData";
 import { SEO } from "@/components/SEO";
+import { FIVE_STAR_REVIEWS } from "@/data/reviewStats";
+import { SERVICE_SEO, AREA_SERVED } from "@/data/serviceSeo";
+import { ServiceOverview, ServiceFaq } from "@/components/services/ServiceSeoContent";
 
 function shuffleArray<T>(array: T[]): T[] {
   const shuffled = [...array];
@@ -28,20 +31,9 @@ function shuffleArray<T>(array: T[]): T[] {
 
 // Service-specific technology stacks
 // Keyword-led H1 for each service page (the slogan stays as the large visual heading).
-const SERVICE_H1: Record<string, string> = {
-  "web-development": "Web Development Services",
-  "mobile-app": "Mobile App Development Services",
-  "ui-ux-design": "UI/UX Design Services",
-  "digital-marketing": "Digital Marketing Services",
-  branding: "Branding & Brand Identity Design",
-  ecommerce: "E-commerce Website Development",
-  "ai-automation": "AI Agents & Business Automation",
-  geo: "Generative Engine Optimization (GEO) Services",
-  "cloud-solutions": "Cloud Solutions on AWS, Azure & GCP",
-  devops: "DevOps & Infrastructure Services",
-  blockchain: "Blockchain & Web3 Development",
-  "data-analytics": "Data Analytics & Business Intelligence",
-};
+const SERVICE_H1: Record<string, string> = Object.fromEntries(
+  Object.entries(SERVICE_SEO).map(([slug, v]) => [slug, v.h1]),
+);
 
 const serviceTechStacks: Record<string, {name: string;logo: string;size: string;}[]> = {
   "web-development": [
@@ -61,6 +53,11 @@ const serviceTechStacks: Record<string, {name: string;logo: string;size: string;
   { name: "GraphQL", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain.svg", size: "sm" },
   { name: "Docker", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg", size: "lg" }],
 
+  "wix-website-design": [
+  { name: "Wix", logo: "https://cdn.jsdelivr.net/npm/simple-icons@13/icons/wix.svg", size: "lg" },
+  { name: "JavaScript", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg", size: "md" },
+  { name: "Figma", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg", size: "lg" },
+  { name: "Google Analytics", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg", size: "md" }],
   "mobile-app": [
   { name: "Flutter", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg", size: "lg" },
   { name: "React Native", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg", size: "lg" },
@@ -298,15 +295,51 @@ const servicesData: Record<string, {
     { step: 6, title: "Launch", description: "Deployment and ongoing support" }],
 
     whyUs: [
-    { title: "8+ Years Experience", description: "Battle-tested solutions that work", icon: Clock },
-    { title: "500+ Projects Delivered", description: "Proven track record of success", icon: Award },
-    { title: "24/7 Support", description: "Always here when you need us", icon: Shield },
+    { title: "Since 2016", description: "Ten years of building websites for clients", icon: Clock },
+    { title: "3,000+ Projects Delivered", description: `${FIVE_STAR_REVIEWS} five-star reviews from verified clients`, icon: Award },
+    { title: "Ongoing Support", description: "Maintenance, updates and new features after launch", icon: Shield },
     { title: "Cutting-Edge Tech", description: "Latest technologies and best practices", icon: Zap }],
 
     caseStudies: [
     { title: "E-commerce Fashion Platform", description: "Built a full-featured online store for luxury fashion brand", result: "300% increase in online sales", image: "https://images.unsplash.com/photo-1547658719-da2b51169166?w=600&h=800&fit=crop" },
     { title: "Corporate Website Redesign", description: "Redesigned company website for a financial services firm", result: "150% increase in lead generation", image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=800&fit=crop" }]
 
+  },
+  "wix-website-design": {
+    title: "Wix Website Design",
+    description: "Custom Wix and Wix Studio websites designed and built by a Wix Legend Partner.",
+    hero: "Wix Websites That Look Custom and Sell",
+    longDescription: "We design Wix and Wix Studio sites from scratch, set up stores, bookings and member areas, add custom Velo code where needed, and launch with SEO and speed tuned, so you get a professional site your team can update without a developer.",
+    features: [
+    { title: "Custom Wix Design", description: "Unique layouts designed for your brand, not a reused template" },
+    { title: "Wix Studio Websites", description: "Responsive Wix Studio builds for agencies and growing brands" },
+    { title: "Wix Stores & Bookings", description: "Online stores, appointment booking and paid memberships" },
+    { title: "Velo Custom Code", description: "Custom features, databases and third-party API integrations" },
+    { title: "Wix SEO & Speed", description: "On-page SEO, structured data, redirects and performance tuning" },
+    { title: "Wix Redesign & Migration", description: "Refresh an old Wix site or move from WordPress or Squarespace" }],
+
+    benefits: [
+    { title: "Easy to Update", description: "Edit text, images and products yourself after launch", icon: Settings },
+    { title: "SEO Ready", description: "Titles, schema and Search Console set up at launch", icon: Search },
+    { title: "Mobile First", description: "Layouts checked on phones, tablets and desktops", icon: Smartphone },
+    { title: "Fast Launch", description: "Most Wix business sites go live in 2 to 4 weeks", icon: Zap }],
+
+    process: [
+    { step: 1, title: "Discovery", description: "Goals, pages, features and content plan" },
+    { step: 2, title: "Design", description: "Custom homepage and key page designs for approval" },
+    { step: 3, title: "Build", description: "Full Wix or Wix Studio build with apps and integrations" },
+    { step: 4, title: "SEO & Speed", description: "Metadata, redirects, schema and performance checks" },
+    { step: 5, title: "Review", description: "Your feedback rounds and testing on all devices" },
+    { step: 6, title: "Launch & Training", description: "Go live, connect your domain and hand over" }],
+
+    whyUs: [
+    { title: "Wix Legend Partner", description: "One of the highest tiers in the Wix Partner Program", icon: Award },
+    { title: `${FIVE_STAR_REVIEWS} Five-Star Reviews`, description: "From verified Fiverr clients", icon: Users },
+    { title: "3,000+ Projects", description: "Delivered for clients since 2016", icon: TrendingUp },
+    { title: "Ongoing Support", description: "Updates and new pages whenever you need them", icon: Clock }],
+
+    caseStudies: [
+    { title: "Surfside Concierge, Cape Cod", description: "Wix website for a vacation concierge service", result: "Built on Wix", image: "/portfolio/surfside-concierge.png" }]
   },
   "mobile-app": {
     title: "Mobile App Development",
@@ -336,9 +369,9 @@ const servicesData: Record<string, {
     { step: 6, title: "Launch", description: "App store submission and marketing support" }],
 
     whyUs: [
-    { title: "500K+ App Downloads", description: "Apps trusted by hundreds of thousands", icon: Award },
+    { title: "You Own the Code", description: "Source code and store accounts stay yours", icon: Award },
     { title: "Cross-Platform Experts", description: "Flutter and React Native specialists", icon: Zap },
-    { title: "App Store Success", description: "Featured apps and 5-star ratings", icon: Shield },
+    { title: "Store Launch Handled", description: "App Store and Google Play submission included", icon: Shield },
     { title: "Ongoing Support", description: "We're with you post-launch", icon: Clock }],
 
     caseStudies: [
@@ -374,7 +407,7 @@ const servicesData: Record<string, {
     { step: 6, title: "Testing", description: "User testing and iteration" }],
 
     whyUs: [
-    { title: "Award-Winning Design", description: "Recognized for design excellence", icon: Award },
+    { title: "Conversion-Focused", description: "Designs measured by sign-ups and sales", icon: Award },
     { title: "Research-Driven", description: "Data informs every decision", icon: Zap },
     { title: "Full-Stack Thinking", description: "We understand development", icon: Shield },
     { title: "Rapid Iteration", description: "Fast feedback and improvements", icon: Clock }],
@@ -412,7 +445,7 @@ const servicesData: Record<string, {
     { step: 6, title: "Report", description: "Regular performance reviews" }],
 
     whyUs: [
-    { title: "Proven Results", description: "Hundreds of successful campaigns", icon: Award },
+    { title: "Results You Can See", description: "Reporting tied to leads and revenue", icon: Award },
     { title: "Data-Driven", description: "Decisions backed by analytics", icon: Zap },
     { title: "Full-Service", description: "All channels under one roof", icon: Shield },
     { title: "Transparent", description: "Clear reporting and communication", icon: Clock }],
@@ -451,7 +484,7 @@ const servicesData: Record<string, {
 
     whyUs: [
     { title: "Strategic Approach", description: "Brand strategy drives design", icon: Award },
-    { title: "Award-Winning", description: "Recognized for creative excellence", icon: Zap },
+    { title: `${FIVE_STAR_REVIEWS} Five-Star Reviews`, description: "From verified Fiverr clients", icon: Zap },
     { title: "Full Package", description: "Strategy to implementation", icon: Shield },
     { title: "Lasting Impact", description: "Brands built to endure", icon: Clock }],
 
@@ -488,7 +521,7 @@ const servicesData: Record<string, {
     { step: 6, title: "Optimize", description: "Continuous improvement and growth" }],
 
     whyUs: [
-    { title: "$10M+ Revenue", description: "Stores we've built generate millions", icon: Award },
+    { title: "Multi-Country Selling", description: "Currencies, taxes and shipping set up per market", icon: Award },
     { title: "Conversion Experts", description: "Optimized for maximum sales", icon: Zap },
     { title: "Multi-Platform", description: "Shopify, WooCommerce, and custom", icon: Shield },
     { title: "Growth Partners", description: "We help you scale", icon: Clock }],
@@ -602,10 +635,10 @@ const servicesData: Record<string, {
     { step: 6, title: "Management", description: "Ongoing monitoring and support" }],
 
     whyUs: [
-    { title: "Certified Experts", description: "AWS, GCP, Azure certified team", icon: Award },
+    { title: "Multi-Cloud Team", description: "AWS, Azure and Google Cloud experience", icon: Award },
     { title: "Security First", description: "Enterprise security standards", icon: Shield },
-    { title: "24/7 Monitoring", description: "Always watching your systems", icon: Clock },
-    { title: "Cost Savings", description: "Typically 30% reduction in cloud costs", icon: Zap }],
+    { title: "Monitoring & Alerts", description: "Set up so issues are caught early", icon: Clock },
+    { title: "Cost Reviews", description: "Right-sizing and spend reviews built in", icon: Zap }],
 
     caseStudies: [
     { title: "SaaS Platform Migration", description: "Migrated legacy app to Kubernetes", result: "99.99% uptime, 40% cost reduction", image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=600&h=800&fit=crop" },
@@ -637,10 +670,10 @@ const servicesData: Record<string, {
     { step: 5, title: "Observe", description: "Metrics, logs, traces, alerts" },
     { step: 6, title: "Operate", description: "24/7 SRE and continuous improvement" }],
     whyUs: [
-    { title: "CKA & CKAD Certified", description: "Kubernetes-native engineers", icon: Award },
+    { title: "Kubernetes Engineers", description: "Production cluster experience", icon: Award },
     { title: "Multi-Cloud", description: "AWS, GCP, Azure fluent", icon: Cloud },
-    { title: "Compliance Ready", description: "SOC2, HIPAA, ISO 27001", icon: Shield },
-    { title: "Cost Focus", description: "Typical 30-45% infra savings", icon: Zap }],
+    { title: "Compliance-Aware", description: "Built with SOC 2 and HIPAA controls in mind", icon: Shield },
+    { title: "Cost Focus", description: "Infrastructure right-sized to your usage", icon: Zap }],
     caseStudies: [
     { title: "Fintech Platform", description: "Migrated monolith to microservices on EKS", result: "Deploy time 45m -> 4m, 99.99% uptime", image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&h=800&fit=crop" },
     { title: "SaaS Observability", description: "Rolled out full-stack observability stack", result: "MTTR reduced by 68%", image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&h=800&fit=crop" }]
@@ -724,11 +757,15 @@ const ServicePage = () => {
   const { service } = useParams<{service: string;}>();
   const data = service ? servicesData[service] : null;
   const techStack = service ? serviceTechStacks[service] || [] : [];
+  const seoCopy = service ? SERVICE_SEO[service] : undefined;
   const [carouselIndex, setCarouselIndex] = useState(0);
   const carouselRef = useRef<HTMLDivElement>(null);
 
   // Filter and shuffle relevant portfolio items for this service
   const relevantPortfolio = useMemo(() => {
+    if (service === "wix-website-design") {
+      return shuffleArray(portfolioItems.filter((item) => item.technology === "Wix")).slice(0, 10);
+    }
     const mapping = service ? servicePortfolioMap[service] : null;
     if (!mapping) return shuffleArray(portfolioItems).slice(0, 8);
     const filtered = portfolioItems.filter(item =>
@@ -775,7 +812,7 @@ const ServicePage = () => {
     <div className="min-h-screen bg-background">
       <SEO
         title={`${data.title} - NETREX Inc Services`}
-        description={`${data.description} NETREX Inc delivers ${data.title.toLowerCase()} for clients across 9 countries, with senior teams and fixed timelines.`}
+        description={`${data.description} NETREX Inc delivers ${data.title.toLowerCase()} for clients in the USA, UAE, UK, Canada, Australia and Europe.`}
         canonical={`https://www.netrexinc.com/services/${service}`}
         schema={{
           "@context": "https://schema.org",
@@ -788,8 +825,21 @@ const ServicePage = () => {
               description: data.description,
               url: `https://www.netrexinc.com/services/${service}`,
               provider: { "@id": "https://www.netrexinc.com/#organization" },
-              areaServed: { "@type": "Place", name: "Worldwide" },
+              areaServed: AREA_SERVED.map((c) => ({ "@type": "Country", name: c })),
             },
+            ...(seoCopy?.faqs.length
+              ? [
+                  {
+                    "@type": "FAQPage",
+                    "@id": `https://www.netrexinc.com/services/${service}#faq`,
+                    mainEntity: seoCopy.faqs.map((f) => ({
+                      "@type": "Question",
+                      name: f.q,
+                      acceptedAnswer: { "@type": "Answer", text: f.a },
+                    })),
+                  },
+                ]
+              : []),
             {
               "@type": "BreadcrumbList",
               itemListElement: [
@@ -829,6 +879,8 @@ const ServicePage = () => {
             </Link>
           </div>
         </PageHero>
+
+        {seoCopy && <ServiceOverview seo={seoCopy} />}
 
 
         {/* What We Offer - With Icons and Image Animation */}
@@ -1202,6 +1254,8 @@ const ServicePage = () => {
 
 
         
+
+        {seoCopy && <ServiceFaq seo={seoCopy} />}
 
         {/* Separator */}
         <Separator className="bg-border" />

@@ -1,6 +1,7 @@
 // English search titles and descriptions for every public page, keyed by path.
 // Titles stay under 60 characters and descriptions under 155 so search results do not truncate them.
 // Used by <SEO /> for English; other languages keep their titleByLang / descriptionByLang overrides.
+import { FIVE_STAR_REVIEWS } from "@/data/reviewStats";
 export interface PageMeta {
   title: string;
   description: string;
@@ -8,8 +9,8 @@ export interface PageMeta {
 
 export const PAGE_META: Record<string, PageMeta> = {
   "/": {
-    "title": "Web Development, AI & GEO Agency | NETREX Inc",
-    "description": "NETREX builds websites, mobile apps and AI automation, and runs SEO and GEO so your brand gets found on Google and in AI answers. Working since 2016."
+    "title": "NETREX Inc | Web Design, App Development & AI Solutions",
+    "description": "Web design and development, mobile apps, online stores and AI automation for businesses in the USA, UAE, UK, Canada, Australia and Europe. 3,000+ projects."
   },
   "/about": {
     "title": "About NETREX Inc | Digital Agency Since 2016",
@@ -68,36 +69,40 @@ export const PAGE_META: Record<string, PageMeta> = {
     "description": "Answers to common questions about NETREX: what projects cost, how long they take, how we work, payments, support and which platforms we build on."
   },
   "/services": {
-    "title": "Digital Services: Web, Apps, AI & SEO | NETREX",
-    "description": "All NETREX services in one place: web development, mobile apps, UI/UX, branding, e-commerce, SEO, GEO, AI automation, cloud, DevOps and data analytics."
+    "title": "Web Design, App Development & AI Services | NETREX",
+    "description": "Web design and development, Wix and Shopify stores, mobile apps, UI/UX, branding, digital marketing and AI automation for businesses worldwide."
   },
   "/services/web-development": {
-    "title": "Web Development Company | Custom Websites | NETREX",
-    "description": "Custom websites built in React, Next.js, WordPress, Shopify, Webflow and Wix. Fast, SEO ready and designed to convert. Get a web development quote."
+    "title": "Web Design & Development Company | NETREX Inc",
+    "description": "Custom website design and development in React, WordPress, Wix and Webflow for businesses in the USA, UAE, UK, Canada, Australia and Europe."
   },
   "/services/mobile-app": {
-    "title": "Mobile App Development | iOS & Android | NETREX",
-    "description": "iOS and Android apps built with Flutter, React Native or native code, from MVP to app store launch and ongoing support. Get a mobile app quote."
+    "title": "Mobile App Development Company | iOS & Android | NETREX",
+    "description": "iOS and Android app development in Flutter, React Native, Swift and Kotlin, from MVP to App Store launch, for startups and businesses worldwide."
   },
   "/services/ui-ux-design": {
-    "title": "UI/UX Design Agency | Web & App Design | NETREX",
-    "description": "User research, wireframes, prototypes and UI design for websites and apps. Interfaces that are easy to use and built to convert. Book a UI/UX review."
+    "title": "UI/UX Design Agency | Website & App Design | NETREX",
+    "description": "UI/UX design for websites, SaaS and mobile apps: research, wireframes, Figma prototypes and design systems that make products easy to use."
   },
   "/services/digital-marketing": {
-    "title": "Digital Marketing Agency | SEO, PPC & Social | NETREX",
-    "description": "SEO, Google Ads, social media, email and content marketing run by one team with clear monthly reporting. Grow leads and sales with NETREX."
+    "title": "Digital Marketing Agency | Google Ads, SEO & Social | NETREX",
+    "description": "Google Ads, SEO, social media and email marketing managed by one team, with monthly reporting tied to leads and sales. Campaigns in any market."
   },
   "/services/branding": {
-    "title": "Branding Agency | Logo & Brand Identity | NETREX",
-    "description": "Logo design, brand identity, guidelines and messaging for startups and growing companies. Build a brand people remember and trust."
+    "title": "Branding Agency | Logo & Brand Identity Design | NETREX",
+    "description": "Logo design, brand identity and brand guidelines for startups and growing companies in the USA, UAE, UK, Canada, Australia and Europe."
+  },
+  "/services/wix-website-design": {
+    "title": "Wix Website Design Agency | Wix Legend Partner | NETREX",
+    "description": `Custom Wix and Wix Studio websites, stores and booking sites by a Wix Legend Partner. ${FIVE_STAR_REVIEWS} five-star client reviews. Get a free Wix quote.`
   },
   "/services/ecommerce": {
-    "title": "E-commerce Development | Shopify & Custom | NETREX",
-    "description": "Shopify, WooCommerce and custom online stores with fast checkout, payments, product feeds and SEO built in. Launch or rebuild your store with NETREX."
+    "title": "Ecommerce Website Development | Shopify & Wix | NETREX",
+    "description": "Shopify, Wix and WooCommerce stores with multi-currency checkout, shipping and tax set up for the USA, UK, EU, UAE, Canada and Australia."
   },
   "/services/ai-automation": {
-    "title": "AI Agents & Business Automation Services | NETREX",
-    "description": "Custom AI agents, chatbots and workflow automation built on OpenAI, Anthropic and Google models. Cut manual work and reply to customers faster."
+    "title": "AI Automation Agency | AI Agents & Chatbots | NETREX",
+    "description": "Custom AI agents, chatbots and workflow automation on OpenAI, Anthropic and Google models. Start with a 2 to 4 week pilot on one process."
   },
   "/services/geo": {
     "title": "GEO Agency: Generative Engine Optimization | NETREX",

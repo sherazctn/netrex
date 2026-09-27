@@ -46,8 +46,8 @@ const videoTestimonials = [
 // Verifiable figures only: projects from NETREX, rating data from the Fiverr gig.
 const stats = [
   { value: 3000, suffix: "+", label: "Projects Delivered" },
-  { value: fiverrData.rating, suffix: "", label: "Average Fiverr Rating" },
-  { value: fiverrData.reviewCount, suffix: "", label: "Verified Fiverr Reviews" },
+  { value: fiverrData.breakdown["5"] ?? 0, suffix: "", label: "Five-Star Fiverr Reviews" },
+  { value: new Date().getFullYear() - 2016, suffix: "", label: "Years in Business" },
   {
     value: Math.round(((fiverrData.breakdown["5"] ?? 0) / fiverrData.reviewCount) * 100),
     suffix: "%",
@@ -94,14 +94,15 @@ const Testimonials = () => {
               className="grid gap-8 rounded-3xl border border-border bg-card p-8 md:grid-cols-[auto_1fr] md:p-10"
             >
               <div className="flex flex-col items-center justify-center border-b border-border pb-6 text-center md:border-b-0 md:border-r md:pb-0 md:pr-10">
-                <div className="font-display text-5xl font-bold text-primary">{fiverrData.rating}</div>
+                <div className="font-display text-5xl font-bold text-primary">{fiverrData.breakdown["5"]}</div>
+                <div className="mt-1 text-sm font-semibold">five-star reviews</div>
                 <div className="mb-1 mt-2 flex gap-1">
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} className="h-4 w-4 fill-primary text-primary" />
                   ))}
                 </div>
                 <div className="text-sm text-muted-foreground">
-                  Based on{" "}
+                  Out of{" "}
                   <a href={fiverrData.gigUrl} target="_blank" rel="noopener noreferrer" className="font-medium text-foreground hover:text-primary">
                     {fiverrData.reviewCount} verified Fiverr reviews
                   </a>

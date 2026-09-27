@@ -218,15 +218,15 @@ export function Hero() {
           }} transition={{
             duration: 0.6,
             delay: 0.1
-          }} className="font-display text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold leading-[1.1] mb-6">
+          }} className="font-display text-3xl sm:text-4xl lg:text-[2.5rem] xl:text-5xl font-bold leading-[1.15] mb-6 [text-wrap:balance]">
               {t('hero.title.where')}{" "}
-              <span className="text-transparent" style={{
+              <span className="text-transparent lg:block" style={{
               WebkitTextStroke: '2px hsl(359 85% 53%)',
               WebkitTextFillColor: 'transparent'
             }}>
                 {t('hero.title.innovation')}
-              </span>
-              <br />
+              </span>{" "}
+              <br className="lg:hidden" />
               {t('hero.title.meets')}
             </motion.h1>
 

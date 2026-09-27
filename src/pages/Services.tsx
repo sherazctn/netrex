@@ -5,16 +5,23 @@ import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import { SEO } from "@/components/SEO";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ArrowRight, Globe, Smartphone, Palette, Megaphone, Package, Sparkles, Brain, Cloud, Server, Boxes, BarChart3 } from "lucide-react";
+import { ArrowRight, Layout, Globe, Smartphone, Palette, Megaphone, Package, Sparkles, Brain, Cloud, Server, Boxes, BarChart3 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const services = [
   {
     slug: "web-development",
-    title: "Web Development",
-    description: "Custom websites and web applications that drive results and deliver exceptional user experiences.",
+    title: "Web Design & Development",
+    description: "Custom website design and development in React, Next.js, WordPress and Webflow, built to load fast and convert.",
     icon: Globe,
     color: "from-blue-500 to-cyan-500",
+  },
+  {
+    slug: "wix-website-design",
+    title: "Wix Website Design",
+    description: "Custom Wix and Wix Studio websites, online stores and booking sites designed by a Wix Legend Partner.",
+    icon: Layout,
+    color: "from-sky-500 to-blue-600",
   },
   {
     slug: "mobile-app",
@@ -108,9 +115,9 @@ const Services = () => {
         {/* Hero Section */}
         <PageHero
           badge="Our Services"
-          title="End-to-End Digital"
+          title="Web, App & AI"
           highlight="Solutions"
-          description="From concept to launch, we provide comprehensive digital services that help businesses innovate, grow, and succeed in the digital age."
+          description="Web design and development, Wix and Shopify stores, mobile apps, branding, digital marketing and AI automation, delivered for businesses in the USA, UAE, UK, Canada, Australia and Europe since 2016."
         />
 
 

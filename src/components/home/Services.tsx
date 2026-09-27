@@ -8,7 +8,7 @@ import {
   Layers,
   ShoppingCart,
   Bot,
-  Search,
+  Layout,
   Cloud,
   ArrowUpRight
 } from "lucide-react";
@@ -16,13 +16,13 @@ import { useLanguage } from "@/contexts/LanguageContext";
 
 const services = [
   { icon: Globe, titleKey: "services.web", descKey: "services.web.desc", href: "/services/web-development" },
+  { icon: Layout, titleKey: "services.wix", descKey: "services.wix.desc", href: "/services/wix-website-design" },
   { icon: Smartphone, titleKey: "services.mobile", descKey: "services.mobile.desc", href: "/services/mobile-app" },
   { icon: Palette, titleKey: "services.uiux", descKey: "services.uiux.desc", href: "/services/ui-ux-design" },
   { icon: Megaphone, titleKey: "services.marketing", descKey: "services.marketing.desc", href: "/services/digital-marketing" },
   { icon: Layers, titleKey: "services.branding", descKey: "services.branding.desc", href: "/services/branding" },
   { icon: ShoppingCart, titleKey: "services.ecommerce", descKey: "services.ecommerce.desc", href: "/services/ecommerce" },
   { icon: Bot, titleKey: "services.ai", descKey: "services.ai.desc", href: "/services/ai-automation" },
-  { icon: Search, titleKey: "services.geo", descKey: "services.geo.desc", href: "/services/geo" },
   { icon: Cloud, titleKey: "services.cloud", descKey: "services.cloud.desc", href: "/services/cloud-solutions" },
 ];
 
