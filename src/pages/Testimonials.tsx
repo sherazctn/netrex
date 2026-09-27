@@ -1,92 +1,14 @@
-import { useMemo, useState } from "react";
 import { Header } from "@/components/layout/Header";
 import { PageHero } from "@/components/layout/PageHero";
 import { SEO } from "@/components/SEO";
 import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight, Star, Play, Quote } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { CountUpNumber } from "@/components/ui/CountUpNumber";
-
-const categories = ["All", "Web Development", "Mobile Apps", "AI & Automation", "Branding & Marketing"] as const;
-
-// Sample testimonials - these would be managed from admin dashboard
-const textTestimonials = [
-  {
-    id: 1,
-    clientName: "Ahmed Al Rashid",
-    companyName: "Gulf Properties",
-    companyLogo: "GP",
-    country: "🇦🇪",
-    countryName: "UAE",
-    category: "Web Development",
-    rating: 5,
-    text: "NETREX transformed our real estate platform completely. The new website has increased our lead generation by 300%. Their team understood our vision perfectly and delivered beyond expectations.",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop",
-  },
-  {
-    id: 2,
-    clientName: "Sarah Mitchell",
-    companyName: "TechStart Inc",
-    companyLogo: "TS",
-    country: "🇺🇸",
-    countryName: "USA",
-    category: "Web Development",
-    rating: 5,
-    text: "Working with NETREX was a game-changer for our startup. They built our MVP in record time and helped us secure our Series A funding. Highly recommended for any tech company.",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop",
-  },
-  {
-    id: 3,
-    clientName: "James Chen",
-    companyName: "Pacific Foods",
-    companyLogo: "PF",
-    country: "🇦🇺",
-    countryName: "Australia",
-    category: "Mobile Apps",
-    rating: 5,
-    text: "The food delivery app NETREX built for us has been downloaded over 500K times. Their expertise in mobile development is unmatched. Great communication throughout the project.",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop",
-  },
-  {
-    id: 4,
-    clientName: "Emma Thompson",
-    companyName: "London Finance",
-    companyLogo: "LF",
-    country: "🇬🇧",
-    countryName: "UK",
-    category: "Web Development",
-    rating: 5,
-    text: "Security was our top priority, and NETREX delivered a banking portal that exceeded all compliance requirements. Their attention to detail is remarkable.",
-    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop",
-  },
-  {
-    id: 5,
-    clientName: "Michael Schmidt",
-    companyName: "Berlin Tech AG",
-    companyLogo: "BT",
-    country: "🇩🇪",
-    countryName: "Germany",
-    category: "AI & Automation",
-    rating: 5,
-    text: "NETREX's AI integration has automated 70% of our customer support. The chatbot they built handles thousands of queries daily with remarkable accuracy.",
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop",
-  },
-  {
-    id: 6,
-    clientName: "Fatima Hassan",
-    companyName: "Gulf Healthcare",
-    companyLogo: "GH",
-    country: "🇸🇦",
-    countryName: "Saudi Arabia",
-    category: "AI & Automation",
-    rating: 5,
-    text: "Our patient management system is now completely digital thanks to NETREX. They handled the complexity of healthcare data with expertise and care.",
-    image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop",
-  },
-];
+import { FiverrReviews, fiverrData } from "@/components/reviews/FiverrReviews";
 
 const videoTestimonials = [
   {
@@ -121,20 +43,24 @@ const videoTestimonials = [
   },
 ];
 
+// Verifiable figures only: projects from NETREX, rating data from the Fiverr gig.
 const stats = [
-  { value: 500, suffix: "+", label: "Happy Clients" },
-  { value: 4.9, suffix: "", label: "Average Rating" },
-  { value: 98, suffix: "%", label: "Client Satisfaction" },
-  { value: 50, suffix: "+", label: "Countries Served" },
+  { value: 3000, suffix: "+", label: "Projects Delivered" },
+  { value: fiverrData.rating, suffix: "", label: "Average Fiverr Rating" },
+  { value: fiverrData.reviewCount, suffix: "", label: "Verified Fiverr Reviews" },
+  {
+    value: Math.round(((fiverrData.breakdown["5"] ?? 0) / fiverrData.reviewCount) * 100),
+    suffix: "%",
+    label: "Five-Star Reviews",
+  },
 ];
 
-const ratingBreakdown = [
-  { stars: 5, pct: 92 },
-  { stars: 4, pct: 6 },
-  { stars: 3, pct: 1 },
-  { stars: 2, pct: 1 },
-  { stars: 1, pct: 0 },
-];
+// Real rating breakdown from the NETREX Fiverr gig (src/data/fiverrReviews.json).
+const ratingBreakdown = [5, 4, 3, 2, 1].map((stars) => ({
+  stars,
+  count: fiverrData.breakdown[String(stars)] ?? 0,
+  pct: Math.round(((fiverrData.breakdown[String(stars)] ?? 0) / fiverrData.reviewCount) * 100),
+}));
 
 const fadeUp = {
   initial: { opacity: 0, y: 24 },
@@ -143,13 +69,6 @@ const fadeUp = {
 };
 
 const Testimonials = () => {
-  const [activeCategory, setActiveCategory] = useState<(typeof categories)[number]>("All");
-
-  const filteredTestimonials = useMemo(() => {
-    if (activeCategory === "All") return textTestimonials;
-    return textTestimonials.filter((t) => t.category === activeCategory);
-  }, [activeCategory]);
-
   return (
     <div className="min-h-screen bg-background">
       <SEO
@@ -175,13 +94,18 @@ const Testimonials = () => {
               className="grid gap-8 rounded-3xl border border-border bg-card p-8 md:grid-cols-[auto_1fr] md:p-10"
             >
               <div className="flex flex-col items-center justify-center border-b border-border pb-6 text-center md:border-b-0 md:border-r md:pb-0 md:pr-10">
-                <div className="font-display text-5xl font-bold text-primary">4.9</div>
+                <div className="font-display text-5xl font-bold text-primary">{fiverrData.rating}</div>
                 <div className="mb-1 mt-2 flex gap-1">
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} className="h-4 w-4 fill-primary text-primary" />
                   ))}
                 </div>
-                <div className="text-sm text-muted-foreground">Based on 500+ client reviews</div>
+                <div className="text-sm text-muted-foreground">
+                  Based on{" "}
+                  <a href={fiverrData.gigUrl} target="_blank" rel="noopener noreferrer" className="font-medium text-foreground hover:text-primary">
+                    {fiverrData.reviewCount} verified Fiverr reviews
+                  </a>
+                </div>
               </div>
               <div className="flex flex-col justify-center gap-2">
                 {ratingBreakdown.map((row) => (
@@ -193,7 +117,7 @@ const Testimonials = () => {
                         style={{ width: `${row.pct}%` }}
                       />
                     </div>
-                    <span className="w-10 text-right text-sm text-muted-foreground">{row.pct}%</span>
+                    <span className="w-12 text-right text-sm text-muted-foreground tabular-nums">{row.count}</span>
                   </div>
                 ))}
               </div>
@@ -237,87 +161,23 @@ const Testimonials = () => {
                 Client <span className="text-primary">Reviews</span>
               </h2>
               <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
-                Real feedback from real clients around the world.
+                The latest 5-star reviews from verified NETREX clients on Fiverr, updated every month.
               </p>
             </motion.div>
 
-            {/* Category filters */}
-            <div className="mb-10 flex flex-wrap justify-center gap-2">
-              {categories.map((cat) => (
-                <button
-                  key={cat}
-                  onClick={() => setActiveCategory(cat)}
-                  className={`rounded-full border px-4 py-2 text-sm font-medium transition-colors ${
-                    activeCategory === cat
-                      ? "border-primary bg-primary text-primary-foreground"
-                      : "border-border bg-card text-foreground/70 hover:border-primary/40 hover:text-foreground"
-                  }`}
-                >
-                  {cat}
-                </button>
-              ))}
-            </div>
+            <FiverrReviews />
 
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={activeCategory}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.3 }}
-                className="grid gap-6 md:grid-cols-2 lg:grid-cols-3"
+            <div className="mt-10 text-center">
+              <a
+                href={fiverrData.profileUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full border border-border px-5 py-2.5 text-sm font-semibold hover:border-primary hover:text-primary"
               >
-                {filteredTestimonials.map((testimonial, index) => (
-                  <motion.div
-                    key={testimonial.id}
-                    initial={{ opacity: 0, y: 24 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.4, delay: index * 0.06 }}
-                    className="rounded-3xl border border-border bg-card p-6 transition-shadow hover:shadow-lg"
-                  >
-                    <div className="mb-4 flex items-start justify-between">
-                      <div className="flex items-center gap-3">
-                        <img
-                          src={testimonial.image}
-                          alt={testimonial.clientName}
-                          className="h-12 w-12 rounded-full object-cover"
-                        />
-                        <div>
-                          <div className="font-semibold">{testimonial.clientName}</div>
-                          <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                            <span className="flex h-6 w-6 items-center justify-center rounded-full bg-primary/10 text-xs">
-                              {testimonial.companyLogo}
-                            </span>
-                            {testimonial.companyName}
-                          </div>
-                        </div>
-                      </div>
-                      <span className="text-2xl">{testimonial.country}</span>
-                    </div>
-
-                    <div className="mb-4 flex gap-1">
-                      {[...Array(testimonial.rating)].map((_, i) => (
-                        <Star key={i} className="h-4 w-4 fill-primary text-primary" />
-                      ))}
-                    </div>
-
-                    <div className="relative">
-                      <Quote className="absolute -left-2 -top-2 h-8 w-8 text-primary/10" />
-                      <p className="relative z-10 text-muted-foreground">"{testimonial.text}"</p>
-                    </div>
-
-                    <div className="mt-4 flex items-center justify-between border-t border-border pt-4">
-                      <span className="text-xs text-muted-foreground">
-                        Project from {testimonial.countryName}
-                      </span>
-                      <span className="rounded-full bg-secondary px-2.5 py-1 text-xs font-medium text-foreground/70">
-                        {testimonial.category}
-                      </span>
-                    </div>
-                  </motion.div>
-                ))}
-              </motion.div>
-            </AnimatePresence>
+                Read all {fiverrData.reviewCount} reviews on Fiverr
+                <ArrowRight className="h-4 w-4" />
+              </a>
+            </div>
           </div>
         </section>
 
