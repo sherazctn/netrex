@@ -30,7 +30,7 @@ const fadeUp = {
 const stats = [
   { value: 7000, suffix: "+", label: "Projects Delivered" },
   { value: 3000, suffix: "+", label: "Global Clients" },
-  { value: 7, suffix: "", label: "Countries with Offices" },
+  { value: 6, suffix: "", label: "Countries with Offices" },
   { value: 10, suffix: "", label: "Years Since 2016" },
 ];
 
@@ -51,7 +51,7 @@ const operatingPrinciples = [
     icon: Globe2,
     title: "Global Impact, Local Expertise",
     description:
-      "With a Dubai HQ, offices in 7 countries and teams fluent in local markets, we combine global best practices with regional insight for every engagement.",
+      "With a Dubai HQ, offices in 6 countries and teams fluent in local markets, we combine global best practices with regional insight for every engagement.",
   },
   {
     icon: Shield,

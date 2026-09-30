@@ -147,7 +147,7 @@ const Leadership = () => {
                 The people behind <span className="text-primary">NETREX</span>
               </h2>
               <p className="mx-auto max-w-2xl text-muted-foreground">
-                Headquartered in Dubai, with sales and operations teams in Pakistan, the UK, the USA, Canada, Australia and Germany.
+                Headquartered in Dubai, with sales and operations teams in Pakistan, the UK, the USA, Canada and Germany, and partners in Australia, Saudi Arabia and Singapore.
               </p>
             </motion.div>
             <div className="mb-10 flex flex-wrap justify-center gap-2" role="tablist" aria-label="Departments">

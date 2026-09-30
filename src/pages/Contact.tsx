@@ -44,7 +44,7 @@ const contactSchema = {
         "addressRegion": "NY",
         "addressCountry": "US",
       },
-      "telephone": "+1-518-555-0123",
+      "telephone": "+971-50-200-8313",
       "email": "usa@netrexinc.com",
       "openingHours": "Mo-Fr 09:00-17:00",
     },
@@ -57,7 +57,7 @@ const contactSchema = {
         "addressLocality": "London",
         "addressCountry": "GB",
       },
-      "telephone": "+44-20-7946-0958",
+      "telephone": "+44-7898-128743",
       "email": "uk@netrexinc.com",
       "openingHours": "Mo-Fr 09:00-17:00",
     },
@@ -70,7 +70,7 @@ const contactSchema = {
         "addressLocality": "Berlin",
         "addressCountry": "DE",
       },
-      "telephone": "+49-30-1234-5678",
+      "telephone": "+971-50-200-8313",
       "email": "de@netrexinc.com",
       "openingHours": "Mo-Fr 09:00-17:00",
     },
@@ -84,21 +84,8 @@ const contactSchema = {
         "addressRegion": "BC",
         "addressCountry": "CA",
       },
-      "telephone": "+1-604-555-0189",
+      "telephone": "+971-50-200-8313",
       "email": "ca@netrexinc.com",
-      "openingHours": "Mo-Fr 09:00-17:00",
-    },
-    {
-      "@type": "LocalBusiness",
-      "name": "NETREX INC - Melbourne",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "19 Bank Pl, Melbourne VIC 3000",
-        "addressLocality": "Melbourne",
-        "addressCountry": "AU",
-      },
-      "telephone": "+61-3-9000-0000",
-      "email": "au@netrexinc.com",
       "openingHours": "Mo-Fr 09:00-17:00",
     },
     {
@@ -110,7 +97,7 @@ const contactSchema = {
         "addressLocality": "Lahore",
         "addressCountry": "PK",
       },
-      "telephone": "+92-42-3000-0000",
+      "telephone": "+92-335-6769000",
       "email": "pk@netrexinc.com",
       "openingHours": "Mo-Fr 09:00-18:00",
     },
@@ -122,7 +109,7 @@ const Contact = () => {
     <div className="min-h-screen bg-background">
       <SEO
         title="Contact NETREX Inc | Get a Free Project Quote"
-        description="Talk to NETREX Inc about web development, mobile apps, AI automation, branding and digital marketing. Offices in Dubai, New York, London, Berlin, Vancouver, Melbourne, Singapore, Riyadh and Lahore."
+        description="Talk to NETREX Inc about web development, mobile apps, AI automation, branding and digital marketing. Dubai HQ with offices in New York, London, Berlin, Vancouver and Lahore, and partners in Australia, Singapore and Saudi Arabia."
         canonical="https://www.netrexinc.com/contact"
         schema={contactSchema}
       />

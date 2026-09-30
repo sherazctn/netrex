@@ -13,7 +13,7 @@ const faqs = [
   { q: "How long does a project take?", a: "A standard website takes 2-4 weeks, a complex web application 6-12 weeks, and a mobile app 8-16 weeks. We always provide realistic timelines during the proposal stage." },
   { q: "Do you offer ongoing support?", a: "Yes! We offer maintenance and support packages including bug fixes, security updates, performance monitoring, content updates, and feature enhancements." },
   { q: "Which technologies do you work with?", a: "We work with React, Next.js, Vue, Angular, Node.js, Laravel, WordPress, Wix, Shopify, Flutter, React Native, AWS, Google Cloud, and more." },
-  { q: "Do you work with international clients?", a: "Absolutely! We have offices in Dubai, New York, London, Vancouver, Brisbane, and Lahore. We work with clients across 20+ countries in all time zones." },
+  { q: "Do you work with international clients?", a: "Absolutely! We are headquartered in Dubai with offices in New York, London, Berlin, Vancouver and Lahore, and partners in Australia, Saudi Arabia and Singapore. We work with clients across 20+ countries in all time zones." },
   { q: "What is your development process?", a: "Our process follows: Discovery → Design → Development → Testing → Launch → Support. We use agile methodology with regular updates and client reviews at every stage." },
   { q: "Can I see examples of your work?", a: "Yes! Visit our Portfolio page to browse 30+ completed projects across various industries including real estate, fintech, healthcare, e-commerce, and more." },
 ];

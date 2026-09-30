@@ -52,7 +52,7 @@ const CSR = () => {
           badge="CSR & Sustainability"
           title="Responsible Growth,"
           highlight="Global Impact"
-          description="As a global digital agency with a Dubai HQ and offices in 7 countries, we hold ourselves to stated commitments on diversity, community investment, environmental responsibility and ethical business practice."
+          description="As a global digital agency with a Dubai HQ and offices in 6 countries, we hold ourselves to stated commitments on diversity, community investment, environmental responsibility and ethical business practice."
         >
           <div className="flex flex-wrap justify-center gap-4">
             <Link to="/careers">

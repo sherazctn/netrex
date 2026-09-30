@@ -32,7 +32,7 @@ const countries = [
   { code: "us", name: "USA", flag: "🇺🇸", address: "418 Broadway STE N, New York 12207, USA" },
   { code: "uk", name: "United Kingdom", flag: "🇬🇧", address: "71-75 Shelton Street, Covent Garden, London, UK" },
   { code: "ca", name: "Canada", flag: "🇨🇦", address: "1575 West Georgia Street, Vancouver, BC, Canada" },
-  { code: "au", name: "Australia", flag: "🇦🇺", address: "240 Queen St, Brisbane City QLD 4000, Australia" },
+  { code: "au", name: "Australia (Partner)", flag: "🇦🇺", address: "19 Bank Pl, Melbourne VIC 3000, Australia" },
   { code: "pk", name: "Pakistan", flag: "🇵🇰", address: "21, J3 Johar Town, Lahore, Punjab, Pakistan" },
 ];
 

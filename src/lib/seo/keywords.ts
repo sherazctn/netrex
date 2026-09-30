@@ -21,7 +21,7 @@ export const LOCALE_SEO: Record<Language, LocaleSEO> = {
     hreflang: "en",
     homeTitle: "NETREX Inc | Digital Marketing & Web Development Agency",
     homeDescription:
-      "Global digital agency for web development, mobile apps, AI automation, branding, e-commerce, SEO & GEO. Offices in Dubai, New York, London, Vancouver, Melbourne & Singapore.",
+      "Global digital agency for web development, mobile apps, AI automation, branding, e-commerce, SEO & GEO. Offices in Dubai, New York, London, Berlin, Vancouver & Lahore.",
     keywords: [
       "digital agency Dubai",
       "web development company UAE",

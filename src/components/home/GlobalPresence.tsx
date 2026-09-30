@@ -45,36 +45,39 @@ const locations = [
     isHQ: false,
   },
   {
-    country: "Australia",
-    city: "Melbourne",
-    flag: "🇦🇺",
-    address: "19 Bank Pl, Melbourne VIC 3000",
-    timezone: "GMT+10",
-    isHQ: false,
-  },
-  {
-    country: "Singapore",
-    city: "Singapore (Partner)",
-    flag: "🇸🇬",
-    address: "Level 39, Marina Bay Financial Centre, Tower 2",
-    timezone: "GMT+8",
-    isHQ: false,
-  },
-  {
-    country: "Saudi Arabia",
-    city: "Riyadh (Partner)",
-    flag: "🇸🇦",
-    address: "22 King Abdullah Rd, Riyadh 12211",
-    timezone: "GMT+3",
-    isHQ: false,
-  },
-  {
     country: "Pakistan",
     city: "Lahore",
     flag: "🇵🇰",
     address: "21, J3 Block, Phase 2, Johar Town, Lahore",
     timezone: "GMT+5",
     isHQ: false,
+  },
+  {
+    country: "Australia",
+    city: "Melbourne",
+    flag: "🇦🇺",
+    address: "19 Bank Pl, Melbourne VIC 3000",
+    timezone: "GMT+10",
+    isHQ: false,
+    isPartner: true,
+  },
+  {
+    country: "Singapore",
+    city: "Singapore",
+    flag: "🇸🇬",
+    address: "Level 39, Marina Bay Financial Centre, Tower 2",
+    timezone: "GMT+8",
+    isHQ: false,
+    isPartner: true,
+  },
+  {
+    country: "Saudi Arabia",
+    city: "Riyadh",
+    flag: "🇸🇦",
+    address: "22 King Abdullah Rd, Riyadh 12211",
+    timezone: "GMT+3",
+    isHQ: false,
+    isPartner: true,
   },
 ];
 
@@ -97,7 +100,7 @@ export function GlobalPresence() {
               <span className="text-gradient">Worldwide</span>
             </h2>
             <p className="text-lg text-background/70 mb-8">
-              With our Dubai HQ, offices in 7 countries and partners in Saudi Arabia and Singapore, we're always close to you. 
+              With our Dubai HQ, offices in 6 countries and partners in Australia, Saudi Arabia and Singapore, we're always close to you. 
               Our global presence enables us to serve clients 24/7 and understand local markets.
             </p>
             <Link to="/contact">
@@ -130,8 +133,13 @@ export function GlobalPresence() {
                 <div className="flex items-start gap-3">
                   <span className="text-2xl">{location.flag}</span>
                   <div>
-                    <h3 className="font-display font-bold text-sm text-background">
+                    <h3 className="flex items-center font-display font-bold text-sm text-background">
                       {location.city}
+                      {"isPartner" in location && location.isPartner && (
+                        <span className="ml-1.5 rounded-full bg-background/15 px-1.5 py-0.5 text-[9px] font-semibold uppercase tracking-wide text-background/80">
+                          Partner
+                        </span>
+                      )}
                     </h3>
                     <div className="flex items-start gap-1 text-xs text-background/70 mt-1">
                       <MapPin className="h-3 w-3 mt-0.5 flex-shrink-0" />

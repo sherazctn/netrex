@@ -14,7 +14,7 @@ const offices = [
   { city: "London, UK", note: "Sales & Operations", flag: "🇬🇧" },
   { city: "Berlin, Germany", note: "Sales & Operations", flag: "🇩🇪" },
   { city: "Vancouver, Canada", note: "Sales & Operations", flag: "🇨🇦" },
-  { city: "Melbourne, Australia", note: "Sales & Operations", flag: "🇦🇺" },
+  { city: "Melbourne, Australia", note: "Partner", flag: "🇦🇺" },
   { city: "Singapore", note: "Partner (since 2022)", flag: "🇸🇬" },
   { city: "Riyadh, Saudi Arabia", note: "Partner (since 2022)", flag: "🇸🇦" },
   { city: "Lahore, Pakistan", note: "Sales & Operations, Engineering", flag: "🇵🇰" },
@@ -37,7 +37,7 @@ const factSheet = [
   { label: "Headquarters", value: "Office 523, Block-C, Building 9W, Dubai Airport Free Zone, Dubai, UAE" },
   { label: "Entity Type", value: "Global Digital Agency, Free Zone Establishment" },
   { label: "Employee Band", value: "50-200 employees" },
-  { label: "Offices", value: "Dubai HQ plus sales & operations offices in Pakistan, UK, USA, Canada, Australia and Germany" },
+  { label: "Offices", value: "Dubai HQ plus sales & operations offices in Pakistan, UK, USA, Canada and Germany; partners in Australia, Saudi Arabia and Singapore" },
   { label: "Partners", value: "Saudi Arabia, Singapore and other markets (since 2022)" },
   { label: "Clients Served", value: "3,000+ clients worldwide" },
   { label: "Projects Delivered", value: "7,000+ projects since 2016" },
@@ -100,7 +100,7 @@ const CompanyProfile = () => {
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
               {[
                 { end: 2016, suffix: "", label: "Founded" },
-                { end: 7, suffix: "", label: "Countries with Offices" },
+                { end: 6, suffix: "", label: "Countries with Offices" },
                 { end: 3000, suffix: "+", label: "Clients Served" },
                 { end: 7000, suffix: "+", label: "Projects Delivered" },
               ].map((s) => (

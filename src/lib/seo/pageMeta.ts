@@ -13,7 +13,7 @@ export const PAGE_META: Record<string, PageMeta> = {
   },
   "/about": {
     "title": "About NETREX Inc | Since 2016 (Formerly Crickle Studio)",
-    "description": "Founded in 2016 as Crickle Studio and renamed NETREX in 2019. Dubai HQ, offices in 7 countries, 7,000+ projects for 3,000+ clients."
+    "description": "Founded in 2016 as Crickle Studio and renamed NETREX in 2019. Dubai HQ, offices in 6 countries, 7,000+ projects for 3,000+ clients."
   },
   "/mission": {
     "title": "Our Mission | NETREX Inc",

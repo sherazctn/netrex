@@ -101,7 +101,7 @@ const About = () => {
     <div className="min-h-screen bg-background">
       <SEO
         title="About NETREX Inc | Global Digital Agency Since 2016"
-        description="Meet NETREX Inc: our story, mission, leadership and global team delivering web, mobile, AI and marketing solutions since 2016, from our Dubai HQ and offices in 7 countries."
+        description="Meet NETREX Inc: our story, mission, leadership and global team delivering web, mobile, AI and marketing solutions since 2016, from our Dubai HQ and offices in 6 countries."
         canonical="https://www.netrexinc.com/about"
       />
       <Header />
@@ -111,7 +111,7 @@ const About = () => {
           badge="About NETREX"
           title="Where Innovation"
           highlight="Meets Reality"
-          description="Founded in 2016 as Crickle Studio and relaunched as NETREX in 2019, we help businesses worldwide turn ideas into powerful digital products. Headquartered in Dubai, with sales and operations offices in Pakistan, the UK, the USA, Canada, Australia and Germany."
+          description="Founded in 2016 as Crickle Studio and relaunched as NETREX in 2019, we help businesses worldwide turn ideas into powerful digital products. Headquartered in Dubai, with sales and operations offices in Pakistan, the UK, the USA, Canada and Germany and partners in Australia, Saudi Arabia and Singapore."
         >
           <div className="flex flex-wrap justify-center gap-4">
             <Link to="/contact">
@@ -135,7 +135,7 @@ const About = () => {
               {[
                 { end: 7000, suffix: "+", label: "Projects" },
                 { end: 10, suffix: "", label: "Years" },
-                { end: 7, suffix: "", label: "Countries" },
+                { end: 6, suffix: "", label: "Countries" },
                 { end: 3000, suffix: "+", label: "Clients" },
               ].map((s) => (
                 <div key={s.label} className="p-6 rounded-3xl bg-card border border-border text-center">
@@ -244,7 +244,7 @@ const About = () => {
                 <div className="mt-10 grid grid-cols-3 divide-x divide-background/15 rounded-2xl border border-background/15 bg-background/5">
                   {[
                     { end: 3000, suffix: "+", label: "Clients Served" },
-                    { end: 7, suffix: "", label: "Countries with Offices" },
+                    { end: 6, suffix: "", label: "Countries with Offices" },
                     { end: 10, suffix: "", label: "Years Leading NETREX" },
                   ].map((stat) => (
                     <div key={stat.label} className="px-4 py-5 text-center md:px-6">
@@ -368,7 +368,7 @@ const About = () => {
                 <span className="text-gradient">Building</span>
               </h2>
               <p className="text-muted-foreground text-lg">
-                From Crickle Studio in 2016 to NETREX today, with a Dubai HQ and offices in 7 countries: the milestones that shaped us.
+                From Crickle Studio in 2016 to NETREX today, with a Dubai HQ and offices in 6 countries: the milestones that shaped us.
               </p>
             </motion.div>
 
@@ -376,7 +376,7 @@ const About = () => {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-4xl mx-auto mb-16">
               {[
                 { end: 2016, label: "Founded", suffix: "" },
-                { end: 7, label: "Countries with Offices", suffix: "" },
+                { end: 6, label: "Countries with Offices", suffix: "" },
                 { end: 7000, label: "Projects Shipped", suffix: "+" },
                 { end: 3000, label: "Clients Served", suffix: "+" },
               ].map((s) => (

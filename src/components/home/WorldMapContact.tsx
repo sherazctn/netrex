@@ -8,7 +8,14 @@ import { PhoneInput } from "@/components/ui/PhoneInput";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useToast } from "@/hooks/use-toast";
 
-const locations = [
+type Office = {
+  id: string; country: string; city: string; flag: string; address: string;
+  phone: string; phoneNote?: string; email: string; hours: string;
+  coords: { lat: number; lng: number }; isHQ: boolean; isPartner?: boolean;
+  dialCode: string; countryCode: string; mapsUrl: string;
+};
+
+const locations: Office[] = [
   {
     id: "ae", country: "UAE", city: "Dubai", flag: "🇦🇪",
     address: "Office 523, Block-C, Building 9W, Dubai Airport Free Zone",
@@ -21,7 +28,7 @@ const locations = [
   {
     id: "us", country: "USA", city: "New York", flag: "🇺🇸",
     address: "418 Broadway STE N, Albany, New York 12207",
-    phone: "+1 518 555 0123", email: "usa@netrexinc.com",
+    phone: "+971 50 200 8313", phoneNote: "Answered by our Dubai HQ", email: "usa@netrexinc.com",
     hours: "Mon - Fri: 9AM - 5PM",
     coords: { lat: 42.6526, lng: -73.7562 }, isHQ: false,
     dialCode: "+1", countryCode: "US",
@@ -30,7 +37,7 @@ const locations = [
   {
     id: "uk", country: "UK", city: "London", flag: "🇬🇧",
     address: "25 The Shard, 32 London Bridge St, London",
-    phone: "+44 20 7946 0958", email: "uk@netrexinc.com",
+    phone: "+44 7898 128743", email: "uk@netrexinc.com",
     hours: "Mon - Fri: 9AM - 5PM",
     coords: { lat: 51.5045, lng: -0.0865 }, isHQ: false,
     dialCode: "+44", countryCode: "GB",
@@ -39,56 +46,56 @@ const locations = [
   {
     id: "de", country: "Germany", city: "Berlin", flag: "🇩🇪",
     address: "Kurfürstendamm 14, 10719 Berlin",
-    phone: "+49 30 1234 5678", email: "de@netrexinc.com",
+    phone: "+971 50 200 8313", phoneNote: "Answered by our Dubai HQ", email: "de@netrexinc.com",
     hours: "Mon - Fri: 9AM - 5PM",
     coords: { lat: 52.5038, lng: 13.3286 }, isHQ: false,
     dialCode: "+49", countryCode: "DE",
-    mapsUrl: "https://www.google.com/maps/search/Netrex+UG+Berlin",
+    mapsUrl: "https://www.google.com/maps/search/Kurf%C3%BCrstendamm+14+10719+Berlin",
   },
   {
     id: "ca", country: "Canada", city: "Vancouver", flag: "🇨🇦",
     address: "70 Burrard St, Vancouver, BC",
-    phone: "+1 604 555 0189", email: "ca@netrexinc.com",
+    phone: "+971 50 200 8313", phoneNote: "Answered by our Dubai HQ", email: "ca@netrexinc.com",
     hours: "Mon - Fri: 9AM - 5PM",
     coords: { lat: 49.2849, lng: -123.1140 }, isHQ: false,
     dialCode: "+1", countryCode: "CA",
     mapsUrl: "https://www.google.com/maps/search/NETREX+Web+Design+Development+Mobile+Apps+Digital+Marketing+Agency+Vancouver+Canada",
   },
   {
-    id: "au", country: "Australia", city: "Melbourne", flag: "🇦🇺",
-    address: "19 Bank Pl, Melbourne VIC 3000",
-    phone: "+61 3 9000 0000", email: "au@netrexinc.com",
-    hours: "Mon - Fri: 9AM - 5PM",
-    coords: { lat: -37.8136, lng: 144.9631 }, isHQ: false,
-    dialCode: "+61", countryCode: "AU",
-    mapsUrl: "https://www.google.com/maps/search/Netrex+Pty+Ltd+Melbourne",
-  },
-  {
-    id: "sg", country: "Singapore", city: "Singapore (Partner)", flag: "🇸🇬",
-    address: "Level 39, Marina Bay Financial Centre, Tower 2",
-    phone: "+971 50 200 8313", email: "info@netrexinc.com",
-    hours: "Mon - Fri: 9AM - 6PM",
-    coords: { lat: 1.2789, lng: 103.8536 }, isHQ: false,
-    dialCode: "+65", countryCode: "SG",
-    mapsUrl: "https://www.google.com/maps/search/Netrex+Pte+Ltd+Singapore",
-  },
-  {
-    id: "sa", country: "Saudi Arabia", city: "Riyadh (Partner)", flag: "🇸🇦",
-    address: "22 King Abdullah Rd, Riyadh 12211",
-    phone: "+971 50 200 8313", email: "info@netrexinc.com",
-    hours: "Sun - Thu: 9AM - 6PM",
-    coords: { lat: 24.7136, lng: 46.6753 }, isHQ: false,
-    dialCode: "+966", countryCode: "SA",
-    mapsUrl: "https://www.google.com/maps/search/Netrex+Est+Riyadh",
-  },
-  {
     id: "pk", country: "Pakistan", city: "Lahore", flag: "🇵🇰",
     address: "21, J3 Block, Phase 2, Johar Town, Lahore",
-    phone: "+92 42 3000 0000", email: "pk@netrexinc.com",
+    phone: "+92 335 6769000", email: "pk@netrexinc.com",
     hours: "Mon - Fri: 9AM - 6PM",
     coords: { lat: 31.4697, lng: 74.2728 }, isHQ: false,
     dialCode: "+92", countryCode: "PK",
     mapsUrl: "https://www.google.com/maps/search/NETREX+Web+Design+Development+Mobile+Apps+Digital+Marketing+Agency+Lahore+Pakistan",
+  },
+  {
+    id: "au", country: "Australia", city: "Melbourne", flag: "🇦🇺",
+    address: "19 Bank Pl, Melbourne VIC 3000",
+    phone: "+971 50 200 8313", phoneNote: "Answered by our Dubai HQ", email: "info@netrexinc.com",
+    hours: "Mon - Fri: 9AM - 5PM",
+    coords: { lat: -37.8136, lng: 144.9631 }, isHQ: false, isPartner: true,
+    dialCode: "+61", countryCode: "AU",
+    mapsUrl: "https://www.google.com/maps/search/19+Bank+Pl+Melbourne+VIC+3000",
+  },
+  {
+    id: "sg", country: "Singapore", city: "Singapore", flag: "🇸🇬",
+    address: "Level 39, Marina Bay Financial Centre, Tower 2",
+    phone: "+971 50 200 8313", phoneNote: "Answered by our Dubai HQ", email: "info@netrexinc.com",
+    hours: "Mon - Fri: 9AM - 6PM",
+    coords: { lat: 1.2789, lng: 103.8536 }, isHQ: false, isPartner: true,
+    dialCode: "+65", countryCode: "SG",
+    mapsUrl: "https://www.google.com/maps/search/Marina+Bay+Financial+Centre+Tower+2+Singapore",
+  },
+  {
+    id: "sa", country: "Saudi Arabia", city: "Riyadh", flag: "🇸🇦",
+    address: "22 King Abdullah Rd, Riyadh 12211",
+    phone: "+971 50 200 8313", phoneNote: "Answered by our Dubai HQ", email: "info@netrexinc.com",
+    hours: "Sun - Thu: 9AM - 6PM",
+    coords: { lat: 24.7136, lng: 46.6753 }, isHQ: false, isPartner: true,
+    dialCode: "+966", countryCode: "SA",
+    mapsUrl: "https://www.google.com/maps/search/King+Abdullah+Rd+Riyadh",
   },
 ];
 
@@ -240,6 +247,9 @@ export function WorldMapContact() {
                   {location.isHQ && (
                     <span className="ml-2 px-2 py-0.5 text-[10px] bg-white/20 rounded-full">HQ</span>
                   )}
+                  {location.isPartner && (
+                    <span className="ml-2 px-2 py-0.5 text-[10px] bg-white/20 rounded-full">Partner</span>
+                  )}
                 </span>
               </motion.button>
             );
@@ -272,7 +282,7 @@ export function WorldMapContact() {
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title={`${activeLocation.city} Office Location`}
+                  title={`${activeLocation.city} ${activeLocation.isPartner ? "Partner" : "Office"} Location`}
                   className="grayscale hover:grayscale-0 transition-all duration-500"
                 />
                 
@@ -328,9 +338,12 @@ export function WorldMapContact() {
                   <div className="p-5 rounded-2xl bg-white/5 border border-white/10">
                     <Phone className="h-6 w-6 text-primary mb-3" />
                     <div className="text-sm text-white/60 mb-1">{t('contact.phone')}</div>
-                    <a href={`tel:${activeLocation.phone}`} className="font-semibold text-white hover:text-primary transition-colors text-sm">
+                    <a href={`tel:${activeLocation.phone.replace(/\s/g, "")}`} className="font-semibold text-white hover:text-primary transition-colors text-sm">
                       {activeLocation.phone}
                     </a>
+                    {activeLocation.phoneNote && (
+                      <div className="mt-1 text-xs text-white/50">{activeLocation.phoneNote}</div>
+                    )}
                   </div>
                   <div className="p-5 rounded-2xl bg-white/5 border border-white/10">
                     <Mail className="h-6 w-6 text-primary mb-3" />
