@@ -1,0 +1,33 @@
+{
+  "source": "Clutch",
+  "profileUrl": "https://clutch.co/profile/netrex",
+  "fetchedAt": "2026-09-30",
+  "rating": 5,
+  "reviewCount": 2,
+  "reviews": [
+    {
+      "id": "8e68dc4ad13a",
+      "user": "Raheel Ahmed",
+      "rating": 5,
+      "date": "2023-07-27",
+      "text": "We were pleased with their reasonable prices, timely delivery, and flawless work.",
+      "country": "United Arab Emirates",
+      "countryCode": "AE",
+      "role": "Creative Director, Kodachromatic",
+      "project": "Web Dev, Branding & SMM for Media Company",
+      "summary": "NETREX developed a website for a media company. The team also designed a logo and provided the client with branding and social media marketing services. Thanks to NETREX, the client witnessed a notable boost in revenue, profit margins, and ROI. They also decreased costs and met their customers' needs and expectations. NETREX successfully delivered the project ahead of schedule. Their helpful suggestions and friendly behavior were commendable."
+    },
+    {
+      "id": "572a40136724",
+      "user": "Gurpreet Singh Narota",
+      "rating": 5,
+      "date": "2023-07-27",
+      "text": "The time management and teamwork were impressive.",
+      "country": "United Arab Emirates",
+      "countryCode": "AE",
+      "role": "Marketing Manager, Hogar Properties",
+      "project": "Website Dev for Real Estate Brokerage Firm",
+      "summary": "NETREX designed and developed a website for a real estate brokerage firm. The site showcased the client's business and team members and had two sections for off-plan and secondary market properties. NETREX delivered a website that had the required properties, meeting expectations. The team demonstrated excellent planning and project management skills. Moreover, their communicative and collaborative approach impressed the client. Overall, they added a lot of value to the company."
+    }
+  ]
+}

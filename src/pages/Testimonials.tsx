@@ -8,7 +8,10 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Star, Play, Quote } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { CountUpNumber } from "@/components/ui/CountUpNumber";
-import { FiverrReviews, fiverrData } from "@/components/reviews/FiverrReviews";
+import { ReviewsGrid } from "@/components/reviews/ReviewsGrid";
+import { REVIEW_TOTALS } from "@/lib/reviews";
+
+const fiverrData = { breakdown: REVIEW_TOTALS.fiverr.breakdown, reviewCount: REVIEW_TOTALS.fiverr.count };
 
 const videoTestimonials = [
   {
@@ -102,10 +105,8 @@ const Testimonials = () => {
                   ))}
                 </div>
                 <div className="text-sm text-muted-foreground">
-                  Out of{" "}
-                  <a href={fiverrData.gigUrl} target="_blank" rel="noopener noreferrer" className="font-medium text-foreground hover:text-primary">
-                    {fiverrData.reviewCount} verified Fiverr reviews
-                  </a>
+                  Out of <span className="font-medium text-foreground">{fiverrData.reviewCount} verified Fiverr reviews</span>
+                  <div className="mt-1">Plus 5.0 on Google and 5.0 on Clutch</div>
                 </div>
               </div>
               <div className="flex flex-col justify-center gap-2">
@@ -162,23 +163,11 @@ const Testimonials = () => {
                 Client <span className="text-primary">Reviews</span>
               </h2>
               <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
-                The latest 5-star reviews from verified NETREX clients on Fiverr, updated every month.
+                The latest 5-star reviews from NETREX clients on Fiverr, Google and Clutch, updated every month.
               </p>
             </motion.div>
 
-            <FiverrReviews />
-
-            <div className="mt-10 text-center">
-              <a
-                href={fiverrData.profileUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-border px-5 py-2.5 text-sm font-semibold hover:border-primary hover:text-primary"
-              >
-                Read all {fiverrData.reviewCount} reviews on Fiverr
-                <ArrowRight className="h-4 w-4" />
-              </a>
-            </div>
+            <ReviewsGrid />
           </div>
         </section>
 

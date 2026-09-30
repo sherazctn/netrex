@@ -7,6 +7,7 @@ import { Portfolio } from "@/components/home/Portfolio";
 import { WhyNetrex } from "@/components/home/WhyNetrex";
 import { WorldMapContact } from "@/components/home/WorldMapContact";
 import { InstagramFeed } from "@/components/home/InstagramFeed";
+import { Testimonials } from "@/components/home/Testimonials";
 import { SEO } from "@/components/SEO";
 
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
@@ -27,6 +28,7 @@ const Index = () => {
         <Portfolio />
         
         <WhyNetrex />
+        <Testimonials />
         <InstagramFeed />
         <WorldMapContact />
       </main>

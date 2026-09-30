@@ -2,18 +2,27 @@
   "source": "Fiverr",
   "profileUrl": "https://www.fiverr.com/netrex_inc",
   "gigUrl": "https://www.fiverr.com/netrex_inc/design-wix-website-for-your-business-or-redesign-your-website",
-  "fetchedAt": "2026-09-27",
+  "fetchedAt": "2026-09-30",
   "rating": 4.9,
-  "reviewCount": 307,
+  "reviewCount": 313,
   "breakdown": {
-    "5": 294,
-    "4": 8,
-    "3": 3,
+    "1": 2,
     "2": 0,
-    "1": 2
+    "3": 3,
+    "4": 9,
+    "5": 299
   },
   "note": "Only 5-star reviews are shown. Updated monthly; new reviews are added by id and never duplicated.",
   "reviews": [
+    {
+      "id": "a90fc2d61666",
+      "user": "r00t3d4u",
+      "rating": 5,
+      "date": "2026-09-23",
+      "text": "Amazing to work with very quick with responses and work, and if you have any issues they fix it immediately no questions asked!",
+      "country": "United States",
+      "countryCode": "US"
+    },
     {
       "id": "4f5eac809ade",
       "user": "marikimura",
@@ -23,6 +32,33 @@
       "date": "2026-09-20",
       "repeatClient": true,
       "text": "The Netrex team was amazing! I admit that I am a perfectionist and probably hard to work with, but the team was very very patient with me and so supportive the whole time! They were always quick to say \"I want you to be happy with your website.\" and \"I am here to make any minor changes right away.\" These words gave me a sense of assurance, and I was able to trust them 100%! Thank you so much!"
+    },
+    {
+      "id": "965ca6df0014",
+      "user": "taniakazi257",
+      "rating": 5,
+      "date": "2026-09-16",
+      "text": "Working with Sherry was very easy. He is always available and ready to help. The whole process went very smoothly and though some parts of my work still remain, that is because I have to provide those details to him. On his end, he did a great job. I highly recommend.",
+      "country": "United States",
+      "countryCode": "US"
+    },
+    {
+      "id": "03c204c18653",
+      "user": "gidon_winters",
+      "rating": 5,
+      "date": "2026-09-16",
+      "text": "fast. high quality super responsive",
+      "country": "Japan",
+      "countryCode": "JP"
+    },
+    {
+      "id": "dfefa88dd784",
+      "user": "zoharc555",
+      "rating": 5,
+      "date": "2026-09-09",
+      "text": "Great job exactly what I need thanks",
+      "country": "Israel",
+      "countryCode": "IL"
     },
     {
       "id": "98fedb59476f",
@@ -43,6 +79,60 @@
       "date": "2026-09-06",
       "repeatClient": true,
       "text": "Outstanding. In my 49 years of corporate work, this is one of the best experiences. I would recommend your firm and team to anyone. I will have a long-term partnership with you. Special thanks to Flaz Tariq for his level of help and support. To the rest of the team, A BIG THANK YOU!!!"
+    },
+    {
+      "id": "fb6bf7adc6d5",
+      "user": "rosievideograph",
+      "rating": 5,
+      "date": "2026-08-31",
+      "text": "Amazing customer service from netrex. Highly knowledgeable and will 100% be using them again in the future for my website. THANK YOU!",
+      "country": "United Kingdom",
+      "countryCode": "GB"
+    },
+    {
+      "id": "ef1e89d22553",
+      "user": "hume_health_ltd",
+      "rating": 5,
+      "date": "2026-08-31",
+      "text": "I employed Shery to help improve the SEO and GEO on my website, as it hadn’t originally been built with either in mind. I’m not particularly technical, so I can’t comment on the technical side of the work or the results just yet, as it will take time to see whether it improves my Google rankings and search traffic. What I can say is that Shery was really easy to communicate with, professional and took the time to explain what he was doing and why. He was very helpful throughout the process and made something that felt quite overwhelming much easier to understand. I’m looking forward to seeing the results over the coming months and would recommend Shery",
+      "country": "United Kingdom",
+      "countryCode": "GB"
+    },
+    {
+      "id": "7e089020a3ae",
+      "user": "ammcdonald1",
+      "rating": 5,
+      "date": "2026-08-31",
+      "text": "Quick, efficient service with a clear understanding of my vision and a polished final result.",
+      "country": "United States",
+      "countryCode": "US"
+    },
+    {
+      "id": "49613b0da944",
+      "user": "joel_furnanz",
+      "rating": 5,
+      "date": "2026-08-31",
+      "text": "Great experience. Did a great job, communicated well throughout the process, and was very easy to work with. Everything turned out exactly as I was hoping. Highly recommend!",
+      "country": "United States",
+      "countryCode": "US"
+    },
+    {
+      "id": "9569cbea903e",
+      "user": "rob_fitzgerald",
+      "rating": 5,
+      "date": "2026-08-31",
+      "text": "The team was great, easy to work with, open to ideas, and patient in explaining things to me and waiting for feedback. I will definitely work with them again.",
+      "country": "United States",
+      "countryCode": "US"
+    },
+    {
+      "id": "7b61cae21ba7",
+      "user": "johnwilson137",
+      "rating": 5,
+      "date": "2026-08-31",
+      "text": "Everything was great!! These guys really knew what I was looking for, even before i did! They designed everything, made all the revisions until it was perfect!!",
+      "country": "United States",
+      "countryCode": "US"
     },
     {
       "id": "0275e510f7ef",
@@ -85,6 +175,42 @@
       "text": "This is one of my better experiences on this platform. Their first concept from the get go was already top notch. The team was accommodating with revisions, even the minor ones, and true to their word, they delivered exactly what we were looking for"
     },
     {
+      "id": "2976a24d7c3c",
+      "user": "vivianjw",
+      "rating": 5,
+      "date": "2026-08-01",
+      "text": "Highly recommend. Exceptional communication, prompt responsiveness and most of all the end result was amazing. Customer service and professional expertise was more than I expected.",
+      "country": "United States",
+      "countryCode": "US"
+    },
+    {
+      "id": "faa2f1f6bdfa",
+      "user": "salehali85",
+      "rating": 5,
+      "date": "2026-08-01",
+      "text": "I had a great experience working with this freelancer. They were very cooperative, paid close attention to details, and made sure the final result matched my expectations. Communication was smooth throughout the project, and they were professional and responsive. I appreciate the quality of the work and would definitely recommend them.",
+      "country": "United States",
+      "countryCode": "US"
+    },
+    {
+      "id": "a4789c3e4f9e",
+      "user": "patricktilley12",
+      "rating": 5,
+      "date": "2026-08-01",
+      "text": "Very efficient and high quality work! Communication was very quick also!",
+      "country": "United Kingdom",
+      "countryCode": "GB"
+    },
+    {
+      "id": "d2abd8cca95d",
+      "user": "cask23leicester",
+      "rating": 5,
+      "date": "2026-08-01",
+      "text": "Shery and team never disappoint us on project. We would highly recommend them.",
+      "country": "United Kingdom",
+      "countryCode": "GB"
+    },
+    {
       "id": "a163b8859106",
       "user": "dmilesp1",
       "country": "United States",
@@ -113,6 +239,71 @@
       "date": "2026-07-29",
       "repeatClient": false,
       "text": "I started the website thinking that I could do it myself - but no, and thankfully I did not spending more time on it myself! It looks no where as professional as the version Shery delivered. He is also very quick to respond the messages and was very supportive. Thank you for the help!"
+    },
+    {
+      "id": "74bad8bcdbfc",
+      "user": "adtc_38",
+      "rating": 5,
+      "date": "2026-07-02",
+      "text": "They were very responsive and polite. Handled things in a timely manner! Great job!",
+      "country": "United States",
+      "countryCode": "US"
+    },
+    {
+      "id": "3fa73c69d026",
+      "user": "obadolce",
+      "rating": 5,
+      "date": "2026-07-02",
+      "text": "excellent!!!",
+      "country": "United States",
+      "countryCode": "US",
+      "repeatClient": true
+    },
+    {
+      "id": "db970aeead8b",
+      "user": "ayshabell",
+      "rating": 5,
+      "date": "2026-07-02",
+      "text": "Thank you for working on our project quickly and efficiently, with the care and sensitivity that was needed. I will defiantly be asking for your support again",
+      "country": "United Kingdom",
+      "countryCode": "GB"
+    },
+    {
+      "id": "5f820ade64f4",
+      "user": "obadolce",
+      "rating": 5,
+      "date": "2026-07-02",
+      "text": "Pretty impressed. Great communication, great work!",
+      "country": "United States",
+      "countryCode": "US",
+      "repeatClient": true
+    },
+    {
+      "id": "7a4494631ba3",
+      "user": "fiverkaizer92",
+      "rating": 5,
+      "date": "2026-07-02",
+      "text": "We had an excellent experience working with them on redesigning our business website. From start to finish, communication was quick, clear, and responsive. They were very cooperative, listened to our vision, and went above and beyond to make sure everything looked professional and worked well. We are extremely happy with the final result and highly recommend their services to anyone looking for quality website design and great customer service!",
+      "country": "United States",
+      "countryCode": "US"
+    },
+    {
+      "id": "37640bc57ceb",
+      "user": "denisehammer167",
+      "rating": 5,
+      "date": "2026-07-02",
+      "text": "Vielen Dank für die Zusammenarbeit. Ich freue mich sehr auf alles was kommt und kann es nur weiterempfehlen. Die Arbeit hat meine Erwartungen übertroffen aber auch vollkommen auf den Nagel getroffen. Wir verstehen uns und meine Wünsche wurden erfüllt. Vielen Dank dafür.",
+      "country": "Austria",
+      "countryCode": "AT"
+    },
+    {
+      "id": "6c3379b0026e",
+      "user": "offthebrain",
+      "rating": 5,
+      "date": "2026-07-02",
+      "text": "Very very nice and accommodating. I have a busy schedule and they worked well with it. I appreciate all their hard work and I love the product.",
+      "country": "United States",
+      "countryCode": "US"
     }
   ]
 }

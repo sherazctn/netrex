@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { ChevronDown, ArrowRight, CheckCircle2, BookOpen } from "lucide-react";
 import { SERVICE_SEO } from "@/data/serviceSeo";
 import { TARGET_MARKETS, type ServiceSeo } from "@/data/serviceSeo";
-import { flagEmoji } from "@/components/reviews/FiverrReviews";
+import { flagEmoji } from "@/lib/reviews";
 
 /**
  * Crawlable service overview (ServiceOverview) and FAQs (ServiceFaq): keyword-led intro, the markets we serve, and FAQs.

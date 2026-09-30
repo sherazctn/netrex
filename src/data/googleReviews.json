@@ -1,0 +1,78 @@
+{
+  "source": "Google",
+  "placeUrl": "https://maps.google.com/?cid=15305962679756932765",
+  "profiles": [
+    {
+      "name": "NETREX Dubai",
+      "url": "https://maps.google.com/?cid=15305962679756932765",
+      "rating": 5,
+      "reviewCount": 6
+    },
+    {
+      "name": "NETREX London",
+      "url": "https://maps.google.com/?cid=9444006254696462356",
+      "rating": 5,
+      "reviewCount": 1
+    }
+  ],
+  "fetchedAt": "2026-09-30",
+  "reviews": [
+    {
+      "id": "7aa6c0da0f03",
+      "user": "MICKAEL BUCHER",
+      "rating": 5,
+      "date": "2026-07-02",
+      "text": "Excellent experience with this professional, very good work, simple, quick and efficient, top-notch website 👌 Thank you!!",
+      "location": "London",
+      "translatedFrom": "French"
+    },
+    {
+      "id": "5ae45826d82e",
+      "user": "babu Lal",
+      "rating": 5,
+      "date": "2024-09-01",
+      "text": "Good",
+      "location": "Dubai"
+    },
+    {
+      "id": "10180a9e57ed",
+      "user": "SAURABH",
+      "rating": 5,
+      "date": "2024-09-01",
+      "text": "Good",
+      "location": "Dubai"
+    },
+    {
+      "id": "48f3f62e3421",
+      "user": "Alisha Saeed",
+      "rating": 5,
+      "date": "2023-09-15",
+      "text": "Highly Recommended\nAmazing developer who knows almost everything about WordPress and elementor. The services offered were up to the mark. He carefully listened to my needs and implemented them perfectly.\nNo flaws at all. I highly recommend them to anyone who wants a fantastic, professional experience.",
+      "location": "Dubai"
+    },
+    {
+      "id": "db9962204045",
+      "user": "Adil iqbal",
+      "rating": 5,
+      "date": "2023-09-10",
+      "text": "I had a fantastic experience with NETREX. Their team's expertise and attention to detail resulted in a top-notch web application that exceeded my expectations. They met all deadlines while maintaining exceptional quality.\nCommunication was smooth, and their post-launch support has been commendable. I highly recommend NETREX services.",
+      "location": "Dubai"
+    },
+    {
+      "id": "bea41c7409d1",
+      "user": "muhammad fiaz",
+      "rating": 5,
+      "date": "2023-09-05",
+      "text": "They were great to work with! They exactly provided what I needed on my timeline and was easy to communicate with. I made a number of changes and revisions as well as had numerous questions and they quickly made changes and answered questions. would definitely recommend!",
+      "location": "Dubai"
+    },
+    {
+      "id": "39920baa8ff3",
+      "user": "Negès Banda",
+      "rating": 5,
+      "date": "2023-09-01",
+      "text": "I have known Sheraz for about 4 years now, And i can tell that he is a very good person to work with. His excellent work ethic speaks for himself, He will do everything he can to get the job done well and on time!!",
+      "location": "Dubai"
+    }
+  ]
+}
