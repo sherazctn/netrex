@@ -54,7 +54,7 @@ const locations = [
   },
   {
     country: "Singapore",
-    city: "Singapore",
+    city: "Singapore (Partner)",
     flag: "🇸🇬",
     address: "Level 39, Marina Bay Financial Centre, Tower 2",
     timezone: "GMT+8",
@@ -62,7 +62,7 @@ const locations = [
   },
   {
     country: "Saudi Arabia",
-    city: "Riyadh",
+    city: "Riyadh (Partner)",
     flag: "🇸🇦",
     address: "22 King Abdullah Rd, Riyadh 12211",
     timezone: "GMT+3",
@@ -97,7 +97,7 @@ export function GlobalPresence() {
               <span className="text-gradient">Worldwide</span>
             </h2>
             <p className="text-lg text-background/70 mb-8">
-              With offices across 9 countries and growing, we're always close to you. 
+              With our Dubai HQ, offices in 7 countries and partners in Saudi Arabia and Singapore, we're always close to you. 
               Our global presence enables us to serve clients 24/7 and understand local markets.
             </p>
             <Link to="/contact">

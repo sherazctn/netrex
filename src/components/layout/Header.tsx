@@ -72,7 +72,7 @@ const navLinks = [
       { name: "Testimonials", href: "/testimonials", icon: MessageSquare, tKey: "nav.testimonials" },
       { name: "Legal", href: "/legal", icon: Scale, tKey: "footer.legal" },
       { name: "Company Profile", href: "/company-profile", icon: FileText },
-      { name: "Leadership", href: "/leadership", icon: Users },
+      { name: "Leadership & Team", href: "/leadership", icon: Users },
       { name: "Founder & CEO", href: "/ceo", icon: Rocket },
       { name: "Trust Center", href: "/trust-center", icon: ShieldCheck },
       { name: "Newsroom", href: "/newsroom", icon: Newspaper },

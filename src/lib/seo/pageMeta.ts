@@ -12,8 +12,8 @@ export const PAGE_META: Record<string, PageMeta> = {
     "description": "Web design and development, mobile apps, online stores and AI automation for businesses in the USA, UAE, UK, Canada, Australia and Europe. 7,000+ projects."
   },
   "/about": {
-    "title": "About NETREX Inc | Digital Agency Since 2016",
-    "description": "NETREX is a digital agency founded in 2016 by Sheraz Khan. Meet the team, see how we work, and learn why clients come back to us project after project."
+    "title": "About NETREX Inc | Since 2016 (Formerly Crickle Studio)",
+    "description": "Founded in 2016 as Crickle Studio and renamed NETREX in 2019. Dubai HQ, offices in 7 countries, 7,000+ projects for 3,000+ clients."
   },
   "/mission": {
     "title": "Our Mission | NETREX Inc",
@@ -28,8 +28,8 @@ export const PAGE_META: Record<string, PageMeta> = {
     "description": "Sheraz Khan founded NETREX in 2016. Computer science graduate, Top Rated seller on Upwork and Wix Legend Partner on Fiverr. Read his full profile."
   },
   "/leadership": {
-    "title": "Leadership Team | NETREX Inc",
-    "description": "Meet the people who lead NETREX, from the founder and CEO to the heads of delivery, finance and engineering behind every client project."
+    "title": "Leadership & Team | NETREX Inc",
+    "description": "Meet the NETREX leadership and team: operations, project management, development, marketing and sales, from our Dubai HQ and offices worldwide."
   },
   "/company-profile": {
     "title": "Company Fact Sheet | NETREX Inc",
@@ -37,7 +37,7 @@ export const PAGE_META: Record<string, PageMeta> = {
   },
   "/testimonials": {
     "title": "Client Reviews & Testimonials | NETREX Inc",
-    "description": "Read what clients say about working with NETREX on websites, apps, branding and AI projects, with links to verified reviews on Clutch, Upwork and Fiverr."
+    "description": "Five-star client reviews from Fiverr, Google and Clutch, and Top Rated on Upwork. 7,000+ projects delivered for 3,000+ clients since 2016."
   },
   "/partners": {
     "title": "Technology Partners & Platforms | NETREX Inc",

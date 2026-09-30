@@ -9,7 +9,7 @@ const TermsOfService = () => (
   <div className="min-h-screen bg-background">
     <SEO
       title="Terms of Service - NETREX Inc"
-      description="NETREX Inc Terms of Service. Read the terms governing the use of our website and digital services across 9 countries."
+      description="NETREX Inc Terms of Service. Read the terms governing the use of our website and digital services across 7 countries."
       canonical="https://www.netrexinc.com/terms"
     />
     <Header />

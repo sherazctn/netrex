@@ -67,8 +67,8 @@ const Portfolio = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="Portfolio - NETREX Inc | 46+ Projects Delivered"
-        description="Browse 46+ delivered projects by NETREX Inc - web development, mobile apps, branding, e-commerce, and AI automation across 9 countries."
+        title="Portfolio - NETREX Inc | Selected Client Projects"
+        description="Browse selected projects from 7,000+ delivered by NETREX Inc - web development, mobile apps, branding, e-commerce, and AI automation across 9 countries."
         canonical="https://www.netrexinc.com/portfolio"
       />
       <Header />

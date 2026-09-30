@@ -24,7 +24,7 @@ export function PoliciesIndex() {
           badge="Compliance"
           title="Policies &"
           highlight="Compliance Library"
-          description="Every governance document that underpins how NETREX INC contracts, delivers and protects data across nine countries."
+          description="Every governance document that underpins how NETREX INC contracts, delivers and protects data across the countries where NETREX is registered."
         />
         <section className="section-padding">
           <div className="container-wide grid md:grid-cols-2 lg:grid-cols-3 gap-6">

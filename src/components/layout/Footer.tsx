@@ -62,8 +62,8 @@ const footerLinks = {
     { name: "Berlin, DE", flag: "🇩🇪", href: "/contact?location=de" },
     { name: "Vancouver, CA", flag: "🇨🇦", href: "/contact?location=ca" },
     { name: "Melbourne, AU", flag: "🇦🇺", href: "/contact?location=au" },
-    { name: "Singapore, SG", flag: "🇸🇬", href: "/contact?location=sg" },
-    { name: "Riyadh, SA", flag: "🇸🇦", href: "/contact?location=sa" },
+    { name: "Singapore (Partner)", flag: "🇸🇬", href: "/contact?location=sg" },
+    { name: "Riyadh (Partner)", flag: "🇸🇦", href: "/contact?location=sa" },
     { name: "Lahore, PK", flag: "🇵🇰", href: "/contact?location=pk" },
   ],
 

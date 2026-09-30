@@ -41,11 +41,11 @@ const team = [
   name: "Sheraz Khan",
   role: "Founder & CEO",
   image: ceoPortrait,
-  bio: "Visionary leader with 15+ years in digital transformation"
+  bio: "Founded the company in 2016 as Crickle Studio and led its relaunch as NETREX in 2019"
 },
 {
   name: "Gurpreet Singh",
-  role: "CMO",
+  role: "Co-Founder & CMO",
   image: gurpreetPortrait,
   bio: "Growth strategist with expertise in global marketing campaigns"
 },
@@ -58,14 +58,12 @@ const team = [
 
 
 const milestones = [
-{ year: "2016", event: "Founded in Dubai, UAE", icon: Star },
-{ year: "2017", event: "Expanded to Pakistan office", icon: Globe2 },
-{ year: "2018", event: "100th project milestone", icon: Trophy },
-{ year: "2019", event: "Opened USA & UK offices", icon: Globe2 },
-{ year: "2020", event: "Google Developers recognition", icon: Award },
-{ year: "2021", event: "Canada & Australia expansion", icon: Globe2 },
-{ year: "2023", event: "500+ projects completed", icon: Briefcase },
-{ year: "2024", event: "Top-rated on Clutch & Upwork", icon: Star }];
+{ year: "2016", event: "Founded as Crickle Studio", icon: Star },
+{ year: "2019", event: "Renamed NETREX after a successful launch; registered in Pakistan", icon: Trophy },
+{ year: "2022-23", event: "Registered in the UAE (Dubai HQ), the UK and the USA", icon: Globe2 },
+{ year: "2022", event: "Partnerships in Saudi Arabia, Singapore and other markets", icon: Award },
+{ year: "2024", event: "Registered in Canada, Australia and Germany", icon: Globe2 },
+{ year: "2026", event: "7,000+ projects delivered for 3,000+ clients", icon: Briefcase }];
 
 
 const awards = [
@@ -103,7 +101,7 @@ const About = () => {
     <div className="min-h-screen bg-background">
       <SEO
         title="About NETREX Inc | Global Digital Agency Since 2016"
-        description="Meet NETREX Inc: our story, mission, leadership and global team delivering web, mobile, AI and marketing solutions across 9 countries since 2016."
+        description="Meet NETREX Inc: our story, mission, leadership and global team delivering web, mobile, AI and marketing solutions since 2016, from our Dubai HQ and offices in 7 countries."
         canonical="https://www.netrexinc.com/about"
       />
       <Header />
@@ -113,7 +111,7 @@ const About = () => {
           badge="About NETREX"
           title="Where Innovation"
           highlight="Meets Reality"
-          description="Since 2016, NETREX has been at the forefront of digital innovation, helping businesses worldwide transform their ideas into powerful digital solutions. With offices across 6 countries, we bring global expertise to every project."
+          description="Founded in 2016 as Crickle Studio and relaunched as NETREX in 2019, we help businesses worldwide turn ideas into powerful digital products. Headquartered in Dubai, with sales and operations offices in Pakistan, the UK, the USA, Canada, Australia and Germany."
         >
           <div className="flex flex-wrap justify-center gap-4">
             <Link to="/contact">
@@ -370,7 +368,7 @@ const About = () => {
                 <span className="text-gradient">Building</span>
               </h2>
               <p className="text-muted-foreground text-lg">
-                From a single Dubai studio in 2016 to 9 offices worldwide - here are the milestones that shaped us.
+                From Crickle Studio in 2016 to NETREX today, with a Dubai HQ and offices in 7 countries: the milestones that shaped us.
               </p>
             </motion.div>
 
@@ -378,9 +376,9 @@ const About = () => {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-4xl mx-auto mb-16">
               {[
                 { end: 2016, label: "Founded", suffix: "" },
-                { end: 9, label: "Global Offices", suffix: "" },
-                { end: 500, label: "Projects Shipped", suffix: "+" },
-                { end: 92, label: "Recurring Clients", suffix: "%" },
+                { end: 7, label: "Countries with Offices", suffix: "" },
+                { end: 7000, label: "Projects Shipped", suffix: "+" },
+                { end: 3000, label: "Clients Served", suffix: "+" },
               ].map((s) => (
                 <div key={s.label} className="p-5 rounded-2xl bg-card border border-border text-center hover:border-primary/30 hover:shadow-lg transition-all">
                   <div className="font-display text-2xl md:text-3xl font-bold text-primary mb-1">

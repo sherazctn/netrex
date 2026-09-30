@@ -111,7 +111,8 @@ const capabilityNames = capabilityGroups.flatMap((group) => group.items.map((ite
 
 const journey = [
   { period: "2015-2018", title: "Technical foundation", copy: "Built an early foundation in front-end development, WordPress, search, analytics and digital marketing through hands-on practice and professional courses." },
-  { period: "2016", title: "NETREX established", copy: "Began developing NETREX around a practical engineering approach: understand the business problem, select the right platform and deliver with clear ownership." },
+  { period: "2016", title: "Crickle Studio founded", copy: "Founded Crickle Studio around a practical engineering approach: understand the business problem, select the right platform and deliver with clear ownership." },
+  { period: "2019", title: "Relaunched as NETREX", copy: "After a successful launch, renamed the company NETREX and registered it in Pakistan, followed by the UAE, UK and USA in 2022-23 and Canada, Australia and Germany in 2024." },
   { period: "2019-2023", title: "Computer science education", copy: "Studied Computer Science at the University of South Asia in Lahore while continuing to develop practical technology and business leadership experience." },
   { period: "Present", title: "Founder and CEO, NETREX", copy: "Leads NETREX strategy, technology direction and client delivery from Dubai, with professional ties to Lahore and an international service outlook." },
 ];
@@ -297,7 +298,7 @@ const CEO = () => {
             </Reveal>
             <Reveal className="space-y-5 text-lg leading-8 text-muted-foreground">
               <p>
-                Sheraz Khan is the Founder and Chief Executive Officer of NETREX, a digital engineering company established in 2016. He leads company strategy, technology direction and the standards used to plan and deliver client work.
+                Sheraz Khan is the Founder and Chief Executive Officer of NETREX, a digital engineering company founded in 2016 as Crickle Studio and renamed NETREX in 2019. He leads company strategy, technology direction and the standards used to plan and deliver client work.
               </p>
               <p>
                 His background combines formal Computer Science study with practical experience across web development, commerce platforms, user experience, digital marketing and business operations. This combination shapes a leadership style focused on useful technology rather than technology for its own sake.

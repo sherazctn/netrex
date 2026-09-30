@@ -206,7 +206,7 @@ const Careers = () => {
           badge="Careers"
           title="Build Your Career With"
           highlight="NETREX"
-          description="We have hired across 9 countries since 2019. Explore live openings and our full hiring history below."
+          description="We have been growing the NETREX team since 2019. Explore live openings and our full hiring history below."
         />
 
         {/* Hiring stats */}

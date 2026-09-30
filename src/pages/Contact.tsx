@@ -103,32 +103,6 @@ const contactSchema = {
     },
     {
       "@type": "LocalBusiness",
-      "name": "NETREX INC - Singapore",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Level 39, Marina Bay Financial Centre, Tower 2",
-        "addressLocality": "Singapore",
-        "addressCountry": "SG",
-      },
-      "telephone": "+65-6123-4567",
-      "email": "sg@netrexinc.com",
-      "openingHours": "Mo-Fr 09:00-18:00",
-    },
-    {
-      "@type": "LocalBusiness",
-      "name": "NETREX INC - Riyadh",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "22 King Abdullah Rd, Riyadh 12211",
-        "addressLocality": "Riyadh",
-        "addressCountry": "SA",
-      },
-      "telephone": "+966-11-234-5678",
-      "email": "sa@netrexinc.com",
-      "openingHours": "Su-Th 09:00-18:00",
-    },
-    {
-      "@type": "LocalBusiness",
       "name": "NETREX INC - Lahore",
       "address": {
         "@type": "PostalAddress",
@@ -147,7 +121,7 @@ const Contact = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="Contact NETREX Inc | Free Quote in 9 Countries"
+        title="Contact NETREX Inc | Get a Free Project Quote"
         description="Talk to NETREX Inc about web development, mobile apps, AI automation, branding and digital marketing. Offices in Dubai, New York, London, Berlin, Vancouver, Melbourne, Singapore, Riyadh and Lahore."
         canonical="https://www.netrexinc.com/contact"
         schema={contactSchema}

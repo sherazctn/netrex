@@ -23,7 +23,7 @@ const stats = [
   { value: 7000, suffix: "+", labelKey: "why.stat.projects" },
   { value: 3000, suffix: "+", labelKey: "why.stat.clients" },
   { value: 50, suffix: "+", labelKey: "why.stat.industries" },
-  { value: 9, suffix: "", labelKey: "why.stat.offices" },
+  { value: 7, suffix: "", labelKey: "why.stat.offices" },
 ];
 
 export function WhyNetrex() {

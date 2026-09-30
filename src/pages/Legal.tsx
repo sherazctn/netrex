@@ -61,7 +61,7 @@ const registrations = [
     address: "Office 523, Block-C, Building 9W, Dubai Airport Free Zone",
     email: "info@netrexinc.com",
     jurisdiction: "Dubai Airport Free Zone Authority",
-    incorporationDate: "2016",
+    incorporationDate: "2022",
     status: "Active - Principal Entity",
   },
   {
@@ -97,7 +97,7 @@ const registrations = [
     address: "21, J3 Block, Phase 2, Johar Town, Lahore",
     email: "pakistan@netrexinc.com",
     jurisdiction: "Punjab, Pakistan",
-    incorporationDate: "2016",
+    incorporationDate: "2019",
     status: "Active",
   },
   {
@@ -112,34 +112,10 @@ const registrations = [
     incorporationDate: "2024",
     status: "Active",
   },
-  {
-    country: "Singapore",
-    flag: "🇸🇬",
-    companyName: "Netrex Pte. Ltd.",
-    regNumber: "202418765K",
-    regType: "ACRA Registration",
-    address: "Level 39, Marina Bay Financial Centre, Tower 2",
-    email: "singapore@netrexinc.com",
-    jurisdiction: "Republic of Singapore",
-    incorporationDate: "2024",
-    status: "Active",
-  },
-  {
-    country: "Saudi Arabia",
-    flag: "🇸🇦",
-    companyName: "Netrex Est.",
-    regNumber: "4030512847",
-    regType: "Commercial Registration (CR)",
-    address: "22 King Abdullah Rd, Riyadh 12211",
-    email: "ksa@netrexinc.com",
-    jurisdiction: "Ministry of Commerce, KSA",
-    incorporationDate: "2024",
-    status: "Active",
-  },
 ];
 
 const legalHighlights = [
-  { icon: Shield, title: "Fully Licensed", desc: "Registered and licensed to operate in all 9 countries with full legal compliance and local regulatory adherence." },
+  { icon: Shield, title: "Fully Licensed", desc: "Registered in the UAE, Pakistan, the UK, the USA, Canada, Australia and Germany, with partners in Saudi Arabia and Singapore." },
   { icon: Globe, title: "Global Presence", desc: "Legal entities structured to serve clients locally with international backing and cross-border capability." },
   { icon: Scale, title: "Regulatory Compliance", desc: "Adhering to local business laws, data protection regulations (GDPR, CCPA, PDPL), and international trade standards." },
   { icon: Lock, title: "Data Protection", desc: "Compliant with GDPR (EU), CCPA (USA), PDPA (Singapore), APPs (Australia), and PDPL (KSA) data privacy frameworks." },
@@ -199,7 +175,7 @@ const Legal = () => (
   <div className="min-h-screen bg-background">
     <SEO
       title="Legal & Company Registrations - NETREX Inc"
-      description="NETREX Inc legal entities and registration details across the UAE, UK, USA, Australia, Germany, Singapore and Saudi Arabia, plus GDPR and CCPA compliance."
+      description="NETREX Inc legal entities and registration details across the UAE, Pakistan, UK, USA, Canada, Australia and Germany, plus GDPR and CCPA compliance."
       canonical="https://www.netrexinc.com/legal"
     />
     <Header />
@@ -208,7 +184,7 @@ const Legal = () => (
         badge="Legal Information"
         title="Our Legal"
         highlight="Standing"
-        description="NETREX is a globally registered technology company with legal entities across 9 countries, ensuring compliance, transparency, and trust in every market we serve."
+        description="NETREX is a globally registered technology company with legal entities across 7 countries, ensuring compliance, transparency, and trust in every market we serve."
       />
 
       {/* Overview Cards */}

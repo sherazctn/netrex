@@ -10,14 +10,14 @@ import { CountUpNumber } from "@/components/ui/CountUpNumber";
 
 const offices = [
   { city: "Dubai, UAE", note: "Global Headquarters", flag: "🇦🇪" },
-  { city: "New York, USA", note: "Americas Delivery Hub", flag: "🇺🇸" },
-  { city: "London, UK", note: "European Client Services", flag: "🇬🇧" },
-  { city: "Berlin, Germany", note: "European Engineering", flag: "🇩🇪" },
-  { city: "Vancouver, Canada", note: "North America Support", flag: "🇨🇦" },
-  { city: "Melbourne, Australia", note: "APAC Delivery", flag: "🇦🇺" },
-  { city: "Singapore", note: "APAC Client Services", flag: "🇸🇬" },
-  { city: "Riyadh, Saudi Arabia", note: "GCC Regional Office", flag: "🇸🇦" },
-  { city: "Lahore, Pakistan", note: "Engineering Center", flag: "🇵🇰" },
+  { city: "New York, USA", note: "Sales & Operations", flag: "🇺🇸" },
+  { city: "London, UK", note: "Sales & Operations", flag: "🇬🇧" },
+  { city: "Berlin, Germany", note: "Sales & Operations", flag: "🇩🇪" },
+  { city: "Vancouver, Canada", note: "Sales & Operations", flag: "🇨🇦" },
+  { city: "Melbourne, Australia", note: "Sales & Operations", flag: "🇦🇺" },
+  { city: "Singapore", note: "Partner (since 2022)", flag: "🇸🇬" },
+  { city: "Riyadh, Saudi Arabia", note: "Partner (since 2022)", flag: "🇸🇦" },
+  { city: "Lahore, Pakistan", note: "Sales & Operations, Engineering", flag: "🇵🇰" },
 ];
 
 const serviceLines = [
@@ -33,11 +33,12 @@ const industries = [
 
 const factSheet = [
   { label: "Legal Name", value: "NETREX INC" },
-  { label: "Founded", value: "2016" },
+  { label: "Founded", value: "2016 as Crickle Studio; NETREX since 2019" },
   { label: "Headquarters", value: "Office 523, Block-C, Building 9W, Dubai Airport Free Zone, Dubai, UAE" },
   { label: "Entity Type", value: "Global Digital Agency, Free Zone Establishment" },
   { label: "Employee Band", value: "50-200 employees" },
-  { label: "Global Offices", value: "9 offices across 9 countries" },
+  { label: "Offices", value: "Dubai HQ plus sales & operations offices in Pakistan, UK, USA, Canada, Australia and Germany" },
+  { label: "Partners", value: "Saudi Arabia, Singapore and other markets (since 2022)" },
   { label: "Clients Served", value: "3,000+ clients worldwide" },
   { label: "Projects Delivered", value: "7,000+ projects since 2016" },
   { label: "Email", value: "info@netrexinc.com" },

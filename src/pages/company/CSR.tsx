@@ -11,7 +11,7 @@ const commitments = [
   {
     icon: Users,
     title: "Diversity & Inclusion",
-    description: "We are committed to building teams across our nine offices that reflect the diverse markets we serve, with equitable hiring and advancement practices as our stated policy.",
+    description: "We are committed to building teams across our offices that reflect the diverse markets we serve, with equitable hiring and advancement practices as our stated policy.",
   },
   {
     icon: GraduationCap,
@@ -52,7 +52,7 @@ const CSR = () => {
           badge="CSR & Sustainability"
           title="Responsible Growth,"
           highlight="Global Impact"
-          description="As a global digital agency operating across nine offices, we hold ourselves to stated commitments on diversity, community investment, environmental responsibility and ethical business practice."
+          description="As a global digital agency with a Dubai HQ and offices in 7 countries, we hold ourselves to stated commitments on diversity, community investment, environmental responsibility and ethical business practice."
         >
           <div className="flex flex-wrap justify-center gap-4">
             <Link to="/careers">
