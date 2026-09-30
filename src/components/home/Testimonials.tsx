@@ -33,6 +33,9 @@ export function Testimonials() {
             <h2 className="mb-4 font-display text-3xl font-bold md:text-4xl lg:text-5xl">
               What clients say about <span className="text-primary">NETREX</span>
             </h2>
+            <p className="mb-5 text-lg text-muted-foreground">
+              7,000+ projects delivered for 3,000+ clients since 2016. Here are the latest five-star reviews.
+            </p>
             <div className="flex flex-wrap gap-2">
               {chips.map((c) => (
                 <span

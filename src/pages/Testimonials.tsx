@@ -46,11 +46,11 @@ const videoTestimonials = [
   },
 ];
 
-// Verifiable figures only: projects from NETREX, rating data from the Fiverr gig.
+// Projects and clients as stated by NETREX; review figures from the Fiverr profile.
 const stats = [
-  { value: 3000, suffix: "+", label: "Projects Delivered" },
+  { value: 7000, suffix: "+", label: "Projects Delivered" },
+  { value: 3000, suffix: "+", label: "Happy Clients" },
   { value: fiverrData.breakdown["5"] ?? 0, suffix: "", label: "Five-Star Fiverr Reviews" },
-  { value: new Date().getFullYear() - 2016, suffix: "", label: "Years in Business" },
   {
     value: Math.round(((fiverrData.breakdown["5"] ?? 0) / fiverrData.reviewCount) * 100),
     suffix: "%",

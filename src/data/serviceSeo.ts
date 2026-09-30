@@ -1,6 +1,6 @@
 // Keyword-led copy for each service page: the H1, an intro that answers "who does this and for whom",
 // and FAQs (rendered as visible text and as FAQPage schema). Facts here must stay verifiable:
-// founded 2016, 3,000+ projects, 294 five-star of 307 Fiverr reviews (the average is not shown), Wix Legend Partner, Top Rated on Upwork.
+// founded 2016, 7,000+ projects, 3,000+ clients, 294 five-star of 307 Fiverr reviews (the average is not shown), Wix Legend Partner, Top Rated on Upwork.
 
 import { FIVE_STAR_REVIEWS } from "@/data/reviewStats";
 import { SERVICE_EXTRA, type ServiceExtra } from "@/data/serviceSeoExtra";
@@ -64,7 +64,7 @@ export const SERVICE_SEO: Record<string, ServiceSeo> = {
     intro: [
       "NETREX Inc is a web design and development company that has built websites for businesses since 2016. We design and develop custom websites in React and Next.js, WordPress, Wix, Webflow and Shopify, from a five-page company site to a full web application with logins, dashboards and integrations.",
       "Every build starts with your goals: more enquiries, more bookings or more sales. We plan the pages and content, design the interface, develop it with clean code, and launch with fast load times, on-page SEO, analytics and accessibility in place. Website redesign projects follow the same process and keep your existing search rankings through proper redirects.",
-      `With 3,000+ projects delivered and ${FIVE_STAR_REVIEWS} five-star reviews from verified clients, we work with startups, professional firms and established brands in the USA, UAE, UK, Canada, Australia and Europe.`,
+      `With 7,000+ projects for 3,000+ clients and ${FIVE_STAR_REVIEWS} five-star reviews from verified clients, we work with startups, professional firms and established brands in the USA, UAE, UK, Canada, Australia and Europe.`,
     ],
     facts: [
       ["Typical timeline", "3 to 5 weeks for a business website"],

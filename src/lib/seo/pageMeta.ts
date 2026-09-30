@@ -10,7 +10,7 @@ export interface PageMeta {
 export const PAGE_META: Record<string, PageMeta> = {
   "/": {
     "title": "NETREX Inc | Web Design, App Development & AI Solutions",
-    "description": "Web design and development, mobile apps, online stores and AI automation for businesses in the USA, UAE, UK, Canada, Australia and Europe. 3,000+ projects."
+    "description": "Web design and development, mobile apps, online stores and AI automation for businesses in the USA, UAE, UK, Canada, Australia and Europe. 7,000+ projects."
   },
   "/about": {
     "title": "About NETREX Inc | Digital Agency Since 2016",

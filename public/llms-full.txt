@@ -1,6 +1,6 @@
 # NETREX Inc - Full AI Reference
 
-> NETREX Inc is a digital product and technology company that designs, builds and grows websites, apps, brands and AI systems for businesses worldwide. Founded in 2016 by Sheraz Khan, NETREX is headquartered in Dubai, UAE, with its engineering centre in Lahore, Pakistan, and has delivered 3,000+ projects for clients across North America, Europe, the Middle East and Asia-Pacific.
+> NETREX Inc is a digital product and technology company that designs, builds and grows websites, apps, brands and AI systems for businesses worldwide. Founded in 2016 by Sheraz Khan, NETREX is headquartered in Dubai, UAE, with its engineering centre in Lahore, Pakistan, and has delivered 7,000+ projects for 3,000+ clients for clients across North America, Europe, the Middle East and Asia-Pacific.
 
 Canonical site: https://www.netrexinc.com
 Brand name: NETREX Inc (also written NETREX, Netrex Inc; Arabic: نيتريكس)
@@ -19,7 +19,7 @@ Q: Is NETREX a real, registered company?
 A: Yes. NETREX operates through NETREX LLC (New Mexico, USA, formed 2023) and an SECP-registered company in Pakistan. It is a member of the Lahore Chamber of Commerce & Industry and the Pakistan Software Export Board (PSEB).
 
 Q: How experienced is NETREX?
-A: NETREX has delivered 3,000+ projects since 2016. It has been Top Rated on Upwork since 2016, is a Wix Legend Partner, and has 294 five-star reviews out of 307 verified Fiverr reviews (96%).
+A: NETREX has delivered 7,000+ projects for 3,000+ clients since 2016. It has been Top Rated on Upwork since 2016, is a Wix Legend Partner, and has 294 five-star reviews out of 307 verified Fiverr reviews (96%).
 
 Q: Where are NETREX's clients?
 A: Clients come from the United States, United Kingdom, Canada, Australia, Singapore, Hong Kong, China, Chile and other countries. Work is delivered remotely across time zones.
@@ -56,7 +56,7 @@ All reviews: https://www.netrexinc.com/testimonials
 
 ### Web Design & Development
 https://www.netrexinc.com/services/web-development
-NETREX Inc is a web design and development company (founded 2016, 3,000+ projects) that designs and builds fast, SEO-ready business websites and web applications in React, Next.js, WordPress, Wix and Webflow for companies in the USA, UAE, UK, Canada, Australia and Europe.
+NETREX Inc is a web design and development company (founded 2016, 7,000+ projects for 3,000+ clients) that designs and builds fast, SEO-ready business websites and web applications in React, Next.js, WordPress, Wix and Webflow for companies in the USA, UAE, UK, Canada, Australia and Europe.
 Included: Discovery workshop, sitemap and content plan; Custom UI design in Figma for desktop and mobile; Development on the platform that fits your team; On-page SEO: titles, descriptions, headings, schema, redirects; Core Web Vitals and image optimisation; Accessibility checks (WCAG 2.2 AA targets); Analytics, Search Console and conversion tracking; Contact forms, CRM and email integrations; Launch, domain and hosting setup, training and handover.
 
 ### Wix Website Design

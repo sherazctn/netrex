@@ -299,7 +299,7 @@ const servicesData: Record<string, {
 
     whyUs: [
     { title: "Since 2016", description: "Ten years of building websites for clients", icon: Clock },
-    { title: "3,000+ Projects Delivered", description: `${FIVE_STAR_REVIEWS} five-star reviews from verified clients`, icon: Award },
+    { title: "7,000+ Projects Delivered", description: `${FIVE_STAR_REVIEWS} five-star reviews from verified clients`, icon: Award },
     { title: "Ongoing Support", description: "Maintenance, updates and new features after launch", icon: Shield },
     { title: "Cutting-Edge Tech", description: "Latest technologies and best practices", icon: Zap }],
 
@@ -338,7 +338,7 @@ const servicesData: Record<string, {
     whyUs: [
     { title: "Wix Legend Partner", description: "One of the highest tiers in the Wix Partner Program", icon: Award },
     { title: `${FIVE_STAR_REVIEWS} Five-Star Reviews`, description: "From verified Fiverr clients", icon: Users },
-    { title: "3,000+ Projects", description: "Delivered for clients since 2016", icon: TrendingUp },
+    { title: "7,000+ Projects", description: "For 3,000+ clients since 2016", icon: TrendingUp },
     { title: "Ongoing Support", description: "Updates and new pages whenever you need them", icon: Clock }],
 
     caseStudies: [

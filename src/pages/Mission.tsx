@@ -28,8 +28,8 @@ const fadeUp = {
 };
 
 const stats = [
-  { value: 500, suffix: "+", label: "Projects Delivered" },
-  { value: 300, suffix: "+", label: "Global Clients" },
+  { value: 7000, suffix: "+", label: "Projects Delivered" },
+  { value: 3000, suffix: "+", label: "Global Clients" },
   { value: 9, suffix: "", label: "Countries" },
   { value: 98, suffix: "%", label: "Client Satisfaction" },
 ];

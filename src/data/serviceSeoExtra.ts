@@ -15,7 +15,7 @@ export interface ServiceExtra {
 export const SERVICE_EXTRA: Record<string, ServiceExtra> = {
   "web-development": {
     summary:
-      "NETREX Inc is a web design and development company (founded 2016, 3,000+ projects) that designs and builds fast, SEO-ready business websites and web applications in React, Next.js, WordPress, Wix and Webflow for companies in the USA, UAE, UK, Canada, Australia and Europe.",
+      "NETREX Inc is a web design and development company (founded 2016, 7,000+ projects for 3,000+ clients) that designs and builds fast, SEO-ready business websites and web applications in React, Next.js, WordPress, Wix and Webflow for companies in the USA, UAE, UK, Canada, Australia and Europe.",
     included: [
       "Discovery workshop, sitemap and content plan",
       "Custom UI design in Figma for desktop and mobile",

@@ -465,7 +465,7 @@ const About = () => {
               <p className="text-muted-foreground text-lg">
                 A battle-tested 6-step framework - the same process behind{" "}
                 <span className="text-primary font-semibold">
-                  <CountUpNumber end={500} suffix="+" />
+                  <CountUpNumber end={7000} suffix="+" />
                 </span>{" "}
                 successful launches.
               </p>
@@ -637,10 +637,10 @@ const About = () => {
             </motion.div>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center text-white">
               {[
-              { value: 500, suffix: "+", label: "Projects Completed" },
-              { value: 200, suffix: "+", label: "Happy Clients" },
+              { value: 7000, suffix: "+", label: "Projects Completed" },
+              { value: 3000, suffix: "+", label: "Happy Clients" },
               { value: 50, suffix: "+", label: "Industries Served" },
-              { value: 8, suffix: "+", label: "Years of Excellence" }].
+              { value: 10, suffix: "", label: "Years in Business" }].
               map((stat, index) =>
               <motion.div
                 key={index}

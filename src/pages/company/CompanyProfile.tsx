@@ -38,7 +38,8 @@ const factSheet = [
   { label: "Entity Type", value: "Global Digital Agency, Free Zone Establishment" },
   { label: "Employee Band", value: "50-200 employees" },
   { label: "Global Offices", value: "9 offices across 9 countries" },
-  { label: "Clients Served", value: "500+ clients worldwide" },
+  { label: "Clients Served", value: "3,000+ clients worldwide" },
+  { label: "Projects Delivered", value: "7,000+ projects since 2016" },
   { label: "Email", value: "info@netrexinc.com" },
   { label: "Phone", value: "+971 50 200 8313" },
 ];
