@@ -65,8 +65,8 @@ const Industries = () => {
   return (
     <div className="min-h-screen bg-background">
       <SEO
-        title="Industries We Serve | 20+ Sectors - NETREX Inc"
-        description="NETREX Inc builds custom digital solutions for 20+ industries including real estate, healthcare, finance, e-commerce, education, travel and logistics."
+        title="Industries We Serve | 50+ Industries - NETREX Inc"
+        description="NETREX Inc builds custom digital solutions for 50+ industries including real estate, healthcare, finance, e-commerce, education, travel and logistics."
         canonical="https://www.netrexinc.com/industries"
       />
       <Header />

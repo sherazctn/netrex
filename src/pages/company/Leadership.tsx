@@ -93,12 +93,12 @@ const schema = {
   "@type": "Organization",
   name: "NETREX INC",
   url: "https://www.netrexinc.com",
-  employee: [...executiveTeam, ...TEAM].map((p) => ({ "@type": "Person", name: p.name, jobTitle: p.role })),
+  employee: [...executiveTeam, ...TEAM.filter((m) => m.status !== "Former")].map((p) => ({ "@type": "Person", name: p.name, jobTitle: p.role })),
 };
 
 const Leadership = () => {
   const [tab, setTab] = useState<(typeof TABS)[number]>("Leadership");
-  const people: Person[] = tab === "Leadership" ? executiveTeam : (TEAM.filter((m) => m.department === tab) as TeamMember[]);
+  const people: Person[] = tab === "Leadership" ? executiveTeam : (TEAM.filter((m) => m.department === tab).sort((a, b) => (a.status === "Former" ? 1 : 0) - (b.status === "Former" ? 1 : 0)) as TeamMember[]);
   return (
     <div className="min-h-screen bg-background">
       <SEO

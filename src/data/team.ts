@@ -34,27 +34,27 @@ export const DEPARTMENTS: Department[] = [
 
 export const TEAM: TeamMember[] = [
   // Operations
-  { name: "Muhammad Aoun", role: "Website Designer", department: "Operations", office: "Lahore, Pakistan", countryCode: "PK" },
-  { name: "Ali Khan", role: "Marketing Manager", department: "Operations", office: "Lahore, Pakistan", countryCode: "PK", image: "/team/ali-khan.webp" },
+  { name: "Muhammad Aoun", role: "Website Designer", department: "Operations", office: "Lahore, Pakistan", countryCode: "PK", status: "Active" },
+  { name: "Ali Khan", role: "Marketing Manager", department: "Operations", office: "Lahore, Pakistan", countryCode: "PK", image: "/team/ali-khan.webp", status: "Active" },
 
   // Project Management
-  { name: "Bilal Khan", role: "Senior Analyst & Project Manager", department: "Project Management", office: "Lahore, Pakistan", countryCode: "PK", image: "/team/bilal-khan.webp", experienceSince: 2012 },
+  { name: "Bilal Khan", role: "Senior Analyst & Project Manager", department: "Project Management", office: "Lahore, Pakistan", countryCode: "PK", image: "/team/bilal-khan.webp", experienceSince: 2012, status: "Active" },
 
   // Development
-  { name: "Irfan Ul Haq", role: "MERN Stack Developer", department: "Development", office: "Lahore, Pakistan", countryCode: "PK", image: "/team/irfan-ul-haq.webp" },
-  { name: "Hafeez ur Rahman", role: "MERN Stack Developer", department: "Development", office: "Lahore, Pakistan", countryCode: "PK", image: "/team/hafeez-ur-rahman.webp" },
-  { name: "Sair Khan", role: "PHP Developer", department: "Development", office: "Lahore, Pakistan", countryCode: "PK", image: "/team/sair-khan.webp" },
-  { name: "Muhammad Waqas", role: "Mobile App Developer", department: "Development", office: "Lahore, Pakistan", countryCode: "PK", image: "/team/muhammad-waqas.webp" },
+  { name: "Irfan Ul Haq", role: "MERN Stack Developer", department: "Development", office: "Lahore, Pakistan", countryCode: "PK", image: "/team/irfan-ul-haq.webp", status: "Active" },
+  { name: "Hafeez ur Rahman", role: "MERN Stack Developer", department: "Development", office: "Lahore, Pakistan", countryCode: "PK", image: "/team/hafeez-ur-rahman.webp", status: "Active" },
+  { name: "Sair Khan", role: "PHP Developer", department: "Development", office: "Lahore, Pakistan", countryCode: "PK", image: "/team/sair-khan.webp", status: "Active" },
+  { name: "Muhammad Waqas", role: "Mobile App Developer", department: "Development", office: "Lahore, Pakistan", countryCode: "PK", image: "/team/muhammad-waqas.webp", status: "Active" },
 
   // Marketing
-  { name: "Nirmal Memon", role: "Growth Marketing Executive", department: "Marketing", office: "Lahore, Pakistan", countryCode: "PK" },
-  { name: "Junaid Nadeem", role: "Email Marketing Executive", department: "Marketing", office: "Lahore, Pakistan", countryCode: "PK", image: "/team/junaid-nadeem.webp" },
+  { name: "Nirmal Memon", role: "Growth Marketing Executive", department: "Marketing", office: "Lahore, Pakistan", countryCode: "PK", status: "Active" },
+  { name: "Junaid Nadeem", role: "Email Marketing Executive", department: "Marketing", office: "Lahore, Pakistan", countryCode: "PK", image: "/team/junaid-nadeem.webp", status: "Active" },
 
   // Sales & Client Success
-  { name: "Rashid Bin Abdullah Al Majid", role: "Sales Manager (Gulf Region)", department: "Sales & Client Success", office: "Dubai, UAE", countryCode: "AE" },
-  { name: "Hannah Louise", role: "Sales & Marketing Manager (UK)", department: "Sales & Client Success", office: "London, UK", countryCode: "GB" },
-  { name: "Jessica Marie", role: "Customer Success Manager", department: "Sales & Client Success", office: "London, UK", countryCode: "GB" },
-  { name: "Avery Claire", role: "Sales & Marketing Manager (USA)", department: "Sales & Client Success", office: "New York, USA", countryCode: "US" },
-  { name: "Nora Elise", role: "Sales Manager (Canada)", department: "Sales & Client Success", office: "Vancouver, Canada", countryCode: "CA" },
-  { name: "Isaac Flynn", role: "Sales Manager (Australia)", department: "Sales & Client Success", office: "Brisbane, Australia", countryCode: "AU" },
+  { name: "Rashid Bin Abdullah Al Majid", role: "Sales Manager (Gulf Region)", department: "Sales & Client Success", office: "Dubai, UAE", countryCode: "AE", status: "Active" },
+  { name: "Hannah Louise", role: "Sales & Marketing Manager (UK)", department: "Sales & Client Success", office: "London, UK", countryCode: "GB", status: "Active" },
+  { name: "Jessica Marie", role: "Customer Success Manager", department: "Sales & Client Success", office: "London, UK", countryCode: "GB", status: "Active" },
+  { name: "Avery Claire", role: "Sales & Marketing Manager (USA)", department: "Sales & Client Success", office: "New York, USA", countryCode: "US", status: "Active" },
+  { name: "Nora Elise", role: "Sales Manager (Canada)", department: "Sales & Client Success", office: "Vancouver, Canada", countryCode: "CA", status: "Active" },
+  { name: "Isaac Flynn", role: "Sales Manager (Australia)", department: "Sales & Client Success", office: "Brisbane, Australia", countryCode: "AU", status: "Active" },
 ];
