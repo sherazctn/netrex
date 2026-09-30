@@ -9,6 +9,11 @@ on:
     - cron: "17 5 * * *"
   workflow_dispatch:
 
+# One deploy at a time: two FTP syncs running together can corrupt the server's sync state.
+concurrency:
+  group: deploy-hostinger
+  cancel-in-progress: false
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -56,6 +61,8 @@ jobs:
         password: ${{ secrets.FTP_PASSWORD }}
         local-dir: ./dist/
         server-dir: ./
+        # New sync-state file after two overlapping deploys left the old one out of date.
+        state-name: .ftp-deploy-sync-state-v2.json
 
     # Notify Bing / IndexNow engines about updated pages (feeds ChatGPT search and Copilot).
     - name: Notify search engines (IndexNow)

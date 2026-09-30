@@ -3,16 +3,17 @@ import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { ReviewsMarquee } from "@/components/reviews/ReviewsMarquee";
 import { SourceMark } from "@/components/reviews/ReviewCard";
-import { recentReviews, REVIEW_TOTALS } from "@/lib/reviews";
+import { recentReviews } from "@/lib/reviews";
 
 const HOME_REVIEWS = recentReviews(15);
 
 /** Home page testimonials: the 15 most recent five-star reviews from Fiverr, Google and Clutch. */
 export function Testimonials() {
   const chips = [
-    { source: "fiverr" as const, text: `${REVIEW_TOTALS.fiverr.fiveStar} five-star reviews on Fiverr` },
-    { source: "google" as const, text: `5.0 on Google (Dubai & London)` },
-    { source: "clutch" as const, text: `5.0 on Clutch` },
+    { source: "fiverr" as const, text: "5-star reviews on Fiverr" },
+    { source: "upwork" as const, text: "Top Rated on Upwork" },
+    { source: "google" as const, text: "5.0 on Google (Dubai & London)" },
+    { source: "clutch" as const, text: "5.0 on Clutch" },
   ];
 
   return (
@@ -42,7 +43,11 @@ export function Testimonials() {
                   key={c.source}
                   className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-3 py-1.5 text-sm text-muted-foreground"
                 >
-                  <SourceMark source={c.source} className="h-4 w-4" />
+                  {c.source === "upwork" ? (
+                    <span aria-hidden="true" className="inline-flex h-4 w-4 items-center justify-center rounded-full bg-[#14a800] text-[7px] font-black leading-none text-white">Up</span>
+                  ) : (
+                    <SourceMark source={c.source} className="h-4 w-4" />
+                  )}
                   {c.text}
                 </span>
               ))}

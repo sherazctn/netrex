@@ -50,7 +50,7 @@ const videoTestimonials = [
 const stats = [
   { value: 7000, suffix: "+", label: "Projects Delivered" },
   { value: 3000, suffix: "+", label: "Happy Clients" },
-  { value: fiverrData.breakdown["5"] ?? 0, suffix: "", label: "Five-Star Fiverr Reviews" },
+  { value: new Date().getFullYear() - 2016, suffix: "", label: "Years in Business" },
   {
     value: Math.round(((fiverrData.breakdown["5"] ?? 0) / fiverrData.reviewCount) * 100),
     suffix: "%",
@@ -58,12 +58,13 @@ const stats = [
   },
 ];
 
-// Real rating breakdown from the NETREX Fiverr gig (src/data/fiverrReviews.json).
-const ratingBreakdown = [5, 4, 3, 2, 1].map((stars) => ({
-  stars,
-  count: fiverrData.breakdown[String(stars)] ?? 0,
-  pct: Math.round(((fiverrData.breakdown[String(stars)] ?? 0) / fiverrData.reviewCount) * 100),
-}));
+
+const platforms = [
+  { name: "Fiverr", headline: "5-Star Reviews", mark: "fi", bg: "#1dbf73", fg: "#ffffff" },
+  { name: "Upwork", headline: "Top Rated", mark: "Up", bg: "#14a800", fg: "#ffffff" },
+  { name: "Google (Dubai & London)", headline: "5.0 Rating", mark: "G", bg: "#e8f0fe", fg: "#4285f4" },
+  { name: "Clutch", headline: "5.0 Rating", mark: "C", bg: "#17313b", fg: "#ff3d2e" },
+];
 
 const fadeUp = {
   initial: { opacity: 0, y: 24 },
@@ -88,41 +89,28 @@ const Testimonials = () => {
           description="Don't just take our word for it. Here's what businesses around the world have to say about working with NETREX."
         />
 
-        {/* Rating summary */}
+        {/* Ratings by platform */}
         <section className="py-14 md:py-16">
           <div className="container-wide">
-            <motion.div
-              {...fadeUp}
-              transition={{ duration: 0.6 }}
-              className="grid gap-8 rounded-3xl border border-border bg-card p-8 md:grid-cols-[auto_1fr] md:p-10"
-            >
-              <div className="flex flex-col items-center justify-center border-b border-border pb-6 text-center md:border-b-0 md:border-r md:pb-0 md:pr-10">
-                <div className="font-display text-5xl font-bold text-primary">{fiverrData.breakdown["5"]}</div>
-                <div className="mt-1 text-sm font-semibold">five-star reviews</div>
-                <div className="mb-1 mt-2 flex gap-1">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-4 w-4 fill-primary text-primary" />
-                  ))}
-                </div>
-                <div className="text-sm text-muted-foreground">
-                  Out of <span className="font-medium text-foreground">{fiverrData.reviewCount} verified Fiverr reviews</span>
-                  <div className="mt-1">Plus 5.0 on Google and 5.0 on Clutch</div>
-                </div>
-              </div>
-              <div className="flex flex-col justify-center gap-2">
-                {ratingBreakdown.map((row) => (
-                  <div key={row.stars} className="flex items-center gap-3">
-                    <span className="w-10 text-sm text-muted-foreground">{row.stars} star</span>
-                    <div className="h-2 flex-1 overflow-hidden rounded-full bg-secondary">
-                      <div
-                        className="h-full rounded-full bg-primary"
-                        style={{ width: `${row.pct}%` }}
-                      />
-                    </div>
-                    <span className="w-12 text-right text-sm text-muted-foreground tabular-nums">{row.count}</span>
+            <motion.div {...fadeUp} transition={{ duration: 0.6 }} className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+              {platforms.map((p) => (
+                <div key={p.name} className="flex flex-col items-center rounded-3xl border border-border bg-card p-6 text-center">
+                  <span
+                    aria-hidden="true"
+                    className="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-full text-sm font-black"
+                    style={{ background: p.bg, color: p.fg }}
+                  >
+                    {p.mark}
+                  </span>
+                  <div className="font-display text-2xl font-bold">{p.headline}</div>
+                  <div className="mt-2 flex gap-1">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="h-4 w-4 fill-primary text-primary" />
+                    ))}
                   </div>
-                ))}
-              </div>
+                  <div className="mt-2 text-sm text-muted-foreground">{p.name}</div>
+                </div>
+              ))}
             </motion.div>
           </div>
         </section>

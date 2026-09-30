@@ -1,7 +1,6 @@
 // English search titles and descriptions for every public page, keyed by path.
 // Titles stay under 60 characters and descriptions under 155 so search results do not truncate them.
 // Used by <SEO /> for English; other languages keep their titleByLang / descriptionByLang overrides.
-import { FIVE_STAR_REVIEWS } from "@/data/reviewStats";
 export interface PageMeta {
   title: string;
   description: string;
@@ -94,7 +93,7 @@ export const PAGE_META: Record<string, PageMeta> = {
   },
   "/services/wix-website-design": {
     "title": "Wix Website Design Agency | Wix Legend Partner | NETREX",
-    "description": `Custom Wix and Wix Studio websites, stores and booking sites by a Wix Legend Partner. ${FIVE_STAR_REVIEWS} five-star client reviews. Get a free Wix quote.`
+    "description": "Custom Wix and Wix Studio websites, stores and booking sites by a Wix Legend Partner. 5-star reviews on Fiverr. Get a free Wix quote."
   },
   "/services/ecommerce": {
     "title": "Ecommerce Website Development | Shopify & Wix | NETREX",
