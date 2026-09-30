@@ -25,7 +25,7 @@ const Portfolio = () => {
     const id = Number(searchParams.get("project"));
     if (!id) return;
     const item = portfolioItems.find((p) => p.id === id);
-    if (item) setLightbox({ image: item.imageFull ?? item.image, title: item.title, description: item.description });
+    if (item) setLightbox({ image: item.image, title: item.title, description: item.description });
   }, [searchParams]);
 
   // Shuffle items on mount for randomness
@@ -141,7 +141,7 @@ const Portfolio = () => {
                     className="group rounded-3xl overflow-hidden bg-card border border-border hover:shadow-xl transition-all duration-300 cursor-pointer"
                     onMouseEnter={() => handleMouseEnter(index, item.category)}
                     onMouseLeave={() => handleMouseLeave(index)}
-                    onClick={() => setLightbox({ image: item.imageFull ?? item.image, title: item.title, description: item.description })}
+                    onClick={() => setLightbox({ image: item.image, title: item.title, description: item.description })}
                   >
                     <div className="relative aspect-[4/3] overflow-hidden bg-muted" style={(item.category === "Mobile App" || item.category === "Branding") ? { backgroundColor: item.category === "Branding" ? '#ffffff' : 'hsl(var(--primary) / 0.08)' } : undefined}>
                       <img

@@ -110,7 +110,7 @@ export function Portfolio() {
                     className="group block rounded-3xl overflow-hidden bg-card border border-border hover:border-primary/30 hover:shadow-2xl transition-all duration-500 cursor-pointer"
                     onMouseEnter={() => handleMouseEnter(index, project.category)}
                     onMouseLeave={() => handleMouseLeave(index)}
-                    onClick={() => setLightbox({ image: project.imageFull ?? project.image, title: project.title, description: project.description })}
+                    onClick={() => setLightbox({ image: project.image, title: project.title, description: project.description })}
                   >
                     <div className="relative aspect-[4/3] overflow-hidden bg-muted" style={(project.category === "Mobile App" || project.category === "Branding") ? { backgroundColor: project.category === "Branding" ? '#ffffff' : 'hsl(var(--primary) / 0.08)' } : undefined}>
                       <img

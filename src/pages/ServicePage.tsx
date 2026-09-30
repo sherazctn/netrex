@@ -957,7 +957,7 @@ const ServicePage = () => {
                   ) : (
                   <>
                   <img
-                    src={showcase ? showcase.imageFull ?? showcase.image : data.caseStudies[0]?.image}
+                    src={showcase ? showcase.image : data.caseStudies[0]?.image}
                     alt={showcase ? `${showcase.title}: ${showcase.technology} project by NETREX` : SERVICE_H1[service ?? ""] ?? data.title}
                     loading="lazy"
                     decoding="async"
