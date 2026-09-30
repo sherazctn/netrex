@@ -133,10 +133,10 @@ const About = () => {
           <div className="container-wide">
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
               {[
-                { end: 500, suffix: "+", label: "Projects" },
-                { end: 8, suffix: "+", label: "Years" },
-                { end: 6, suffix: "", label: "Countries" },
-                { end: 200, suffix: "+", label: "Clients" },
+                { end: 7000, suffix: "+", label: "Projects" },
+                { end: 10, suffix: "", label: "Years" },
+                { end: 7, suffix: "", label: "Countries" },
+                { end: 3000, suffix: "+", label: "Clients" },
               ].map((s) => (
                 <div key={s.label} className="p-6 rounded-3xl bg-card border border-border text-center">
                   <div className="text-4xl font-display font-bold text-primary mb-2">
@@ -243,9 +243,9 @@ const About = () => {
                 {/* Stat rail */}
                 <div className="mt-10 grid grid-cols-3 divide-x divide-background/15 rounded-2xl border border-background/15 bg-background/5">
                   {[
-                    { end: 92, suffix: "%", label: "Recurring Clients" },
-                    { end: 9, suffix: "", label: "Global Offices" },
-                    { end: 15, suffix: "+", label: "Years Leading" },
+                    { end: 3000, suffix: "+", label: "Clients Served" },
+                    { end: 7, suffix: "", label: "Countries with Offices" },
+                    { end: 10, suffix: "", label: "Years Leading NETREX" },
                   ].map((stat) => (
                     <div key={stat.label} className="px-4 py-5 text-center md:px-6">
                       <div className="font-display text-2xl font-bold text-primary md:text-3xl">

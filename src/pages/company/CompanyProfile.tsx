@@ -100,9 +100,9 @@ const CompanyProfile = () => {
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
               {[
                 { end: 2016, suffix: "", label: "Founded" },
-                { end: 9, suffix: "", label: "Global Offices" },
-                { end: 500, suffix: "+", label: "Clients Served" },
-                { end: 200, suffix: "", label: "Team Members (max)" },
+                { end: 7, suffix: "", label: "Countries with Offices" },
+                { end: 3000, suffix: "+", label: "Clients Served" },
+                { end: 7000, suffix: "+", label: "Projects Delivered" },
               ].map((s) => (
                 <div key={s.label} className="p-6 rounded-3xl bg-card border border-border text-center">
                   <div className="text-4xl font-display font-bold text-primary mb-2">

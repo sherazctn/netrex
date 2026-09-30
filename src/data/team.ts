@@ -15,7 +15,7 @@ export interface TeamMember {
   department: Department;
   office: string;
   countryCode: string;
-  /** Photo in /public/team; initials are shown when missing. */
+  /** Photo in /public/team (illustrated avatar in /public/team/avatars until a real photo is supplied). */
   image?: string;
   /** Year the person started working in the field (years of experience are counted from it). */
   experienceSince?: number;
@@ -34,7 +34,7 @@ export const DEPARTMENTS: Department[] = [
 
 export const TEAM: TeamMember[] = [
   // Operations
-  { name: "Muhammad Aoun", role: "Website Designer", department: "Operations", office: "Lahore, Pakistan", countryCode: "PK", status: "Active" },
+  { name: "Muhammad Aoun", role: "Website Designer", department: "Operations", office: "Lahore, Pakistan", countryCode: "PK", image: "/team/avatars/muhammad-aoun.svg", status: "Active" },
   { name: "Ali Khan", role: "Marketing Manager", department: "Operations", office: "Lahore, Pakistan", countryCode: "PK", image: "/team/ali-khan.webp", status: "Active" },
 
   // Project Management
@@ -47,14 +47,14 @@ export const TEAM: TeamMember[] = [
   { name: "Muhammad Waqas", role: "Mobile App Developer", department: "Development", office: "Lahore, Pakistan", countryCode: "PK", image: "/team/muhammad-waqas.webp", status: "Active" },
 
   // Marketing
-  { name: "Nirmal Memon", role: "Growth Marketing Executive", department: "Marketing", office: "Lahore, Pakistan", countryCode: "PK", status: "Active" },
+  { name: "Nirmal Memon", role: "Growth Marketing Executive", department: "Marketing", office: "Lahore, Pakistan", countryCode: "PK", image: "/team/avatars/nirmal-memon.svg", status: "Active" },
   { name: "Junaid Nadeem", role: "Email Marketing Executive", department: "Marketing", office: "Lahore, Pakistan", countryCode: "PK", image: "/team/junaid-nadeem.webp", status: "Active" },
 
   // Sales & Client Success
-  { name: "Rashid Bin Abdullah Al Majid", role: "Sales Manager (Gulf Region)", department: "Sales & Client Success", office: "Dubai, UAE", countryCode: "AE", status: "Active" },
-  { name: "Hannah Louise", role: "Sales & Marketing Manager (UK)", department: "Sales & Client Success", office: "London, UK", countryCode: "GB", status: "Active" },
-  { name: "Jessica Marie", role: "Customer Success Manager", department: "Sales & Client Success", office: "London, UK", countryCode: "GB", status: "Active" },
-  { name: "Avery Claire", role: "Sales & Marketing Manager (USA)", department: "Sales & Client Success", office: "New York, USA", countryCode: "US", status: "Active" },
-  { name: "Nora Elise", role: "Sales Manager (Canada)", department: "Sales & Client Success", office: "Vancouver, Canada", countryCode: "CA", status: "Active" },
-  { name: "Isaac Flynn", role: "Sales Manager (Australia)", department: "Sales & Client Success", office: "Brisbane, Australia", countryCode: "AU", status: "Active" },
+  { name: "Rashid Bin Abdullah Al Majid", role: "Sales Manager (Gulf Region)", department: "Sales & Client Success", office: "Dubai, UAE", countryCode: "AE", image: "/team/avatars/rashid-bin-abdullah-al-majid.svg", status: "Active" },
+  { name: "Hannah Louise", role: "Sales & Marketing Manager (UK)", department: "Sales & Client Success", office: "London, UK", countryCode: "GB", image: "/team/avatars/hannah-louise.svg", status: "Active" },
+  { name: "Jessica Marie", role: "Customer Success Manager", department: "Sales & Client Success", office: "London, UK", countryCode: "GB", image: "/team/avatars/jessica-marie.svg", status: "Active" },
+  { name: "Avery Claire", role: "Sales & Marketing Manager (USA)", department: "Sales & Client Success", office: "New York, USA", countryCode: "US", image: "/team/avatars/avery-claire.svg", status: "Active" },
+  { name: "Nora Elise", role: "Sales Manager (Canada)", department: "Sales & Client Success", office: "Vancouver, Canada", countryCode: "CA", image: "/team/avatars/nora-elise.svg", status: "Active" },
+  { name: "Isaac Flynn", role: "Sales Manager (Australia)", department: "Sales & Client Success", office: "Brisbane, Australia", countryCode: "AU", image: "/team/avatars/isaac-flynn.svg", status: "Active" },
 ];
