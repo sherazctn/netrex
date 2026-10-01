@@ -32,7 +32,7 @@ export const DEPARTMENTS: Department[] = [
   "Sales & Client Success",
 ];
 
-export const TEAM: TeamMember[] = [
+const CORE_TEAM: TeamMember[] = [
   // Operations
   { name: "Muhammad Aoun", role: "Website Designer", department: "Operations", office: "Lahore, Pakistan", countryCode: "PK", image: "/team/avatars/muhammad-aoun.svg", status: "Active" },
   { name: "Ali Khan", role: "Marketing Manager", department: "Operations", office: "Lahore, Pakistan", countryCode: "PK", image: "/team/ali-khan.webp", status: "Active" },
@@ -58,3 +58,49 @@ export const TEAM: TeamMember[] = [
   { name: "Nora Elise", role: "Sales Manager (Canada)", department: "Sales & Client Success", office: "Vancouver, Canada", countryCode: "CA", image: "/team/avatars/nora-elise.svg", status: "Active" },
   { name: "Isaac Flynn", role: "Sales Manager (Australia)", department: "Sales & Client Success", office: "Brisbane, Australia", countryCode: "AU", image: "/team/avatars/isaac-flynn.svg", status: "Active" },
 ];
+
+const anonymousAvatars = [
+  "/team/avatars/muhammad-aoun.svg",
+  "/team/avatars/nirmal-memon.svg",
+  "/team/avatars/rashid-bin-abdullah-al-majid.svg",
+  "/team/avatars/hannah-louise.svg",
+  "/team/avatars/jessica-marie.svg",
+  "/team/avatars/avery-claire.svg",
+  "/team/avatars/nora-elise.svg",
+  "/team/avatars/isaac-flynn.svg",
+];
+
+const departmentRoles: Record<Department, string[]> = {
+  Operations: ["Operations Coordinator", "Quality Coordinator", "Office Administrator", "Resource Coordinator"],
+  "Project Management": ["Project Manager", "Delivery Coordinator", "Business Analyst", "Quality Assurance Coordinator"],
+  Development: ["Full Stack Developer", "Front-End Developer", "Back-End Developer", "Mobile App Developer"],
+  Marketing: ["SEO Specialist", "Content Strategist", "Performance Marketing Specialist", "Social Media Specialist"],
+  "Sales & Client Success": ["Business Development Executive", "Client Success Executive", "Account Manager", "Sales Coordinator"],
+};
+
+const departmentOffice: Record<Department, { office: string; countryCode: string }> = {
+  Operations: { office: "Lahore, Pakistan", countryCode: "PK" },
+  "Project Management": { office: "Lahore, Pakistan", countryCode: "PK" },
+  Development: { office: "Lahore, Pakistan", countryCode: "PK" },
+  Marketing: { office: "Lahore, Pakistan", countryCode: "PK" },
+  "Sales & Client Success": { office: "Global", countryCode: "" },
+};
+
+const anonymousMembers = DEPARTMENTS.flatMap((department, departmentIndex) => {
+  const existingCount = CORE_TEAM.filter((member) => member.department === department).length;
+  return Array.from({ length: Math.max(0, 10 - existingCount) }, (_, index): TeamMember => {
+    const number = index + 1;
+    const location = departmentOffice[department];
+    return {
+      name: `Anonymous Team Member ${String(number).padStart(2, "0")}`,
+      role: departmentRoles[department][index % departmentRoles[department].length],
+      department,
+      office: location.office,
+      countryCode: location.countryCode,
+      image: anonymousAvatars[(departmentIndex * 3 + index) % anonymousAvatars.length],
+      status: "Active",
+    };
+  });
+});
+
+export const TEAM: TeamMember[] = [...CORE_TEAM, ...anonymousMembers];

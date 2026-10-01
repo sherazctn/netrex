@@ -228,7 +228,7 @@ const CEO = () => {
                     href={profile.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex min-h-11 min-w-0 items-center gap-2 rounded-full border border-border bg-card px-3 text-sm font-semibold text-foreground transition-colors hover:border-primary hover:text-primary sm:px-4"
+                    className="inline-flex min-h-11 min-w-0 items-center gap-2 rounded-md border border-border bg-card px-3 text-sm font-semibold text-foreground transition-colors hover:border-primary hover:text-primary sm:px-4"
                   >
                     <profile.icon className="h-4 w-4" />
                     {profile.label}
@@ -244,12 +244,12 @@ const CEO = () => {
               transition={{ duration: 0.65 }}
               className="relative mx-auto w-full min-w-0 max-w-md lg:max-w-none"
             >
-              <div className="relative overflow-hidden rounded-3xl border border-border bg-card shadow-xl">
-                <div className="aspect-[4/5] min-h-[360px] overflow-hidden sm:min-h-[460px] lg:min-h-0">
+              <div className="relative overflow-hidden rounded-lg border border-border bg-card shadow-xl">
+                <div className="aspect-square overflow-hidden">
                   <img
                     src={ceoPortrait}
                     alt="Sheraz Khan, Founder and CEO of NETREX"
-                    className="h-full w-full object-cover object-[center_16%]"
+                    className="h-full w-full object-cover object-top"
                     fetchPriority="high"
                   />
                 </div>
@@ -272,7 +272,7 @@ const CEO = () => {
 
         <section className="border-b border-border bg-secondary/40 py-8">
           <div className="container-wide">
-          <div className="grid gap-px overflow-hidden rounded-2xl border border-border bg-border sm:grid-cols-3">
+          <div className="grid gap-px overflow-hidden rounded-lg border border-border bg-border sm:grid-cols-3">
             {[
               { label: "Current role", value: "Founder & CEO, NETREX", icon: Building2 },
               { label: "Education", value: "Computer Science", icon: GraduationCap },
@@ -319,8 +319,8 @@ const CEO = () => {
             </Reveal>
             <div className="mt-12 grid gap-4 md:grid-cols-2">
               {professionalFocus.map((item) => (
-                <Reveal key={item.title} className="min-w-0 rounded-3xl border border-background/15 bg-background/5 p-6 md:p-8">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-primary/30 bg-primary/10">
+                <Reveal key={item.title} className="min-w-0 rounded-lg border border-background/15 bg-background/5 p-6 md:p-8">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-md border border-primary/30 bg-primary/10">
                     <item.icon className="h-6 w-6 text-primary" />
                   </div>
                   <h3 className="mt-5 break-words text-xl font-bold text-background">{item.title}</h3>
