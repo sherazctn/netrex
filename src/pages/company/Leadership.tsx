@@ -38,7 +38,7 @@ const PersonCard = ({ person, index }: { person: Person; index: number }) => (
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
     transition={{ duration: 0.5, delay: (index % 4) * 0.06 }}
-    className="group overflow-hidden rounded-3xl border border-border bg-card"
+    className="group overflow-hidden rounded-lg border border-border bg-card"
   >
     <div className="relative aspect-square overflow-hidden bg-gradient-to-br from-primary/15 via-secondary to-primary/5">
       {person.image ? (
@@ -169,7 +169,7 @@ const Leadership = () => {
                 );
               })}
             </div>
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            <div className="grid gap-7 md:grid-cols-2 lg:grid-cols-3">
               {people.map((p, i) => (
                 <PersonCard key={`${tab}-${p.name}`} person={p} index={i} />
               ))}

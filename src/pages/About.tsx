@@ -151,20 +151,8 @@ const About = () => {
 
 
         {/* CEO Message - editorial band */}
-        <section className="relative overflow-hidden bg-foreground py-20 md:py-28 text-background">
-          {/* Background treatment */}
-          <div className="pointer-events-none absolute inset-0" aria-hidden="true">
-            <div className="absolute -left-40 top-0 h-[520px] w-[520px] rounded-full bg-primary/25 blur-[150px]" />
-            <div className="absolute -right-32 bottom-0 h-[420px] w-[420px] rounded-full bg-primary/15 blur-[140px]" />
-            <svg className="absolute inset-0 h-full w-full opacity-[0.06]" xmlns="http://www.w3.org/2000/svg">
-              <defs>
-                <pattern id="ceo-lines" width="6" height="6" patternUnits="userSpaceOnUse">
-                  <path d="M 0 6 L 6 0" stroke="currentColor" strokeWidth="0.5" />
-                </pattern>
-              </defs>
-              <rect width="100%" height="100%" fill="url(#ceo-lines)" />
-            </svg>
-          </div>
+        <section className="relative overflow-hidden border-y border-border bg-foreground py-20 text-background md:py-28">
+          <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-primary" aria-hidden="true" />
 
           <div className="container-wide relative z-10">
             <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
@@ -176,14 +164,13 @@ const About = () => {
                 transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
                 className="lg:col-span-5"
               >
-                <div className="relative mx-auto max-w-sm lg:max-w-none">
-                  {/* Offset red frame */}
-                  <div className="absolute -bottom-4 -left-4 h-full w-full rounded-[1.75rem] border-2 border-primary" />
-                  <div className="relative aspect-[4/5] overflow-hidden rounded-[1.75rem] bg-background/10 ring-1 ring-background/15">
+                <div className="relative mx-auto max-w-md lg:max-w-none">
+                  <div className="absolute -bottom-3 -left-3 h-full w-full rounded-lg border-2 border-primary" />
+                  <div className="relative aspect-square overflow-hidden rounded-lg bg-background/10 ring-1 ring-background/15">
                     <img
                       src={ceoPortrait}
                       alt="Sheraz Khan, Founder and CEO of NETREX Inc"
-                      className="h-full w-full object-cover"
+                      className="h-full w-full object-cover object-top"
                       loading="lazy"
                     />
                     <div className="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-foreground/90 to-transparent" />
@@ -194,8 +181,7 @@ const About = () => {
                       </div>
                     </div>
                   </div>
-                  {/* Quote chip */}
-                  <div className="absolute -right-3 -top-3 flex h-14 w-14 items-center justify-center rounded-2xl bg-primary shadow-xl">
+                  <div className="absolute -right-3 -top-3 flex h-14 w-14 items-center justify-center rounded-md bg-primary shadow-xl">
                     <Quote className="h-6 w-6 text-white" />
                   </div>
                 </div>
@@ -209,8 +195,8 @@ const About = () => {
                 transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
                 className="lg:col-span-7"
               >
-                <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-background/20 bg-background/10 px-4 py-1.5">
-                  <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-primary" />
+                <div className="mb-6 inline-flex items-center gap-2 rounded-md border border-background/20 bg-background/10 px-4 py-1.5">
+                  <span className="h-1.5 w-1.5 bg-primary" />
                   <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-background/80">
                     Leadership
                   </span>
@@ -241,7 +227,7 @@ const About = () => {
                 </blockquote>
 
                 {/* Stat rail */}
-                <div className="mt-10 grid grid-cols-3 divide-x divide-background/15 rounded-2xl border border-background/15 bg-background/5">
+                <div className="mt-10 grid grid-cols-1 divide-y divide-background/15 rounded-lg border border-background/15 bg-background/5 sm:grid-cols-3 sm:divide-x sm:divide-y-0">
                   {[
                     { end: 3000, suffix: "+", label: "Clients Served" },
                     { end: 6, suffix: "", label: "Countries with Offices" },

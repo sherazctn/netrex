@@ -117,9 +117,9 @@ export function Portfolio() {
                         ref={(el) => { imageRefs.current[index] = el; }}
                         src={project.image}
                         alt={project.title}
-                        loading="eager"
+                        loading={index < 3 ? "eager" : "lazy"}
                         decoding="async"
-                        className={(project.category === "Mobile App" || project.category === "Branding") ? "absolute top-0 left-0 w-full h-full object-contain p-4" : "absolute top-0 left-0 w-full h-auto"}
+                        className={(project.category === "Mobile App" || project.category === "Branding") ? "absolute left-0 top-0 h-full w-full object-contain p-4 [image-rendering:auto]" : "absolute left-0 top-0 h-auto w-full [backface-visibility:hidden] [image-rendering:auto]"}
                         style={(project.category !== "Mobile App" && project.category !== "Branding") ? { transform: "translateY(0)" } : undefined}
                       />
 

@@ -144,13 +144,13 @@ const Portfolio = () => {
                     onClick={() => setLightbox({ image: item.image, title: item.title, description: item.description })}
                   >
                     <div className="relative aspect-[4/3] overflow-hidden bg-muted" style={(item.category === "Mobile App" || item.category === "Branding") ? { backgroundColor: item.category === "Branding" ? '#ffffff' : 'hsl(var(--primary) / 0.08)' } : undefined}>
-                      <img
+                       <img
                         ref={(el) => { imageRefs.current[index] = el; }}
                         src={item.image}
                         alt={item.title}
-                        loading="eager"
+                         loading={index < 6 ? "eager" : "lazy"}
                         decoding="async"
-                        className={(item.category === "Mobile App" || item.category === "Branding") ? "absolute top-0 left-0 w-full h-full object-contain p-4" : "absolute top-0 left-0 w-full h-auto"}
+                         className={(item.category === "Mobile App" || item.category === "Branding") ? "absolute left-0 top-0 h-full w-full object-contain p-4 [image-rendering:auto]" : "absolute left-0 top-0 h-auto w-full [backface-visibility:hidden] [image-rendering:auto]"}
                         style={(item.category !== "Mobile App" && item.category !== "Branding") ? { transform: "translateY(0)" } : undefined}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
