@@ -9,3 +9,9 @@
 - [ ] Connect real live Instagram feed for @netrex.official - blocked: secure token setup was declined
 - [x] Fix desktop dropdown hover gap so menu items remain clickable
 - [x] Rebuild CEO page as a formal NETREX-only leadership and credibility profile
+- [ ] Activate and verify the live Instagram feed on the home page
+- [ ] Refine About and CEO portrait sections with square image presentation
+- [ ] Organize the About mega menu into clear groups
+- [ ] Set leadership/team cards to three per desktop row with larger images
+- [ ] Expand every team department to at least 10 entries using anonymous profile cards
+- [ ] Preserve original portfolio image quality and remove presentation blur
