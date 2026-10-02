@@ -1,21 +1,21 @@
 # Roadmap
 
 - [x] Instagram feed section on home page (edge function deployed)
-- [ ] Live Instagram connection - blocked: Instagram access token was not provided
+- [ ] Live Instagram connection - blocked: supplied Instagram token is invalid (OAuth code 190)
 - [x] 3 new blog posts with random August 2026 dates
 - [x] Rebuild CEO page to supplied 7-section specification and social links
 - [x] Add Read More link from About CEO section to SEO CEO page
 - [x] Replace stock people imagery across public leadership sections with verified real team imagery
-- [ ] Connect real live Instagram feed for @netrex.official - blocked: secure token setup was declined
+- [ ] Connect real live Instagram feed for @netrex.official - blocked: supplied Instagram token is invalid (OAuth code 190)
 - [x] Fix desktop dropdown hover gap so menu items remain clickable
 - [x] Rebuild CEO page as a formal NETREX-only leadership and credibility profile
-- [ ] Activate and verify the live Instagram feed on the home page
-- [ ] Refine About and CEO portrait sections with square image presentation
-- [ ] Organize the About mega menu into clear groups
-- [ ] Set leadership/team cards to three per desktop row with larger images
-- [ ] Expand every team department to at least 10 entries using anonymous profile cards
-- [ ] Preserve original portfolio image quality and remove presentation blur
-- [ ] Standardize CEO page radii to restrained 10-25px corners and prevent clipped content
-- [ ] Standardize team page card radii and show years of experience
-- [ ] Make About values four cards per desktop row
-- [ ] Vary department team totals above 10 instead of showing exactly 10 each
+- [ ] Activate and verify the live Instagram feed on the home page - blocked: supplied token is invalid
+- [x] Refine About and CEO portrait sections with square image presentation
+- [x] Organize the About mega menu into clear groups
+- [x] Set leadership/team cards to three per desktop row with larger images
+- [x] Expand every team department to varied totals above 10 using anonymous profile cards
+- [x] Preserve original portfolio image quality and remove presentation blur
+- [x] Standardize CEO page radii to restrained 10-25px corners and prevent clipped content
+- [x] Standardize team page card radii and show years of experience
+- [x] Make About values four cards per desktop row
+- [x] Vary department team totals above 10 instead of showing exactly 10 each
