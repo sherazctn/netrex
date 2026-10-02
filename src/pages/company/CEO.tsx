@@ -228,7 +228,7 @@ const CEO = () => {
                     href={profile.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex min-h-11 min-w-0 items-center gap-2 rounded-md border border-border bg-card px-3 text-sm font-semibold text-foreground transition-colors hover:border-primary hover:text-primary sm:px-4"
+                    className="inline-flex min-h-11 min-w-0 items-center gap-2 rounded-xl border border-border bg-card px-3 text-sm font-semibold text-foreground transition-colors hover:border-primary hover:text-primary sm:px-4"
                   >
                     <profile.icon className="h-4 w-4" />
                     {profile.label}

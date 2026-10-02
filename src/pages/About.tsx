@@ -194,7 +194,7 @@ const About = () => {
                 transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
                 className="lg:col-span-7"
               >
-                <div className="mb-6 inline-flex items-center gap-2 rounded-md border border-background/20 bg-background/10 px-4 py-1.5">
+                <div className="mb-6 inline-flex items-center gap-2 rounded-xl border border-background/20 bg-background/10 px-4 py-1.5">
                   <span className="h-1.5 w-1.5 bg-primary" />
                   <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-background/80">
                     Leadership
