@@ -100,7 +100,7 @@ const anonymousMembers = DEPARTMENTS.flatMap((department, departmentIndex) => {
     const number = index + 1;
     const location = departmentOffice[department];
     return {
-      name: `Anonymous Team Member ${String(number).padStart(2, "0")}`,
+      name: `NETREX Team Member ${String(number).padStart(2, "0")}`,
       role: departmentRoles[department][index % departmentRoles[department].length],
       department,
       office: location.office,

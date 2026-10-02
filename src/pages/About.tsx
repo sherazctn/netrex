@@ -138,7 +138,7 @@ const About = () => {
                 { end: 6, suffix: "", label: "Countries" },
                 { end: 3000, suffix: "+", label: "Clients" },
               ].map((s) => (
-                <div key={s.label} className="p-6 rounded-3xl bg-card border border-border text-center">
+                <div key={s.label} className="p-6 rounded-2xl bg-card border border-border text-center">
                   <div className="text-4xl font-display font-bold text-primary mb-2">
                     <CountUpNumber end={s.end} suffix={s.suffix} />
                   </div>

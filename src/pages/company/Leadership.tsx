@@ -93,7 +93,7 @@ const schema = {
   "@type": "Organization",
   name: "NETREX INC",
   url: "https://www.netrexinc.com",
-  employee: [...executiveTeam, ...TEAM.filter((m) => m.status !== "Former")].map((p) => ({ "@type": "Person", name: p.name, jobTitle: p.role })),
+  employee: [...executiveTeam, ...TEAM.filter((m) => m.status !== "Former" && !m.name.startsWith("NETREX Team Member"))].map((p) => ({ "@type": "Person", name: p.name, jobTitle: p.role })),
 };
 
 const Leadership = () => {
