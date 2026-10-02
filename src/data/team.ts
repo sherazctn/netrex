@@ -86,9 +86,17 @@ const departmentOffice: Record<Department, { office: string; countryCode: string
   "Sales & Client Success": { office: "Global", countryCode: "" },
 };
 
+const departmentTargets: Record<Department, number> = {
+  Operations: 12,
+  "Project Management": 11,
+  Development: 14,
+  Marketing: 13,
+  "Sales & Client Success": 15,
+};
+
 const anonymousMembers = DEPARTMENTS.flatMap((department, departmentIndex) => {
   const existingCount = CORE_TEAM.filter((member) => member.department === department).length;
-  return Array.from({ length: Math.max(0, 10 - existingCount) }, (_, index): TeamMember => {
+  return Array.from({ length: Math.max(0, departmentTargets[department] - existingCount) }, (_, index): TeamMember => {
     const number = index + 1;
     const location = departmentOffice[department];
     return {
@@ -98,6 +106,7 @@ const anonymousMembers = DEPARTMENTS.flatMap((department, departmentIndex) => {
       office: location.office,
       countryCode: location.countryCode,
       image: anonymousAvatars[(departmentIndex * 3 + index) % anonymousAvatars.length],
+      experienceSince: 2017 + ((departmentIndex * 2 + index) % 7),
       status: "Active",
     };
   });

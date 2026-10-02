@@ -38,7 +38,7 @@ const PersonCard = ({ person, index }: { person: Person; index: number }) => (
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
     transition={{ duration: 0.5, delay: (index % 4) * 0.06 }}
-    className="group overflow-hidden rounded-lg border border-border bg-card"
+    className="group overflow-hidden rounded-xl border border-border bg-card"
   >
     <div className="relative aspect-square overflow-hidden bg-gradient-to-br from-primary/15 via-secondary to-primary/5">
       {person.image ? (
@@ -187,9 +187,9 @@ const Leadership = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: i * 0.08 }}
-                className="rounded-3xl border border-border bg-card p-6"
+                className="rounded-2xl border border-border bg-card p-6"
               >
-                <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center mb-4">
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
                   <g.icon className="h-6 w-6 text-primary" />
                 </div>
                 <h3 className="font-display font-bold mb-2">{g.title}</h3>
