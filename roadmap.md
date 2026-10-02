@@ -15,3 +15,7 @@
 - [ ] Set leadership/team cards to three per desktop row with larger images
 - [ ] Expand every team department to at least 10 entries using anonymous profile cards
 - [ ] Preserve original portfolio image quality and remove presentation blur
+- [ ] Standardize CEO page radii to restrained 10-25px corners and prevent clipped content
+- [ ] Standardize team page card radii and show years of experience
+- [ ] Make About values four cards per desktop row
+- [ ] Vary department team totals above 10 instead of showing exactly 10 each
