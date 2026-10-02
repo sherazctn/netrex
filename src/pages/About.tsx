@@ -138,7 +138,7 @@ const About = () => {
                 { end: 6, suffix: "", label: "Countries" },
                 { end: 3000, suffix: "+", label: "Clients" },
               ].map((s) => (
-                <div key={s.label} className="p-6 rounded-3xl bg-card border border-border text-center">
+                <div key={s.label} className="p-6 rounded-2xl bg-card border border-border text-center">
                   <div className="text-4xl font-display font-bold text-primary mb-2">
                     <CountUpNumber end={s.end} suffix={s.suffix} />
                   </div>
@@ -155,7 +155,7 @@ const About = () => {
           <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-primary" aria-hidden="true" />
 
           <div className="container-wide relative z-10">
-            <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
+            <div className="grid items-start gap-12 lg:grid-cols-12 lg:gap-16">
               {/* Portrait column */}
               <motion.div
                 initial={{ opacity: 0, x: -40 }}
@@ -164,9 +164,8 @@ const About = () => {
                 transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
                 className="lg:col-span-5"
               >
-                <div className="relative mx-auto max-w-md lg:max-w-none">
-                  <div className="absolute -bottom-3 -left-3 h-full w-full rounded-lg border-2 border-primary" />
-                  <div className="relative aspect-square overflow-hidden rounded-lg bg-background/10 ring-1 ring-background/15">
+                <div className="relative mx-auto w-full max-w-md lg:max-w-none">
+                  <div className="relative aspect-square overflow-hidden rounded-3xl border border-background/15 bg-background/10 shadow-xl">
                     <img
                       src={ceoPortrait}
                       alt="Sheraz Khan, Founder and CEO of NETREX Inc"
@@ -181,7 +180,7 @@ const About = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="absolute -right-3 -top-3 flex h-14 w-14 items-center justify-center rounded-md bg-primary shadow-xl">
+                  <div className="absolute right-4 top-4 flex h-12 w-12 items-center justify-center rounded-xl bg-primary shadow-xl">
                     <Quote className="h-6 w-6 text-white" />
                   </div>
                 </div>
@@ -195,7 +194,7 @@ const About = () => {
                 transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
                 className="lg:col-span-7"
               >
-                <div className="mb-6 inline-flex items-center gap-2 rounded-md border border-background/20 bg-background/10 px-4 py-1.5">
+                <div className="mb-6 inline-flex items-center gap-2 rounded-xl border border-background/20 bg-background/10 px-4 py-1.5">
                   <span className="h-1.5 w-1.5 bg-primary" />
                   <span className="text-[11px] font-semibold uppercase tracking-[0.2em] text-background/80">
                     Leadership
@@ -535,7 +534,7 @@ const About = () => {
                 The principles that guide everything we do at NETREX.
               </p>
             </motion.div>
-            <div className="grid md:grid-cols-3 gap-6">
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {values.map((value, index) =>
               <motion.div
                 key={value.title}
@@ -543,9 +542,9 @@ const About = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="p-6 rounded-3xl bg-card border border-border text-center hover:shadow-lg hover:border-primary/30 transition-all">
+                className="p-6 rounded-2xl bg-card border border-border text-center hover:shadow-lg hover:border-primary/30 transition-all">
                 
-                  <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                  <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
                     <value.icon className="h-7 w-7 text-primary" />
                   </div>
                   <h3 className="font-display font-bold text-lg mb-2">{value.title}</h3>
@@ -576,7 +575,7 @@ const About = () => {
                 The talented people driving NETREX's global success.
               </p>
             </motion.div>
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {team.map((member, index) =>
               <motion.div
                 key={member.name}
@@ -586,7 +585,7 @@ const About = () => {
                 transition={{ duration: 0.5, delay: index * 0.08 }}
                 className="group text-center">
                 
-                  <div className="relative mb-4 rounded-3xl overflow-hidden aspect-square">
+                  <div className="relative mb-5 rounded-2xl overflow-hidden aspect-[4/5]">
                     <img
                     src={member.image}
                     alt={member.name}
