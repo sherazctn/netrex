@@ -101,6 +101,7 @@ const navLinks = [
       { name: "Data Analytics & BI", href: "/services/data-analytics", tKey: "services.analytics" },
     ]
   },
+  { name: "Solutions", href: "/solutions" },
   { name: "Industries", href: "/industries", tKey: "nav.industries" },
   { name: "Portfolio", href: "/portfolio", tKey: "nav.portfolio" },
   { name: "Blog", href: "/blog", tKey: "nav.blog" },

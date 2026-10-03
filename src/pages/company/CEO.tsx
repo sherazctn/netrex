@@ -1,4 +1,5 @@
 import { Header } from "@/components/layout/Header";
+import { PageHero } from "@/components/layout/PageHero";
 import { Footer } from "@/components/layout/Footer";
 import { SEO } from "@/components/SEO";
 import { Button } from "@/components/ui/button";
@@ -186,7 +187,13 @@ const CEO = () => {
       <Header />
 
       <main>
-        <section className="relative overflow-hidden border-b border-border bg-background pb-14 pt-32 sm:pt-36 md:pb-20 md:pt-44">
+        <PageHero
+          badge="Executive Leadership"
+          title="Sheraz Khan"
+          highlight="Founder & CEO"
+          description="An official NETREX leadership profile covering professional background, responsibilities, capabilities and public credentials."
+        />
+        <section className="relative overflow-hidden border-b border-border bg-background py-14 md:py-20">
           <div className="pointer-events-none absolute inset-0" aria-hidden="true">
             <div className="absolute inset-y-0 right-0 hidden w-1/2 bg-secondary/50 lg:block" />
             <div className="absolute left-0 top-28 h-px w-full bg-border/70" />
@@ -202,9 +209,9 @@ const CEO = () => {
                 <span className="h-px w-7 shrink-0 bg-primary sm:w-9" />
                 <span>Founder &amp; Chief Executive Officer</span>
               </div>
-              <h1 className="max-w-3xl break-words font-display text-4xl font-bold leading-tight sm:text-6xl md:text-7xl">
+              <h2 className="max-w-3xl break-words font-display text-4xl font-bold leading-tight sm:text-6xl md:text-7xl">
                 Sheraz Khan
-              </h1>
+              </h2>
               <p className="mt-6 max-w-2xl text-lg font-medium leading-8 text-foreground md:text-xl">
                 Technology entrepreneur leading NETREX through engineering discipline, responsible delivery and long-term client partnerships.
               </p>

@@ -40,6 +40,7 @@ const footerLinks = {
     { name: "About Us", href: "/about", icon: Building2 },
     { name: "Our Mission", href: "/mission", icon: Target },
     { name: "Our Vision", href: "/vision", icon: Eye },
+    { name: "Solutions", href: "/solutions", icon: Boxes },
     { name: "Portfolio", href: "/portfolio", icon: FolderOpen },
     { name: "Testimonials", href: "/testimonials", icon: MessageSquare },
     { name: "Blog", href: "/blog", icon: BookOpen },

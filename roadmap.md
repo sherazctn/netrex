@@ -19,3 +19,8 @@
 - [x] Standardize team page card radii and show years of experience
 - [x] Make About values four cards per desktop row
 - [x] Vary department team totals above 10 instead of showing exactly 10 each
+- [x] Match the About CEO portrait height to the adjacent message
+- [x] Add Solutions listing and detail pages for ERP, KHATA and WhatsApp
+- [x] Add five-view mockup galleries and solution inquiry actions
+- [x] Add the shared page hero to the CEO profile
+- [x] Expand compliance documents with jurisdiction-aware controls and safeguards
