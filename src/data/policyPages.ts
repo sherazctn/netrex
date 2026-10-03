@@ -563,4 +563,44 @@ export const policyPages: PolicyPage[] = [
   },
 ];
 
-export const getPolicyPage = (slug?: string) => policyPages.find((p) => p.slug === slug);
+const regionalComplianceSections: PolicySection[] = [
+  {
+    heading: "Regional legal framework",
+    paragraphs: [
+      "NETREX applies this policy through the contract, delivery location and data flows relevant to each engagement. Requirements can differ by jurisdiction, industry and client role, so the signed agreement and applicable law take priority over this general policy.",
+    ],
+    bullets: [
+      "United Arab Emirates: UAE federal laws and relevant free-zone requirements, including applicable personal data protection, electronic transactions, cybercrime, employment and commercial rules.",
+      "Pakistan: applicable data, electronic transactions, employment, tax and company requirements, together with sector-specific directions where they apply.",
+      "United Kingdom: UK GDPR, Data Protection Act 2018, PECR, Equality Act 2010, Bribery Act 2010 and Modern Slavery Act 2015 where applicable.",
+      "Germany and the European Economic Area: GDPR, ePrivacy requirements, accessibility rules and applicable German commercial and employment obligations.",
+      "United States: applicable federal and state privacy, consumer protection, accessibility, employment, anti-bribery and breach-notification requirements determined by the engagement and affected individuals.",
+      "Canada: PIPEDA and applicable provincial privacy, consumer, employment and electronic communications requirements.",
+      "Australia: Privacy Act 1988, Australian Privacy Principles, Spam Act 2003, consumer law and applicable workplace requirements.",
+      "Saudi Arabia: Personal Data Protection Law, electronic transaction, cybercrime, employment and commercial requirements where the engagement is in scope.",
+      "Singapore: Personal Data Protection Act, Computer Misuse Act, anti-spam and applicable employment and commercial requirements.",
+    ],
+  },
+  {
+    heading: "Accountability and evidence",
+    bullets: [
+      "A named engagement owner is responsible for applying contractual and policy controls.",
+      "Material decisions, approvals, access changes and incidents are documented in the relevant project records.",
+      "Personnel receive instructions appropriate to their role, and access is reviewed when responsibilities change.",
+      "Supplier and sub-processor obligations are assessed according to the service, information handled and delivery location.",
+      "Records are retained only for operational, contractual or legal needs and disposed of through controlled processes.",
+    ],
+  },
+  {
+    heading: "Review, questions and escalation",
+    paragraphs: [
+      "This document is reviewed at least annually and after a material legal, operational or security change. Questions, evidence requests or concerns may be sent to info@netrexinc.com for routing to the appropriate NETREX owner.",
+      "This public document describes our operating approach and is not legal advice, a certification statement or a replacement for a signed client agreement. NETREX obtains specialist advice where a project creates jurisdiction-specific obligations outside the agreed delivery scope.",
+    ],
+  },
+];
+
+export const getPolicyPage = (slug?: string) => {
+  const policy = policyPages.find((item) => item.slug === slug);
+  return policy ? { ...policy, sections: [...policy.sections, ...regionalComplianceSections] } : undefined;
+};

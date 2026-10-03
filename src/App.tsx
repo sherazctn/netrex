@@ -49,6 +49,8 @@ import AutomationSavingsCalculator from "./pages/tools/AutomationSavingsCalculat
 import ChatbotROICalculator from "./pages/tools/ChatbotROICalculator";
 import AICopyGenerator from "./pages/tools/AICopyGenerator";
 import PolicyPage, { PoliciesIndex } from "./pages/PolicyPage";
+import Solutions from "./pages/Solutions";
+import SolutionDetail from "./pages/SolutionDetail";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -84,6 +86,8 @@ const App = () => (
             <Route path="/contact" element={<Contact />} />
             <Route path="/services" element={<Services />} />
             <Route path="/services/:service" element={<ServicePage />} />
+            <Route path="/solutions" element={<Solutions />} />
+            <Route path="/solutions/:slug" element={<SolutionDetail />} />
             <Route path="/industries" element={<Industries />} />
             <Route path="/portfolio" element={<Portfolio />} />
             <Route path="/blog" element={<Blog />} />

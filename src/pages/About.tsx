@@ -155,17 +155,17 @@ const About = () => {
           <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-primary" aria-hidden="true" />
 
           <div className="container-wide relative z-10">
-            <div className="grid items-start gap-12 lg:grid-cols-12 lg:gap-16">
+            <div className="grid items-stretch gap-12 lg:grid-cols-12 lg:gap-16">
               {/* Portrait column */}
               <motion.div
                 initial={{ opacity: 0, x: -40 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-                className="lg:col-span-5"
+                className="h-full lg:col-span-5"
               >
-                <div className="relative mx-auto w-full max-w-md lg:max-w-none">
-                  <div className="relative aspect-square overflow-hidden rounded-3xl border border-background/15 bg-background/10 shadow-xl">
+                <div className="relative mx-auto h-full w-full max-w-md lg:max-w-none">
+                  <div className="relative aspect-square h-full overflow-hidden rounded-3xl border border-background/15 bg-background/10 shadow-xl lg:aspect-auto lg:min-h-[640px]">
                     <img
                       src={ceoPortrait}
                       alt="Sheraz Khan, Founder and CEO of NETREX Inc"
@@ -192,7 +192,7 @@ const About = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-                className="lg:col-span-7"
+                className="flex h-full flex-col justify-center lg:col-span-7"
               >
                 <div className="mb-6 inline-flex items-center gap-2 rounded-xl border border-background/20 bg-background/10 px-4 py-1.5">
                   <span className="h-1.5 w-1.5 bg-primary" />
