@@ -11,9 +11,15 @@ export function SolutionGallery({ solution, compact = false }: { solution: Solut
   return (
     <div className="space-y-3">
       <div className={`relative overflow-hidden rounded-2xl border border-border bg-muted ${compact ? "aspect-[16/10]" : "aspect-[16/9]"}`}>
-        <div className="absolute inset-y-0 w-[500%] max-w-none transition-transform duration-500 ease-out" style={{ left: `${active * -100}%` }}>
-          <img src={solution.image} alt={`${solution.name} product views`} loading="lazy" width={1920} height={1152} className="h-full w-full object-cover" />
-        </div>
+        <img
+          src={solution.image}
+          alt={`${solution.name}: ${slides[active].title}`}
+          loading="lazy"
+          width={1920}
+          height={1152}
+          className="absolute inset-y-0 left-0 h-full w-[500%] max-w-none object-fill transition-transform duration-500 ease-out"
+          style={{ transform: `translateX(-${active * 20}%)` }}
+        />
         <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 bg-gradient-to-t from-foreground/90 to-transparent p-4 pt-12">
           <span className="text-sm font-semibold text-background">{slides[active].title}</span>
           <span className="text-xs tabular-nums text-background/70">{active + 1} / {slides.length}</span>
