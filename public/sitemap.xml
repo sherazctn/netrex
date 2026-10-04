@@ -445,4 +445,24 @@
     <lastmod>2026-09-26</lastmod>
     <priority>0.3</priority>
   </url>
+  <url>
+    <loc>https://www.netrexinc.com/solutions</loc>
+    <lastmod>2026-10-03</lastmod>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.netrexinc.com/solutions/netrex-erp</loc>
+    <lastmod>2026-10-03</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.netrexinc.com/solutions/netrex-khata</loc>
+    <lastmod>2026-10-03</lastmod>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.netrexinc.com/solutions/netrex-whatsapp</loc>
+    <lastmod>2026-10-03</lastmod>
+    <priority>0.8</priority>
+  </url>
 </urlset>
