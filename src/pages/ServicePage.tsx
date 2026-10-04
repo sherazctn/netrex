@@ -19,18 +19,30 @@ import { SEO } from "@/components/SEO";
 import { SERVICE_SEO, AREA_SERVED } from "@/data/serviceSeo";
 import { ServiceOverview, ServiceFaq, ServiceDeepDive } from "@/components/services/ServiceSeoContent";
 import { ServiceVisual, hasServiceVisual } from "@/components/services/ServiceVisual";
+import imgWeb from "@/assets/services/web-development.jpg";
+import imgWix from "@/assets/services/wix-website-design.jpg";
+import imgEcom from "@/assets/services/ecommerce.jpg";
+import imgMobile from "@/assets/services/mobile-app.jpg";
+import imgUiux from "@/assets/services/ui-ux-design.jpg";
+import imgBranding from "@/assets/services/branding.jpg";
+import imgMarketing from "@/assets/services/digital-marketing.jpg";
+import imgAi from "@/assets/services/ai-automation.jpg";
 
 // Service-specific technology stacks
 // Keyword-led H1 for each service page (the slogan stays as the large visual heading).
 // Real portfolio project shown as the main image on each service page (ids from portfolioData).
-const SERVICE_SHOWCASE: Record<string, number> = {
-  "web-development": 68,
-  "wix-website-design": 69,
-  ecommerce: 21,
-  "mobile-app": 39,
-  "ui-ux-design": 64,
-  branding: 63,
-  "ai-automation": 18,
+const SERVICE_SHOWCASE: Record<string, number> = {};
+
+// Service-relevant main images (bundled so they work on the FTP-hosted live site).
+const SERVICE_IMAGE: Record<string, string> = {
+  "web-development": imgWeb,
+  "wix-website-design": imgWix,
+  ecommerce: imgEcom,
+  "mobile-app": imgMobile,
+  "ui-ux-design": imgUiux,
+  branding: imgBranding,
+  "digital-marketing": imgMarketing,
+  "ai-automation": imgAi,
 };
 
 const SERVICE_H1: Record<string, string> = Object.fromEntries(
