@@ -1,12 +1,13 @@
-import { useEffect, useRef, useState } from "react";
-import { motion } from "framer-motion";
-import { Instagram, ArrowUpRight, Play, Layers } from "lucide-react";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import { Instagram, ArrowUpRight, Play, Layers, ChevronLeft, ChevronRight } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const PROFILE_URL = "https://www.instagram.com/netrex.official";
-const POST_COUNT = 10;
-const SPEED = 38; // px per second at full speed
+const POST_COUNT = 12;
+const PER_PAGE = 4;
+const AUTO_ADVANCE_MS = 5000;
 
 interface FeedItem {
   id: string;
@@ -25,12 +26,9 @@ const placeholders = [
   "https://images.unsplash.com/photo-1556761175-b413da4baf72?w=600&h=750&fit=crop",
   "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=600&h=750&fit=crop",
   "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=600&h=750&fit=crop",
+  "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=750&fit=crop&sat=-40",
+  "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=750&fit=crop&sat=-40",
 ];
-
-const smoothstep = (a: number, b: number, x: number) => {
-  const t = Math.min(1, Math.max(0, (x - a) / (b - a)));
-  return t * t * (3 - 2 * t);
-};
 
 function formatDate(iso?: string) {
   if (!iso) return "";
@@ -40,167 +38,157 @@ function formatDate(iso?: string) {
     : d.toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" });
 }
 
+const slideVariants = {
+  enter: (dir: number) => ({ x: dir > 0 ? 80 : -80, opacity: 0, scale: 0.96 }),
+  center: { x: 0, opacity: 1, scale: 1 },
+  exit: (dir: number) => ({ x: dir > 0 ? -80 : 80, opacity: 0, scale: 0.96 }),
+};
+
+function PostCard({ item, index, viewLabel }: { item: FeedItem; index: number; viewLabel: string }) {
+  const date = formatDate(item.timestamp);
+  const TypeIcon =
+    item.mediaType === "VIDEO" ? Play : item.mediaType === "CAROUSEL_ALBUM" ? Layers : null;
+  return (
+    <motion.a
+      href={item.permalink}
+      target="_blank"
+      rel="noopener noreferrer"
+      initial={{ opacity: 0, y: 30, rotate: index % 2 === 0 ? -1.5 : 1.5 }}
+      animate={{ opacity: 1, y: 0, rotate: 0 }}
+      transition={{ duration: 0.45, delay: index * 0.08, ease: "easeOut" }}
+      whileHover={{ y: -10, rotate: index % 2 === 0 ? -1 : 1, transition: { duration: 0.25 } }}
+      className="group relative block aspect-[4/5] overflow-hidden rounded-3xl border border-border bg-muted shadow-sm transition-shadow duration-300 hover:shadow-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+    >
+      <img
+        src={item.image}
+        alt={item.caption ? item.caption.slice(0, 110) : "NETREX Instagram post"}
+        loading="lazy"
+        decoding="async"
+        draggable={false}
+        className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 group-hover:rotate-1"
+      />
+      {TypeIcon && (
+        <span className="absolute right-3 top-3 flex h-8 w-8 items-center justify-center rounded-full bg-black/45 text-white backdrop-blur-sm">
+          <TypeIcon className="h-4 w-4" fill={item.mediaType === "VIDEO" ? "currentColor" : "none"} />
+        </span>
+      )}
+      <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/85 via-black/35 to-transparent p-4 opacity-0 transition-all duration-300 group-hover:opacity-100 group-focus-visible:opacity-100">
+        {item.caption && (
+          <p className="line-clamp-3 translate-y-3 text-sm leading-snug text-white/95 transition-transform duration-300 group-hover:translate-y-0">
+            {item.caption}
+          </p>
+        )}
+        <span className="mt-3 flex items-center justify-between text-xs font-medium text-white/80">
+          <span>{date}</span>
+          <span className="inline-flex items-center gap-1 text-white">
+            {viewLabel}
+            <ArrowUpRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+          </span>
+        </span>
+      </div>
+    </motion.a>
+  );
+}
+
 /**
- * Infinite marquee of the latest Instagram posts.
- * - Moves continuously and eases to a stop while the pointer is over it (or a card has focus).
- * - Cards fade, shrink and soften as they travel toward either edge, and the strip dissolves
- *   into the page through an edge mask, so posts appear and disappear smoothly.
- * - Pauses while off screen or in a background tab; becomes a swipeable row with
- *   prefers-reduced-motion.
+ * Animated carousel of the latest Instagram posts, four per row.
+ * Auto-advances every few seconds, pauses on hover/focus, and supports
+ * arrows and dot navigation. Respects prefers-reduced-motion.
  */
-function Marquee({ items, viewLabel }: { items: FeedItem[]; viewLabel: string }) {
-  const viewportRef = useRef<HTMLDivElement>(null);
-  const trackRef = useRef<HTMLDivElement>(null);
+function PostCarousel({ items, viewLabel }: { items: FeedItem[]; viewLabel: string }) {
+  const pageCount = Math.max(1, Math.ceil(items.length / PER_PAGE));
+  const [[page, dir], setPage] = useState<[number, number]>([0, 1]);
+  const [paused, setPaused] = useState(false);
   const [reduced, setReduced] = useState(false);
+  const timer = useRef<ReturnType<typeof setInterval> | null>(null);
 
   useEffect(() => {
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const update = () => setReduced(mq.matches || navigator.webdriver === true);
+    const update = () => setReduced(mq.matches);
     update();
     mq.addEventListener?.("change", update);
     return () => mq.removeEventListener?.("change", update);
   }, []);
 
+  const goTo = useCallback(
+    (next: number, direction?: number) => {
+      setPage(([current]) => {
+        const target = ((next % pageCount) + pageCount) % pageCount;
+        return [target, direction ?? (target > current ? 1 : -1)];
+      });
+    },
+    [pageCount]
+  );
+
   useEffect(() => {
-    const viewport = viewportRef.current;
-    const track = trackRef.current;
-    if (!viewport || !track || reduced) return;
-
-    let offset = 0;
-    let speed = SPEED;
-    let target = SPEED;
-    let last = performance.now();
-    let raf = 0;
-    let visible = true;
-
-    const cards = () => Array.from(track.children) as HTMLElement[];
-
-    const paint = () => {
-      const vp = viewport.getBoundingClientRect();
-      const center = vp.left + vp.width / 2;
-      const half = vp.width / 2;
-      for (const card of cards()) {
-        const r = card.getBoundingClientRect();
-        // 0 at the centre, 1 when the card has fully left the strip (scales with card size,
-        // so phones show neighbouring posts too)
-        const d = Math.abs(r.left + r.width / 2 - center) / (half + r.width / 2);
-        const fade = smoothstep(0.5, 0.98, d);
-        card.style.opacity = String(1 - fade * 0.85);
-        card.style.transform = `scale(${1 - smoothstep(0.15, 0.95, d) * 0.1})`;
-        card.style.filter = fade > 0.02 ? `saturate(${1 - fade * 0.6})` : "";
-      }
-    };
-
-    const tick = (now: number) => {
-      const dt = Math.min(0.05, (now - last) / 1000);
-      last = now;
-      speed += (target - speed) * Math.min(1, dt * 4); // ease in and out of pauses
-      if (Math.abs(target - speed) < 0.5) speed = target;
-      const loop = track.scrollWidth / 2; // the list is rendered twice
-      if (loop > 0) {
-        offset = (offset + speed * dt) % loop;
-        track.style.transform = `translate3d(${-offset}px,0,0)`;
-      }
-      paint();
-      raf = visible ? requestAnimationFrame(tick) : 0;
-    };
-
-    const start = () => {
-      if (!raf && visible && document.visibilityState === "visible") {
-        last = performance.now();
-        raf = requestAnimationFrame(tick);
-      }
-    };
-    const stop = () => {
-      cancelAnimationFrame(raf);
-      raf = 0;
-    };
-
-    const slow = () => (target = 0);
-    const go = () => (target = SPEED);
-    viewport.addEventListener("pointerenter", slow);
-    viewport.addEventListener("pointerleave", go);
-    viewport.addEventListener("focusin", slow);
-    viewport.addEventListener("focusout", go);
-
-    const io = new IntersectionObserver(([entry]) => {
-      visible = entry.isIntersecting;
-      if (visible) start();
-      else stop();
-    });
-    io.observe(viewport);
-    const onVisibility = () => (document.visibilityState === "visible" ? start() : stop());
-    document.addEventListener("visibilitychange", onVisibility);
-
-    paint();
-    start();
+    if (paused || reduced || pageCount < 2) return;
+    timer.current = setInterval(() => goTo(page + 1, 1), AUTO_ADVANCE_MS);
     return () => {
-      stop();
-      io.disconnect();
-      document.removeEventListener("visibilitychange", onVisibility);
-      viewport.removeEventListener("pointerenter", slow);
-      viewport.removeEventListener("pointerleave", go);
-      viewport.removeEventListener("focusin", slow);
-      viewport.removeEventListener("focusout", go);
+      if (timer.current) clearInterval(timer.current);
     };
-  }, [reduced, items]);
+  }, [paused, reduced, page, pageCount, goTo]);
 
-  const loop = reduced ? items : [...items, ...items];
-  const edgeMask =
-    "linear-gradient(to right, transparent 0%, #000 12%, #000 88%, transparent 100%)";
+  const visible = items.slice(page * PER_PAGE, page * PER_PAGE + PER_PAGE);
 
   return (
     <div
-      ref={viewportRef}
-      className={reduced ? "overflow-x-auto snap-x snap-mandatory pb-2" : "overflow-hidden"}
-      style={{ WebkitMaskImage: edgeMask, maskImage: edgeMask }}
-      aria-label="Latest Instagram posts"
+      onPointerEnter={() => setPaused(true)}
+      onPointerLeave={() => setPaused(false)}
+      onFocus={() => setPaused(true)}
+      onBlur={() => setPaused(false)}
     >
-      <div ref={trackRef} className="flex w-max gap-4 py-4 will-change-transform md:gap-5">
-        {loop.map((item, index) => {
-          const duplicate = !reduced && index >= items.length;
-          const date = formatDate(item.timestamp);
-          const TypeIcon =
-            item.mediaType === "VIDEO" ? Play : item.mediaType === "CAROUSEL_ALBUM" ? Layers : null;
-          return (
-            <a
-              key={`${item.id}-${index}`}
-              href={item.permalink}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-hidden={duplicate || undefined}
-              tabIndex={duplicate ? -1 : undefined}
-              className="group relative block aspect-[4/5] w-48 shrink-0 snap-start overflow-hidden rounded-3xl border border-border bg-muted shadow-sm transition-shadow duration-300 hover:shadow-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary sm:w-64 lg:w-72"
-            >
-              <img
-                src={item.image}
-                alt={item.caption ? item.caption.slice(0, 110) : `NETREX Instagram post ${(index % items.length) + 1}`}
-                loading="lazy"
-                decoding="async"
-                draggable={false}
-                className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
-              />
-              {TypeIcon && (
-                <span className="absolute right-3 top-3 flex h-8 w-8 items-center justify-center rounded-full bg-black/45 text-white backdrop-blur-sm">
-                  <TypeIcon className="h-4 w-4" fill={item.mediaType === "VIDEO" ? "currentColor" : "none"} />
-                </span>
-              )}
-              <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/85 via-black/35 to-transparent p-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100 group-focus-visible:opacity-100">
-                {item.caption && (
-                  <p className="line-clamp-3 text-sm leading-snug text-white/95">{item.caption}</p>
-                )}
-                <span className="mt-3 flex items-center justify-between text-xs font-medium text-white/80">
-                  <span>{date}</span>
-                  <span className="inline-flex items-center gap-1 text-white">
-                    {viewLabel}
-                    <ArrowUpRight className="h-3.5 w-3.5" />
-                  </span>
-                </span>
-              </div>
-            </a>
-          );
-        })}
+      <div className="relative overflow-hidden">
+        <AnimatePresence mode="wait" custom={dir} initial={false}>
+          <motion.div
+            key={page}
+            custom={dir}
+            variants={reduced ? undefined : slideVariants}
+            initial={reduced ? false : "enter"}
+            animate="center"
+            exit={reduced ? undefined : "exit"}
+            transition={{ duration: 0.4, ease: "easeInOut" }}
+            className="grid grid-cols-2 gap-4 md:gap-5 lg:grid-cols-4"
+          >
+            {visible.map((item, i) => (
+              <PostCard key={item.id} item={item} index={i} viewLabel={viewLabel} />
+            ))}
+          </motion.div>
+        </AnimatePresence>
       </div>
+
+      {pageCount > 1 && (
+        <div className="mt-8 flex items-center justify-center gap-4">
+          <button
+            type="button"
+            onClick={() => goTo(page - 1, -1)}
+            aria-label="Previous posts"
+            className="flex h-11 w-11 items-center justify-center rounded-full border border-border bg-card text-foreground transition-all hover:scale-110 hover:border-primary hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+          >
+            <ChevronLeft className="h-5 w-5" />
+          </button>
+          <div className="flex items-center gap-2">
+            {Array.from({ length: pageCount }).map((_, i) => (
+              <button
+                key={i}
+                type="button"
+                onClick={() => goTo(i)}
+                aria-label={`Go to posts page ${i + 1}`}
+                className={`h-2.5 rounded-full transition-all duration-300 ${
+                  i === page ? "w-8 bg-primary" : "w-2.5 bg-border hover:bg-primary/50"
+                }`}
+              />
+            ))}
+          </div>
+          <button
+            type="button"
+            onClick={() => goTo(page + 1, 1)}
+            aria-label="Next posts"
+            className="flex h-11 w-11 items-center justify-center rounded-full border border-border bg-card text-foreground transition-all hover:scale-110 hover:border-primary hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+          >
+            <ChevronRight className="h-5 w-5" />
+          </button>
+        </div>
+      )}
     </div>
   );
 }
@@ -287,17 +275,16 @@ export function InstagramFeed() {
             <ArrowUpRight className="h-4 w-4" />
           </a>
         </motion.div>
-      </div>
 
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-        className="mx-auto max-w-[1600px]"
-      >
-        <Marquee items={tiles} viewLabel={t("instagram.view")} />
-      </motion.div>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+        >
+          <PostCarousel items={tiles} viewLabel={t("instagram.view")} />
+        </motion.div>
+      </div>
     </section>
   );
 }
