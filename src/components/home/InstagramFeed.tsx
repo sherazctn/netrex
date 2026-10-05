@@ -213,7 +213,19 @@ export function InstagramFeed() {
   useEffect(() => {
     let active = true;
     (async () => {
-      // 1. Posts baked into the site at deploy time (scripts/fetch-instagram.mjs, refreshed daily).
+      // 1. Live server function (latest posts, cached ~2 minutes).
+      try {
+        const { data, error } = await supabase.functions.invoke("instagram-feed");
+        if (!active) return;
+        if (!error && data?.connected && Array.isArray(data.items) && data.items.length) {
+          setItems(data.items.slice(0, POST_COUNT));
+          setConnected(true);
+          return;
+        }
+      } catch {
+        /* try the deploy-time copy next */
+      }
+      // 2. Fallback: posts baked into the site at deploy time (scripts/fetch-instagram.mjs).
       try {
         const res = await fetch("/instagram/feed.json", { cache: "no-cache" });
         if (res.ok) {
@@ -221,19 +233,7 @@ export function InstagramFeed() {
           if (active && Array.isArray(data?.items) && data.items.length) {
             setItems(data.items.slice(0, POST_COUNT));
             setConnected(true);
-            return;
           }
-        }
-      } catch {
-        /* try the live function next */
-      }
-      // 2. Live server function (used if its INSTAGRAM_ACCESS_TOKEN secret is set in Lovable Cloud).
-      try {
-        const { data, error } = await supabase.functions.invoke("instagram-feed");
-        if (error || !active) return;
-        if (data?.connected && Array.isArray(data.items) && data.items.length) {
-          setItems(data.items.slice(0, POST_COUNT));
-          setConnected(true);
         }
       } catch {
         /* fall back to placeholders */
