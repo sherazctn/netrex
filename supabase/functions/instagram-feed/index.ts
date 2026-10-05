@@ -2,7 +2,7 @@ import { corsHeaders } from 'npm:@supabase/supabase-js@2/cors'
 
 // Simple in-memory cache (per isolate) to stay well inside Instagram rate limits.
 let cache: { at: number; payload: unknown } | null = null;
-const TTL_MS = 15 * 60 * 1000;
+const TTL_MS = 2 * 60 * 1000;
 
 Deno.serve(async (req) => {
   if (req.method === "OPTIONS") {
