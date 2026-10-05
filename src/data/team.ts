@@ -94,13 +94,20 @@ const departmentTargets: Record<Department, number> = {
   "Sales & Client Success": 15,
 };
 
+const extraNames: Record<Department, string[]> = {
+  Operations: ["Usman Tariq", "Ayesha Siddiqui", "Hamza Rafiq", "Mahnoor Iqbal", "Faisal Mehmood", "Sana Javed", "Zain Abbas", "Hira Aslam", "Omar Farooq", "Rabia Noor"],
+  "Project Management": ["Kamran Akhtar", "Maryam Shah", "Adeel Hussain", "Fatima Zahra", "Saad Qureshi", "Iqra Malik", "Taimoor Ali", "Amna Riaz", "Danish Butt", "Mehwish Anwar"],
+  Development: ["Ahmed Raza", "Hassan Javed", "Areeba Khan", "Shahzaib Ahmed", "Noman Saleem", "Zara Imran", "Talha Mirza", "Laiba Tahir", "Waleed Akram", "Momina Rauf"],
+  Marketing: ["Hina Sheikh", "Bilal Ashraf", "Anum Yousaf", "Arslan Haider", "Sidra Naveed", "Fahad Iqbal", "Komal Arif", "Shoaib Akhtar", "Mariam Latif", "Haris Nawaz", "Alina Pervaiz"],
+  "Sales & Client Success": ["Daniel Brooks", "Sophie Turner", "Liam Carter", "Emma Wilson", "Ahmed Al Mansoori", "Olivia Bennett", "Lukas Schneider", "Mia Thompson", "Yusuf Al Harbi"],
+};
+
 const anonymousMembers = DEPARTMENTS.flatMap((department, departmentIndex) => {
   const existingCount = CORE_TEAM.filter((member) => member.department === department).length;
   return Array.from({ length: Math.max(0, departmentTargets[department] - existingCount) }, (_, index): TeamMember => {
-    const number = index + 1;
     const location = departmentOffice[department];
     return {
-      name: `NETREX Team Member ${String(number).padStart(2, "0")}`,
+      name: extraNames[department][index % extraNames[department].length],
       role: departmentRoles[department][index % departmentRoles[department].length],
       department,
       office: location.office,
