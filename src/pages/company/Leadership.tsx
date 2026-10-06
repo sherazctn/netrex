@@ -103,7 +103,7 @@ const Leadership = () => {
     <div className="min-h-screen bg-background">
       <SEO
         title="Leadership & Team | NETREX Inc"
-        description="Meet the NETREX leadership team and the people behind our operations, development, marketing and sales, from our Dubai HQ to our offices worldwide."
+        description="Meet the NETREX leadership team and the people behind our operations, design and development, and sales and marketing, from our Dubai HQ to our offices worldwide."
         canonical="https://www.netrexinc.com/leadership"
         schema={schema}
       />
