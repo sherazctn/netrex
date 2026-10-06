@@ -285,7 +285,7 @@ export function InstagramFeed() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <PostCarousel items={tiles} viewLabel={t("instagram.view")} />
+          <StepMarquee items={tiles} viewLabel={t("instagram.view")} />
         </motion.div>
       </div>
     </section>
