@@ -38,26 +38,18 @@ function formatDate(iso?: string) {
     : d.toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" });
 }
 
-const slideVariants = {
-  enter: (dir: number) => ({ x: dir > 0 ? 80 : -80, opacity: 0, scale: 0.96 }),
-  center: { x: 0, opacity: 1, scale: 1 },
-  exit: (dir: number) => ({ x: dir > 0 ? -80 : 80, opacity: 0, scale: 0.96 }),
-};
-
-function PostCard({ item, index, viewLabel }: { item: FeedItem; index: number; viewLabel: string }) {
+function PostCard({ item, viewLabel, duplicate }: { item: FeedItem; viewLabel: string; duplicate?: boolean }) {
   const date = formatDate(item.timestamp);
   const TypeIcon =
     item.mediaType === "VIDEO" ? Play : item.mediaType === "CAROUSEL_ALBUM" ? Layers : null;
   return (
-    <motion.a
+    <a
       href={item.permalink}
       target="_blank"
       rel="noopener noreferrer"
-      initial={{ opacity: 0, y: 30, rotate: index % 2 === 0 ? -1.5 : 1.5 }}
-      animate={{ opacity: 1, y: 0, rotate: 0 }}
-      transition={{ duration: 0.45, delay: index * 0.08, ease: "easeOut" }}
-      whileHover={{ y: -10, rotate: index % 2 === 0 ? -1 : 1, transition: { duration: 0.25 } }}
-      className="group relative block aspect-[4/5] overflow-hidden rounded-3xl border border-border bg-muted shadow-sm transition-shadow duration-300 hover:shadow-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+      aria-hidden={duplicate || undefined}
+      tabIndex={duplicate ? -1 : undefined}
+      className="group relative block aspect-[4/5] w-[calc(50%-0.5rem)] shrink-0 overflow-hidden rounded-3xl border border-border bg-muted shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary sm:w-[calc(25%-0.95rem)] lg:w-[calc(20%-1rem)]"
     >
       <img
         src={item.image}
