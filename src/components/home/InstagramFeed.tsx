@@ -1,13 +1,13 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { Instagram, ArrowUpRight, Play, Layers, ChevronLeft, ChevronRight } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const PROFILE_URL = "https://www.instagram.com/netrex.official";
 const POST_COUNT = 12;
-const PER_PAGE = 4;
-const AUTO_ADVANCE_MS = 5000;
+const STEP_PAUSE_MS = 2800; // rest time between one-item steps
+const STEP_DURATION_MS = 900; // slide time for each one-item step
 
 interface FeedItem {
   id: string;
