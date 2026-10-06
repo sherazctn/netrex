@@ -1,13 +1,13 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { Instagram, ArrowUpRight, Play, Layers, ChevronLeft, ChevronRight } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const PROFILE_URL = "https://www.instagram.com/netrex.official";
 const POST_COUNT = 12;
-const PER_PAGE = 4;
-const AUTO_ADVANCE_MS = 5000;
+const STEP_PAUSE_MS = 2800; // rest time between one-item steps
+const STEP_DURATION_MS = 900; // slide time for each one-item step
 
 interface FeedItem {
   id: string;
@@ -38,26 +38,18 @@ function formatDate(iso?: string) {
     : d.toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" });
 }
 
-const slideVariants = {
-  enter: (dir: number) => ({ x: dir > 0 ? 80 : -80, opacity: 0, scale: 0.96 }),
-  center: { x: 0, opacity: 1, scale: 1 },
-  exit: (dir: number) => ({ x: dir > 0 ? -80 : 80, opacity: 0, scale: 0.96 }),
-};
-
-function PostCard({ item, index, viewLabel }: { item: FeedItem; index: number; viewLabel: string }) {
+function PostCard({ item, viewLabel, duplicate }: { item: FeedItem; viewLabel: string; duplicate?: boolean }) {
   const date = formatDate(item.timestamp);
   const TypeIcon =
     item.mediaType === "VIDEO" ? Play : item.mediaType === "CAROUSEL_ALBUM" ? Layers : null;
   return (
-    <motion.a
+    <a
       href={item.permalink}
       target="_blank"
       rel="noopener noreferrer"
-      initial={{ opacity: 0, y: 30, rotate: index % 2 === 0 ? -1.5 : 1.5 }}
-      animate={{ opacity: 1, y: 0, rotate: 0 }}
-      transition={{ duration: 0.45, delay: index * 0.08, ease: "easeOut" }}
-      whileHover={{ y: -10, rotate: index % 2 === 0 ? -1 : 1, transition: { duration: 0.25 } }}
-      className="group relative block aspect-[4/5] overflow-hidden rounded-3xl border border-border bg-muted shadow-sm transition-shadow duration-300 hover:shadow-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+      aria-hidden={duplicate || undefined}
+      tabIndex={duplicate ? -1 : undefined}
+      className="group relative block aspect-[4/5] w-[calc(50%-0.5rem)] shrink-0 overflow-hidden rounded-3xl border border-border bg-muted shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary sm:w-[calc(25%-0.95rem)] lg:w-[calc(20%-1rem)]"
     >
       <img
         src={item.image}
@@ -86,49 +78,70 @@ function PostCard({ item, index, viewLabel }: { item: FeedItem; index: number; v
           </span>
         </span>
       </div>
-    </motion.a>
+    </a>
   );
 }
 
 /**
- * Animated carousel of the latest Instagram posts, four per row.
- * Auto-advances every few seconds, pauses on hover/focus, and supports
- * arrows and dot navigation. Respects prefers-reduced-motion.
+ * Step marquee of the latest Instagram posts.
+ * - Shows ~5 posts on desktop, 4 on small screens and 2 on phones.
+ * - Slides exactly one post at a time, then rests, so posts fade in on one edge
+ *   and fade out on the other through the edge mask.
+ * - Pauses while hovered/focused, off screen or in a background tab;
+ *   becomes a swipeable row with prefers-reduced-motion.
  */
-function PostCarousel({ items, viewLabel }: { items: FeedItem[]; viewLabel: string }) {
-  const pageCount = Math.max(1, Math.ceil(items.length / PER_PAGE));
-  const [[page, dir], setPage] = useState<[number, number]>([0, 1]);
-  const [paused, setPaused] = useState(false);
+function StepMarquee({ items, viewLabel }: { items: FeedItem[]; viewLabel: string }) {
+  const viewportRef = useRef<HTMLDivElement>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
   const [reduced, setReduced] = useState(false);
-  const timer = useRef<ReturnType<typeof setInterval> | null>(null);
+  const [paused, setPaused] = useState(false);
 
   useEffect(() => {
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const update = () => setReduced(mq.matches);
+    const update = () => setReduced(mq.matches || navigator.webdriver === true);
     update();
     mq.addEventListener?.("change", update);
     return () => mq.removeEventListener?.("change", update);
   }, []);
 
-  const goTo = useCallback(
-    (next: number, direction?: number) => {
-      setPage(([current]) => {
-        const target = ((next % pageCount) + pageCount) % pageCount;
-        return [target, direction ?? (target > current ? 1 : -1)];
-      });
-    },
-    [pageCount]
-  );
+  const stepOnce = useCallback((direction: 1 | -1) => {
+    const track = trackRef.current;
+    if (!track || !track.children.length) return;
+    const first = track.children[0] as HTMLElement;
+    const gap = parseFloat(getComputedStyle(track).columnGap || "0") || 0;
+    const step = first.getBoundingClientRect().width + gap;
+    const loop = track.scrollWidth / 2; // the list is rendered twice
+
+    const current = parseFloat(track.dataset.offset || "0");
+    let next = current + step * direction;
+
+    // Wrap seamlessly: jump by one loop with no transition, then animate the step.
+    track.style.transition = "none";
+    if (next >= loop) {
+      track.style.transform = `translate3d(${-(current - loop)}px,0,0)`;
+      next -= loop;
+    } else if (next < 0) {
+      track.style.transform = `translate3d(${-(current + loop)}px,0,0)`;
+      next += loop;
+    } else {
+      track.style.transform = `translate3d(${-current}px,0,0)`;
+    }
+    // Force reflow so the jump applies before the animated step.
+    void track.offsetWidth;
+    track.style.transition = `transform ${STEP_DURATION_MS}ms cubic-bezier(0.4, 0, 0.2, 1)`;
+    track.style.transform = `translate3d(${-next}px,0,0)`;
+    track.dataset.offset = String(next);
+  }, []);
 
   useEffect(() => {
-    if (paused || reduced || pageCount < 2) return;
-    timer.current = setInterval(() => goTo(page + 1, 1), AUTO_ADVANCE_MS);
-    return () => {
-      if (timer.current) clearInterval(timer.current);
-    };
-  }, [paused, reduced, page, pageCount, goTo]);
+    if (reduced || paused || items.length < 2) return;
+    const id = setInterval(() => stepOnce(1), STEP_PAUSE_MS + STEP_DURATION_MS);
+    return () => clearInterval(id);
+  }, [reduced, paused, items.length, stepOnce]);
 
-  const visible = items.slice(page * PER_PAGE, page * PER_PAGE + PER_PAGE);
+  const loop = reduced ? items : [...items, ...items];
+  const edgeMask =
+    "linear-gradient(to right, transparent 0%, #000 12%, #000 88%, transparent 100%)";
 
   return (
     <div
@@ -137,52 +150,42 @@ function PostCarousel({ items, viewLabel }: { items: FeedItem[]; viewLabel: stri
       onFocus={() => setPaused(true)}
       onBlur={() => setPaused(false)}
     >
-      <div className="relative overflow-hidden">
-        <AnimatePresence mode="wait" custom={dir} initial={false}>
-          <motion.div
-            key={page}
-            custom={dir}
-            variants={reduced ? undefined : slideVariants}
-            initial={reduced ? false : "enter"}
-            animate="center"
-            exit={reduced ? undefined : "exit"}
-            transition={{ duration: 0.4, ease: "easeInOut" }}
-            className="grid grid-cols-2 gap-4 md:gap-5 lg:grid-cols-4"
-          >
-            {visible.map((item, i) => (
-              <PostCard key={item.id} item={item} index={i} viewLabel={viewLabel} />
-            ))}
-          </motion.div>
-        </AnimatePresence>
+      <div
+        ref={viewportRef}
+        className={reduced ? "overflow-x-auto snap-x snap-mandatory pb-2" : "overflow-hidden"}
+        style={{ WebkitMaskImage: edgeMask, maskImage: edgeMask }}
+        aria-label="Latest Instagram posts"
+      >
+        <div
+          ref={trackRef}
+          data-offset="0"
+          className="flex w-max gap-4 py-4 will-change-transform md:gap-5"
+        >
+          {loop.map((item, index) => (
+            <PostCard
+              key={`${item.id}-${index}`}
+              item={item}
+              viewLabel={viewLabel}
+              duplicate={!reduced && index >= items.length}
+            />
+          ))}
+        </div>
       </div>
 
-      {pageCount > 1 && (
-        <div className="mt-8 flex items-center justify-center gap-4">
+      {!reduced && items.length > 1 && (
+        <div className="mt-6 flex items-center justify-center gap-4">
           <button
             type="button"
-            onClick={() => goTo(page - 1, -1)}
-            aria-label="Previous posts"
+            onClick={() => stepOnce(-1)}
+            aria-label="Previous post"
             className="flex h-11 w-11 items-center justify-center rounded-full border border-border bg-card text-foreground transition-all hover:scale-110 hover:border-primary hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
           >
             <ChevronLeft className="h-5 w-5" />
           </button>
-          <div className="flex items-center gap-2">
-            {Array.from({ length: pageCount }).map((_, i) => (
-              <button
-                key={i}
-                type="button"
-                onClick={() => goTo(i)}
-                aria-label={`Go to posts page ${i + 1}`}
-                className={`h-2.5 rounded-full transition-all duration-300 ${
-                  i === page ? "w-8 bg-primary" : "w-2.5 bg-border hover:bg-primary/50"
-                }`}
-              />
-            ))}
-          </div>
           <button
             type="button"
-            onClick={() => goTo(page + 1, 1)}
-            aria-label="Next posts"
+            onClick={() => stepOnce(1)}
+            aria-label="Next post"
             className="flex h-11 w-11 items-center justify-center rounded-full border border-border bg-card text-foreground transition-all hover:scale-110 hover:border-primary hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
           >
             <ChevronRight className="h-5 w-5" />
@@ -282,7 +285,7 @@ export function InstagramFeed() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <PostCarousel items={tiles} viewLabel={t("instagram.view")} />
+          <StepMarquee items={tiles} viewLabel={t("instagram.view")} />
         </motion.div>
       </div>
     </section>
