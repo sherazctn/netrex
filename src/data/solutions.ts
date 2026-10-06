@@ -1,6 +1,7 @@
-import erpSheet from "@/assets/solutions/erp-contact-sheet.jpg";
-import khataSheet from "@/assets/solutions/khata-contact-sheet.jpg";
-import whatsappSheet from "@/assets/solutions/whatsapp-contact-sheet.jpg";
+// Temporary branded placeholder until the original solution screenshots are supplied.
+import erpSheet from "@/assets/solutions/solution-placeholder.jpg";
+import khataSheet from "@/assets/solutions/solution-placeholder.jpg";
+import whatsappSheet from "@/assets/solutions/solution-placeholder.jpg";
 
 export interface Solution {
   slug: string;
