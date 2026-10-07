@@ -192,13 +192,13 @@
     @apply py-16 md:py-24 lg:py-32;
   }
   
-  /* Site widths are 25% wider than Tailwind's 6xl/7xl defaults (1152px -> 1440px, 1280px -> 1600px). */
+  /* Site widths: 1440px main container, 1296px narrow container. */
   .container-tight {
-    @apply max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8;
+    @apply max-w-[81rem] mx-auto px-4 sm:px-6 lg:px-8;
   }
   
   .container-wide {
-    @apply max-w-[100rem] mx-auto px-4 sm:px-6 lg:px-8 2xl:px-10;
+    @apply max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-8;
   }
 
   /* Rotating gradient button */

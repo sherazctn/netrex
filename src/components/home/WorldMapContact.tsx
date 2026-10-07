@@ -81,7 +81,7 @@ const locations: Office[] = [
   },
   {
     id: "sg", country: "Singapore", city: "Singapore", flag: "🇸🇬",
-    address: "Level 39, Marina Bay Financial Centre, Tower 2",
+    address: "Level 39, Marina Bay Financial Centre Tower 2, Singapore",
     phone: "+971 50 200 8313", phoneNote: "Answered by our Dubai HQ", email: "info@netrexinc.com",
     hours: "Mon - Fri: 9AM - 6PM",
     coords: { lat: 1.2789, lng: 103.8536 }, isHQ: false, isPartner: true,
@@ -275,7 +275,7 @@ export function WorldMapContact() {
                 className="w-full h-full min-h-[500px]"
               >
                 <iframe
-                  src={`https://www.google.com/maps?q=${encodeURIComponent(activeLocation.address + ', ' + activeLocation.city + ', ' + activeLocation.country)}&z=16&output=embed`}
+                  src={`https://www.google.com/maps?q=${encodeURIComponent(activeLocation.address.includes(activeLocation.country) ? activeLocation.address : activeLocation.address + ', ' + activeLocation.city + ', ' + activeLocation.country)}&z=16&output=embed`}
                   width="100%"
                   height="100%"
                   style={{ border: 0, minHeight: '500px' }}
@@ -369,7 +369,7 @@ export function WorldMapContact() {
                         <address className="not-italic font-semibold text-white text-sm leading-relaxed">
                           {activeLocation.address}
                           {!activeLocation.address.includes(activeLocation.city) && `, ${activeLocation.city}`}
-                          , {activeLocation.country}
+                          {!activeLocation.address.includes(activeLocation.country) && `, ${activeLocation.country}`}
                         </address>
                       </div>
                     </div>

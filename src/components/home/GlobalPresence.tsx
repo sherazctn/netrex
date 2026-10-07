@@ -65,7 +65,7 @@ const locations = [
     country: "Singapore",
     city: "Singapore",
     flag: "🇸🇬",
-    address: "Level 39, Marina Bay Financial Centre, Tower 2",
+    address: "Level 39, Marina Bay Financial Centre Tower 2, Singapore",
     timezone: "GMT+8",
     isHQ: false,
     isPartner: true,
