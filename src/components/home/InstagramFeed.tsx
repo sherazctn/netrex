@@ -1,13 +1,11 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { Instagram, ArrowUpRight, Play, Layers, ChevronLeft, ChevronRight } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const PROFILE_URL = "https://www.instagram.com/netrex.official";
-const POST_COUNT = 12;
-const STEP_PAUSE_MS = 2800; // rest time between one-item steps
-const STEP_DURATION_MS = 900; // slide time for each one-item step
+const POST_COUNT = 16;
 
 interface FeedItem {
   id: string;
@@ -38,8 +36,19 @@ function formatDate(iso?: string) {
     : d.toLocaleDateString("en-GB", { day: "numeric", month: "short", year: "numeric" });
 }
 
-function PostCard({ item, viewLabel, duplicate }: { item: FeedItem; viewLabel: string; duplicate?: boolean }) {
+function PostCard({
+  item,
+  viewLabel,
+  duplicate,
+  width,
+}: {
+  item: FeedItem;
+  viewLabel: string;
+  duplicate?: boolean;
+  width: number;
+}) {
   const date = formatDate(item.timestamp);
+  const [broken, setBroken] = useState(false);
   const TypeIcon =
     item.mediaType === "VIDEO" ? Play : item.mediaType === "CAROUSEL_ALBUM" ? Layers : null;
   return (
@@ -49,16 +58,27 @@ function PostCard({ item, viewLabel, duplicate }: { item: FeedItem; viewLabel: s
       rel="noopener noreferrer"
       aria-hidden={duplicate || undefined}
       tabIndex={duplicate ? -1 : undefined}
-      className="group relative block aspect-[4/5] w-[calc(50%-0.5rem)] shrink-0 overflow-hidden rounded-3xl border border-border bg-muted shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary sm:w-[calc(25%-0.95rem)] lg:w-[calc(20%-1rem)]"
+      style={{ width }}
+      className="group relative block aspect-[4/5] shrink-0 overflow-hidden rounded-3xl border border-border bg-muted shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
     >
-      <img
-        src={item.image}
-        alt={item.caption ? item.caption.slice(0, 110) : "NETREX Instagram post"}
-        loading="lazy"
-        decoding="async"
-        draggable={false}
-        className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 group-hover:rotate-1"
-      />
+      {broken ? (
+        // Instagram image links expire; show a branded tile instead of a broken image.
+        <span className="flex h-full w-full flex-col items-center justify-center gap-3 bg-gradient-to-br from-[#833ab4] via-[#e1306c] to-[#fcaf45] p-4 text-center text-white">
+          <Instagram className="h-10 w-10" />
+          <span className="text-sm font-semibold">@netrex.official</span>
+        </span>
+      ) : (
+        <img
+          src={item.image}
+          alt={item.caption ? item.caption.slice(0, 110) : "NETREX Instagram post"}
+          loading="lazy"
+          decoding="async"
+          draggable={false}
+          referrerPolicy="no-referrer"
+          onError={() => setBroken(true)}
+          className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 group-hover:rotate-1"
+        />
+      )}
       {TypeIcon && (
         <span className="absolute right-3 top-3 flex h-8 w-8 items-center justify-center rounded-full bg-black/45 text-white backdrop-blur-sm">
           <TypeIcon className="h-4 w-4" fill={item.mediaType === "VIDEO" ? "currentColor" : "none"} />
@@ -83,18 +103,22 @@ function PostCard({ item, viewLabel, duplicate }: { item: FeedItem; viewLabel: s
 }
 
 /**
- * Step marquee of the latest Instagram posts.
- * - Shows ~5 posts on desktop, 4 on small screens and 2 on phones.
- * - Slides exactly one post at a time, then rests, so posts fade in on one edge
- *   and fade out on the other through the edge mask.
- * - Pauses while hovered/focused, off screen or in a background tab;
- *   becomes a swipeable row with prefers-reduced-motion.
+ * Continuous marquee of the latest Instagram posts.
+ * - Five posts across on desktop (4 on laptops, 3 on tablets, 2 on phones).
+ * - Drifts smoothly and eases to a stop on hover or keyboard focus; drag or swipe to scrub.
+ * - Arrow buttons glide exactly one post; posts fade in and out through the edge mask.
+ * - Pauses off screen and in background tabs; a swipeable row with prefers-reduced-motion.
  */
-function StepMarquee({ items, viewLabel }: { items: FeedItem[]; viewLabel: string }) {
+const SPEED = 42; // px per second while drifting
+
+function PostMarquee({ items, viewLabel }: { items: FeedItem[]; viewLabel: string }) {
   const viewportRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
   const [reduced, setReduced] = useState(false);
-  const [paused, setPaused] = useState(false);
+  const [cardWidth, setCardWidth] = useState(240);
+  const [gap, setGap] = useState(20);
+  const nudgeRef = useRef<(dir: 1 | -1) => void>(() => {});
+  const draggedRef = useRef(false);
 
   useEffect(() => {
     const mq = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -104,69 +128,171 @@ function StepMarquee({ items, viewLabel }: { items: FeedItem[]; viewLabel: strin
     return () => mq.removeEventListener?.("change", update);
   }, []);
 
-  const stepOnce = useCallback((direction: 1 | -1) => {
-    const track = trackRef.current;
-    if (!track || !track.children.length) return;
-    const first = track.children[0] as HTMLElement;
-    const gap = parseFloat(getComputedStyle(track).columnGap || "0") || 0;
-    const step = first.getBoundingClientRect().width + gap;
-    const loop = track.scrollWidth / 2; // the list is rendered twice
-
-    const current = parseFloat(track.dataset.offset || "0");
-    let next = current + step * direction;
-
-    // Wrap seamlessly: jump by one loop with no transition, then animate the step.
-    track.style.transition = "none";
-    if (next >= loop) {
-      track.style.transform = `translate3d(${-(current - loop)}px,0,0)`;
-      next -= loop;
-    } else if (next < 0) {
-      track.style.transform = `translate3d(${-(current + loop)}px,0,0)`;
-      next += loop;
-    } else {
-      track.style.transform = `translate3d(${-current}px,0,0)`;
-    }
-    // Force reflow so the jump applies before the animated step.
-    void track.offsetWidth;
-    track.style.transition = `transform ${STEP_DURATION_MS}ms cubic-bezier(0.4, 0, 0.2, 1)`;
-    track.style.transform = `translate3d(${-next}px,0,0)`;
-    track.dataset.offset = String(next);
+  // Card width comes from the visible row (not the doubled track), so posts keep a real size.
+  useEffect(() => {
+    const vp = viewportRef.current;
+    if (!vp) return;
+    const measure = () => {
+      const w = vp.clientWidth;
+      const perRow = w >= 1100 ? 5 : w >= 860 ? 4 : w >= 600 ? 3 : 2;
+      const g = w >= 768 ? 20 : 14;
+      setGap(g);
+      setCardWidth(Math.max(120, Math.floor((w - g * (perRow - 1)) / perRow)));
+    };
+    measure();
+    const ro = new ResizeObserver(measure);
+    ro.observe(vp);
+    return () => ro.disconnect();
   }, []);
 
   useEffect(() => {
-    if (reduced || paused || items.length < 2) return;
-    const id = setInterval(() => stepOnce(1), STEP_PAUSE_MS + STEP_DURATION_MS);
-    return () => clearInterval(id);
-  }, [reduced, paused, items.length, stepOnce]);
+    const viewport = viewportRef.current;
+    const track = trackRef.current;
+    if (!viewport || !track || reduced || items.length < 2) return;
+
+    let offset = 0;
+    let velocity = SPEED;
+    let target = SPEED;
+    let glide: { from: number; to: number; t: number } | null = null;
+    let dragging = false;
+    let lastX = 0;
+    let dragVel = 0;
+    let last = performance.now();
+    let raf = 0;
+    let visible = true;
+    const step = cardWidth + gap;
+
+    const wrap = (v: number) => {
+      const L = track.scrollWidth / 2;
+      return L > 0 ? ((v % L) + L) % L : 0;
+    };
+    const paint = () => {
+      track.style.transform = `translate3d(${-offset}px,0,0)`;
+    };
+    const tick = (now: number) => {
+      const dt = Math.min(0.05, (now - last) / 1000);
+      last = now;
+      if (glide) {
+        glide.t = Math.min(1, glide.t + dt / 0.6);
+        const e = 1 - Math.pow(1 - glide.t, 3);
+        offset = wrap(glide.from + (glide.to - glide.from) * e);
+        if (glide.t >= 1) glide = null;
+      } else if (!dragging) {
+        velocity += (target - velocity) * Math.min(1, dt * 3);
+        offset = wrap(offset + velocity * dt);
+      }
+      paint();
+      raf = visible ? requestAnimationFrame(tick) : 0;
+    };
+    const start = () => {
+      if (!raf && visible && document.visibilityState === "visible") {
+        last = performance.now();
+        raf = requestAnimationFrame(tick);
+      }
+    };
+    const stop = () => {
+      cancelAnimationFrame(raf);
+      raf = 0;
+    };
+
+    nudgeRef.current = (dir) => {
+      const from = glide ? glide.to : offset;
+      glide = { from: offset, to: Math.round((from + dir * step) / step) * step, t: 0 };
+      velocity = 0;
+    };
+
+    const slow = () => (target = 0);
+    const go = () => {
+      if (!dragging) target = SPEED;
+    };
+    const onDown = (e: PointerEvent) => {
+      dragging = true;
+      draggedRef.current = false;
+      glide = null;
+      lastX = e.clientX;
+      dragVel = 0;
+    };
+    const onMove = (e: PointerEvent) => {
+      if (!dragging) return;
+      const dx = e.clientX - lastX;
+      lastX = e.clientX;
+      if (Math.abs(dx) > 2) draggedRef.current = true;
+      offset = wrap(offset - dx);
+      dragVel = -dx * 60;
+    };
+    const onUp = () => {
+      if (!dragging) return;
+      dragging = false;
+      velocity = Math.max(-1600, Math.min(1600, dragVel));
+      target = viewport.matches(":hover") ? 0 : SPEED;
+    };
+
+    viewport.addEventListener("pointerenter", slow);
+    viewport.addEventListener("pointerleave", go);
+    viewport.addEventListener("focusin", slow);
+    viewport.addEventListener("focusout", go);
+    viewport.addEventListener("pointerdown", onDown);
+    window.addEventListener("pointermove", onMove);
+    window.addEventListener("pointerup", onUp);
+    window.addEventListener("pointercancel", onUp);
+    const io = new IntersectionObserver(([entry]) => {
+      visible = entry.isIntersecting;
+      if (visible) start();
+      else stop();
+    });
+    io.observe(viewport);
+    const onVisibility = () => (document.visibilityState === "visible" ? start() : stop());
+    document.addEventListener("visibilitychange", onVisibility);
+
+    paint();
+    start();
+    return () => {
+      stop();
+      io.disconnect();
+      document.removeEventListener("visibilitychange", onVisibility);
+      viewport.removeEventListener("pointerenter", slow);
+      viewport.removeEventListener("pointerleave", go);
+      viewport.removeEventListener("focusin", slow);
+      viewport.removeEventListener("focusout", go);
+      viewport.removeEventListener("pointerdown", onDown);
+      window.removeEventListener("pointermove", onMove);
+      window.removeEventListener("pointerup", onUp);
+      window.removeEventListener("pointercancel", onUp);
+    };
+  }, [reduced, cardWidth, gap, items]);
 
   const loop = reduced ? items : [...items, ...items];
-  const edgeMask =
-    "linear-gradient(to right, transparent 0%, #000 12%, #000 88%, transparent 100%)";
+  const edgeMask = "linear-gradient(to right, transparent 0%, #000 7%, #000 93%, transparent 100%)";
 
   return (
-    <div
-      onPointerEnter={() => setPaused(true)}
-      onPointerLeave={() => setPaused(false)}
-      onFocus={() => setPaused(true)}
-      onBlur={() => setPaused(false)}
-    >
+    <div>
       <div
         ref={viewportRef}
-        className={reduced ? "overflow-x-auto snap-x snap-mandatory pb-2" : "overflow-hidden"}
-        style={{ WebkitMaskImage: edgeMask, maskImage: edgeMask }}
+        className={
+          reduced
+            ? "overflow-x-auto snap-x snap-mandatory pb-2"
+            : "cursor-grab overflow-hidden active:cursor-grabbing [touch-action:pan-y]"
+        }
+        style={reduced ? undefined : { WebkitMaskImage: edgeMask, maskImage: edgeMask }}
+        aria-roledescription="carousel"
         aria-label="Latest Instagram posts"
+        onClickCapture={(e) => {
+          // A drag should scrub the row, not open the post.
+          if (draggedRef.current) {
+            e.preventDefault();
+            e.stopPropagation();
+            draggedRef.current = false;
+          }
+        }}
       >
-        <div
-          ref={trackRef}
-          data-offset="0"
-          className="flex w-max gap-4 py-4 will-change-transform md:gap-5"
-        >
+        <div ref={trackRef} className="flex w-max py-4 will-change-transform" style={{ gap }}>
           {loop.map((item, index) => (
             <PostCard
               key={`${item.id}-${index}`}
               item={item}
               viewLabel={viewLabel}
               duplicate={!reduced && index >= items.length}
+              width={cardWidth}
             />
           ))}
         </div>
@@ -176,7 +302,7 @@ function StepMarquee({ items, viewLabel }: { items: FeedItem[]; viewLabel: strin
         <div className="mt-6 flex items-center justify-center gap-4">
           <button
             type="button"
-            onClick={() => stepOnce(-1)}
+            onClick={() => nudgeRef.current(-1)}
             aria-label="Previous post"
             className="flex h-11 w-11 items-center justify-center rounded-full border border-border bg-card text-foreground transition-all hover:scale-110 hover:border-primary hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
           >
@@ -184,7 +310,7 @@ function StepMarquee({ items, viewLabel }: { items: FeedItem[]; viewLabel: strin
           </button>
           <button
             type="button"
-            onClick={() => stepOnce(1)}
+            onClick={() => nudgeRef.current(1)}
             aria-label="Next post"
             className="flex h-11 w-11 items-center justify-center rounded-full border border-border bg-card text-foreground transition-all hover:scale-110 hover:border-primary hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
           >
@@ -204,7 +330,7 @@ export function InstagramFeed() {
   useEffect(() => {
     let active = true;
     (async () => {
-      // 1. Live server function (latest posts, cached ~2 minutes).
+      // 1. Live server function (latest 16 posts, cached ~2 minutes).
       try {
         const { data, error } = await supabase.functions.invoke("instagram-feed");
         if (!active) return;
@@ -285,7 +411,7 @@ export function InstagramFeed() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <StepMarquee items={tiles} viewLabel={t("instagram.view")} />
+          <PostMarquee items={tiles} viewLabel={t("instagram.view")} />
         </motion.div>
       </div>
     </section>

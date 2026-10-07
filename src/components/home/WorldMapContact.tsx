@@ -357,6 +357,32 @@ export function WorldMapContact() {
                     <div className="text-sm text-white/60 mb-1">{t('contact.hours')}</div>
                     <div className="font-semibold text-white text-sm">{activeLocation.hours}</div>
                   </div>
+                  <div className="md:col-span-3 flex flex-col gap-4 p-5 rounded-2xl bg-white/5 border border-white/10 sm:flex-row sm:items-center sm:justify-between">
+                    <div className="flex items-start gap-4">
+                      <MapPin className="h-6 w-6 text-primary mt-0.5 shrink-0" />
+                      <div>
+                        <div className="text-sm text-white/60 mb-1">
+                          {t('contact.address')}
+                          {activeLocation.isHQ && " · Headquarters"}
+                          {activeLocation.isPartner && " · Partner office"}
+                        </div>
+                        <address className="not-italic font-semibold text-white text-sm leading-relaxed">
+                          {activeLocation.address}
+                          {!activeLocation.address.includes(activeLocation.city) && `, ${activeLocation.city}`}
+                          , {activeLocation.country}
+                        </address>
+                      </div>
+                    </div>
+                    <a
+                      href={activeLocation.mapsUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex shrink-0 items-center justify-center gap-2 self-start rounded-full border border-white/20 px-4 py-2 text-sm font-semibold text-white transition-colors hover:border-primary hover:text-primary sm:self-auto"
+                    >
+                      <MapPin className="h-4 w-4" />
+                      Get directions
+                    </a>
+                  </div>
                 </div>
 
                 <form onSubmit={handleSubmit} className="flex-1 flex flex-col gap-4">

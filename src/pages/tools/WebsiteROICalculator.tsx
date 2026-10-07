@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, TrendingUp, TrendingDown, Globe, BarChart3, DollarSign, Users, AlertTriangle, CheckCircle2, XCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { CountUpNumber } from "@/components/ui/CountUpNumber";
+import { ToolGuide } from "@/components/tools/ToolGuide";
 
 const questions = [
   {
@@ -250,6 +251,7 @@ const WebsiteROICalculator = () => {
             </AnimatePresence>
           </div>
         </section>
+        <ToolGuide />
       </main>
       <Footer />
       <WhatsAppButton />

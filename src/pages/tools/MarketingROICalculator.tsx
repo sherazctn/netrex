@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight, CheckCircle2, XCircle, TrendingUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ToolGuide } from "@/components/tools/ToolGuide";
 
 const questions = [
   {
@@ -231,6 +232,7 @@ const MarketingROICalculator = () => {
             </AnimatePresence>
           </div>
         </section>
+        <ToolGuide />
       </main>
       <Footer />
       <WhatsAppButton />

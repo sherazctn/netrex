@@ -26,7 +26,7 @@ Deno.serve(async (req) => {
     }
 
     const fields = "id,caption,media_type,media_url,permalink,thumbnail_url,timestamp";
-    const url = `https://graph.instagram.com/me/media?fields=${fields}&limit=12&access_token=${token}`;
+    const url = `https://graph.instagram.com/me/media?fields=${fields}&limit=16&access_token=${token}`;
     const res = await fetch(url);
     const data = await res.json();
 

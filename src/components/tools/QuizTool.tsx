@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, CheckCircle2, XCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { ToolGuide } from "@/components/tools/ToolGuide";
 
 export type QuizQuestion = {
   id: string;
@@ -202,6 +203,7 @@ export function QuizTool({
             </AnimatePresence>
           </div>
         </section>
+        <ToolGuide />
       </main>
       <Footer />
       <WhatsAppButton />

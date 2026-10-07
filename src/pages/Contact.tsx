@@ -11,7 +11,11 @@ const contactSchema = {
   "@type": "Organization",
   "name": "NETREX INC",
   "url": "https://www.netrexinc.com",
-  "logo": "https://www.netrexinc.com/favicon.ico",
+  "logo": "https://www.netrexinc.com/logo-square.png",
+  "contactPoint": [
+    { "@type": "ContactPoint", "contactType": "sales", "telephone": "+971-50-200-8313", "email": "info@netrexinc.com", "availableLanguage": ["English"], "areaServed": ["US", "AE", "GB", "CA", "AU", "DE", "SA", "SG", "PK"] },
+    { "@type": "ContactPoint", "contactType": "customer support", "telephone": "+971-50-200-8313", "email": "info@netrexinc.com" }
+  ],
   "email": "info@netrexinc.com",
   "telephone": "+971-50-200-8313",
   "address": {
@@ -111,7 +115,13 @@ const Contact = () => {
         title="Contact NETREX Inc | Get a Free Project Quote"
         description="Talk to NETREX Inc about web development, mobile apps, AI automation, branding and digital marketing. Dubai HQ with offices in New York, London, Berlin, Vancouver and Lahore, and partners in Australia, Singapore and Saudi Arabia."
         canonical="https://www.netrexinc.com/contact"
-        schema={contactSchema}
+        schema={{
+          "@context": "https://schema.org",
+          "@graph": [
+            { "@type": "ContactPage", "name": "Contact NETREX Inc", "url": "https://www.netrexinc.com/contact", "about": { "@id": "https://www.netrexinc.com/#organization" } },
+            { ...contactSchema, "@context": undefined, "@id": "https://www.netrexinc.com/#organization" },
+          ],
+        }}
       />
 
       <Header />

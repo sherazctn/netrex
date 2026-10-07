@@ -33,7 +33,7 @@ jobs:
     - name: Build Project
       run: npm run build
 
-    # Latest 10 Instagram posts for the homepage. The token comes from the repository secret
+    # Latest 16 Instagram posts for the homepage. The token comes from the repository secret
     # INSTAGRAM_ACCESS_TOKEN and is never written to the site or the logs.
     - name: Fetch Instagram posts
       continue-on-error: true

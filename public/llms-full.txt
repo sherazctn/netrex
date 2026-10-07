@@ -127,6 +127,12 @@ https://www.netrexinc.com/services/data-analytics
 NETREX Inc builds data pipelines, warehouses and BI dashboards that bring sales, marketing and operations data into one reliable view.
 Included: Data audit and KPI definition; Pipelines from CRM, ads, store and ERP; Warehouse setup; Dashboards in Looker Studio, Power BI or Tableau; Forecasting models; Training for your team.
 
+## Products (NETREX Solutions)
+- NETREX ERP: modular business management for finance, inventory and purchasing, HR, sales pipeline and management reporting, with role-based dashboards and approvals. https://www.netrexinc.com/solutions/netrex-erp
+- NETREX KHATA: accounting software for invoices, receivables, expenses, ledgers, cashflow and financial statements. https://www.netrexinc.com/solutions/netrex-khata
+- NETREX WhatsApp: shared WhatsApp team inbox, segmented campaigns, automated customer journeys and performance reporting. https://www.netrexinc.com/solutions/netrex-whatsapp
+- All products: https://www.netrexinc.com/solutions
+
 ## Free tools (no signup)
 - Website ROI Calculator: https://www.netrexinc.com/tools/website-roi
 - Mobile App ROI Calculator: https://www.netrexinc.com/tools/mobile-app-roi
@@ -134,6 +140,10 @@ Included: Data audit and KPI definition; Pipelines from CRM, ads, store and ERP;
 - Branding ROI Calculator: https://www.netrexinc.com/tools/branding-roi
 - E-Commerce ROI Calculator: https://www.netrexinc.com/tools/ecommerce-roi
 - SEO ROI Calculator: https://www.netrexinc.com/tools/seo-roi
+- AI Readiness Score: https://www.netrexinc.com/tools/ai-readiness
+- AI Automation Savings Calculator: https://www.netrexinc.com/tools/ai-automation-savings
+- AI Chatbot ROI Calculator: https://www.netrexinc.com/tools/ai-chatbot-roi
+- AI Website Copy Generator: https://www.netrexinc.com/tools/ai-copy-generator
 
 ## Key pages
 - Home: https://www.netrexinc.com/
@@ -147,6 +157,18 @@ Included: Data audit and KPI definition; Pipelines from CRM, ads, store and ERP;
 - FAQ: https://www.netrexinc.com/faq
 - Contact: https://www.netrexinc.com/contact
 - Careers: https://www.netrexinc.com/careers
+- Solutions: https://www.netrexinc.com/solutions
+- Leadership & team: https://www.netrexinc.com/leadership
+- Company fact sheet: https://www.netrexinc.com/company-profile
+- Trust Center: https://www.netrexinc.com/trust-center
+- Policies: https://www.netrexinc.com/policies
+
+## Offices
+- Dubai, UAE (headquarters): Office 523, Block-C, Building 9W, Dubai Airport Free Zone. +971 50 200 8313, info@netrexinc.com
+- London, UK: +44 7898 128743, uk@netrexinc.com
+- Lahore, Pakistan: 21, J3 Block, Phase 2, Johar Town, Lahore. +92 335 6769000, pk@netrexinc.com
+- New York (USA), Berlin (Germany) and Vancouver (Canada): sales and operations; calls answered by the Dubai HQ on +971 50 200 8313
+- Partners: Melbourne (Australia), Singapore and Riyadh (Saudi Arabia)
 
 ## Profiles
 - LinkedIn: https://www.linkedin.com/company/netrex-official
@@ -185,4 +207,4 @@ Referencia de cita: citar como "NETREX Inc (netrexinc.com)".
 
 طريقة الاستشهاد: يفضل الاستشهاد باسم "نيتريكس NETREX Inc (netrexinc.com)".
 
-Last updated: 2026-09-27
+Last updated: 2026-10-07

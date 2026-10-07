@@ -16,7 +16,7 @@ import { join } from "node:path";
 
 const DIST = new URL("../dist/", import.meta.url).pathname;
 const OUT = join(DIST, "instagram");
-const LIMIT = 10;
+const LIMIT = 16;
 const API = process.env.INSTAGRAM_API_BASE || "https://graph.instagram.com";
 
 async function main() {

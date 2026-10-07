@@ -189,7 +189,7 @@ const Legal = () => (
 
       {/* Overview Cards */}
       <section className="py-16 md:py-20">
-        <div className="container-wide mx-auto max-w-6xl">
+        <div className="container-wide mx-auto max-w-[90rem]">
           <div className="mb-16 grid gap-6 md:grid-cols-3">
             {legalHighlights.map((item, i) => (
               <motion.div

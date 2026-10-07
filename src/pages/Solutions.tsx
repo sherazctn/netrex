@@ -12,7 +12,20 @@ import { solutions } from "@/data/solutions";
 
 const Solutions = () => (
   <div className="min-h-screen bg-background">
-    <SEO title="Business Software Solutions | NETREX Inc" description="Explore NETREX ERP, NETREX KHATA accounting software and NETREX WhatsApp customer engagement solutions for growing businesses." canonical="https://www.netrexinc.com/solutions" />
+    <SEO title="Business Software Solutions | NETREX Inc" description="Explore NETREX ERP, NETREX KHATA accounting software and NETREX WhatsApp customer engagement solutions for growing businesses." canonical="https://www.netrexinc.com/solutions"
+      schema={{
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        name: "NETREX business software solutions",
+        itemListElement: solutions.map((s, i) => ({
+          "@type": "ListItem",
+          position: i + 1,
+          name: s.name,
+          description: s.shortDescription,
+          url: `https://www.netrexinc.com/solutions/${s.slug}`,
+        })),
+      }}
+    />
     <Header />
     <main>
       <PageHero badge="NETREX Products" title="Solutions Built for" highlight="Real Operations" description="Purpose-built software concepts for connected operations, clearer accounting and more responsive customer engagement." />

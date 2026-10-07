@@ -455,7 +455,7 @@ const About = () => {
             </motion.div>
 
             {/* Zigzag process cards */}
-            <div className="relative max-w-6xl mx-auto">
+            <div className="relative max-w-[90rem] mx-auto">
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
                 {processSteps.map((step, index) => (
                   <motion.div

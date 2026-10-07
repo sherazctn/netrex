@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ArrowRight, Smartphone, CheckCircle2, XCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { ToolGuide } from "@/components/tools/ToolGuide";
 
 const questions = [
   {
@@ -233,6 +234,7 @@ const MobileAppROICalculator = () => {
             </AnimatePresence>
           </div>
         </section>
+        <ToolGuide />
       </main>
       <Footer />
       <WhatsAppButton />
