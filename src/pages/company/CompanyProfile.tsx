@@ -34,7 +34,7 @@ const industries = [
 const factSheet = [
   { label: "Legal Name", value: "NETREX INC" },
   { label: "Founded", value: "2016 as Crickle Studio; NETREX since 2019" },
-  { label: "Headquarters", value: "Office 523, Block-C, Building 9W, Dubai Airport Free Zone, Dubai, UAE" },
+  { label: "Headquarters", value: "Office 523, Block-C, Building 9W, DAFZA, Dubai, UAE" },
   { label: "Entity Type", value: "Global Digital Agency, Free Zone Establishment" },
   { label: "Employee Band", value: "50-200 employees" },
   { label: "Offices", value: "Dubai HQ plus sales & operations offices in Pakistan, UK, USA, Canada and Germany; partners in Australia, Saudi Arabia and Singapore" },
@@ -54,7 +54,7 @@ const schema = {
   numberOfEmployees: "50-200",
   address: {
     "@type": "PostalAddress",
-    streetAddress: "Office 523, Block-C, Building 9W, Dubai Airport Free Zone",
+    streetAddress: "Office 523, Block-C, Building 9W, DAFZA",
     addressLocality: "Dubai",
     addressCountry: "AE",
   },

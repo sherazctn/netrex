@@ -20,7 +20,7 @@ const contactSchema = {
   "telephone": "+971-50-200-8313",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "Office 523, Block-C, Building 9W, Dubai Airport Free Zone",
+    "streetAddress": "Office 523, Block-C, Building 9W, DAFZA",
     "addressLocality": "Dubai",
     "addressCountry": "AE",
   },
@@ -30,7 +30,7 @@ const contactSchema = {
       "name": "NETREX INC - Dubai HQ",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "Office 523, Block-C, Building 9W, Dubai Airport Free Zone",
+        "streetAddress": "Office 523, Block-C, Building 9W, DAFZA",
         "addressLocality": "Dubai",
         "addressCountry": "AE",
       },

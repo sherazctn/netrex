@@ -28,7 +28,7 @@ const contactMethods = [
 ];
 
 const countries = [
-  { code: "ae", name: "UAE (Dubai)", flag: "🇦🇪", address: "Office 523, Block-C, 9W Dubai Airport Free Zone - Dubai, UAE" },
+  { code: "ae", name: "UAE (Dubai)", flag: "🇦🇪", address: "Office 523, Block-C, 9W DAFZA - Dubai, UAE" },
   { code: "us", name: "USA", flag: "🇺🇸", address: "418 Broadway STE N, New York 12207, USA" },
   { code: "uk", name: "United Kingdom", flag: "🇬🇧", address: "71-75 Shelton Street, Covent Garden, London, UK" },
   { code: "ca", name: "Canada", flag: "🇨🇦", address: "1575 West Georgia Street, Vancouver, BC, Canada" },

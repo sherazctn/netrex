@@ -18,7 +18,7 @@ type Office = {
 const locations: Office[] = [
   {
     id: "ae", country: "UAE", city: "Dubai", flag: "🇦🇪",
-    address: "Office 523, Block-C, Building 9W, Dubai Airport Free Zone",
+    address: "Office 523, Block-C, Building 9W, DAFZA",
     phone: "+971 50 200 8313", email: "info@netrexinc.com",
     hours: "Sun - Thu: 9AM - 6PM",
     coords: { lat: 25.2532, lng: 55.3657 }, isHQ: true,

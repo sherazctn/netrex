@@ -58,9 +58,9 @@ const registrations = [
     companyName: "NETREX FZCO",
     regNumber: "05647",
     regType: "DAFZA License Number",
-    address: "Office 523, Block-C, Building 9W, Dubai Airport Free Zone",
+    address: "Office 523, Block-C, Building 9W, DAFZA",
     email: "info@netrexinc.com",
-    jurisdiction: "Dubai Airport Free Zone Authority",
+    jurisdiction: "DAFZA",
     incorporationDate: "2022",
     status: "Active - Principal Entity",
   },
@@ -307,7 +307,7 @@ const Legal = () => (
               <p>
                 NETREX®, the NETREX logo, and associated brand elements are registered trademarks of{" "}
                 <strong className="text-foreground">NETREX FZCO</strong>, registered in the United Arab Emirates
-                under Dubai Airport Free Zone Authority (DAFZA). All intellectual property rights are reserved.
+                under DAFZA. All intellectual property rights are reserved.
               </p>
               <p>
                 The domain <strong className="text-foreground">netrexinc.com</strong> is the official global domain

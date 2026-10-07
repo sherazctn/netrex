@@ -39,7 +39,7 @@ const mockOffices: Office[] = [
     id: 1,
     country: "UAE",
     city: "Dubai",
-    address: "Office 523, Block-C, 9W Dubai Airport Free Zone",
+    address: "Office 523, Block-C, 9W DAFZA",
     phone: "+971 50 200 8313",
     email: "contact@netrex.ae",
     timezone: "GMT+4",

@@ -8,7 +8,7 @@ const locations = [
     country: "UAE",
     city: "Dubai",
     flag: "🇦🇪",
-    address: "Office 523, Block-C, Building 9W, Dubai Airport Free Zone",
+    address: "Office 523, Block-C, Building 9W, DAFZA",
     timezone: "GMT+4",
     isHQ: true,
   },

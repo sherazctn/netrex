@@ -18,7 +18,7 @@ const awardsTimeline = [
 const pressFacts = [
   { label: "Legal Name", value: "NETREX INC" },
   { label: "Founded", value: "2016 (as Crickle Studio)" },
-  { label: "Headquarters", value: "Dubai Airport Free Zone, Dubai, UAE" },
+  { label: "Headquarters", value: "DAFZA, Dubai, UAE" },
   { label: "Offices", value: "9 global offices" },
   { label: "Employees", value: "50-200" },
   { label: "Media Contact", value: "info@netrexinc.com" },
