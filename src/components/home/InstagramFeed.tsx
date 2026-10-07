@@ -76,7 +76,7 @@ function PostCard({
           draggable={false}
           referrerPolicy="no-referrer"
           onError={() => setBroken(true)}
-          className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-110 group-hover:rotate-1"
+          className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
         />
       )}
       {TypeIcon && (
