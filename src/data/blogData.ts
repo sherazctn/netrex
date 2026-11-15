@@ -21,9 +21,13 @@ export const parseBlogDate = (s: string): number => {
   return isNaN(t) ? 0 : t;
 };
 
+// Future-dated posts are drafts until their calendar date begins.
+export const getPublishedBlogPosts = (asOf: Date = new Date()): BlogPost[] =>
+  blogPosts.filter((post) => parseBlogDate(post.date) <= asOf.getTime());
+
 // Returns blog posts sorted by most recent first.
-export const getSortedBlogPosts = (): BlogPost[] =>
-  [...blogPosts].sort((a, b) => parseBlogDate(b.date) - parseBlogDate(a.date));
+export const getSortedBlogPosts = (asOf: Date = new Date()): BlogPost[] =>
+  getPublishedBlogPosts(asOf).sort((a, b) => parseBlogDate(b.date) - parseBlogDate(a.date));
 
 export const blogPosts: BlogPost[] = [
   {
@@ -452,14 +456,145 @@ export const blogPosts: BlogPost[] = [
     image: "https://images.unsplash.com/photo-1556740738-b6a63e27c4df?w=1200&h=600&fit=crop",
     keywords: ["agentic commerce", "AI shopping assistants", "e-commerce trends 2026", "AI checkout", "product schema"],
   },
+  {
+    id: 33,
+    slug: "ecommerce-website-development-cost-budget-planner",
+    title: "Ecommerce Website Development Cost: A Practical Budget Planner",
+    excerpt: "Understand the decisions that shape an ecommerce build budget, compare platform and custom options, and prepare a useful project brief before requesting quotes.",
+    content: `An ecommerce website development cost is not a single standard price. The budget depends on what the store must do, which platform fits the business, how much content and product data already exists, and which systems need to connect. A useful estimate starts with scope, not a feature wish list.\n\n## Start With the Business Requirements\nWrite down the customer journey from product discovery through delivery and returns. Note how many products, variants, regions, languages, currencies, and shipping rules the first release needs. A focused launch catalog is easier to estimate than an undefined promise to support every future use case.\n\n## What Usually Changes the Estimate\n- **Platform and design:** a configured hosted store, a tailored theme, and a custom commerce experience involve different amounts of design and engineering.\n- **Catalog complexity:** variants, bundles, subscriptions, wholesale pricing, and large imports add planning and data work.\n- **Integrations:** payment providers, inventory, accounting, CRM, shipping, and marketing systems each need clear ownership and testing.\n- **Content and migration:** product copy, photography, redirects, customer records, and historical orders require preparation and decisions.\n- **Operations:** tax, returns, accessibility, security, analytics, and staff training should be included in the delivery plan.\n\n## Compare Platform Options Fairly\nA hosted platform can reduce infrastructure work and suit a straightforward store. A content-management platform may fit a team that publishes frequently and accepts ongoing maintenance. Custom development can support distinct workflows, but creates more responsibility for testing, hosting, updates, and future changes. Compare total ownership over several years, not just the initial build quote.\n\n## Ask for an Itemized Proposal\nRequest separate estimates for discovery, design, build, data migration, integrations, testing, launch, and post-launch support. Ask what is excluded, who supplies content, how revisions are handled, and who owns the accounts, code, and design files. A written assumption is more useful than a vague contingency.\n\n## A Brief You Can Send to Agencies\nInclude your target launch window, product count, sales regions, current platform, required integrations, examples you like, available content, and the person approving decisions. Ask each provider to explain trade-offs and identify dependencies before committing.\n\nThere is no universal ecommerce price that fits every business. A clear brief makes proposals easier to compare and helps prevent surprise scope changes. NETREX can help map the requirements before you choose a platform or budget.`,
+    category: "Business",
+    author: "NETREX Editorial Team",
+    date: "Oct 14, 2026",
+    readTime: "7 min read",
+    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&h=600&fit=crop",
+    keywords: ["ecommerce website development cost", "ecommerce website cost", "ecommerce development", "online store budget"],
+  },
+  {
+    id: 34,
+    slug: "shopify-seo-checklist-product-collection-pages",
+    title: "Shopify SEO Checklist: Practical Fixes for Product and Collection Pages",
+    excerpt: "A store-owner checklist for product titles, collection structure, duplicate URLs, image details, internal links, and Search Console checks.",
+    content: `A useful Shopify SEO checklist starts with the pages customers and search engines need to understand: products, collections, and store policies. Before adding more apps or publishing dozens of posts, make the important pages accurate, distinct, and easy to reach.\n\n## 1. Make Product Pages Distinct\nGive each product a clear name, useful description, accurate price, availability, and specifications. Explain who the product is for, how it differs from alternatives, and what a buyer should know before ordering. Avoid copying supplier descriptions across the whole catalog.\n\n## 2. Organize Collections Around Shopping Intent\nCreate a small, logical collection structure with names customers recognize. Write a short introduction where it adds context, link to related collections, and keep filters useful. Do not create thin collection pages for every possible keyword variation.\n\n## 3. Check Titles, Descriptions, and Headings\nWrite a unique page title and search snippet for priority products and collections. Make the main heading describe the page. Include the product or collection name naturally, and avoid repeating the same phrase in every field.\n\n## 4. Review URL and Duplicate-Page Behavior\nFaceted filters and product variants can create many URLs. Check which versions are intended for indexing, whether canonical tags point to the preferred page, and whether internal links use stable product and collection URLs. Avoid blocking pages before confirming how the store uses them.\n\n## 5. Improve Images and Product Data\nUse descriptive filenames and concise alternative text that explains meaningful product images. Compress large files, set image dimensions, and keep important product details in text rather than embedded in images. Check structured product data for accurate price and availability.\n\n## 6. Strengthen Trust and Shopping Information\nMake shipping, returns, contact details, payment options, and warranty terms easy to find. Keep policy language consistent with checkout behavior and the countries where the store actually sells.\n\n## 7. Measure and Iterate\nVerify the domain in Google Search Console, inspect representative product and collection URLs, check indexing reports, and compare organic visits with product-page engagement. Fix a specific issue, then review whether the affected pages were crawled and whether customers can use them.\n\nSEO is ongoing maintenance, not a one-time setting. Work through this checklist on a small group of high-value pages first, then apply the lessons to the wider catalog.`,
+    category: "Marketing",
+    author: "NETREX Editorial Team",
+    date: "Oct 23, 2026",
+    readTime: "8 min read",
+    image: "https://images.unsplash.com/photo-1556740738-b6a63e27c4df?w=1200&h=600&fit=crop",
+    keywords: ["Shopify SEO checklist", "Shopify SEO", "Shopify product page SEO", "Shopify collection SEO"],
+  },
+  {
+    id: 35,
+    slug: "small-business-website-seo-30-day-plan",
+    title: "Small Business Website SEO: A Practical 30-Day Plan",
+    excerpt: "A manageable month-long plan to fix discoverability basics, improve service pages, strengthen local information, and measure what changes.",
+    content: `Small business website SEO works best as a sequence of useful improvements, not a list of tricks. This 30-day plan helps an owner or small team make progress without publishing pages for every keyword or promising a particular ranking.\n\n## Week 1: Check the Foundations\nConfirm that the preferred website address works over HTTPS, important pages load on a phone, and the sitemap and robots.txt are reachable. Set up Google Search Console, inspect the homepage and key service pages, and note indexing or mobile usability issues. Keep a simple record of the starting position.\n\n## Week 2: Improve the Pages That Win Work\nChoose the services and locations that matter to the business. Give each important service a clear page with a descriptive title, one main heading, a plain-language explanation, who it serves, what the process includes, and a next step. Add genuine project examples and answer questions customers ask before hiring.\n\n## Week 3: Make Local Details Consistent\nCheck that the business name, address or service area, phone, opening information, and contact links agree across the website and business profiles. Create location pages only where the company genuinely operates and can provide useful local detail. Ask satisfied customers for honest reviews using the platform's permitted process.\n\n## Week 4: Measure, Fix, and Plan\nReview search queries, impressions, clicks, and page indexing in Search Console. Compare the pages that attract useful enquiries with those that do not. Improve one clear gap at a time: unclear copy, missing internal links, weak page titles, slow images, or a broken form.\n\n## What to Avoid\nDo not repeat a keyword unnaturally, create near-identical city pages, buy links, or claim reviews and credentials that cannot be verified. Search engines need to understand the business, while people need a trustworthy answer and a clear way to contact it.\n\nAt the end of the month, keep the changes that improve clarity and usability, then choose the next set of pages. Search visibility takes time and depends on many factors, so treat this plan as a foundation rather than a ranking guarantee.`,
+    category: "Marketing",
+    author: "NETREX Editorial Team",
+    date: "Oct 31, 2026",
+    readTime: "7 min read",
+    image: "https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=1200&h=600&fit=crop",
+    keywords: ["small business website SEO", "SEO for small business", "small business SEO plan", "local SEO basics"],
+  },
+  {
+    id: 36,
+    slug: "choose-web-design-agency-questions-contract",
+    title: "How to Choose a Web Design Agency: Questions to Ask Before You Sign",
+    excerpt: "Compare agencies on discovery, scope, ownership, accessibility, launch support, and communication instead of judging proposals by screenshots alone.",
+    content: `Choosing a web design agency is easier when every proposal answers the same practical questions. A polished presentation matters, but the working relationship, written scope, and ownership terms determine what happens after the first design is approved.\n\n## Ask How Discovery Works\nHow will the team learn about your customers, services, competitors, and business goals? What information do they need from you, and what decisions must be made before design begins? A good process should produce a clear sitemap, content responsibilities, and agreed priorities.\n\n## Compare the Scope Line by Line\nAsk which pages, templates, forms, integrations, migrations, and revisions are included. Clarify how new requests are estimated and approved. Make sure the quote identifies dependencies such as photography, copy, product data, domain access, or third-party subscriptions.\n\n## Confirm Ownership and Access\nThe agreement should explain who owns the domain, hosting accounts, design files, source code, content, and licensed assets. Confirm that your business will have appropriate administrator access and know how to export or hand over the work if the relationship ends.\n\n## Discuss Accessibility, Security, and Search\nAsk how the team checks keyboard use, contrast, form labels, mobile layouts, backups, updates, metadata, redirects, and structured data. Request specific examples of testing and handover documentation rather than broad promises about rankings or compliance.\n\n## Understand Launch and Support\nWho tests the finished site, who approves launch, and what happens if an issue appears afterward? Ask about training, maintenance options, response expectations, and what is outside a support agreement.\n\n## A Simple Comparison Scorecard\nFor each agency, record: clarity of scope, relevant experience, communication, technical fit, ownership terms, risk handling, and total cost of ownership. Speak with a reference when appropriate and read independent feedback.\n\nThe right partner is not necessarily the one with the biggest portfolio or the lowest proposal. Choose the team that understands the work, explains trade-offs plainly, and puts responsibilities in writing.`,
+    category: "Business",
+    author: "NETREX Editorial Team",
+    date: "Nov 7, 2026",
+    readTime: "7 min read",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=600&fit=crop",
+    keywords: ["choose web design agency", "web design agency questions", "website design proposal", "web development contract"],
+  },
+  {
+    id: 37,
+    slug: "website-accessibility-checklist-small-business",
+    title: "Website Accessibility Checklist: 12 Checks for Small Businesses",
+    excerpt: "Review keyboard access, headings, forms, contrast, zoom, motion, and media before your next website launch or update.",
+    content: `An accessible website helps more people use your content and services. This checklist is a practical starting point for a small business review, not a certification or a substitute for testing with people who use assistive technology.\n\n## Content and Navigation\n1. Use descriptive page titles and a logical heading structure.\n2. Make link text explain where the link goes instead of repeating “click here.”\n3. Ensure every important function can be reached and operated with a keyboard.\n4. Keep keyboard focus visible and in a predictable order.\n5. Add a skip link when repeated navigation would otherwise be tedious.\n\n## Images, Color, and Motion\n6. Give informative images concise alternative text; mark purely decorative images accordingly.\n7. Check text and control contrast in every theme and state.\n8. Do not use color alone to communicate errors or status.\n9. Respect reduced-motion preferences and avoid distracting, essential-content animations.\n10. Ensure content remains usable when users zoom or increase text size.\n\n## Forms and Media\n11. Give every field a visible label, instructions, and a clear error message that identifies how to fix the problem.\n12. Provide captions or transcripts for meaningful audio and video, and make media controls keyboard operable.\n\n## Test With More Than One Method\nRun an automated checker to find common issues, then navigate the site without a mouse. Test forms with keyboard and screen reader support, check representative pages at larger text sizes, and ask users with varied access needs to complete real tasks. Automated results do not establish conformance on their own.\n\nPrioritize barriers that stop people from completing an important task, document findings, and retest after changes. If a legal standard applies to your organization, confirm the current requirements for your jurisdiction with qualified counsel.`,
+    category: "Technology",
+    author: "NETREX Editorial Team",
+    date: "Nov 13, 2026",
+    readTime: "6 min read",
+    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=1200&h=600&fit=crop",
+    keywords: ["website accessibility checklist", "accessible website", "web accessibility testing", "small business accessibility"],
+  },
+  {
+    id: 38,
+    slug: "local-seo-multi-location-business-guide",
+    title: "Local SEO for Multi-Location Businesses: A Practical Guide",
+    excerpt: "Build accurate location information, useful local pages, and a review process that supports customers across multiple offices or service areas.",
+    content: `Local SEO for a multi-location business starts with accurate information at every real location. A page for an office should help a customer confirm where it is, what it offers, and how to contact the right team. Pages that only swap a city name add little value.\n\n## Create a Reliable Location Record\nKeep the official name, street address, local phone, opening details, and services for each eligible office in one controlled source. Assign someone to update the website and business profile when a location changes. Avoid publishing an address for a virtual office or service area that the business cannot substantiate.\n\n## Make Each Location Page Useful\nInclude the location's actual services, contact route, relevant staff or team, local directions, and any customer information that differs from other offices. Use a consistent template while writing original details. Link from a central locations page and from relevant service pages.\n\n## Manage Profiles and Reviews Responsibly\nClaim and maintain the correct business profile for each eligible location. Keep profile categories, hours, website links, and contact details current. Invite customers to leave honest feedback without offering incentives or filtering who gets asked. Respond professionally and take sensitive issues offline.\n\n## Measure Location-Level Outcomes\nUse distinct landing-page URLs and call or enquiry tracking that respects privacy rules. Review search queries, direction requests, calls, form submissions, and completed work by location. Do not judge performance on ranking position alone.\n\n## Common Mistakes\n- Making duplicate pages with only the city changed.\n- Combining several offices into one confusing contact page.\n- Letting old phone numbers or hours remain on directories.\n- Adding location structured data that does not match the visible page.\n- Promising coverage in places the team does not serve.\n\nA location strategy should reflect the way the business operates. Start with accurate profiles and useful pages for active locations, then expand only when there is real information to share.`,
+    category: "Marketing",
+    author: "NETREX Editorial Team",
+    date: "Nov 20, 2026",
+    readTime: "7 min read",
+    image: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=1200&h=600&fit=crop",
+    keywords: ["local SEO multi location business", "multi location SEO", "location pages SEO", "local business profiles"],
+  },
+  {
+    id: 39,
+    slug: "wix-seo-checklist-step-by-step",
+    title: "Wix SEO Checklist: A Step-by-Step Guide for Business Websites",
+    excerpt: "A clear Wix SEO review for page settings, redirects, mobile usability, structured data, indexing, and ongoing content updates.",
+    content: `A Wix SEO checklist is most useful when it separates the settings to verify from the content decisions only a business owner can make. Start with the pages that bring customers to your business and check their search setup one by one.\n\n## Check the Site-Wide Basics\nConnect your preferred domain, enable HTTPS, and confirm that the sitemap and robots.txt are accessible. Connect Google Search Console and submit the sitemap. Check that important pages are indexable and that staging or duplicate versions are not being treated as the preferred site.\n\n## Review Each Priority Page\nWrite a unique title and meta description, use a clear main heading, and explain the service in the language customers use. Add useful internal links to related services, examples, and contact options. Use descriptive image alternative text when an image communicates information.\n\n## Protect URLs During Changes\nBefore renaming or removing a page, identify links and search traffic that may be affected. Set a relevant redirect for a retired URL and update internal links. Avoid redirect chains and test that the destination is the page users expect.\n\n## Add Structured Data Carefully\nUse structured data only when it accurately describes visible page content. Validate the markup after changes and keep ratings, addresses, services, and business details consistent with the page and public profiles. Markup can help systems interpret a page but does not guarantee a search feature or ranking.\n\n## Improve Page Experience\nTest the site on a phone, check form labels and keyboard access, compress oversized images, and remove apps or scripts that are no longer needed. Review real user performance reports where available rather than relying only on a single lab test.\n\n## Keep a Monthly Routine\nInspect Search Console for indexing and query changes, check key forms and links, review content that has become outdated, and record the changes made. Good SEO depends on useful content and a site people can actually use, not on activating every available setting.`,
+    category: "Marketing",
+    author: "NETREX Editorial Team",
+    date: "Nov 24, 2026",
+    readTime: "7 min read",
+    image: "https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=1200&h=600&fit=crop",
+    keywords: ["Wix SEO checklist", "Wix SEO", "Wix website SEO", "Wix search optimization"],
+  },
+  {
+    id: 40,
+    slug: "ai-search-visibility-audit-business-guide",
+    title: "AI Search Visibility Audit: Can Assistants Describe Your Business Correctly?",
+    excerpt: "A repeatable way to check how AI assistants describe your services, locations, and evidence, then fix inconsistencies without chasing guaranteed citations.",
+    content: `An AI search visibility audit asks a practical question: when a potential customer asks an assistant for help in your category, does it describe your business accurately and cite reliable information? Results can vary by tool, location, and query, so record observations rather than treating one response as a ranking report.\n\n## Step 1: Choose Real Buyer Questions\nWrite five to ten questions customers actually ask, such as how to compare providers, what a service includes, or which platform suits a particular requirement. Include your business name in some questions and leave it out of others.\n\n## Step 2: Record the Answers\nTest the same prompts in several assistants on the same day. Note which providers are named, which sources are linked, and whether your business details are correct. Save the prompt, date, tool, and answer because outputs can change.\n\n## Step 3: Verify Your Own Information\nCheck your public service pages, contact details, location pages, author biographies, case studies, and business profiles. Correct outdated facts and align the wording where it has drifted. Make important details available as crawlable text rather than only inside images or documents.\n\n## Step 4: Improve the Source Pages\nAnswer common questions directly, show the evidence behind claims, use descriptive headings, and keep structured data consistent with visible content. Link service pages to relevant examples and explain who authored or reviewed material when appropriate.\n\n## Step 5: Recheck and Track Changes\nRepeat the same prompts later and compare the source citations and accuracy. Track organic search data separately in Search Console; AI responses and traditional search performance are not the same metric.\n\nNo website file or markup guarantees that an AI assistant will mention a business. The goal is to make the business easier to understand, verify, and recommend when it is genuinely relevant.`,
+    category: "AI & GEO",
+    author: "NETREX Editorial Team",
+    date: "Nov 28, 2026",
+    readTime: "6 min read",
+    image: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=1200&h=600&fit=crop",
+    keywords: ["AI search visibility audit", "AI search optimization", "GEO audit", "AI business citations"],
+  },
+  {
+    id: 41,
+    slug: "ecommerce-website-launch-checklist",
+    title: "Ecommerce Website Launch Checklist: Payments, Shipping, Search, and Analytics",
+    excerpt: "Test the full shopping journey before launch, from product data and checkout to order emails, returns, mobile layouts, and measurement.",
+    content: `A smooth ecommerce launch depends on testing the entire customer journey, not just the homepage. Use this checklist with a real test order and confirm who is responsible for each item before switching traffic to the new store.\n\n## Products and Catalog\n- Confirm product names, descriptions, prices, variants, stock, and images.\n- Test categories, filters, search, and unavailable products.\n- Check product feeds and structured data for consistent price and availability.\n\n## Checkout and Payments\n- Place test orders on mobile and desktop using the payment methods you plan to offer.\n- Verify shipping destinations, delivery options, tax configuration, discounts, and currency display.\n- Confirm the order confirmation, receipts, and internal notifications arrive correctly.\n- Check that failed payments and abandoned checkouts provide a clear next step.\n\n## Policies and Customer Support\nMake shipping, returns, privacy, and terms easy to locate and consistent with the actual checkout. Test the contact route and make sure support staff know how to find orders and respond to common questions.\n\n## Search and Redirects\nCheck page titles, descriptions, canonical URLs, sitemap, indexing controls, and redirects from the old site. Inspect priority pages and confirm that internal links do not point to broken or staging URLs.\n\n## Analytics and Operations\nVerify consent settings where applicable, analytics events, conversion tracking, backups, user roles, and account recovery. Document who receives alerts and who can pause orders if an issue appears.\n\n## After Launch\nMonitor orders, payment failures, customer messages, and key pages closely. Keep the previous site or a rollback plan available until the new store is stable. Record issues and fixes so the next release is easier to manage.\n\nA checklist reduces avoidable surprises, but it cannot replace testing with the store's actual products, payment accounts, regions, and fulfillment process.`,
+    category: "Technology",
+    author: "NETREX Editorial Team",
+    date: "Dec 2, 2026",
+    readTime: "7 min read",
+    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=1200&h=600&fit=crop",
+    keywords: ["ecommerce website launch checklist", "ecommerce launch", "online store checklist", "ecommerce testing"],
+  },
+  {
+    id: 42,
+    slug: "small-business-website-maintenance-checklist",
+    title: "Website Maintenance Checklist for Small Businesses",
+    excerpt: "A realistic monthly and quarterly routine for backups, updates, forms, security, content accuracy, accessibility, and recovery planning.",
+    content: `Website maintenance keeps a business site dependable after launch. A small, documented routine is easier to sustain than waiting for something to break. Assign an owner for every check and record when it was completed.\n\n## Monthly Checks\n- Submit the main contact, booking, and quote forms and confirm notifications arrive.\n- Review key pages, phone numbers, addresses, opening information, prices, and policies.\n- Check for broken links, missing images, unexpected browser warnings, and mobile layout problems.\n- Confirm that backups completed and that the right people can access hosting and domain accounts.\n- Review Search Console for indexing issues and analytics for unusual changes.\n\n## Quarterly Checks\n- Apply platform, plugin, and dependency updates after reviewing compatibility and backup status.\n- Test a restore procedure in a safe environment rather than assuming a backup works.\n- Review staff accounts and remove access that is no longer needed.\n- Check page speed and keyboard access on important customer journeys.\n- Update outdated articles, service details, screenshots, and structured data.\n\n## Keep an Incident Plan\nStore emergency contacts, recovery steps, account ownership, and vendor responsibilities in a secure place. Decide who can take the site offline, publish a notice, restore a backup, and communicate with customers. Do not store passwords in the plan itself.\n\n## Maintenance Is Not a Guarantee\nUpdates reduce avoidable risks but cannot prevent every outage or security incident. The right maintenance level depends on the platform, integrations, data sensitivity, and how much the site supports daily operations.\n\nStart with the forms and pages that directly affect customers. A short log of checks and changes will help your team catch patterns and make safer updates over time.`,
+    category: "Business",
+    author: "NETREX Editorial Team",
+    date: "Dec 5, 2026",
+    readTime: "6 min read",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=600&fit=crop",
+    keywords: ["website maintenance checklist", "small business website maintenance", "website upkeep", "website backup and updates"],
+  },
 ];
 
 
-export const getPostByIdOrSlug = (idOrSlug: string | number): BlogPost | undefined => {
+export const getPostByIdOrSlug = (idOrSlug: string | number, asOf: Date = new Date()): BlogPost | undefined => {
+  const visiblePosts = getPublishedBlogPosts(asOf);
   const numId = Number(idOrSlug);
   if (!Number.isNaN(numId)) {
-    const byId = blogPosts.find((p) => p.id === numId);
+    const byId = visiblePosts.find((p) => p.id === numId);
     if (byId) return byId;
   }
-  return blogPosts.find((p) => p.slug === String(idOrSlug));
+  return visiblePosts.find((p) => p.slug === String(idOrSlug));
 };
