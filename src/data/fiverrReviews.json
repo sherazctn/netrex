@@ -2,9 +2,9 @@
   "source": "Fiverr",
   "profileUrl": "https://www.fiverr.com/netrex_inc",
   "gigUrl": "https://www.fiverr.com/netrex_inc/design-wix-website-for-your-business-or-redesign-your-website",
-  "fetchedAt": "2026-09-30",
+  "fetchedAt": "2026-11-14",
   "rating": 4.9,
-  "reviewCount": 313,
+  "reviewCount": 342,
   "breakdown": {
     "1": 2,
     "2": 0,
@@ -12,8 +12,43 @@
     "4": 9,
     "5": 299
   },
-  "note": "Only 5-star reviews are shown. Updated monthly; new reviews are added by id and never duplicated.",
+  "note": "Profile rating and total count checked 2026-11-14. Fiverr publicly exposed five recent review excerpts at that time; the other latest reviews were not available in the public page response. Earlier review records and rating breakdown are retained as previously captured.",
   "reviews": [
+    {
+      "id": "fiverr-live-2026-11-aalhamdani531",
+      "user": "aalhamdani531",
+      "rating": 5,
+      "date": "2026-11",
+      "text": "Working with Shery and his amazing team at NETREX has once again been a wonderful experience. They have done an outstanding job designing this beautiful cleaning services website for our Dubai-based business. The overall design is modern, elegant, and highly professional, with an excellent layout, attractive..."
+    },
+    {
+      "id": "fiverr-live-2026-11-tee_onifade",
+      "user": "tee_onifade",
+      "rating": 5,
+      "date": "2026-11",
+      "text": "Outstanding Website Design - Highly Recommend Netrex!\n\nI am extremely pleased with the website Netrex created for my business, A&O Homestays. From start to finish, the experience was professional, positive and reassuring.\n\nNetrex took the time to understand my business, my vision and exactly what..."
+    },
+    {
+      "id": "fiverr-live-2026-11-steverogger1",
+      "user": "steverogger1",
+      "rating": 5,
+      "date": "2026-11",
+      "text": "Working with Shery and his team on their new service line has been an amazing experience!\n\nI hired them to build a WordPress landing page using Elementor Builder.\n\nEven before we started, I knew they would deliver something great, but they completely surprised me the final design is 10x more impressive..."
+    },
+    {
+      "id": "fiverr-live-2026-11-lr_coaching",
+      "user": "lr_coaching",
+      "rating": 5,
+      "date": "2026-11",
+      "text": "The website creation process was smooth and straightforward from start to finish. The team was helpful, responsive, and attentive throughout, making the whole process easy and stress-free. Communication was excellent, and any questions were addressed promptly. Overall, a very positive experience - highly recommended!"
+    },
+    {
+      "id": "fiverr-live-2026-11-flammiaw",
+      "user": "flammiaw",
+      "rating": 5,
+      "date": "2026-11",
+      "text": "Netrex did an outstanding job revising my website. The final product is very detailed and professional and exceeded my expectations. From the beginning, Netrex provided two demo website designs for me to choose from, which made the process easy and collaborative.\n\nThroughout the project, I was able to..."
+    },
     {
       "id": "a90fc2d61666",
       "user": "r00t3d4u",

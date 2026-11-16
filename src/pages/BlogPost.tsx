@@ -6,7 +6,7 @@ import { useParams, Link } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { SEO } from "@/components/SEO";
 import { ArrowLeft, Calendar, User, Clock, Share2, Linkedin, Twitter, Facebook } from "lucide-react";
-import { getPostByIdOrSlug, blogPosts } from "@/data/blogData";
+import { getPostByIdOrSlug, getPublishedBlogPosts } from "@/data/blogData";
 
 const BlogPost = () => {
   const { id } = useParams();
@@ -33,7 +33,7 @@ const BlogPost = () => {
 
   const shareUrl = typeof window !== "undefined" ? window.location.href : "";
   const shareText = encodeURIComponent(post.title);
-  const related = blogPosts.filter((p) => p.id !== post.id && p.category === post.category).slice(0, 3);
+  const related = getPublishedBlogPosts().filter((p) => p.id !== post.id && p.category === post.category).slice(0, 3);
 
   // Keep meta titles under ~60 characters: trim long headlines to their main clause.
   const shortHeadline = post.title.split(/[:(]/)[0].trim();

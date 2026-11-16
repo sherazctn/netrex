@@ -10,13 +10,13 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
 
-import { blogPosts, blogCategories, getSortedBlogPosts } from "@/data/blogData";
+import { blogCategories, getSortedBlogPosts } from "@/data/blogData";
 
 const Blog = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
 
-  // Always show newest posts first.
+  // Show only published articles, ordered newest first.
   const sortedPosts = getSortedBlogPosts();
 
   const filteredPosts = sortedPosts.filter(post => {
@@ -27,7 +27,7 @@ const Blog = () => {
   });
 
   // Featured article is pinned in the data layer; do not auto-rotate it.
-  const featuredPost = blogPosts.find(post => post.featured);
+  const featuredPost = sortedPosts.find(post => post.featured);
 
   return (
     <div className="min-h-screen bg-background">

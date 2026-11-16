@@ -5,7 +5,7 @@ import { Footer } from "@/components/layout/Footer";
 import { WhatsAppButton } from "@/components/ui/WhatsAppButton";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { ArrowRight, Star, Play, Quote } from "lucide-react";
+import { ArrowRight, Star, Play, Quote, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { CountUpNumber } from "@/components/ui/CountUpNumber";
 import { ReviewsGrid } from "@/components/reviews/ReviewsGrid";
@@ -51,11 +51,7 @@ const stats = [
   { value: 7000, suffix: "+", label: "Projects Delivered" },
   { value: 3000, suffix: "+", label: "Happy Clients" },
   { value: new Date().getFullYear() - 2016, suffix: "", label: "Years in Business" },
-  {
-    value: Math.round(((fiverrData.breakdown["5"] ?? 0) / fiverrData.reviewCount) * 100),
-    suffix: "%",
-    label: "Five-Star Reviews",
-  },
+  { value: fiverrData.reviewCount, suffix: "+", label: "Fiverr Reviews" },
 ];
 
 
@@ -153,6 +149,14 @@ const Testimonials = () => {
               <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
                 The latest 5-star reviews from NETREX clients on Fiverr, Google and Clutch, updated every month.
               </p>
+              <a
+                href="https://www.fiverr.com/netrex_inc"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline"
+              >
+                View NETREX on Fiverr <ExternalLink className="h-4 w-4" />
+              </a>
             </motion.div>
 
             <ReviewsGrid />
