@@ -14,6 +14,8 @@ export interface Review {
   date: string;
   repeatClient?: boolean;
   text: string;
+  /** Marks text that the source site exposed only as a shortened excerpt. */
+  excerpt?: boolean;
   /** Reviewer's job title and company (Clutch). */
   role?: string;
   /** Project name (Clutch). */

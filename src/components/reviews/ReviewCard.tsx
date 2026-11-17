@@ -43,7 +43,7 @@ export function SourceLabel({ review }: { review: Review }) {
   return (
     <span className="inline-flex items-center gap-1.5 text-xs text-muted-foreground">
       <SourceMark source={review.source} className="h-3.5 w-3.5" />
-      {review.source === "clutch" ? "Verified on Clutch" : review.source === "google" ? "Google review" : "Verified on Fiverr"}
+      {review.excerpt ? "Public Fiverr excerpt" : review.source === "clutch" ? "Verified on Clutch" : review.source === "google" ? "Google review" : "Verified on Fiverr"}
     </span>
   );
 }
@@ -172,6 +172,9 @@ export function ReviewDialog({ review, onClose }: { review: Review | null; onClo
               <p className="whitespace-pre-line leading-relaxed text-muted-foreground">
                 {review.source === "clutch" ? `“${review.text}”` : review.text}
               </p>
+              {review.excerpt && (
+                <p className="text-xs text-muted-foreground">Excerpt shown as publicly available on Fiverr. View the source profile for the complete review.</p>
+              )}
               {review.translatedFrom && (
                 <p className="text-xs text-muted-foreground">Translated from {review.translatedFrom}.</p>
               )}

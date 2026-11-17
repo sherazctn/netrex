@@ -11,7 +11,7 @@ import { CountUpNumber } from "@/components/ui/CountUpNumber";
 import { ReviewsGrid } from "@/components/reviews/ReviewsGrid";
 import { REVIEW_TOTALS } from "@/lib/reviews";
 
-const fiverrData = { breakdown: REVIEW_TOTALS.fiverr.breakdown, reviewCount: REVIEW_TOTALS.fiverr.count };
+const fiverrData = { rating: REVIEW_TOTALS.fiverr.rating, reviewCount: REVIEW_TOTALS.fiverr.count };
 
 const videoTestimonials = [
   {
@@ -56,7 +56,7 @@ const stats = [
 
 
 const platforms = [
-  { name: "Fiverr", headline: "5-Star Reviews", mark: "fi", bg: "#1dbf73", fg: "#ffffff" },
+  { name: "Fiverr", headline: `${fiverrData.rating.toFixed(1)} Rating`, mark: "fi", bg: "#1dbf73", fg: "#ffffff" },
   { name: "Upwork", headline: "Top Rated", mark: "Up", bg: "#14a800", fg: "#ffffff" },
   { name: "Google (Dubai & London)", headline: "5.0 Rating", mark: "G", bg: "#e8f0fe", fg: "#4285f4" },
   { name: "Clutch", headline: "5.0 Rating", mark: "C", bg: "#17313b", fg: "#ff3d2e" },
@@ -147,7 +147,7 @@ const Testimonials = () => {
                 Client <span className="text-primary">Reviews</span>
               </h2>
               <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
-                The latest 5-star reviews from NETREX clients on Fiverr, Google and Clutch, updated every month.
+                Fiverr lists 342 reviews as of November 14, 2026. Five recent public review excerpts are shown here; visit Fiverr to read the full reviews.
               </p>
               <a
                 href="https://www.fiverr.com/netrex_inc"
