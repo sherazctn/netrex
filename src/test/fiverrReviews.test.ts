@@ -13,5 +13,12 @@ describe("public Fiverr review snapshot", () => {
 
     expect(recent).toHaveLength(5);
     expect(recent.every((review) => review.rating === 5 && review.excerpt === true)).toBe(true);
+    expect(recent.map((review) => review.user)).toEqual([
+      "aalhamdani531",
+      "tee_onifade",
+      "steverogger1",
+      "lr_coaching",
+      "flammiaw",
+    ]);
   });
 });
